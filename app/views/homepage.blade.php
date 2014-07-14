@@ -21,6 +21,7 @@
 		{{ Form::text('search', null, array('class' => 'form-group form-control')) }}
 		{{ Form::submit('Search', array('class' => 'btn btn-default pull-right')) }}
 		{{ Form::close() }}	
+		
 	</div>
 
 </div>
