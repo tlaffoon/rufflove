@@ -14,14 +14,14 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+
+	public function showTest() {
+		return View::make('blank-template');
+	}
+
 	public function showAbout()
 	{
 		return View::make('about');
-	}
-
-	public function showWelcome()
-	{
-		return View::make('hello');
 	}
 
 	public function showHome()
@@ -68,7 +68,7 @@ class HomeController extends BaseController {
 			else
 			{
 				Session::flash('errorMessage', 'There were errors submitting your form.  Did you include all fields?');
-				return Redirect::to('login')->withInput();
+				return Redirect::to('/')->withInput();
 			}
 		}
 	}
@@ -78,16 +78,4 @@ class HomeController extends BaseController {
 		Auth::logout(); // log the user out of our application
 		return Redirect::action('HomeController@showHome'); // redirect the user to the homepage
 	}
-
-
-	public function showResume()
-	{
-		return View::make('resume');
-	}
-
-	public function showPortfolio() 
-	{
-		return View::make('portfolio');
-	}
-
 }
