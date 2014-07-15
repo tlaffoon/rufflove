@@ -5,7 +5,10 @@ test topscript
 @stop
 
 @section('content')
+<<<<<<< HEAD
    
+=======
+>>>>>>> master
 <section id="wrapper">
 
  <h2> GeoLocation Demo: User Location Tracking </h2>
@@ -67,7 +70,10 @@ if (navigator.geolocation) {
 </script>
 </section>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 @stop
 
 @section('bottomscript')
