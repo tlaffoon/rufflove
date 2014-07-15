@@ -11,18 +11,18 @@
 <div class="page-header">
 		<div class="btn-group pull-right admin-buttons">
 
-				<button type="button" class="btn btn-default btn-xs">
+				<button type="button" class="btn btn-default">
 			  		<a href="{{ action('DogsController@index') }}"><span class="glyphicon glyphicon-home"></span></a>
 				</button>
 			
 			@if (Auth::user()->role == 'admin')
 				@if (isset($user))
 
-				<button type="button" class="btn btn-default btn-xs">
+				<button type="button" class="btn btn-default">
 		  			<a href="{{ action('DogsController@edit', $dog->id) }}"><span class="glyphicon glyphicon-edit"></span></a>
 				</button>
 
-				<a href="#" class="deleteDog btn btn-xs btn-danger" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
+				<a href="#" class="deleteDog btn btn-danger" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
 
 				@endif
 			@endif
@@ -46,24 +46,17 @@
 	{{ Form::text('name', Input::old('name'), array('class' => 'form-group form-control', 'placeholder' => 'Name')) }}
 	{{ $errors->first('name', '<span class="help-block text-warning">:message</span><br>') }}
 
-	{{ Form::label('email', 'Email') }}
-	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
-	{{ $errors->first('email', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	{{ Form::label('breed', 'Breed') }}
+	{{ Form::text('breed', Input::old('breed'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
+	{{ $errors->first('breed', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
-	{{ Form::label('first_name', 'First Name') }}
-	{{ Form::text('first_name', Input::old('first_name'), array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
-	{{ $errors->first('first_name', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	{{ Form::label('age', 'Age') }}
+	{{ Form::text('age', Input::old('age'), array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
+	{{ $errors->first('age', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
-	{{ Form::label('last_name', 'Last Name') }}
-	{{ Form::text('last_name', Input::old('last_name'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+	{{ Form::label('weight', 'Weight') }}
+	{{ Form::text('weight', Input::old('weight'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
 	{{ $errors->first('last_name', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
-
-	<div class="form-group zero-left-margin">
-
-	{{ Form::label('role', 'Role') }}
-	{{ Form::select('role', array('dog' => 'Dog', 'admin' => 'Admin'), 'dog', array('class' => 'form-group form-control dropdown btn btn-default')) }}
-	
-	</div>
 
 	<div class="form-group zero-left-margin">
 
