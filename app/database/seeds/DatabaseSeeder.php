@@ -24,6 +24,7 @@ class UsersTableSeeder extends Seeder {
         DB::table('users')->delete();
 
         $user = new User();
+        
         $user->first_name = "John";
         $user->last_name = "Doe";
         $user->email = "doglover@rufflove.com";
@@ -32,7 +33,7 @@ class UsersTableSeeder extends Seeder {
         $user->state = "TX";
         $user->zip = "78213";
         $user->username = "doglover";
-        $user->password = "password";
+        $user->password = 'password';
         $user->img_path = "/img-upload/placeholder-user.png";
         $user->role = "admin";
 
