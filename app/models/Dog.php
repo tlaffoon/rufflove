@@ -24,8 +24,8 @@ class Dog extends Eloquent {
             'sex'      => 'required'
         );
 
-    // public function posts() {
-    //     return $this->hasMany('Post');
+    // public function user() {
+    //     return $this->has('User');
     // }
 
     protected $imgDir = 'img-upload';
