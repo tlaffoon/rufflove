@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder {
         $user->zip = "78213";
         $user->username = "doglover";
         $user->password = 'password';
-        $user->img_path = "/img-upload/placeholder-user.png";
+        $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
 
         $user->save();
@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder {
 	        $user->username = "doglover" . $i;
 	        $user->password = "password";
 	        $user->email = "$i@rufflove.com";
-	        $user->img_path = "/img-upload/placeholder-user.png";
+	        $user->img_path = "/img/placeholder-user.png";
 	        $user->role = "Dummy role";
 
 	        $user->save();
@@ -76,7 +76,8 @@ class DogsTableSeeder extends Seeder {
 	        $dog->age = $i;
 	        $dog->weight = "80";
 	        $dog->sex = "M";
-	        $dog->img_path = "/img-upload/dogs/placeholder-dog.png";
+	        $dog->img_path = "/img/placeholder-dog.png";
+	        $dog->user_id = "$i";
 
 	       	$dog->save();
         } // end for loop

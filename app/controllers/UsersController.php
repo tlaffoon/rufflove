@@ -172,8 +172,8 @@ class UsersController extends \BaseController {
 	public function destroy($id)
 	{
 		
-		DB::table('posts')
-		            ->where('user_id', $id)
+		DB::table('dogs')
+		            ->where('dog_id', $id)
 		            ->delete();
 
 		$user = User::find($id);
@@ -181,6 +181,6 @@ class UsersController extends \BaseController {
 
 		Session::flash('successMessage', 'User deleted successfully.');
 
-		return Redirect::action('UsersController@index');	
+		return Redirect::intended(back());
 	}
 }
