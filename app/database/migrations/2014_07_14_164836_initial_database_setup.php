@@ -30,11 +30,12 @@ class InitialDatabaseSetup extends Migration {
             
         });
 
-		// Schema::create('breeds', function($table)
-  //       {
-  //           $table->increments('id');
-  //           $table->string('breed_name', 99);            
-  //       });
+		Schema::create('breeds', function($table)
+        {
+            $table->increments('id');
+            $table->string('breed_name', 99);
+            $table->timestamps();             
+        });
 
         Schema::create('dogs', function($table)
         {

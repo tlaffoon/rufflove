@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('UsersTableSeeder');
 		$this->call('DogsTableSeeder');
+		$this->call('BreedsTableSeeder');
 	}
 } //close class DatabaseSeeder
 
@@ -83,4 +84,22 @@ class DogsTableSeeder extends Seeder {
 	} //end run()
 } // end class DogTableSeeder
 
+class BreedsTableSeeder extends Seeder {
+
+	public function run()
+	{
+        DB::table('breeds')->delete();
+
+        for ($i=1; $i <= 10; $i++) 
+        { 
+	        $breeds = new Breeds();
+
+	        
+	        $breeds->breed_name = "Doberman Pincher";
+	        
+
+	       	$breeds->save();
+        } // end for loop
+	} //end run()
+} // end class DogTableSeeder
 
