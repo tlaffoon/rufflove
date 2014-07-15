@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-@section('topscript')
-<link rel="stylesheet" href="/css/bootstrap.css">
-<style type="text/css">
-</style>
-@stop
-
 @section('content')
 
 <div class="container">

@@ -892,7 +892,7 @@ body {
   font-family: "Cabin", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #ffffff;
+  color: #000;
   background-color: #fff;
 }
 input,
@@ -4534,12 +4534,12 @@ a.list-group-item.active > .badge,
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
-  color: inherit;
+  color: #fff;
   background-color: #B50A2C;
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  color: inherit;
+  color: #fff;
   text-align: center;
 }
 .jumbotron p {

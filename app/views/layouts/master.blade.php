@@ -1,13 +1,9 @@
 <html>
 <head>
 	<title>Ruff Love</title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<!-- 	<link rel="stylesheet" type="text/css" href="/css/bootstrap/amelia.bootstrap.css"> -->	
-	<style type="text/css">
-	.zero-margin-left {
-		margin-left: 0px;
-	}
-	</style>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap/amelia.bootstrap.css"> -->	
 
 @yield('topscript')
 
@@ -84,6 +80,5 @@
 	@yield('bottomscript')
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </body>
 </html>

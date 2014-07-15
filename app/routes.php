@@ -13,7 +13,7 @@
 
 // Route resources for 'users'
 // Route resources for 'posts'
-
+Route::get('/about', 'HomeController@showAbout');
 Route::get('/', 'HomeController@showHome');
 
 Route::get('/login', 'HomeController@showLogin');
