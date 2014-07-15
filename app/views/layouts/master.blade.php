@@ -1,10 +1,15 @@
 <html>
 <head>
 	<title>Ruff Love</title>
+
 	<link rel="stylesheet" href="/css/bootstrap-amelia.css">
 	<link rel="stylesheet" href="/css/rufflove.css">
-	<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap/amelia.bootstrap.css"> -->	
+	
+	<style type="text/css">
+	.zero-margin-left {
+		margin-left: 0px;
+	}
+	</style>
 
 @yield('topscript')
 
@@ -56,7 +61,6 @@
 		          			<li role="presentation">
 		          	    		<a role="menuitem" tabindex="-1" href="#">
 		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
-		          	  	    	{{ Form::token() }}
 		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
 		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
 		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
@@ -73,6 +77,13 @@
 		</div>
 		
 		<div class="container-fluid">
+	@if (Session::has('successMessage'))
+	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+	@endif
+
+	@if (Session::has('errorMessage'))
+	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+	@endif
 
 			@yield('content')
 
