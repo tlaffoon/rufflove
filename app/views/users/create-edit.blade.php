@@ -1,4 +1,4 @@
-@extends.layout('master')
+@extends('layouts.master')
 
 @section('topscript')
 @stop
@@ -11,18 +11,18 @@
 <div class="page-header">
 		<div class="btn-group pull-right admin-buttons">
 
-				<button type="button" class="btn btn-default btn-xs">
+				<button type="button" class="btn btn-default">
 			  		<a href="{{ action('UsersController@index') }}"><span class="glyphicon glyphicon-home"></span></a>
 				</button>
 			
 			@if (Auth::user()->role == 'admin')
 				@if (isset($user))
 
-				<button type="button" class="btn btn-default btn-xs">
+				<button type="button" class="btn btn-default">
 		  			<a href="{{ action('UsersController@edit', $user->id) }}"><span class="glyphicon glyphicon-edit"></span></a>
 				</button>
 
-				<a href="#" class="deleteUser btn btn-xs btn-danger" data-userid="{{ $user->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
+				<a href="#" class="deleteUser btn btn-danger" data-userid="{{ $user->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
 
 				@endif
 			@endif
@@ -42,13 +42,20 @@
 
 	<div class="clearfix"></div>
 
-	{{ Form::label('username', 'Username') }}
-	{{ Form::text('username', Input::old('username'), array('class' => 'form-group form-control', 'placeholder' => 'Username')) }}
-	{{ $errors->first('username', '<span class="help-block text-warning">:message</span><br>') }}
-
 	{{ Form::label('password', 'Password') }}
 	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
 	{{ $errors->first('password', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+
+	<div class="form-group zero-left-margin">
+
+	{{ Form::label('role', 'Role') }}
+	{{ Form::select('role', array('user' => 'User', 'admin' => 'Admin'), 'user', array('class' => 'form-group form-control dropdown btn btn-default')) }}
+	
+	</div>
+
+	{{ Form::label('username', 'Username') }}
+	{{ Form::text('username', Input::old('username'), array('class' => 'form-group form-control', 'placeholder' => 'Username')) }}
+	{{ $errors->first('username', '<span class="help-block text-warning">:message</span><br>') }}
 
 	{{ Form::label('email', 'Email') }}
 	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
@@ -62,12 +69,6 @@
 	{{ Form::text('last_name', Input::old('last_name'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
 	{{ $errors->first('last_name', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
-	<div class="form-group zero-left-margin">
-
-	{{ Form::label('role', 'Role') }}
-	{{ Form::select('role', array('user' => 'User', 'admin' => 'Admin'), 'user', array('class' => 'form-group form-control dropdown btn btn-default')) }}
-	
-	</div>
 
 	<div class="form-group zero-left-margin">
 

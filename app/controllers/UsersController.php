@@ -5,7 +5,7 @@ class UsersController extends \BaseController {
 	public function __construct()
 	{
 	    // call base controller constructor
-	    parent::__construct();
+	    // parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
 	    $this->beforeFilter('auth');
@@ -62,10 +62,15 @@ class UsersController extends \BaseController {
 		
 		else {
 		    $user = new User();
+
 		    $user->username = Input::get('username');
 		    $user->password = Input::get('password');
 		    $user->first_name = Input::get('first_name');
 		    $user->last_name = Input::get('last_name');
+		    $user->address = Input::get('address');
+		    $user->city = Input::get('city');
+		    $user->state = Input::get('state');
+		    $user->zip = Input::get('zip');
 		    $user->email= Input::get('email');
 		    $user->role = Input::get('role');
 
@@ -131,10 +136,15 @@ class UsersController extends \BaseController {
 		}
 
 		else {
+
 			$user->username = Input::get('username');
 			$user->password = Input::get('password');
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');
+			$user->address = Input::get('address');
+			$user->city = Input::get('city');
+			$user->state = Input::get('state');
+			$user->zip = Input::get('zip');
 			$user->email= Input::get('email');
 			$user->role = Input::get('role');
 
