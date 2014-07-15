@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddUserIdToDogs' => $baseDir . '/app/database/migrations/2014_07_15_192424_add_user_id_to_dogs.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
@@ -40,6 +41,9 @@ return array(
     'Crypt_TripleDES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/TripleDES.php',
     'Crypt_Twofish' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Twofish.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
+    'Dog' => $baseDir . '/app/models/Dog.php',
+    'DogsController' => $baseDir . '/app/controllers/DogsController.php',
+    'DogsTableSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'File_ANSI' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ANSI.php',
     'File_ASN1' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_ASN1_Element' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
@@ -679,6 +683,7 @@ return array(
     'Patchwork\\Utf8' => $vendorDir . '/patchwork/utf8/class/Patchwork/Utf8.php',
     'Patchwork\\Utf8\\Bootup' => $vendorDir . '/patchwork/utf8/class/Patchwork/Utf8/Bootup.php',
     'Patchwork\\Utf8\\WinFsStreamWrapper' => $vendorDir . '/patchwork/utf8/class/Patchwork/Utf8/WinFsStreamWrapper.php',
+    'PostsController' => $baseDir . '/app/controllers/PostsController.php',
     'Predis\\Autoloader' => $vendorDir . '/predis/predis/lib/Predis/Autoloader.php',
     'Predis\\BasicClientInterface' => $vendorDir . '/predis/predis/lib/Predis/BasicClientInterface.php',
     'Predis\\Client' => $vendorDir . '/predis/predis/lib/Predis/Client.php',
@@ -1551,6 +1556,8 @@ return array(
     'System_SSH_Agent_Identity' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'User' => $baseDir . '/app/models/User.php',
+    'UsersController' => $baseDir . '/app/controllers/UsersController.php',
+    'UsersTableSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',
     'Whoops\\Exception\\Frame' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Frame.php',
