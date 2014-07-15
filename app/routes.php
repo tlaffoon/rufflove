@@ -28,5 +28,5 @@ Route::resource('posts', 'PostsController');
 Route::resource('users', 'UsersController');
 Route::resource('dogs', 'DogsController');
 
-
+Route::get('test', 'HomeController@showTest');
 
