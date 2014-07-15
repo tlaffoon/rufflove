@@ -2,14 +2,14 @@
 
 class DogsController extends \BaseController {
 
-	// public function __construct()
-	// {
-	//     // call base controller constructor
-	//     parent::__construct();
+	public function __construct()
+	{
+	    // call base controller constructor
+	    parent::__construct();
 
-	//     // run auth filter before all methods on this controller except index and show
-	//     $this->beforeFilter('auth.basic', array('except' => array('index', 'show')));
-	// }
+	    // run auth filter before all methods on this controller except index and show
+	    $this->beforeFilter('auth', array('except' => array('show')));
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -62,12 +62,12 @@ class DogsController extends \BaseController {
 		
 		else {
 		    $dog = new Dog();
+
 		    $dog->name = Input::get('name');
-		    $dog->password = Input::get('password');
-		    $dog->first_name = Input::get('first_name');
-		    $dog->last_name = Input::get('last_name');
-		    $dog->email= Input::get('email');
-		    $dog->role = Input::get('role');
+		    $dog->breed = Input::get('breed');
+		    $dog->age = Input::get('age');
+		    $dog->weight = Input::get('weight');
+		    $dog->sex= Input::get('sex');
 
 		    $dog->save();
 
@@ -131,12 +131,12 @@ class DogsController extends \BaseController {
 		}
 
 		else {
+
 			$dog->name = Input::get('name');
-			$dog->password = Input::get('password');
-			$dog->first_name = Input::get('first_name');
-			$dog->last_name = Input::get('last_name');
-			$dog->email= Input::get('email');
-			$dog->role = Input::get('role');
+			$dog->breed = Input::get('breed');
+			$dog->age = Input::get('age');
+			$dog->weight = Input::get('weight');
+			$dog->sex= Input::get('sex');
 
 			$dog->save();
 
@@ -162,15 +162,15 @@ class DogsController extends \BaseController {
 	public function destroy($id)
 	{
 		
-		DB::table('posts')
-		            ->where('dog_id', $id)
-		            ->delete();
+		// DB::table('posts')
+		//             ->where('dog_id', $id)
+		//             ->delete();
 
 		$dog = Dog::find($id);
 		$dog->delete();
 
 		Session::flash('successMessage', 'Dog deleted successfully.');
 
-		return Redirect::action('DogsController@index');	
+		return Redirect::intended(back());
 	}
 }
