@@ -25,6 +25,7 @@ class InitialDatabaseSetup extends Migration {
             $table->string('password', 8);
             $table->string('email', 30);
             $table->string('image_path', 30);
+            $table->string('role', 20);
             $table->timestamps();  
             
         });
