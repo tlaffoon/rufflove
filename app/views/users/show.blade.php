@@ -39,6 +39,9 @@
 	<h5>Username: {{{ $user->username }}}</h5>
 	<h5>Email: {{{  $user->email }}}</h5>
 	<h5>Role: {{{ $user->role }}}</h5>
+	<h5>First: {{{ $user->first_name }}}</h5>
+	<h5>Role: {{{ $user->last_name }}}</h5>
+	<h5>Role: {{{ $user->last_name }}}</h5>
 	<h5>Created: {{{ $user->created_at }}}</h5>
 	<h5>Last Updated: {{{ $user->updated_at }}}</h5>
 
