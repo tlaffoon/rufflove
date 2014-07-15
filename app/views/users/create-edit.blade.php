@@ -69,6 +69,22 @@
 	{{ Form::text('last_name', Input::old('last_name'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
 	{{ $errors->first('last_name', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
+	{{ Form::label('address', 'Address') }}
+	{{ Form::text('address', Input::old('address'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+	{{ $errors->first('address', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+
+	{{ Form::label('city', 'City') }}
+	{{ Form::text('city', Input::old('city'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+	{{ $errors->first('city', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+
+	{{ Form::label('state', 'State') }}
+	{{ Form::text('state', Input::old('state'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+	{{ $errors->first('state', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+
+	{{ Form::label('zip', 'Zip') }}
+	{{ Form::text('zip', Input::old('zip'), array('class' => 'form-group form-control', 'placeholder' => 'Zip Code')) }}
+	{{ $errors->first('zip', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+
 
 	<div class="form-group zero-left-margin">
 

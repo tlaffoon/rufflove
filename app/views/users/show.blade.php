@@ -5,11 +5,13 @@
 
 @section('content')
 <div class="container col-md-4">
+	<div class="test">
 	@if (!empty($user->img_path))
 		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
 	@else
 		<img src="/img/placeholder-user.png" class="img-responsive thumbnail centered">
 	@endif
+	</div>
 </div>
 
 <div class="container col-md-6">
@@ -18,15 +20,15 @@
 
 				@if (Auth::user()->role == 'admin')
 
-					<button type="button" class="btn btn-default btn-xs">
+					<button type="button" class="btn btn-default">
 				  		<a href="{{ action('UsersController@index') }}"><span class="glyphicon glyphicon-home"></span></a>
 					</button>
 
-					<button type="button" class="btn btn-default btn-xs">
+					<button type="button" class="btn btn-default">
 			  			<a href="{{ action('UsersController@edit', $user->id) }}"><span class="glyphicon glyphicon-edit"></span></a>
 					</button>
 
-					<a href="#" class="deleteUser btn btn-xs btn-danger" data-userid="{{ $user->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
+					<a href="#" class="deleteUser btn btn-danger" data-userid="{{ $user->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
 
 				@endif
 				
@@ -39,7 +41,12 @@
 	<h5>Username: {{{ $user->username }}}</h5>
 	<h5>Email: {{{  $user->email }}}</h5>
 	<h5>Role: {{{ $user->role }}}</h5>
-	<h5>Created: {{{ $user->created_at }}}</h5>
+	<h5>First Name: {{{ $user->first_name }}}</h5>
+	<h5>Last Name: {{{ $user->last_name }}}</h5>
+	<h5>Address: {{{ $user->address }}}</h5>
+	<h5>City: {{{ $user->city }}}</h5>
+	<h5>State: {{{ $user->state }}}</h5>
+	<h5>Zip: {{{ $user->zip }}}</h5>
 	<h5>Last Updated: {{{ $user->updated_at }}}</h5>
 
 </div>
