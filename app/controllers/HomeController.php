@@ -27,7 +27,7 @@ class HomeController extends BaseController {
 
 	public function showLogin()
 	{
-		return View::make('login');
+		return View::make('homepage');
 	}
 
 	public function doLogin() 
@@ -35,8 +35,9 @@ class HomeController extends BaseController {
 
 		$rules = array(
 			'email'    => 'required|email', // make sure the email is an actual email
-			'password' => 'required|alphaNum|min:6' // password can only be alphanumeric and has to be greater than 6 characters
+			'password' => 'required|min:6' // password can only be alphanumeric and has to be greater than 6 characters
 		);
+
 
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -57,13 +58,13 @@ class HomeController extends BaseController {
 
 			if (Auth::attempt($userdata)) 
 			{
-		    	return Redirect::intended('/posts');
+		    	return Redirect::intended('/');
 			}
 			
 			else
 			{
 				Session::flash('errorMessage', 'There were errors submitting your form.  Did you include all fields?');
-				return Redirect::to('login')->withInput()->withErrors($validator);;
+				return Redirect::to('login')->withInput();
 			}
 		}
 	}

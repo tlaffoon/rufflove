@@ -2,6 +2,15 @@
 
 class DogsController extends \BaseController {
 
+	// public function __construct()
+	// {
+	//     // call base controller constructor
+	//     parent::__construct();
+
+	//     // run auth filter before all methods on this controller except index and show
+	//     $this->beforeFilter('auth.basic', array('except' => array('index', 'show')));
+	// }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -11,7 +20,7 @@ class DogsController extends \BaseController {
 	{
 		if (Input::has('search')) {
 		 	$queryString = Input::get('search');
-		 	$dogs = dog::where('name', 'LIKE', "%$queryString%")->orderBy('name')->paginate(5);
+		 	$dogs = Dog::where('name', 'LIKE', "%$queryString%")->orderBy('name')->paginate(5);
 		}
 
 		else {
