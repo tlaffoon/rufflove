@@ -23,4 +23,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public static $rules = array(
+	    'username'  => 'required|max:20',
+	    'password'	=> 'required',
+	    'email'		=> 'required|max:200',
+	    'role'		=> 'required'
+	);
+
+	public function setPasswordAttribute($value) {
+		$this->attributes['password'] = Hash::make($value);
+	}
+
+	protected $imgDir = 'img-upload';
+
+	public function addUploadedImage($image) {
+	    $systemPath = public_path() . '/' . $this->imgDir . '/';
+	    $imageName = $this->id . '-' . $image->getClientOriginalName();
+	    $image->move($systemPath, $imageName);
+	    $this->img_path = '/' . $this->imgDir . '/' . $imageName;
+	}
 }
