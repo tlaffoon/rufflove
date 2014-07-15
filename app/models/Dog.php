@@ -1,6 +1,6 @@
 <?php
 
-class Dog extends BaseModel {
+class Dog extends Eloquent {
 
     /**
      * The database table used by the model.

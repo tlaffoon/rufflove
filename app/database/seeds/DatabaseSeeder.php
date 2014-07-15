@@ -11,36 +11,55 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('UserTableSeeder');
-		$this->call('DogTableSeeder');
+		$this->call('UsersTableSeeder');
+		$this->call('DogsTableSeeder');
 	}
-}
-class UserTableSeeder extends Seeder {
+} //close class DatabaseSeeder
+
+
+class UsersTableSeeder extends Seeder {
 
     public function run()
     {
         DB::table('users')->delete();
+
+        $user = new User();
+        $user->first_name = "John";
+        $user->last_name = "Doe";
+        $user->email = "doglover@rufflove.com";
+        $user->address =  "Original Acacia Avenue";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78213";
+        $user->username = "doglover";
+        $user->password = "password";
+        $user->img_path = "/img-upload/placeholder-user.png";
+        $user->role = "admin";
+
+        $user->save();
 
         for ($i=1; $i <= 10; $i++) 
         { 
 	        $user = new User();
 	        $user->first_name = "John" . $i;
 	        $user->last_name = "Doe" . $i;
-	        $user->address =  $i . " Acacia Avenue.";
+	        $user->address =  $i . " Acacia Avenue";
 	        $user->city = "San Antonio";
 	        $user->state = "TX";
 	        $user->zip = "78213";
 	        $user->username = "doglover" . $i;
 	        $user->password = "password";
-	        $user->email = "doglover@rufflove.dev";
-	        $dog->image_path = $imgDir . "/owners/picture.jpg";
+	        $user->email = "$i@rufflove.com";
+	        $user->img_path = "/img-upload/placeholder-user.png";
+	        $user->role = "Dummy role";
+
 	        $user->save();
         } // end for loop
 	} //end method run()
 }  //end class
  
 		
-class DogTableSeeder extends Seeder {
+class DogsTableSeeder extends Seeder {
 
 	public function run()
 	{
@@ -49,13 +68,15 @@ class DogTableSeeder extends Seeder {
         for ($i=1; $i <= 10; $i++) 
         { 
 	        $dog = new Dog();
+
 	        $dog->name = "Fido " . $i;
 	        $dog->breed = "Doberman Pincher";
 	        $dog->purebreed = "TRUE";
 	        $dog->age = $i;
 	        $dog->weight = "80";
 	        $dog->sex = "M";
-	        $dog->image_path = $imgDir . "/dogs/picture.jpg";	       
+	        $dog->img_path = "/img-upload/dogs/placeholder-dog.png";
+
 	       	$dog->save();
         } // end for loop
 	} //end run()
