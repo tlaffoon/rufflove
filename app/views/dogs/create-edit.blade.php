@@ -47,16 +47,23 @@
 	{{ $errors->first('name', '<span class="help-block text-warning">:message</span><br>') }}
 
 	{{ Form::label('breed', 'Breed') }}
-	{{ Form::text('breed', Input::old('breed'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
+	{{ Form::text('breed', Input::old('breed'), array('class' => 'form-group form-control', 'placeholder' => 'Breed')) }}
 	{{ $errors->first('breed', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
 	{{ Form::label('age', 'Age') }}
-	{{ Form::text('age', Input::old('age'), array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
+	{{ Form::text('age', Input::old('age'), array('class' => 'form-group form-control', 'placeholder' => 'Age')) }}
 	{{ $errors->first('age', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
 	{{ Form::label('weight', 'Weight') }}
-	{{ Form::text('weight', Input::old('weight'), array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+	{{ Form::text('weight', Input::old('weight'), array('class' => 'form-group form-control', 'placeholder' => 'Weight')) }}
 	{{ $errors->first('last_name', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+
+	<div class="form-group zero-left-margin">
+
+	{{ Form::label('sex', 'Sex') }}
+	{{ Form::select('sex', array('M' => 'Male', 'F' => 'Female'), 'M', array('class' => 'form-group form-control dropdown btn btn-default')) }}
+	
+	</div>
 
 	<div class="form-group zero-left-margin">
 
@@ -66,7 +73,6 @@
 	{{ $errors->first('image', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
 	</div>
-
 
 	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
 	{{ Form::close() }}
