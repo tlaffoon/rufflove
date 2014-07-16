@@ -100,14 +100,9 @@
                     </ul>
                 </div>
             </div>
+            <!-- Main content -->
             @yield('content')
 
-           
-                
-
-                    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" class=""></script>
-     
-                        <hr class="">
             </div>
             <!-- /.col-xs-12 main -->
         </div>

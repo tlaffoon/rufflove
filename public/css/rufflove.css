@@ -27,15 +27,15 @@ hr {
 
 /* set the fixed height of the footer here */
 #footer {
-  height: 120px;
-  background-color: #222222;
-  border:0 solid #080808;
+  height: 80px;
+  background-color: #000;
+  border:0 solid #000;
   border-top-width: 1px;
-  margin-top:50px;
+  margin-top:200px;
 }
 
-#footer > .container {
-  padding: 20px;
+#footer < .container {
+  padding: 60px;
 }
 
 a {
