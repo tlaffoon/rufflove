@@ -1401,7 +1401,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 850px;
   }
 }
 .container-fluid {
@@ -1608,7 +1608,7 @@ pre code {
     width: 33.33333333%;
   }
   .col-sm-3 {
-    width: 25%;
+    width: 15%;
   }
   .col-sm-2 {
     width: 16.66666667%;
@@ -4566,6 +4566,7 @@ a.list-group-item.active > .badge,
   .container .jumbotron {
     padding-left: 60px;
     padding-right: 60px;
+    margin-left: 150px;
   }
   .jumbotron h1,
   .jumbotron .h1 {

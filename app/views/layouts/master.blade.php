@@ -16,6 +16,10 @@
 </head>
 
 <body>
+
+	<div class="page-container">
+    <!-- top navbar -->
+
 		<div class="navbar navbar-default" role="navigation">
 		  <div class="container">
 		    <div class="navbar-header">
@@ -76,6 +80,73 @@
 		    </div><!--/.nav-collapse -->
 		  </div>
 		</div>
+    
+            <!-- sidebar -->
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="">
+                    <ul class="nav" id="sidebar-nav">
+                        <li><a href="#section1" class="">Nexus 4</a>
+                        </li>
+                        <li><a href="#section2" class="">Nexus 5</a>
+                        </li>
+                        <li><a href="#section3" class="">Nexus 7 (2013) WIFI</a>
+                        </li>
+                        <li><a href="#section4" class="">Nexus 7 (2013) LTE</a>
+                        </li>
+                        <li><a href="#section5" class="">Nexus 7 (2012) WIFI</a>
+                        </li>
+                        <li><a href="#section6" class="">PA-Google Apps</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            @yield('content')
+
+           
+                
+
+                    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" class=""></script>
+     
+                        <hr class="">
+            </div>
+            <!-- /.col-xs-12 main -->
+        </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
+</div>
+<!--/.page-container-->
+<div id="footer" class="">
+    <!--footer-->
+    <div class="container">
+        <div class="row">
+            <ul class="list-unstyled">
+                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/about-us/" class="">About</a>
+
+                </li>
+                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/contact/" class="">Contact</a>
+
+                </li>
+                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/join-the-team/" class="">Join the Team</a>
+
+                </li>
+                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/privacy/" class="">Privacy</a>
+
+                </li>
+                <li class="col-sm-4 col-xs-6"> <a href="http://gizmoluster.com/wp-admin" class="">Login</a>
+
+                </li>
+                <li class="col-sm-4 col-xs-6"> <a href="http://bootply.com/91970" class="">Theme</a> 
+                </li>
+            </ul>
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+</div>
+<!--/footer-->
+
+
 		
 		<div class="container-fluid">
 	@if (Session::has('successMessage'))
@@ -86,9 +157,18 @@
 	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
 	@endif
 
-			@yield('content')
-
+			
 		</div>
+		<script>
+			  $('[data-toggle=offcanvas]').click(function() {
+    		  $('.row-offcanvas').toggleClass('active');
+ 			  });
+  
+  			$('.btn-toggle').click(function() {
+    		$(this).find('.btn').toggleClass('active').toggleClass('btn-default').toggleClass('btn-primary');
+  			});
+
+		</script>
 	
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
