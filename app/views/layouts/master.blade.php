@@ -111,38 +111,7 @@
     <!--/.container-->
 </div>
 <!--/.page-container-->
-<div id="footer" class="">
-    <!--footer-->
-    <div class="container">
-        <div class="row">
-            <ul class="list-unstyled">
-                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/about-us/" class="">About</a>
 
-                </li>
-                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/contact/" class="">Contact</a>
-
-                </li>
-                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/join-the-team/" class="">Join the Team</a>
-
-                </li>
-                <li class="col-sm-4 col-xs-6"> <a href="http://www.gizmoluster.com/privacy/" class="">Privacy</a>
-
-                </li>
-                <li class="col-sm-4 col-xs-6"> <a href="http://gizmoluster.com/wp-admin" class="">Login</a>
-
-                </li>
-                <li class="col-sm-4 col-xs-6"> <a href="http://bootply.com/91970" class="">Theme</a> 
-                </li>
-            </ul>
-        </div>
-        <!--/row-->
-    </div>
-    <!--/container-->
-</div>
-<!--/footer-->
-
-
-		
 		<div class="container-fluid">
 	@if (Session::has('successMessage'))
 	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>

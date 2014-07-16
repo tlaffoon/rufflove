@@ -42,7 +42,6 @@
 	</tr>
 	@endforeach
 </table>
-
 			{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 			{{ Form::close() }}
 

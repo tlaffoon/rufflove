@@ -39,8 +39,8 @@
 	</tr>
 	@endforeach
 </table>
-			{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
-			{{ Form::close() }}
+		{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
+		{{ Form::close() }}
 
 	<div class="centered">{{ $users->links() }}</div>	
 
