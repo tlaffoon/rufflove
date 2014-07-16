@@ -77,7 +77,7 @@
 		          	</li>
 		        @endif
 		      </ul>
-		    </div><!--/.nav-collapse -->
+		    </div>
 		  </div>
 		</div>
     
@@ -100,7 +100,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- Main content -->
+            <!-- / .Main content -->
             @yield('content')
 
             </div>

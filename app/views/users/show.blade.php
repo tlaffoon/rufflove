@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container col-md-4">
-	<div class="test">
+	<div class="test	">
 	@if (!empty($user->img_path))
 		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
 	@else

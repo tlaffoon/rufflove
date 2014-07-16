@@ -1,8 +1,5 @@
 @extends('layouts.master')
 
-@section('topscript')
-@stop
-
 @section('content')
 <div class="container col-md-12">
 
@@ -42,7 +39,6 @@
 	</tr>
 	@endforeach
 </table>
-
 			{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 			{{ Form::close() }}
 
