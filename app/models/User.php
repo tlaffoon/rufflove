@@ -42,4 +42,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	    $image->move($systemPath, $imageName);
 	    $this->img_path = '/' . $this->imgDir . '/' . $imageName;
 	}
+
+	public function dogs() {
+	    return $this->hasMany('Dog');
+	}
 }

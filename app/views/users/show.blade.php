@@ -34,27 +34,37 @@
 				
 			</div>
 
-	<h2>User: {{{ $user->first_name . ' ' . $user->last_name }}}</h2>
+		<h2>{{{ $user->username }}}</h2>
+	</div>
 
-</div>
+	<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
+	<h4>Email: 		{{{ $user->email }}}								</h4>
+	<h4>Role: 		{{{ $user->role }}}									</h4>
+	<h4>Address: 	{{{ $user->address }}}								</h4>
+	<h4>City: 		{{{ $user->city }}}									</h4>
+	<h4>State: 		{{{ $user->state }}}								</h4>
+	<h4>Zip: 		{{{ $user->zip }}}									</h4>
+	<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
 
-	<h5>Username: {{{ $user->username }}}</h5>
-	<h5>Email: {{{  $user->email }}}</h5>
-	<h5>Role: {{{ $user->role }}}</h5>
-	<h5>First Name: {{{ $user->first_name }}}</h5>
-	<h5>Last Name: {{{ $user->last_name }}}</h5>
-	<h5>Address: {{{ $user->address }}}</h5>
-	<h5>City: {{{ $user->city }}}</h5>
-	<h5>State: {{{ $user->state }}}</h5>
-	<h5>Zip: {{{ $user->zip }}}</h5>
-	<h5>Last Updated: {{{ $user->updated_at }}}</h5>
-
-</div>
 
 	{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
 
-</div>
+	<div class="page-header">
+		<h2>{{{ $user->username . '\'s dogs' }}}</h2>
+	</div>
+
+@foreach ($user->dogs as $dog)
+
+	<div class="row">
+ 	      		<img src="{{{ $dog->img_path }}}" alt="$dog->name">
+ 	        		<h3> {{{ $dog->name }}}</h3>
+	        		<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	        		<a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	</div> <!-- end row -->
+@endforeach
+</div> <!-- end main container -->
+
 @stop
 
 @section('bottomscript')

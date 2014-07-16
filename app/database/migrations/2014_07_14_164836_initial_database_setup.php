@@ -34,20 +34,19 @@ class InitialDatabaseSetup extends Migration {
         {
             $table->increments('id');
             $table->string('breed_name', 99);
+            $table->text('breed_info');
             $table->timestamps();             
         });
 
         Schema::create('dogs', function($table)
         {
             $table->increments('id');           
-            // $table->foreign('owner_id')->references('id')->on('users');
             $table->string('name', 99);
             $table->string('breed', 99);
-            // $table->foreign('breed_id')->references('id')->on('dogs');
-            $table->boolean('purebreed');
+            $table->boolean('purebred');
             $table->integer('age');
             $table->integer('weight');
-            $table->string('sex', 1);
+            $table->string('sex');
             $table->string('img_path');
             $table->timestamps();         
         });
@@ -61,7 +60,7 @@ class InitialDatabaseSetup extends Migration {
 	public function down()
 	{
 		Schema::drop('users');
-		// Schema::drop('breed');
+		Schema::drop('breeds');
 		Schema::drop('dogs');
 	}
 
