@@ -1,6 +1,6 @@
 <?php
 
-class Images extends Eloquent {
+class DogImage extends Eloquent {
 
     /**
      * The database table used by the model.

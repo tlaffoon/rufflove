@@ -11,14 +11,39 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 		
-		$this->call('UsersTableSeeder');
-		$this->call('DogsTableSeeder');
-		$this->call('ImagesTableSeeder');
+		// $this->call('UsersTableSeeder');
+		$this->call('BreedsTableSeeder');
+		// $this->call('DogsTableSeeder');
+		// $this->call('ImagesTableSeeder');
 
 		
 	} //function run()
 } //close class DatabaseSeeder
 
+class BreedsTableSeeder extends Seeder {
+
+    public function run()
+    {
+    	// clean out the breeds table
+    	DB::table('breeds')->delete();
+
+    	// load contents of breeds file
+    	ini_set('auto_detect_line_endings', true);
+    	$breedsFile = storage_path() . '/csv/breeds.txt';
+    	$breeds = file($breedsFile);
+
+	    foreach ($breeds as $breed)
+	    {
+	    	$breed = trim($breed);
+
+	    	$dbBreed = new Breed();
+	    	$dbBreed->name = $breed;
+	    	$dbBreed->save();
+	    }
+    	// loop through and insert into db
+    }
+
+}
 
 class UsersTableSeeder extends Seeder {
 
@@ -62,7 +87,7 @@ class UsersTableSeeder extends Seeder {
 	} //end function run()
 }  //end class UsersTableSeeder
  
-		
+//---------------------------------------------		
 class DogsTableSeeder extends Seeder {
 
 	public function run()
@@ -76,8 +101,7 @@ class DogsTableSeeder extends Seeder {
         { 
 	        $dog = new Dog();
 
-	        $dog->name = "Fido " . $i;
-	        $dog->breed = "Doberman Pincher";
+	        $dog->name = "Fido " . $i;	        
 	        $dog->purebred = TRUE;
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
@@ -91,23 +115,8 @@ class DogsTableSeeder extends Seeder {
         } // end for loop
 	} //end run()
 } // end class DogTableSeeder
+//---------------------------------------------
 
-// class BreedsTableSeeder extends Seeder {
-
-// 	public function run()
-// 	{
-//         DB::table('breeds')->delete();
-
-//         for ($i=1; $i <= 10; $i++) 
-//         { 
-// 	        $breeds = new Breeds();
-
-// 	        $breeds->breed_name = "Doberman Pincher";
-	        
-// 	       	$breeds->save();
-//         } // end for loop
-// 	} //end run()
-// } // end class DogTableSeeder
 
 class ImagesTableSeeder extends Seeder {
 

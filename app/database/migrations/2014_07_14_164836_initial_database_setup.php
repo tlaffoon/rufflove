@@ -15,17 +15,17 @@ class InitialDatabaseSetup extends Migration {
 		Schema::create('users', function($table)
         {
             $table->increments('id');
-            $table->string('first_name', 99);
-            $table->string('last_name', 99);
-            $table->string('address', 99);
-            $table->string('city', 99);
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('address');
+            $table->string('city');
             $table->string('state', 2);
             $table->integer('zip');
             $table->string('username', 30)->unique();
             $table->string('password');
-            $table->string('email', 99)->unique();
+            $table->string('email')->unique();
             $table->string('img_path');
-            $table->string('role', 20);
+            $table->string('role');
             $table->timestamps();  
             
         });
@@ -33,22 +33,35 @@ class InitialDatabaseSetup extends Migration {
 		Schema::create('breeds', function($table)
         {
             $table->increments('id');
-            $table->string('breed_name', 99);
-            $table->text('breed_info');
+            $table->string('name');
+            $table->text('info');
             $table->timestamps();             
         });
 
         Schema::create('dogs', function($table)
         {
             $table->increments('id');           
-            $table->string('name', 99);
-            $table->string('breed', 99);
+            $table->integer('user_id')->unsigned();
+            $table->integer('breed_id')->unsigned();
+            $table->string('name');
             $table->boolean('purebred');
             $table->integer('age');
             $table->integer('weight');
             $table->string('sex');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('breed_id')->references('id')->on('breeds');
+        });
+
+        Schema::create('dog_images', function($table)
+        {
+            $table->increments('id')->unsigned();
+            $table->integer('dog_id')->unsigned();
             $table->string('img_path');
-            $table->timestamps();         
+            $table->timestamps();
+
+            $table->foreign('dog_id')->references('id')->on('dogs');
         });
 	} //end function up()
 
@@ -59,9 +72,10 @@ class InitialDatabaseSetup extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
-		Schema::drop('breeds');
-		Schema::drop('dogs');
+		Schema::drop('dog_images');
+        Schema::drop('dogs');
+        Schema::drop('breeds');
+        Schema::drop('users');
 	}
 
 }
