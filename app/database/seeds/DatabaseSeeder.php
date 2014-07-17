@@ -29,10 +29,10 @@ class UsersTableSeeder extends Seeder {
         $user->first_name = "John";
         $user->last_name = "Doe";
         $user->email = "doglover@rufflove.com";
-        $user->address =  "Original Acacia Avenue";
+        $user->address =  "112 E. Pecan St";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78213";
+        $user->zip = "78205";
         $user->username = "doglover";
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
@@ -94,16 +94,44 @@ class BreedsTableSeeder extends Seeder {
 	{
         DB::table('breeds')->delete();
 
-        for ($i=1; $i <= 10; $i++) 
-        { 
-	        $breeds = new Breeds();
+        // function csv_to_array($filename='', $delimiter=',')
+        //         {
+        //             if(!file_exists($filename) || !is_readable($filename))
+        //                 return FALSE;
+                 
+        //             $header = NULL;
+        //             $data = array();
+        //             if (($handle = fopen($filename, 'r')) !== FALSE)
+        //             {
+        //                 while (($row = fgetcsv($handle, 1000, $delimiter)) !== FALSE)
+        //                 {
+        //                     if(!$header)
+        //                         $header = $row;
+        //                     else
+        //                         $data[] = array_combine($header, $row);
+        //                 }
+        //                 fclose($handle);
+        //             }
+        //             return $data;
+        //         }
 
-	        
-	        $breeds->breed_name = "Doberman Pincher";
-	        
+        //         $csvFile = public_path().'/breeds.csv';
+                
+        //         $areas = csv_to_array($csvFile);
 
-	       	$breeds->save();
-        } // end for loop
+        // function parseBreedsCSV () {
+
+    	// $breeds = file('breeds.csv');
+    	// foreach ($breeds as $breed) {
+    	// 	$breed = new Breed();
+    	// 	$breed->name = trim($breed);
+    	// 	$breed->save();
+    	// }
+
+
+
+        	// return $data;
+        // }
 	} //end run()
-} // end class DogTableSeeder
+} // end class
 

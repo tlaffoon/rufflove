@@ -41,7 +41,9 @@ class HomeController extends BaseController {
 
 	public function showMap()
 	{
-		return View::make('geocoding');
+
+		$user = User::find('1');
+		return View::make('test-geo')->with('user', $user);
 	}
 
 
