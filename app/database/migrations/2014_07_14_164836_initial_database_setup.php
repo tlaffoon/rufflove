@@ -60,7 +60,6 @@ class InitialDatabaseSetup extends Migration {
             $table->integer('dog_id')->unsigned();
             $table->string('img_path');
             $table->timestamps();
-
             $table->foreign('dog_id')->references('id')->on('dogs');
         });
 	} //end function up()

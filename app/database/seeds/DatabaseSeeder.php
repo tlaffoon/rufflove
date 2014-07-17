@@ -11,14 +11,14 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 		
-		// $this->call('UsersTableSeeder');
+		$this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
-		// $this->call('DogsTableSeeder');
-		// $this->call('ImagesTableSeeder');
+		$this->call('DogsTableSeeder');
+		$this->call('DogImagesTableSeeder');
 
 		
 	} //function run()
-} //close class DatabaseSeeder
+} 
 
 class BreedsTableSeeder extends Seeder {
 
@@ -102,11 +102,10 @@ class DogsTableSeeder extends Seeder {
 	        $dog = new Dog();
 
 	        $dog->name = "Fido " . $i;	        
-	        $dog->purebred = TRUE;
+	        $dog->purebred = array_rand($purebred);
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
 	        $dog->sex = array_rand($sex);
-	        $dog->img_path = "/img/placeholder-dog.png";
 	        $dog->breed_id = rand(1, 10);
 	        $dog->user_id = rand(2,11);
 
@@ -118,18 +117,17 @@ class DogsTableSeeder extends Seeder {
 //---------------------------------------------
 
 
-class ImagesTableSeeder extends Seeder {
+class DogImagesTableSeeder extends Seeder {
 
 	public function run()
 	{
-        DB::table('images')->delete();
+        DB::table('dog_images')->delete();
 
         for ($i=1; $i <= 10; $i++) 
         { 
-	        $images = new Images();
+	        $images = new DogImage();
 	        
-	        $ru = rand(1, 10);
-	        $images->user_id = "$ru";
+	        
 	        $rd = rand(1, 10);
 	        $images->dog_id = "$rd";
 	        $images->img_path = "/img/placeholder-image.png";

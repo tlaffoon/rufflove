@@ -7,7 +7,7 @@ class DogImage extends Eloquent {
      *
      * @var string
      */
-    protected $table = 'images';
+    protected $table = 'dog_images';
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -15,12 +15,11 @@ class DogImage extends Eloquent {
      * @var array
      */
     
-        protected $hidden = array('password', 'remember_token');
+        // protected $hidden = array('password', 'remember_token');
 
         public static $rules = array(
-            'user_id'  => 'required',
-            'dog_id'  => 'required',
-            'breed_id'  => 'required',
+            
+            'dog_id'  => 'required',            
             'img_path' => 'required',            
         );
 
