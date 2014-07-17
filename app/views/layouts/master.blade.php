@@ -4,6 +4,9 @@
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-amelia.css">
 	<link rel="stylesheet" href="/css/rufflove.css">
+	<link rel="icon" 
+      type="image/png" 
+      href="storage_path() . '/paw-print.png'">
 	
 	<style type="text/css">
 	.zero-margin-left {
