@@ -14,35 +14,10 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
 		$this->call('DogsTableSeeder');
-
+        // $this->call('DogImagesTableSeeder');
 		
 	} //function run()
-} //close class DatabaseSeeder
-
-class BreedsTableSeeder extends Seeder {
-
-    public function run()
-    {
-    	// clean out the breeds table
-    	DB::table('breeds')->delete();
-
-    	// load contents of breeds file
-    	ini_set('auto_detect_line_endings', true);
-    	$breedsFile = storage_path() . '/csv/breeds.txt';
-    	$breeds = file($breedsFile);
-
-	    foreach ($breeds as $breed)
-	    {
-	    	$breed = trim($breed);
-
-	    	$dbBreed = new Breed();
-	    	$dbBreed->name = $breed;
-	    	$dbBreed->save();
-	    }
-    	// loop through and insert into db
-    }
-
-}
+} //close
 
 class UsersTableSeeder extends Seeder {
 
@@ -86,7 +61,32 @@ class UsersTableSeeder extends Seeder {
 	} //end function run()
 }  //end class UsersTableSeeder
  
-//---------------------------------------------		
+
+class BreedsTableSeeder extends Seeder {
+
+    public function run()
+    {
+        // clean out the breeds table
+        DB::table('breeds')->delete();
+
+        // load contents of breeds file
+        ini_set('auto_detect_line_endings', true);
+        $breedsFile = storage_path() . '/csv/breeds.txt';
+        $breeds = file($breedsFile);
+
+        foreach ($breeds as $breed)
+        {
+            $breed = trim($breed);
+
+            $dbBreed = new Breed();
+            $dbBreed->name = $breed;
+            $dbBreed->save();
+        }
+        // loop through and insert into db
+    }
+
+}
+		
 class DogsTableSeeder extends Seeder {
 
 	public function run()
@@ -101,11 +101,10 @@ class DogsTableSeeder extends Seeder {
 	        $dog = new Dog();
 
 	        $dog->name = "Fido " . $i;	        
-	        $dog->purebred = TRUE;
+	        $dog->purebred = array_rand($purebred);
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
 	        $dog->sex = array_rand($sex);
-	        $dog->img_path = "/img/placeholder-dog.png";
 	        $dog->breed_id = rand(1, 10);
 	        $dog->user_id = rand(2,11);
 
@@ -115,22 +114,21 @@ class DogsTableSeeder extends Seeder {
 	} //end run()
 } // end class DogTableSeeder
 
-class ImagesTableSeeder extends Seeder {
+class DogImagesTableSeeder extends Seeder {
 
     public function run()
     {
-       DB::table('images')->delete();
+       DB::table('dog_images')->delete();
 
        for ($i=1; $i <= 10; $i++) 
        { 
-            $images = new Images();
+            $dog_images = new DogImage();
             
-            $ru = rand(1, 10);
-            $images->user_id = "$ru";
-            $rd = rand(1, 10);
-            $images->dog_id = "$rd";
+            $dog_images->user_id = rand(1, 10);
+            $dog_images->dog_id = rand(1, 10);
             $images->img_path = "/img/placeholder-image.png";
 
                $images->save();
        } // end for loop
     } //end run()
+}
