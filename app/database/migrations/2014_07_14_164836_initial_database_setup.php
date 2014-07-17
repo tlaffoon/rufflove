@@ -26,6 +26,7 @@ class InitialDatabaseSetup extends Migration {
             $table->string('email')->unique();
             $table->string('img_path');
             $table->string('role');
+            
             $table->timestamps();  
             
         });

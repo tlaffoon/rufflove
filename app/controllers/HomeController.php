@@ -44,6 +44,15 @@ class HomeController extends BaseController {
 		return View::make('geocoding');
 	}
 
+	public function showTest2()
+	{
+		return View::make('test');
+	}
+
+
+
+
+
 
 	public function doLogin() 
 	{

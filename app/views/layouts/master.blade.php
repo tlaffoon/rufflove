@@ -52,7 +52,7 @@
 		      	            		<li><a href="{{ action('UsersController@index') }}"> User Administration </a></li>
 		      	            		<li class="divider"></li>
 		      	            	@endif
-		      	            <li><a href=""> Logout </a></li>
+		      	            <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
 		      	        </ul>
 		      		</li>
 		      		<li class="nav navbar-nav navbar-right">
@@ -69,6 +69,7 @@
 		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
 		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
 		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
+
 		          	  	    	{{ Form::close() }}
 		          				</a>
 		          			</li>

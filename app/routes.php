@@ -29,17 +29,8 @@ Route::resource('posts', 'PostsController');
 Route::resource('users', 'UsersController');
 Route::resource('dogs', 'DogsController');
 
-Route::get('test', 'HomeController@showTest');
+Route::get('/test2', 'RemindersController@getRemind');
 Route::get('geocode', 'HomeController@showMap');
 
 
-Route::get('/test2', function () {
-	ini_set('auto_detect_line_endings', true);
-	$breedsFile = storage_path() . '/csv/breeds.txt';
-    $breeds = file($breedsFile);
 
-    foreach ($breeds as $breed)
-    {
-    	echo '<p>' . $breed . '</p>';
-    }
-});
