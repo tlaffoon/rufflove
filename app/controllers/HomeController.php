@@ -14,6 +14,9 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	public function showRegistration() {
+		return View::make('users.registration');
+	}
 
 	public function showTest() {
 		return View::make('blank-template');

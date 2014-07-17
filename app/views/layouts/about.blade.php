@@ -28,11 +28,4 @@
         </div>
       </div>
 
-
-
-<!-- <img src="..." alt="..." class="img-rounded">
-<img src="..." alt="..." class="img-circle">
-<img src="..." alt="..." class="img-thumbnail"> -->
-
-
 @stop
