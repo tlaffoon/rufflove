@@ -18,8 +18,6 @@
 
 	<!-- container -->
 	<div class="page-container">
-
-
     <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">
 		    <div class="navbar-header">
@@ -53,7 +51,7 @@
 		      	            		<li><a href="{{ action('UsersController@index') }}"> User Administration </a></li>
 		      	            		<li class="divider"></li>
 		      	            	@endif
-		      	            <li><a href=""> Logout </a></li>
+		      	            <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
 		      	        </ul>
 		      		</li>
 		      		<li class="nav navbar-nav navbar-right">
