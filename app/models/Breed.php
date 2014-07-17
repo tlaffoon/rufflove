@@ -1,6 +1,6 @@
 <?php
 
-class Breeds extends Eloquent {
+class Breed extends Eloquent {
 
     /**
      * The database table used by the model.
