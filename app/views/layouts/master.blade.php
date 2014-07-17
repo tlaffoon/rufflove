@@ -14,36 +14,36 @@
 	@yield('topscript')
 
 </head>
-
 <body>
 
+	<!-- container -->
 	<div class="page-container">
-    <!-- top navbar -->
 
+
+    <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">
-		
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		        <span class="sr-only">Toggle navigation</span>
 		      </button>
 		      <a class="navbar-brand" href=""> RuffLove </a>
 		    </div>
-		    <div class="navbar-collapse collapse">
-
-		      <ul class="nav navbar-nav navbar-left">
-		    	  <li><a href="">Home</a></li>
-		      </ul>
-
-		      @if (Auth::check())
-		        <ul class="nav navbar-nav navbar-left">
+			<div class="navbar-collapse collapse">
+		    	<ul class="nav navbar-nav navbar-left">
+		    		<li><a href="{{ action('HomeController@showHome')}}">Home</a></li>
+		    	</ul>
+		    	<ul class="nav navbar-nav navbar-left">
+		    		<li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
+		    	</ul>
+		    @if (Auth::check())
+		    	<ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
 		        </ul>
-		      @endif
-
-		      <ul class="nav navbar-nav navbar-right">
+		    @endif
+			<ul class="nav navbar-nav navbar-right">
 		      	@if (Auth::check())
 		      		<li class="dropdown">
-		      	      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> My Account <span class="caret"></span></a>
+		      	      	<a href="#" class="dropdown-toggle" data-toggle="dropdown"> My Account <span class="caret"></span></a>
 		      	        <ul class="dropdown-menu" role="menu">
 		      	        	<li class="dropdown-header">{{ Auth::user()->username }}</li>
 		      	            <li><a href="{{ action('UsersController@edit', Auth::user()->id) }}"> My Profile </a></li>
@@ -85,7 +85,7 @@
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                 <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="">
                     <ul class="nav" id="sidebar-nav">
-                        <li><a href="#section1" class="">Nexus 4</a>
+                        <li class='blackfont'><a href="#section1" class="">Nexus 4</a>
                         </li>
                         <li><a href="#section2" class="">Nexus 5</a>
                         </li>
@@ -101,6 +101,7 @@
                 </div>
             </div>
             <!-- / .Main content -->
+
             @yield('content')
 
             </div>
@@ -112,17 +113,16 @@
 </div>
 <!--/.page-container-->
 
-		<div class="container-fluid">
-	@if (Session::has('successMessage'))
-	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
-	@endif
+	
+		@if (Session::has('successMessage'))
+		    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+		@endif
 
-	@if (Session::has('errorMessage'))
-	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
-	@endif
+		@if (Session::has('errorMessage'))
+		    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+		@endif
 
-			
-		</div>
+	
 		<script>
 			  $('[data-toggle=offcanvas]').click(function() {
     		  $('.row-offcanvas').toggleClass('active');

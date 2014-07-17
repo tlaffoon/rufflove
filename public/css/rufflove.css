@@ -4,6 +4,7 @@
 	float: right;
 }
 
+
 html,body {
   height: 100%;
 }
@@ -26,7 +27,7 @@ hr {
 }
 
 a {
-  color:#bcbcbc;
+  color:#000;
 }
 .text-center {
   padding-top: 20px;
@@ -52,9 +53,11 @@ a {
 
 #sidebar .nav {
   width: 95%;
+
 }
 #sidebar li {
   border-bottom-width:1px;
+  color:#000;
 }
 #sidebar li a {
   padding-left:1px;
