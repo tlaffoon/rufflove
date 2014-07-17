@@ -11,39 +11,13 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 		
-		// $this->call('UsersTableSeeder');
+		$this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
-		// $this->call('DogsTableSeeder');
-		// $this->call('ImagesTableSeeder');
-
+		$this->call('DogsTableSeeder');
+        // $this->call('DogImagesTableSeeder');
 		
 	} //function run()
-} //close class DatabaseSeeder
-
-class BreedsTableSeeder extends Seeder {
-
-    public function run()
-    {
-    	// clean out the breeds table
-    	DB::table('breeds')->delete();
-
-    	// load contents of breeds file
-    	ini_set('auto_detect_line_endings', true);
-    	$breedsFile = storage_path() . '/csv/breeds.txt';
-    	$breeds = file($breedsFile);
-
-	    foreach ($breeds as $breed)
-	    {
-	    	$breed = trim($breed);
-
-	    	$dbBreed = new Breed();
-	    	$dbBreed->name = $breed;
-	    	$dbBreed->save();
-	    }
-    	// loop through and insert into db
-    }
-
-}
+} //close
 
 class UsersTableSeeder extends Seeder {
 
@@ -56,10 +30,10 @@ class UsersTableSeeder extends Seeder {
         $user->first_name = "John";
         $user->last_name = "Doe";
         $user->email = "doglover@rufflove.com";
-        $user->address =  "Original Acacia Avenue";
+        $user->address =  "112 E. Pecan St";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78213";
+        $user->zip = "78205";
         $user->username = "doglover";
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
@@ -87,7 +61,32 @@ class UsersTableSeeder extends Seeder {
 	} //end function run()
 }  //end class UsersTableSeeder
  
-//---------------------------------------------		
+
+class BreedsTableSeeder extends Seeder {
+
+    public function run()
+    {
+        // clean out the breeds table
+        DB::table('breeds')->delete();
+
+        // load contents of breeds file
+        ini_set('auto_detect_line_endings', true);
+        $breedsFile = storage_path() . '/csv/breeds.txt';
+        $breeds = file($breedsFile);
+
+        foreach ($breeds as $breed)
+        {
+            $breed = trim($breed);
+
+            $dbBreed = new Breed();
+            $dbBreed->name = $breed;
+            $dbBreed->save();
+        }
+        // loop through and insert into db
+    }
+
+}
+		
 class DogsTableSeeder extends Seeder {
 
 	public function run()
@@ -102,11 +101,10 @@ class DogsTableSeeder extends Seeder {
 	        $dog = new Dog();
 
 	        $dog->name = "Fido " . $i;	        
-	        $dog->purebred = TRUE;
+	        $dog->purebred = array_rand($purebred);
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
 	        $dog->sex = array_rand($sex);
-	        $dog->img_path = "/img/placeholder-dog.png";
 	        $dog->breed_id = rand(1, 10);
 	        $dog->user_id = rand(2,11);
 
@@ -115,27 +113,22 @@ class DogsTableSeeder extends Seeder {
         } // end for loop
 	} //end run()
 } // end class DogTableSeeder
-//---------------------------------------------
 
+class DogImagesTableSeeder extends Seeder {
 
-class ImagesTableSeeder extends Seeder {
+    public function run()
+    {
+       DB::table('dog_images')->delete();
 
-	public function run()
-	{
-        DB::table('images')->delete();
+       for ($i=1; $i <= 10; $i++) 
+       { 
+            $dog_images = new DogImage();
+            
+            $dog_images->user_id = rand(1, 10);
+            $dog_images->dog_id = rand(1, 10);
+            $images->img_path = "/img/placeholder-image.png";
 
-        for ($i=1; $i <= 10; $i++) 
-        { 
-	        $images = new Images();
-	        
-	        $ru = rand(1, 10);
-	        $images->user_id = "$ru";
-	        $rd = rand(1, 10);
-	        $images->dog_id = "$rd";
-	        $images->img_path = "/img/placeholder-image.png";
-
-	       	$images->save();
-        } // end for loop
-	} //end run()
-} // end class ImagesTableSeeder
-
+               $images->save();
+       } // end for loop
+    } //end run()
+}
