@@ -39,11 +39,9 @@ class InitialDatabaseSetup extends Migration {
 
         Schema::create('dogs', function($table)
         {
-            $table->increments('id');           
-            // $table->foreign('owner_id')->references('id')->on('users');
+            $table->increments('id');                       
             $table->string('name', 99);
-            $table->string('breed', 99);
-            // $table->foreign('breed_id')->references('id')->on('dogs');
+            $table->string('breed', 99);            
             $table->boolean('purebreed');
             $table->integer('age');
             $table->integer('weight');
@@ -51,7 +49,7 @@ class InitialDatabaseSetup extends Migration {
             $table->string('img_path');
             $table->timestamps();         
         });
-	}
+	} //end function up()
 
 	/**
 	 * Reverse the migrations.
@@ -61,7 +59,7 @@ class InitialDatabaseSetup extends Migration {
 	public function down()
 	{
 		Schema::drop('users');
-		// Schema::drop('breed');
+		Schema::drop('breeds');
 		Schema::drop('dogs');
 	}
 

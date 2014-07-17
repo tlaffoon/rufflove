@@ -10,11 +10,13 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
-
+		
 		$this->call('UsersTableSeeder');
 		$this->call('DogsTableSeeder');
-		$this->call('BreedsTableSeeder');
-	}
+		$this->call('ImagesTableSeeder');
+
+		
+	} //function run()
 } //close class DatabaseSeeder
 
 
@@ -57,8 +59,8 @@ class UsersTableSeeder extends Seeder {
 
 	        $user->save();
         } // end for loop
-	} //end method run()
-}  //end class
+	} //end function run()
+}  //end class UsersTableSeeder
  
 		
 class DogsTableSeeder extends Seeder {
@@ -78,29 +80,51 @@ class DogsTableSeeder extends Seeder {
 	        $dog->weight = "80";
 	        $dog->sex = "M";
 	        $dog->img_path = "/img/placeholder-dog.png";
-	        $dog->user_id = "$i";
+	        $ru = rand(1, 10);
+	        $dog->user_id = "$ru";
+	        $rb = rand(1, 10);
+	        $dog->breed_id = "$rb";
 
 	       	$dog->save();
         } // end for loop
 	} //end run()
 } // end class DogTableSeeder
 
-class BreedsTableSeeder extends Seeder {
+// class BreedsTableSeeder extends Seeder {
+
+// 	public function run()
+// 	{
+//         DB::table('breeds')->delete();
+
+//         for ($i=1; $i <= 10; $i++) 
+//         { 
+// 	        $breeds = new Breeds();
+
+// 	        $breeds->breed_name = "Doberman Pincher";
+	        
+// 	       	$breeds->save();
+//         } // end for loop
+// 	} //end run()
+// } // end class DogTableSeeder
+
+class ImagesTableSeeder extends Seeder {
 
 	public function run()
 	{
-        DB::table('breeds')->delete();
+        DB::table('images')->delete();
 
         for ($i=1; $i <= 10; $i++) 
         { 
-	        $breeds = new Breeds();
-
+	        $images = new Images();
 	        
-	        $breeds->breed_name = "Doberman Pincher";
-	        
+	        $ru = rand(1, 10);
+	        $images->user_id = "$ru";
+	        $rd = rand(1, 10);
+	        $images->dog_id = "$rd";
+	        $images->img_path = "/img/placeholder-image.png";
 
-	       	$breeds->save();
+	       	$images->save();
         } // end for loop
 	} //end run()
-} // end class DogTableSeeder
+} // end class ImagesTableSeeder
 

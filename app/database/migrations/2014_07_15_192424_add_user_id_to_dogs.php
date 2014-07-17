@@ -16,6 +16,8 @@ class AddUserIdToDogs extends Migration {
 		{
 		$table->integer('user_id')->unsigned();
 		$table->foreign('user_id')->references('id')->on('users');
+		$table->integer('breed_id')->unsigned();
+		$table->foreign('breed_id')->references('id')->on('breeds');
 		});
 	}
 
