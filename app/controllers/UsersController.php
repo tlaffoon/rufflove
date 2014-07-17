@@ -5,7 +5,7 @@ class UsersController extends \BaseController {
 	public function __construct()
 	{
 	    // call base controller constructor
-	    // parent::__construct();
+	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
 	    $this->beforeFilter('auth');
@@ -63,16 +63,16 @@ class UsersController extends \BaseController {
 		else {
 		    $user = new User();
 
-		    $user->username = Input::get('username');
-		    $user->password = Input::get('password');
-		    $user->first_name = Input::get('first_name');
-		    $user->last_name = Input::get('last_name');
-		    $user->address = Input::get('address');
-		    $user->city = Input::get('city');
-		    $user->state = Input::get('state');
-		    $user->zip = Input::get('zip');
-		    $user->email= Input::get('email');
-		    $user->role = Input::get('role');
+		    $user->username 	= Input::get('username');
+		    $user->password 	= Input::get('password');
+		    $user->first_name 	= Input::get('first_name');
+		    $user->last_name 	= Input::get('last_name');
+		    $user->address 		= Input::get('address');
+		    $user->city 		= Input::get('city');
+		    $user->state 		= Input::get('state');
+		    $user->zip 			= Input::get('zip');
+		    $user->email 		= Input::get('email');
+		    $user->role 		= Input::get('role');
 
 		    $user->save();
 
@@ -82,7 +82,7 @@ class UsersController extends \BaseController {
 		        $user->save();
 		    }	
 
-		    Session::flash('successMessage', 'User saved successfully.');
+		    // Session::flash('successMessage', 'User saved successfully.');
 		    return Redirect::action('UsersController@show', $user->id);
 		}
 	}
@@ -137,16 +137,16 @@ class UsersController extends \BaseController {
 
 		else {
 
-			$user->username = Input::get('username');
-			$user->password = Input::get('password');
-			$user->first_name = Input::get('first_name');
-			$user->last_name = Input::get('last_name');
-			$user->address = Input::get('address');
-			$user->city = Input::get('city');
-			$user->state = Input::get('state');
-			$user->zip = Input::get('zip');
-			$user->email= Input::get('email');
-			$user->role = Input::get('role');
+			$user->username 	= Input::get('username');
+			$user->password 	= Input::get('password');
+			$user->first_name 	= Input::get('first_name');
+			$user->last_name 	= Input::get('last_name');
+			$user->address 		= Input::get('address');
+			$user->city 		= Input::get('city');
+			$user->state 		= Input::get('state');
+			$user->zip 			= Input::get('zip');
+			$user->email 		= Input::get('email');
+			$user->role 		= Input::get('role');
 
 			$user->save();
 
@@ -171,9 +171,9 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		
+		// Deletes dogs that were associated with this user.
 		DB::table('dogs')
-		            ->where('dog_id', $id)
+		            ->where('user_id', $id)
 		            ->delete();
 
 		$user = User::find($id);

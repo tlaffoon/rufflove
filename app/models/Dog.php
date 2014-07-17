@@ -24,10 +24,6 @@ class Dog extends Eloquent {
             'sex'      => 'required'
         );
 
-    // public function user() {
-    //     return $this->has('User');
-    // }
-
     protected $imgDir = 'img-upload';
 
     public function addUploadedImage($image) {
@@ -35,6 +31,10 @@ class Dog extends Eloquent {
         $imageName = $this->id . '-' . $image->getClientOriginalName();
         $image->move($systemPath, $imageName);
         $this->img_path = '/' . $this->imgDir . '/' . $imageName;
+    }
+
+    public function user() {
+        return $this->belongsTo('User');
     }
 }
 

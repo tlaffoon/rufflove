@@ -30,4 +30,5 @@ Route::resource('users', 'UsersController');
 Route::resource('dogs', 'DogsController');
 
 Route::get('test', 'HomeController@showTest');
+Route::get('geocode', 'HomeController@showMap');
 
