@@ -5,7 +5,7 @@ class DogsController extends \BaseController {
 	public function __construct()
 	{
 	    // call base controller constructor
-	    // parent::__construct();
+	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
 	    $this->beforeFilter('auth', array('except' => array('show')));
@@ -63,11 +63,14 @@ class DogsController extends \BaseController {
 		else {
 		    $dog = new Dog();
 
-		    $dog->name = Input::get('name');
-		    $dog->breed = Input::get('breed');
-		    $dog->age = Input::get('age');
-		    $dog->weight = Input::get('weight');
-		    $dog->sex= Input::get('sex');
+		    $dog->name 		= Input::get('name');
+		    $dog->breed 	= Input::get('breed');
+		    $dog->purebred 	= Input::get('purebred');
+		    $dog->age 		= Input::get('age');
+		    $dog->weight 	= Input::get('weight');
+		    $dog->sex 		= Input::get('sex');
+
+		    $dog->user_id 	= Auth::user()->id;
 
 		    $dog->save();
 
@@ -132,11 +135,14 @@ class DogsController extends \BaseController {
 
 		else {
 
-			$dog->name = Input::get('name');
-			$dog->breed = Input::get('breed');
-			$dog->age = Input::get('age');
-			$dog->weight = Input::get('weight');
-			$dog->sex= Input::get('sex');
+			$dog->name 		= Input::get('name');
+			$dog->breed 	= Input::get('breed');
+			$dog->purebred 	= Input::get('purebred');
+			$dog->age 		= Input::get('age');
+			$dog->weight 	= Input::get('weight');
+			$dog->sex 		= Input::get('sex');
+
+			$dog->user_id 	= Auth::user()->id;
 
 			$dog->save();
 

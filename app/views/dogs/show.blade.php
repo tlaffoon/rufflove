@@ -18,29 +18,31 @@
 
 				@if (Auth::user()->role == 'admin')
 
-					<button type="button" class="btn btn-default btn-xs">
+					<button type="button" class="btn btn-default">
 				  		<a href="{{ action('DogsController@index') }}"><span class="glyphicon glyphicon-home"></span></a>
 					</button>
 
-					<button type="button" class="btn btn-default btn-xs">
+					<button type="button" class="btn btn-default">
 			  			<a href="{{ action('DogsController@edit', $dog->id) }}"><span class="glyphicon glyphicon-edit"></span></a>
 					</button>
 
-					<a href="#" class="deleteDog btn btn-xs btn-danger" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
+					<a href="#" class="deleteDog btn btn-danger" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
 
 				@endif
 				
 			</div>
 
-	<h2>Dog: {{{ $dog->first_name . ' ' . $dog->last_name }}}</h2>
+	<h2>{{{ $dog->name }}}</h2>
 
 </div>
 
-	<h5>Dogname: {{{ $dog->dogname }}}</h5>
-	<h5>Email: {{{  $dog->email }}}</h5>
-	<h5>Role: {{{ $dog->role }}}</h5>
-	<h5>Created: {{{ $dog->created_at }}}</h5>
-	<h5>Last Updated: {{{ $dog->updated_at }}}</h5>
+	<h4>Owner: 		{{{ $dog->user->username }}}	</h4>
+	<h4>Breed: 		{{{ $dog->breed }}}				</h4>
+	<h4>Purebred: 	{{{ $dog->purebred }}}			</h4>
+	<h4>Age: 		{{{ $dog->age }}}				</h4>
+	<h4>Weight: 	{{{ $dog->weight }}}			</h4>
+	<h4>Sex: 		{{{ $dog->sex }}}				</h4>
+	<h4>Updated: 	{{{ $dog->updated_at }}}		</h4>
 
 </div>
 

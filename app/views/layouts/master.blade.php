@@ -69,7 +69,7 @@
 		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
 		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
 		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
-		          	  			<!-- <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>	-->
+		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
 		          	  	    	{{ Form::close() }}
 		          				</a>
 		          			</li>

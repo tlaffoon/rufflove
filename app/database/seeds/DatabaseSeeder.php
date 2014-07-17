@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('UsersTableSeeder');
 		$this->call('DogsTableSeeder');
+		$this->call('BreedsTableSeeder');
 	}
 } //close class DatabaseSeeder
 
@@ -47,12 +48,12 @@ class UsersTableSeeder extends Seeder {
 	        $user->address =  $i . " Acacia Avenue";
 	        $user->city = "San Antonio";
 	        $user->state = "TX";
-	        $user->zip = "78213";
+	        $user->zip = rand(11111,99999);
 	        $user->username = "doglover" . $i;
 	        $user->password = "password";
-	        $user->email = "$i@rufflove.com";
+	        $user->email = "$user->first_name@rufflove.com";
 	        $user->img_path = "/img/placeholder-user.png";
-	        $user->role = "Dummy role";
+	        $user->role = "user";
 
 	        $user->save();
         } // end for loop
@@ -66,22 +67,43 @@ class DogsTableSeeder extends Seeder {
 	{
         DB::table('dogs')->delete();
 
-        for ($i=1; $i <= 10; $i++) 
+        $purebred = ['Y','N'];
+        $sex = ['M','F'];
+
+        for ($i=1; $i <= 500; $i++) 
         { 
 	        $dog = new Dog();
 
 	        $dog->name = "Fido " . $i;
 	        $dog->breed = "Doberman Pincher";
-	        $dog->purebreed = "TRUE";
-	        $dog->age = $i;
-	        $dog->weight = "80";
-	        $dog->sex = "M";
+	        $dog->purebred = TRUE;
+	        $dog->age = rand(1,20);
+	        $dog->weight = rand(1,100);
+	        $dog->sex = array_rand($sex);
 	        $dog->img_path = "/img/placeholder-dog.png";
-	        $dog->user_id = "$i";
+	        $dog->user_id = rand(2,11);
 
 	       	$dog->save();
         } // end for loop
 	} //end run()
 } // end class DogTableSeeder
 
+class BreedsTableSeeder extends Seeder {
+
+	public function run()
+	{
+        DB::table('breeds')->delete();
+
+        for ($i=1; $i <= 10; $i++) 
+        { 
+	        $breeds = new Breeds();
+
+	        
+	        $breeds->breed_name = "Doberman Pincher";
+	        
+
+	       	$breeds->save();
+        } // end for loop
+	} //end run()
+} // end class DogTableSeeder
 

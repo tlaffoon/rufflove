@@ -74,6 +74,7 @@ Route::get('/', 'HomeController@showHome');
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@doLogout');
+Route::get('/search', 'HomeController@showSearch');
 
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');
@@ -83,4 +84,6 @@ Route::resource('users', 'UsersController');
 Route::resource('dogs', 'DogsController');
 
 // Route::get('test', 'HomeController@showTest');
+
+Route::get('geocode', 'HomeController@showMap');
 

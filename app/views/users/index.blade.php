@@ -11,7 +11,7 @@
 		<th>Username</th>
 		<th>Full Name</th>
 		<th>Role</th>
-		<th># Posts</th>
+		<th># Dogs</th>
 		<th width="220px">Actions</th>
 	</tr>
 
@@ -21,7 +21,7 @@
 		<td>{{{ $user->username }}}</td>
 		<td>{{{ $user->first_name . ' ' . $user->last_name }}}</td>
 		<td>{{{ ucfirst($user->role) }}}</td>
-		<td>{{{ count($user->posts) }}}</td>
+		<td>{{{ count($user->dogs) }}}</td>
 		<td>
 			<div class="btn-group">
 				<button type="button" class="btn btn-default">

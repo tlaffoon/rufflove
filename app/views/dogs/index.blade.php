@@ -13,18 +13,20 @@
 		<th width="20px">ID</th>
 		<th>Name</th>
 		<th>Owner</th>
-		<th>...</th>
-		<th>...</th>
+		<th>Age</th>
+		<th>Weight</th>
+		<th>Sex</th>
 		<th width="220px">Actions</th>
 	</tr>
 
 	@foreach ($dogs as $dog)
 	<tr>
 		<td>{{{ $dog->id }}}</td>
-		<td>{{{ $dog->dogname }}}</td>
-		<td>{{{ $dog->first_name . ' ' . $dog->last_name }}}</td>
-		<td>{{{ ucfirst($dog->role) }}}</td>
-		<td>{{{ count($dog->posts) }}}</td>
+		<td>{{{ $dog->name }}}</td>
+		<td><a class="btn btn-default" href="{{{action('UsersController@show', $dog->user_id)}}}">{{{ $dog->user->username }}}</a></td>
+		<td>{{{ $dog->age }}}</td>
+		<td>{{{ $dog->weight }}}</td>
+		<td>{{{ $dog->sex }}}</td>
 		<td>
 			<div class="btn-group">
 				<button type="button" class="btn btn-default">

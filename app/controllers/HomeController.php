@@ -33,6 +33,17 @@ class HomeController extends BaseController {
 	{
 		return View::make('homepage');
 	}
+	
+	public function showSearch()
+	{
+		return View::make('search');
+	}
+
+	public function showMap()
+	{
+		return View::make('geocoding');
+	}
+
 
 	public function doLogin() 
 	{
