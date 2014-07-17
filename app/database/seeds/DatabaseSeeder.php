@@ -10,13 +10,39 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
-
+		
 		$this->call('UsersTableSeeder');
-		$this->call('DogsTableSeeder');
 		$this->call('BreedsTableSeeder');
-	}
+		$this->call('DogsTableSeeder');
+
+		
+	} //function run()
 } //close class DatabaseSeeder
 
+class BreedsTableSeeder extends Seeder {
+
+    public function run()
+    {
+    	// clean out the breeds table
+    	DB::table('breeds')->delete();
+
+    	// load contents of breeds file
+    	ini_set('auto_detect_line_endings', true);
+    	$breedsFile = storage_path() . '/csv/breeds.txt';
+    	$breeds = file($breedsFile);
+
+	    foreach ($breeds as $breed)
+	    {
+	    	$breed = trim($breed);
+
+	    	$dbBreed = new Breed();
+	    	$dbBreed->name = $breed;
+	    	$dbBreed->save();
+	    }
+    	// loop through and insert into db
+    }
+
+}
 
 class UsersTableSeeder extends Seeder {
 
@@ -57,10 +83,10 @@ class UsersTableSeeder extends Seeder {
 
 	        $user->save();
         } // end for loop
-	} //end method run()
-}  //end class
+	} //end function run()
+}  //end class UsersTableSeeder
  
-		
+//---------------------------------------------		
 class DogsTableSeeder extends Seeder {
 
 	public function run()
@@ -74,64 +100,37 @@ class DogsTableSeeder extends Seeder {
         { 
 	        $dog = new Dog();
 
-	        $dog->name = "Fido " . $i;
-	        $dog->breed = "Doberman Pincher";
+	        $dog->name = "Fido " . $i;	        
 	        $dog->purebred = TRUE;
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
 	        $dog->sex = array_rand($sex);
 	        $dog->img_path = "/img/placeholder-dog.png";
+	        $dog->breed_id = rand(1, 10);
 	        $dog->user_id = rand(2,11);
+
 
 	       	$dog->save();
         } // end for loop
 	} //end run()
 } // end class DogTableSeeder
 
-class BreedsTableSeeder extends Seeder {
+class ImagesTableSeeder extends Seeder {
 
-	public function run()
-	{
-        DB::table('breeds')->delete();
+    public function run()
+    {
+       DB::table('images')->delete();
 
-        // function csv_to_array($filename='', $delimiter=',')
-        //         {
-        //             if(!file_exists($filename) || !is_readable($filename))
-        //                 return FALSE;
-                 
-        //             $header = NULL;
-        //             $data = array();
-        //             if (($handle = fopen($filename, 'r')) !== FALSE)
-        //             {
-        //                 while (($row = fgetcsv($handle, 1000, $delimiter)) !== FALSE)
-        //                 {
-        //                     if(!$header)
-        //                         $header = $row;
-        //                     else
-        //                         $data[] = array_combine($header, $row);
-        //                 }
-        //                 fclose($handle);
-        //             }
-        //             return $data;
-        //         }
+       for ($i=1; $i <= 10; $i++) 
+       { 
+            $images = new Images();
+            
+            $ru = rand(1, 10);
+            $images->user_id = "$ru";
+            $rd = rand(1, 10);
+            $images->dog_id = "$rd";
+            $images->img_path = "/img/placeholder-image.png";
 
-        //         $csvFile = public_path().'/breeds.csv';
-                
-        //         $areas = csv_to_array($csvFile);
-
-        // function parseBreedsCSV () {
-
-    	// $breeds = file('breeds.csv');
-    	// foreach ($breeds as $breed) {
-    	// 	$breed = new Breed();
-    	// 	$breed->name = trim($breed);
-    	// 	$breed->save();
-    	// }
-
-
-
-        	// return $data;
-        // }
-	} //end run()
-} // end class
-
+               $images->save();
+       } // end for loop
+    } //end run()
