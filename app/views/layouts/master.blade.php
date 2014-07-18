@@ -2,15 +2,37 @@
 <head>
 	<title>Ruff Love</title>
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/bootstrap-amelia.css">
-	<link rel="stylesheet" href="/css/rufflove.css">
-	<link rel="icon" 
-      type="image/png" 
-      href="storage_path() . '/paw-print.png'">
+	<link rel="stylesheet" href="/includes/css/bootstrap-amelia.css">
+	<link rel="stylesheet" href="/includes/css/rufflove.css">	
+	<link rel="icon" type="image/png" href="/includes/img/paw-print.png">
 	
 	<style type="text/css">
 	.zero-margin-left {
 		margin-left: 0px;
+	}
+	.zero-pad-left {
+		padding-left: 0px;
+	}
+	.zero-pad-right {
+		padding-right: 0px;
+	}
+	.width88 {
+		width: 88%;
+	}
+	.search-bar-btn {
+		float: right;
+		position: relative;
+		top: -53px;
+		right: -115px;
+	}
+	.navbar {
+		border-radius: 0px;
+	}
+	div.pups-image {
+		content:url(/includes/img/puppylove.png);
+		position: absolute;
+		top: 76;
+		right: 175;
 	}
 	</style>
 
@@ -19,11 +41,9 @@
 </head>
 <body>
 
-	<!-- container -->
-	<div class="page-container">
     <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">
-		    <div class="navbar-header">
+		  <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		        <span class="sr-only">Toggle navigation</span>
 		      </button>
@@ -32,9 +52,8 @@
 			<div class="navbar-collapse collapse">
 		    	<ul class="nav navbar-nav navbar-left">
 		    		<li><a href="{{ action('HomeController@showHome')}}">Home</a></li>
-		    	</ul>
-		    	<ul class="nav navbar-nav navbar-left">
 		    		<li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
+		    		<li><a href="{{ action('HomeController@showSearch')}}">Find A Breeding Partner</a></li>
 		    	</ul>
 		    @if (Auth::check())
 		    	<ul class="nav navbar-nav navbar-left">
@@ -65,14 +84,11 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
 		          			<li role="presentation">
-		          	    		<a role="menuitem" tabindex="-1" href="#">
-		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
-		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
-		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
-		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
-<!-- 		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
- -->		          	  	    	{{ Form::close() }}
-		          				</a>
+		          	  	    	{{ Form::open(array('action' => array('HomeController@doLogin'), 'class' => 'navbar-form form-inline', 'role' => 'menuitem', 'tabindex' => '-1')) }}
+		          	  	    		{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
+		          	  	    		{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
+		          	  				{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
+		          	  	    	{{ Form::close() }}
 		          			</li>
 		          		</ul>
 		          	</li>
@@ -80,63 +96,19 @@
 		      </ul>
 		   
 		  </div>
-		</div>
-    
-            <!-- sidebar -->
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="">
-                    <ul class="nav" id="sidebar-nav">
-                        <li class='blackfont'><a href="#section1" class="">Nexus 4</a>
-                        </li>
-                        <li><a href="#section2" class="">Nexus 5</a>
-                        </li>
-                        <li><a href="#section3" class="">Nexus 7 (2013) WIFI</a>
-                        </li>
-                        <li><a href="#section4" class="">Nexus 7 (2013) LTE</a>
-                        </li>
-                        <li><a href="#section5" class="">Nexus 7 (2012) WIFI</a>
-                        </li>
-                        <li><a href="#section6" class="">PA-Google Apps</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- / .Main content -->
+		</div> <!-- end navbar -->
+   
+		<div class="container">  
 
             @yield('content')
 
-            </div>
-            <!-- /.col-xs-12 main -->
         </div>
-        <!--/.row-->
-    </div>
-    <!--/.container-->
-</div>
-<!--/.page-container-->
-
 	
-		@if (Session::has('successMessage'))
-		    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
-		@endif
-
-		@if (Session::has('errorMessage'))
-		    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
-		@endif
-
-	
-		<script>
-			  $('[data-toggle=offcanvas]').click(function() {
-    		  $('.row-offcanvas').toggleClass('active');
- 			  });
-  
-  			$('.btn-toggle').click(function() {
-    		$(this).find('.btn').toggleClass('active').toggleClass('btn-default').toggleClass('btn-primary');
-  			});
-
-		</script>
 	
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="/includes/js/typeahead.bundle.js"></script>
+		<script src="/includes/js/bloodhound.js"></script>
 
 			@yield('bottomscript')
 

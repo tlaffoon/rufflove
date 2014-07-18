@@ -4,15 +4,11 @@
 @stop
 
 @section('content')
-<div class="container col-md-4">
-	@if (!empty($dog->img_path))
-		<img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail centered">
-	@else
-		<img src="/img/placeholder-dog.png" class="img-responsive thumbnail centered">
-	@endif
-</div>
+<div class="container col-md-2">
+<!-- 		<img src="/includes/img/placeholder-dog.png" class="img-responsive thumbnail centered">
+ --></div>
 
-<div class="container col-md-6">
+<div class="container col-md-10">
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 
@@ -36,8 +32,8 @@
 
 </div>
 
-	<h4>Owner: 		{{{ $dog->user->username }}}	</h4>
-	<h4>Breed: 		{{{ $dog->breed }}}				</h4>
+	<h4>Owner: 		<a href="{{{ action('UsersController@show', $dog->user->id) }}}">{{{ $dog->user->username }}}	</a></h4>
+	<h4>Breed: 		{{{ $dog->breed->name }}}		</h4>
 	<h4>Purebred: 	{{{ $dog->purebred }}}			</h4>
 	<h4>Age: 		{{{ $dog->age }}}				</h4>
 	<h4>Weight: 	{{{ $dog->weight }}}			</h4>

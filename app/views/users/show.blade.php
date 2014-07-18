@@ -23,7 +23,7 @@
 
 
 
-<div class="container col-md-8">
+<div class="container col-md-10">
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 
@@ -62,7 +62,6 @@
 
 	</div>
 
-@foreach ($user->dogs as $dog)
 
 <div class="col-md-4"></div>
 <div class="col-md-8">
@@ -70,22 +69,20 @@
 		<h2>{{{ $user->username . '\'s dogs' }}}</h2>
 	</div>
 </div>
-
+@foreach ($user->dog as $dog)
 
   <div class="row">
 
   	<div class="col-md-2"></div> <!-- fills sidebar space -->
   	
   	<div class="col-md-2">
-  		@foreach ($user->dogs as $dog)
 
   	        @if ($dog->img_path )
   	          <img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
   	        @else
-  	          <img src="/img/placeholder.png" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
+  	          <img src="/includes/img/placeholder.png" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
   	        @endif
 
-  	   @endforeach
   	</div>
 
     <div class="zero-margin-left blog-block">
