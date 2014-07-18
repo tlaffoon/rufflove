@@ -8,7 +8,7 @@ class UsersController extends \BaseController {
 	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
-	    $this->beforeFilter('auth');
+	    $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
 	}
 
 	/**
@@ -83,7 +83,8 @@ class UsersController extends \BaseController {
 		    }	
 
 		    // Session::flash('successMessage', 'User saved successfully.');
-		    return Redirect::action('UsersController@show', $user->id);
+		    //return Redirect::action('UsersController@show', $user->id);
+		    return Redirect::back();
 		}
 	}
 
