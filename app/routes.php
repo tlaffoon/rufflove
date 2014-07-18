@@ -67,6 +67,7 @@ Route::get('test', function () {
     return 'Done';
 
 });
+Route::get('/dogsearch', 'HomeController@showDogSearch');
 
 Route::get('/register', 'HomeController@showRegistration');
 Route::get('/about', 'HomeController@showAbout');

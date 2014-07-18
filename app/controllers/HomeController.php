@@ -15,6 +15,10 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function showDogSearch() {
+		return View::make('dogs.dogsearch');
+	}
+
 	public function showRegistration() {
 		return View::make('users.registration');
 	}
