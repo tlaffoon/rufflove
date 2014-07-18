@@ -33,6 +33,8 @@
 		    	<ul class="nav navbar-nav navbar-left">
 		    		<li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
 		    	</ul>
+
+
 		    @if (Auth::check())
 		    	<ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
@@ -58,6 +60,7 @@
 		      			<p class="navbar-text">{{{ Auth::user()->username }}}</p>
 		      		</li>
 		        @else
+		        	<li><a href="{{ action('HomeController@showRegistration') }}"> Sign Up </a></li>
 		          	<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
