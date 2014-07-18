@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
 		$this->call('DogsTableSeeder');
-        // $this->call('DogImagesTableSeeder');
+        $this->call('DogImagesTableSeeder');
 		
 	} //function run()
 } //close
@@ -108,7 +108,6 @@ class DogsTableSeeder extends Seeder {
 	        $dog->breed_id = rand(1, 10);
 	        $dog->user_id = rand(2,11);
 
-
 	       	$dog->save();
         } // end for loop
 	} //end run()
@@ -121,14 +120,14 @@ class DogImagesTableSeeder extends Seeder {
        DB::table('dog_images')->delete();
 
        for ($i=1; $i <= 10; $i++) 
-       { 
-            $dog_images = new DogImage();
-            
-            $dog_images->user_id = rand(1, 10);
-            $dog_images->dog_id = rand(1, 10);
-            $images->img_path = "/img/placeholder-image.png";
+       {
+            $dog_image = new DogImage();
 
-               $images->save();
+            $dog_image->dog_id = $i;
+            $dog_image->img_path = "/img/placeholder-image.png";
+
+            $dog_image->save();
+
        } // end for loop
     } //end run()
 }
