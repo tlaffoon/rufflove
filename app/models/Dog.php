@@ -1,6 +1,6 @@
 <?php
 
-class Dog extends Eloquent {
+class Dog extends BaseModel {
 
     /**
      * The database table used by the model.
@@ -15,27 +15,24 @@ class Dog extends Eloquent {
      * @var array
      */
     
-        protected $hidden = array('password', 'remember_token');
-
         public static $rules = array(
-            'name'  => 'required|max:50',
+            'name'  => 'required',
             'breed'  => 'required',
             'age'     => 'required',
             'sex'      => 'required'
         );
 
-    protected $imgDir = 'img-upload';
-
-    public function addUploadedImage($image) {
-        $systemPath = public_path() . '/' . $this->imgDir . '/';
-        $imageName = $this->id . '-' . $image->getClientOriginalName();
-        $image->move($systemPath, $imageName);
-        $this->img_path = '/' . $this->imgDir . '/' . $imageName;
-    }
-
     public function user() {
         return $this->belongsTo('User');
     }
+
+    public function breed() {
+        return $this->belongsTo('Breed');
+    }
+
+    // public function image() {
+    //     return $this->hasMany('DogImage');
+    // }
 }
 
 

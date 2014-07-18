@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
 		$this->call('DogsTableSeeder');
-        // $this->call('DogImagesTableSeeder');
+        $this->call('DogImagesTableSeeder');
 		
 	} //function run()
 } //close
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder {
         $user->zip = "78205";
         $user->username = "doglover";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
 
         $user->save();
@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder {
 	        $user->username = "doglover" . $i;
 	        $user->password = "password";
 	        $user->email = "$user->first_name@rufflove.com";
-	        $user->img_path = "/img/placeholder-user.png";
+	        $user->img_path = "/includes/img/placeholder-user.png";
 	        $user->role = "user";
 
 	        $user->save();
@@ -105,9 +105,9 @@ class DogsTableSeeder extends Seeder {
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
 	        $dog->sex = array_rand($sex);
-	        $dog->breed_id = rand(1, 10);
+            
+	        $dog->breed_id = rand(1, 1500);
 	        $dog->user_id = rand(2,11);
-
 
 	       	$dog->save();
         } // end for loop
@@ -120,15 +120,15 @@ class DogImagesTableSeeder extends Seeder {
     {
        DB::table('dog_images')->delete();
 
-       for ($i=1; $i <= 10; $i++) 
-       { 
-            $dog_images = new DogImage();
-            
-            $dog_images->user_id = rand(1, 10);
-            $dog_images->dog_id = rand(1, 10);
-            $images->img_path = "/img/placeholder-image.png";
+       for ($i=1; $i <= 500; $i++) 
+       {
+            $dog_image = new DogImage();
 
-               $images->save();
+            $dog_image->dog_id = $i;
+            $dog_image->path = "/includes/img/placeholder-image.png";
+
+            $dog_image->save();
+
        } // end for loop
     } //end run()
 }
