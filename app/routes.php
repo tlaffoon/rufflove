@@ -20,7 +20,7 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@doLogout');
 Route::get('/search', 'HomeController@showSearch');
-
+Route::get('/admin', 'HomeController@showAdmin');
 
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');

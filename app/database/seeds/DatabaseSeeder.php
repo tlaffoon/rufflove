@@ -51,8 +51,7 @@ class UsersTableSeeder extends Seeder {
     {
         DB::table('users')->delete();
 
-        $user = new User();
-        
+        $user = new User();        
         $user->first_name = "John";
         $user->last_name = "Doe";
         $user->email = "doglover@rufflove.com";
@@ -64,8 +63,120 @@ class UsersTableSeeder extends Seeder {
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+		$user->save();
 
-        $user->save();
+		$user = new User();        
+        $user->first_name = "Gustavo";
+        $user->last_name = "Fring";
+        $user->email = "dogloverGF@rufflove.com";
+        $user->address =  "11815 Alamo Blanco St";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78233";
+        $user->username = "dogloverGF";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
+		$user = new User();      
+        $user->first_name = "Walter";
+        $user->last_name = "White";
+        $user->email = "dogloverWW@rufflove.com";
+        $user->address =  "3527 Crestmont Dr";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78217";
+        $user->username = "dogloverWW";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
+		$user = new User();      
+        $user->first_name = "Jesse";
+        $user->last_name = "Pinkman";
+        $user->email = "dogloverJP@rufflove.com";
+        $user->address =  "12213 Stoney Xing";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78247";
+        $user->username = "dogloverJP";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
+		$user = new User();      
+        $user->first_name = "Saul";
+        $user->last_name = "Goodman";
+        $user->email = "dogloverSG@rufflove.com";
+        $user->address =  "14034 Boulder Oaks";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78247";
+        $user->username = "dogloverSG";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
+		$user = new User();      
+        $user->first_name = "Hank";
+        $user->last_name = "Schrader";
+        $user->email = "dogloverHS@rufflove.com";
+        $user->address =  "14034 Boulder Oaks";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78247";
+        $user->username = "dogloverHS";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
+		$user = new User();      
+        $user->first_name = "Todd";
+        $user->last_name = "Alquist";
+        $user->email = "dogloverTA@rufflove.com";
+        $user->address =  "3119 Morning Trl";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78247";
+        $user->username = "dogloverTA";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
+		$user = new User();      
+        $user->first_name = "Mike";
+        $user->last_name = "Ehrmantraut";
+        $user->email = "dogloverME@rufflove.com";
+        $user->address =  "2611 Circle Tree St";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78247";
+        $user->username = "dogloverME";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
+		$user = new User();      
+        $user->first_name = "Lydia";
+        $user->last_name = "Rodarte-Quayle";
+        $user->email = "dogloverLR@rufflove.com";
+        $user->address =  "12114 Ridge Summit St";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "782";
+        $user->username = "dogloverLR";
+        $user->password = 'password';
+        $user->img_path = "/img/placeholder-user.png";
+        $user->role = "admin";
+		$user->save();
+
 
         for ($i=1; $i <= 10; $i++) 
         { 

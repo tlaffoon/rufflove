@@ -30,7 +30,7 @@
 		    <div class="navbar-collapse collapse">
 
 		      <ul class="nav navbar-nav navbar-left">
-		    	  <li><a href="">Home</a></li>
+		    	  <li><a href="{{ action('HomeController@showHome') }}">Home</a></li>
 		      </ul>
 
 		      @if (Auth::check())
