@@ -2,11 +2,18 @@
 
 @section('content')
 
-	<div class="jumbotron">
-	  <h1> Ruff Love </h1>
-	  <p><span class="glyphicon glyphicon-heart"></span> Dating For Dogs</p>
-	  <p><a class="btn btn-primary btn-lg" role="button">Sign Up</a></p>
-		<div class="pups-image img-responsive thumbnail"></div>	<!--  <img id="pups" src="/img/puppylove.png" class="img-responsive thumbnail"> -->	
+	<div class="jumbotron container">
+		<div class="row">
+			<div class="col-md-6">
+				<h1> Ruff Love </h1>
+				  <p><span class="glyphicon glyphicon-heart"></span> Dating For Dogs</p>
+				  <p><a class="btn btn-primary btn-lg" role="button">Sign Up</a></p>
+			</div>
+			<div class="col-md-6">
+	  		<img id="pups" src="/includes/img/puppylove.png" class="img-responsive thumbnail">
+			  </div>
+		</div>
+	  	<!--   -->	
 	</div>
 
 	<div class="col-md-12 zero-pad-left zero-pad-right"> <!-- Begin main search form -->
