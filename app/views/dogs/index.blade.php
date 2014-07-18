@@ -11,22 +11,22 @@
 <table class="table table-striped fixed">
 	<tr>
 		<th width="20px">ID</th>
+		<th>Breed</th>
 		<th>Name</th>
-		<th>Owner</th>
-		<th>Age</th>
-		<th>Weight</th>
 		<th>Sex</th>
+		<th>Age</th>
+		<th>Owner</th>
 		<th width="220px">Actions</th>
 	</tr>
 
 	@foreach ($dogs as $dog)
 	<tr>
 		<td>{{{ $dog->id }}}</td>
+		<td>{{{ $dog->breed->name }}}</td>
 		<td>{{{ $dog->name }}}</td>
-		<td><a class="btn btn-default" href="{{{action('UsersController@show', $dog->user_id)}}}">{{{ $dog->user->username }}}</a></td>
-		<td>{{{ $dog->age }}}</td>
-		<td>{{{ $dog->weight }}}</td>
 		<td>{{{ $dog->sex }}}</td>
+		<td>{{{ $dog->age }}}</td>
+		<td>{{{ $dog->user->username }}}</td>
 		<td>
 			<div class="btn-group">
 				<button type="button" class="btn btn-default">
@@ -44,7 +44,6 @@
 	</tr>
 	@endforeach
 </table>
-
 			{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 			{{ Form::close() }}
 
@@ -55,12 +54,12 @@
 
 @section('bottomscript')
 <script type="text/javascript">
-$(".deleteDog").click(function() {
-	var dogid = $(this).data('dogid');
-	$("#deleteForm").attr('action', '/dogs/' + dogid);
-	if (confirm("Are you sure you want to delete this dog?")) {
-		$('#deleteForm').submit();
-	}
-});
+	$(".deleteDog").click(function() {
+		var dogid = $(this).data('dogid');
+		$("#deleteForm").attr('action', '/dogs/' + dogid);
+		if (confirm("Are you sure you want to delete this dog?")) {
+			$('#deleteForm').submit();
+		}
+	});
 </script>
 @stop

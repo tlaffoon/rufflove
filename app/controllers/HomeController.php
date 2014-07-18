@@ -14,6 +14,9 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	public function showRegistration() {
+		return View::make('users.registration');
+	}
 
 	public function showTest() {
 		return View::make('blank-template');
@@ -47,7 +50,9 @@ class HomeController extends BaseController {
 
 	public function showMap()
 	{
-		return View::make('geocoding');
+
+		$user = User::find('1');
+		return View::make('test-geo')->with('user', $user);
 	}
 
 	public function showTest2()

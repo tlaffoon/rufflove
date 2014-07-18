@@ -15,6 +15,7 @@ class InitialDatabaseSetup extends Migration {
 		Schema::create('users', function($table)
         {
             $table->increments('id');
+            
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address');
@@ -29,6 +30,7 @@ class InitialDatabaseSetup extends Migration {
             $table->float('lat', 10,6);
             $table->float('lng', 10,6);
             $table->string('remember_token', 100)->nullable;
+
             $table->timestamps();  
             
         });
@@ -36,21 +38,27 @@ class InitialDatabaseSetup extends Migration {
 		Schema::create('breeds', function($table)
         {
             $table->increments('id');
+            
             $table->string('name');
             $table->text('info');
+            
             $table->timestamps();             
         });
 
         Schema::create('dogs', function($table)
         {
             $table->increments('id');           
+            
             $table->integer('user_id')->unsigned();
             $table->integer('breed_id')->unsigned();
+            
             $table->string('name');
             $table->boolean('purebred');
             $table->integer('age');
             $table->integer('weight');
-            $table->string('sex');
+            $sex = array('M', 'F');
+            $table->enum('sex', $sex);
+
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
@@ -61,7 +69,9 @@ class InitialDatabaseSetup extends Migration {
         {
             $table->increments('id')->unsigned();
             $table->integer('dog_id')->unsigned();
-            $table->string('img_path');
+
+            $table->string('path');
+            
             $table->timestamps();
             $table->foreign('dog_id')->references('id')->on('dogs');
         });

@@ -1,10 +1,17 @@
 @extends('layouts.master')
 
 @section('topscript')
+<style type="text/css">
+.test {
+	position: relative;
+	margin-top: 92px;
+	float: right;
+}
+</style>
 @stop
 
 @section('content')
-<div class="container col-md-4">
+<div class="container col-md-2">
 	<div class="test">
 	@if (!empty($user->img_path))
 		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
@@ -14,7 +21,8 @@
 	</div>
 </div>
 
-<div class="container col-md-6">
+
+<div class="container col-md-10">
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 
@@ -37,6 +45,7 @@
 		<h2>{{{ $user->username }}}</h2>
 	</div>
 
+
 	<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
 	<h4>Email: 		{{{ $user->email }}}								</h4>
 	<h4>Role: 		{{{ $user->role }}}									</h4>
@@ -50,20 +59,42 @@
 	{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
 
+	</div>
+
+
+<div class="col-md-4"></div>
+<div class="col-md-8">
 	<div class="page-header">
 		<h2>{{{ $user->username . '\'s dogs' }}}</h2>
 	</div>
+</div>
+@foreach ($user->dog as $dog)
 
-@foreach ($user->dogs as $dog)
+  <div class="row">
 
-	<div class="row">
- 	      		<img src="{{{ $dog->img_path }}}" alt="$dog->name">
- 	        		<h3> {{{ $dog->name }}}</h3>
-	        		<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	        		<a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-	</div> <!-- end row -->
-@endforeach
-</div> <!-- end main container -->
+  	<div class="col-md-2"></div> <!-- fills sidebar space -->
+  	
+  	<div class="col-md-2">
+
+  	        @if ($dog->img_path )
+  	          <img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
+  	        @else
+  	          <img src="/includes/img/placeholder.png" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
+  	        @endif
+
+  	</div>
+
+    <div class="zero-margin-left blog-block">
+      
+      <div class="col-md-6">
+        <h3>{{{ $dog->name }}}</h3>
+        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+      </div>
+
+    </div>
+  </div> <!-- end row -->
+
+  @endforeach
 
 @stop
 

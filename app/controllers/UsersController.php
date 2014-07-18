@@ -8,7 +8,7 @@ class UsersController extends \BaseController {
 	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
-	    $this->beforeFilter('auth');
+	    $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
 	}
 
 	/**
@@ -80,10 +80,17 @@ class UsersController extends \BaseController {
 		    {
 		        $user->addUploadedImage(Input::file('image'));
 		        $user->save();
-		    }	
+		    }
+// add function to parse user address into  lat/lng and store in new database fields.  needs migration
+		    // "formatted_address" : "112 East Pecan Street, San Antonio, TX 78205, USA",
+		    // "geometry" : {
+		    //    "location" : {
+		    //       "lat" : 29.4284595,
+		    //       "lng" : -98.49243299999999
 
 		    // Session::flash('successMessage', 'User saved successfully.');
-		    return Redirect::action('UsersController@show', $user->id);
+		    //return Redirect::action('UsersController@show', $user->id);
+		    return Redirect::back();
 		}
 	}
 

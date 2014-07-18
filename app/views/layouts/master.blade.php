@@ -2,47 +2,70 @@
 <head>
 	<title>Ruff Love</title>
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/bootstrap-amelia.css">
-	<link rel="stylesheet" href="/css/rufflove.css">
-	<link rel="icon" 
-      type="image/png" 
-      href="storage_path() . '/paw-print.png'">
+	<link rel="stylesheet" href="/includes/css/bootstrap-amelia.css">
+	<link rel="stylesheet" href="/includes/css/rufflove.css">	
+	<link rel="icon" type="image/png" href="/includes/img/paw-print.png">
 	
 	<style type="text/css">
 	.zero-margin-left {
 		margin-left: 0px;
+	}
+	.zero-pad-left {
+		padding-left: 0px;
+	}
+	.zero-pad-right {
+		padding-right: 0px;
+	}
+	.width88 {
+		width: 88%;
+	}
+	.search-bar-btn {
+		float: right;
+		position: relative;
+		top: -53px;
+		right: -115px;
+	}
+	.navbar {
+		border-radius: 0px;
+	}
+	div.pups-image {
+		content:url(/includes/img/puppylove.png);
+		position: absolute;
+		top: 76;
+		right: 175;
 	}
 	</style>
 
 	@yield('topscript')
 
 </head>
-
 <body>
+
+    <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">
-		  <div class="container">
-		    <div class="navbar-header">
+		  <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		        <span class="sr-only">Toggle navigation</span>
 		      </button>
 		      <a class="navbar-brand" href=""> RuffLove </a>
 		    </div>
-		    <div class="navbar-collapse collapse">
 
-		      <ul class="nav navbar-nav navbar-left">
-		    	  <li><a href="{{ action('HomeController@showHome') }}">Home</a></li>
-		      </ul>
+			<div class="navbar-collapse collapse">
+		    	<ul class="nav navbar-nav navbar-left">
+		    		<li><a href="{{ action('HomeController@showHome')}}">Home</a></li>
+		    		<li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
+		    		<li><a href="{{ action('HomeController@showSearch')}}">Find A Breeding Partner</a></li>
+		    	</ul>
+		    @if (Auth::check())
+		    	<ul class="nav navbar-nav navbar-left">
 
-		      @if (Auth::check())
-		        <ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
 		        </ul>
-		      @endif
-
-		      <ul class="nav navbar-nav navbar-right">
+		    @endif
+			<ul class="nav navbar-nav navbar-right">
 		      	@if (Auth::check())
 		      		<li class="dropdown">
-		      	      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> My Account <span class="caret"></span></a>
+		      	      	<a href="#" class="dropdown-toggle" data-toggle="dropdown"> My Account <span class="caret"></span></a>
 		      	        <ul class="dropdown-menu" role="menu">
 		      	        	<li class="dropdown-header">{{ Auth::user()->username }}</li>
 		      	            <li><a href="{{ action('UsersController@edit', Auth::user()->id) }}"> My Profile </a></li>
@@ -63,6 +86,7 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
 		          			<li role="presentation">
+
 		          	    		<a role="menuitem" tabindex="-1" href="#">
 		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
 		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
@@ -70,32 +94,28 @@
 		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
 		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
 
+
 		          	  	    	{{ Form::close() }}
-		          				</a>
 		          			</li>
 		          		</ul>
 		          	</li>
 		        @endif
 		      </ul>
-		    </div><!--/.nav-collapse -->
+		   
 		  </div>
-		</div>
-		
-		<div class="container-fluid">
-	@if (Session::has('successMessage'))
-	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
-	@endif
+		</div> <!-- end navbar -->
+   
+		<div class="container">
 
-	@if (Session::has('errorMessage'))
-	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
-	@endif
+            @yield('content')
 
-			@yield('content')
-
-		</div>
+        </div>
 	
+
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="/includes/js/typeahead.bundle.js"></script>
+		<script src="/includes/js/bloodhound.js"></script>
 
 			@yield('bottomscript')
 
