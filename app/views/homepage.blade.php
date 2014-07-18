@@ -9,19 +9,30 @@
 		<div class="pups-image img-responsive thumbnail"></div>	<!--  <img id="pups" src="/img/puppylove.png" class="img-responsive thumbnail"> -->	
 	</div>
 
-	<div class="col-md-12 zero-pad-left zero-pad-right"> <!-- Begin main search form -->
+
+	<!-- Begin main search form -->
+	<div class="col-md-12 zero-pad-left zero-pad-right"> 
 
 		{{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }}    
-		{{ Form::text('search', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter your search criteria here...')) }}
+			{{ Form::text('search', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter your search criteria here...')) }}
 		{{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
 		{{ Form::close() }}	
 		
 	</div> <!-- end main search form -->
 
-	<div class="col-md-12 zero-pad-left zero-pad-right"> <!-- Begin breed search form -->
+	
+
+	<!-- Begin breed search form -->
+	<div class="col-md-12 zero-pad-left zero-pad-right"> 
 		{{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }} 
 		<div id="prefetch">
-			{{ Form::text('search', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Search by breed here...')) }}
+			{{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Search by breed here...')) }}
+			{{ Form::text('sex', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by sex here...')) }}
+			{{ Form::text('miles', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by distance here...')) }}
+
+
+
+
 		</div>
 		{{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
 		{{ Form::close() }}	

@@ -94,7 +94,7 @@ class DogsTableSeeder extends Seeder {
         DB::table('dogs')->delete();
 
         $purebred = ['Y','N'];
-        $sex = ['M','F'];
+        $sex = ['M', 'F'];
 
         for ($i=1; $i <= 500; $i++) 
         { 

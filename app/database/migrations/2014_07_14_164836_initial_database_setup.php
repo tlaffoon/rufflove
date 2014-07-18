@@ -54,7 +54,8 @@ class InitialDatabaseSetup extends Migration {
             $table->boolean('purebred');
             $table->integer('age');
             $table->integer('weight');
-            $table->string('sex');
+            $sex = array('M', 'F');
+            $table->enum('sex', $sex);
 
             $table->timestamps();
 
