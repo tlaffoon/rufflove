@@ -85,11 +85,15 @@ Route::resource('posts', 'PostsController');
 Route::resource('users', 'UsersController');
 Route::resource('dogs', 'DogsController');
 
+<<<<<<< HEAD
 
 
 
 Route::get('test', 'HomeController@showTest');
 
+=======
+// Route::get('test', 'HomeController@showTest');
+>>>>>>> master
 
 Route::get('geocode', 'HomeController@showMap');
 

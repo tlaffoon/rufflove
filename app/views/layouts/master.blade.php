@@ -49,7 +49,10 @@
 		      </button>
 		      <a class="navbar-brand" href=""> RuffLove </a>
 		    </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 			<div class="navbar-collapse collapse">
 		    	<ul class="nav navbar-nav navbar-left">
 		    		<li><a href="{{ action('HomeController@showHome')}}">Home</a></li>
@@ -58,7 +61,10 @@
 		    	</ul>
 		    @if (Auth::check())
 		    	<ul class="nav navbar-nav navbar-left">
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 		      	  <li><a href=""> Admin Link </a></li>
 		        </ul>
 		    @endif
@@ -86,6 +92,7 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
 		          			<li role="presentation">
+<<<<<<< HEAD
 
 		          	    		<a role="menuitem" tabindex="-1" href="#">
 		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
@@ -95,6 +102,12 @@
 		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
 
 
+=======
+		          	  	    	{{ Form::open(array('action' => array('HomeController@doLogin'), 'class' => 'navbar-form form-inline', 'role' => 'menuitem', 'tabindex' => '-1')) }}
+		          	  	    		{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
+		          	  	    		{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
+		          	  				{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
+>>>>>>> master
 		          	  	    	{{ Form::close() }}
 		          			</li>
 		          		</ul>
