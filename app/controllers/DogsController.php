@@ -23,6 +23,11 @@ class DogsController extends \BaseController {
 		 	$dogs = Dog::where('name', 'LIKE', "%$queryString%")->orderBy('name')->paginate(5);
 		}
 
+		elseif (Input::has('search-breed')) {
+		 	$queryString = Input::get('search');
+		 	$dogs = Dog::where('breed', 'LIKE', "%$queryString%")->orderBy('name')->paginate(5);
+		}
+
 		else {
 			$dogs = Dog::orderBy('name')->paginate(5);
 		}

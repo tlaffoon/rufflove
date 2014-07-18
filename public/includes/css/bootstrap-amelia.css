@@ -4538,13 +4538,13 @@ a.list-group-item.active > .badge,
 .jumbotron h1,
 .jumbotron .h1 {
   color: #fff;
-  text-align: center;
+  text-align: left;
 }
 .jumbotron p {
   margin-bottom: 15px;
   font-size: 21px;
   font-weight: 200;
-  text-align: center;
+  text-align: left;
 }
 .jumbotron > hr {
   border-top-color: #08494e;
@@ -4563,7 +4563,6 @@ a.list-group-item.active > .badge,
   .container .jumbotron {
     padding-left: 60px;
     padding-right: 60px;
-    margin-left: 150px;
   }
   .jumbotron h1,
   .jumbotron .h1 {
