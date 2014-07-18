@@ -27,7 +27,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	    'username'  => 'required|max:20',
 	    'email'		=> 'required|max:200',
 	    'password'	=> 'required',
-	    'role'		=> 'required'
 	);
 
 	public function setPasswordAttribute($value) {

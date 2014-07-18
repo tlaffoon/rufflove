@@ -98,13 +98,13 @@
 		  </div>
 		</div> <!-- end navbar -->
    
-		<div class="container">  
+		<div class="container">
 
             @yield('content')
 
         </div>
 	
-	
+
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="/includes/js/typeahead.bundle.js"></script>

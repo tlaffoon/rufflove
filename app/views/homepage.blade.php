@@ -20,7 +20,7 @@
 
 	<div class="col-md-12 zero-pad-left zero-pad-right"> <!-- Begin breed search form -->
 		{{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }} 
-		<div id="prefetch">   
+		<div id="prefetch">
 			{{ Form::text('search', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Search by breed here...')) }}
 		</div>
 		{{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
