@@ -14,6 +14,11 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+
+	public function showDogSearch() {
+		return View::make('dogs.dogsearch');
+	}
+
 	public function showRegistration() {
 		return View::make('users.registration');
 	}

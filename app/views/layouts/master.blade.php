@@ -55,6 +55,8 @@
 		    		<li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
 		    		<li><a href="{{ action('HomeController@showSearch')}}">Find A Breeding Partner</a></li>
 		    	</ul>
+
+
 		    @if (Auth::check())
 		    	<ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
@@ -80,6 +82,7 @@
 		      			<p class="navbar-text">{{{ Auth::user()->username }}}</p>
 		      		</li>
 		        @else
+		        	<li><a href="{{ action('HomeController@showRegistration') }}"> Sign Up </a></li>
 		          	<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
@@ -97,6 +100,27 @@
 		   
 		  </div>
 		</div> <!-- end navbar -->
+
+		<!-- sidebar -->
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="">
+                    <ul class="nav" id="sidebar-nav">
+                        <li class='blackfont'><a href="#section1" class="">Nexus 4</a>
+                        </li>
+                        <li><a href="#section2" class="">Nexus 5</a>
+                        </li>
+                        <li><a href="#section3" class="">Nexus 7 (2013) WIFI</a>
+                        </li>
+                        <li><a href="#section4" class="">Nexus 7 (2013) LTE</a>
+                        </li>
+                        <li><a href="#section5" class="">Nexus 7 (2012) WIFI</a>
+                        </li>
+                        <li><a href="#section6" class="">PA-Google Apps</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- / .Main content -->
    
 		<div class="container">
 
