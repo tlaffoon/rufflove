@@ -21,7 +21,7 @@
 	<div class="col-md-12 zero-pad-left zero-pad-right"> <!-- Begin breed search form -->
 		{{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }} 
 		<div id="prefetch">
-			{{ Form::text('search', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Search by breed here...')) }}
+			{{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Search by breed here...')) }}
 		</div>
 		{{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
 		{{ Form::close() }}	
@@ -39,7 +39,7 @@
 	  prefetch: {
 	    url: '/includes/data/breeds.json',
 	    filter: function(list) {
-	      return $.map(list, function(country) { return { name: country }; });
+	      return $.map(list, function(breed) { return { name: breed }; });
 	    }
 	  }
 	});

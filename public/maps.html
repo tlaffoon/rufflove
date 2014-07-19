@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map"></div>
+
+  <script type="text/javascript">
+  	// define locations, hardcoded for now
+    var locations = [
+      ['Weston Centre', 29.428459, -98.492433, 4],
+      ['Rackspace', 29.507981, -98.394232, 5],
+      ['AT&T Center', 29.426928, -98.437418, 3]
+    ];          
+
+    // create new map object centered on downtown san antonio
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(29.42, -98.49),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    // loop through locations to create new markers
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+  }
+
+      // add event listener to drop marker on map click
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+  </script>
+</body>
+</html>

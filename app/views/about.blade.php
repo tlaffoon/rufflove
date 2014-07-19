@@ -69,7 +69,7 @@
 	<div class="row">
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
-	      <img src="img/placeholder-user.png" alt="...">
+	      <img src="/includes/img/placeholder-user.png" alt="...">
 	      <div class="caption">
 	        <h3>Thumbnail label</h3>
 	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -80,7 +80,7 @@
 
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
-	      <img src="img/placeholder-user.png" alt="...">
+	      <img src="/includes/img/placeholder-user.png" alt="...">
 	      <div class="caption">
 	        <h3>Thumbnail label</h3>
 	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -91,7 +91,7 @@
 
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
-	      <img src="img/placeholder-user.png" alt="...">
+	      <img src="/includes/img/placeholder-user.png" alt="...">
 	      <div class="caption">
 	        <h3>Thumbnail label</h3>
 	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -102,7 +102,4 @@
  </div>
 
 </div> <!-- end main container -->
-
-   
-
 @stop

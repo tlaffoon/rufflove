@@ -19,7 +19,7 @@ class HomeController extends BaseController {
 	}
 
 	public function showTest() {
-		return View::make('blank-template');
+		return View::make('test-geocode-latlng');
 	}
 
 	public function showAbout()
@@ -45,8 +45,15 @@ class HomeController extends BaseController {
 	public function showMap()
 	{
 
-		$user = User::find('1');
-		return View::make('test-geo')->with('user', $user);
+		// $user = User::find('1');
+		// return View::make('test-geo')->with('user', $user);
+
+		return View::make('map');
+	}
+
+	public function showAjax() 
+	{
+		return View::make('ajax');
 	}
 
 
