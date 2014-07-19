@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.homepage')
 
 @section('content')
 
@@ -10,11 +10,9 @@
 				  <p><a class="btn btn-primary btn-lg" role="button">Sign Up</a></p>
 			</div>
 			<div class="col-md-6">
-	  		<img id="pups" src="includes
-	  		/img/puppylove.png" class="img-responsive thumbnail">
+	  		<img id="pups" src="/includes/img/puppylove.png" class="img-responsive thumbnail">
 			  </div>
 		</div>
-	  	<!--   -->	
 	</div>
 
 	<div class="col-md-12 zero-pad-left zero-pad-right"> <!-- Begin main search form -->

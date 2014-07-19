@@ -20,6 +20,7 @@
 
 </style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Q4UzAfKDUWGr-KbI3nj19LxBstHbRZY"></script>
+
 <script type="text/javascript">
     var map;
     function initialize() {
@@ -30,7 +31,16 @@
       map = new google.maps.Map(document.getElementById('map-canvas'),
           mapOptions);
     }
+    
+    // Define input field for autocomplete option
+    //var input = document.getElementById('addr-value');
 
+    // Call autocomplete function on defined input field
+    //var autocomplete = new google.maps.places.Autocomplete(input);
+
+    //autocomplete.bindTo('bounds', map);
+
+    // Initialize map
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 @stop
@@ -47,6 +57,7 @@
     <br>
 
     <p id="address-text"></p> <!-- Display address upon user input and button click -->
+    <div id="ajax-message"></div>
 
 </div> <!-- end left container -->
 
@@ -63,31 +74,75 @@
 
 @section('bottomscript')
 <script type="text/javascript">
+
+// var markers = [];
+var markers = new Array();
+
+// var addresses = [];
+var addresses = new Array();
+
+function LoopForever() {
+
+    addresses.forEach(function (element, index) {
+        // console.log(element);
+        // $('#address-text').html('You added: ' + address);
+
+    });
+
+} // end forever loop
+
     $('#addr-btn').click(function () {
         // Set variable address equal to user input
         var address = $('#addr-value').val();
+        // Add address to array of addresses
+        addresses.push(address);
+
+        // Update address-text with address value
+        // $('#address-text').text('You added: ' + address);
 
         // Geocode address to get lat/lng
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function(result, status) {
             
             if (status == google.maps.GeocoderStatus.OK) {
-              // console.log(result);
-
               var latLngObj = result[0]["geometry"]["location"];
-              console.log(latLngObj);
             }
 
         // Create new marker based on lat/lng
         var marker = new google.maps.Marker({
             position: latLngObj,
             map: map,
-            title:"Hello World!"
-        });
+            draggable: false,
+            title: "Hello World!"
+            //animation: google.maps.Animation.DROP,
+        });  // End Marker
 
             // Store marker in array to keep all markers on the page, and allow easy reset
+            markers.push(marker);
 
-        });
-    });
+        }); // End Geocoder
+
+        // Begin Ajax Request
+            // Define address addrData json object with address
+            var addrData = {
+                'address': address,
+            };
+
+
+            // Log it
+            // console.log('addrData: ' + addrData);
+
+            // Send ajax request via route, which returns a response of json data
+            $.ajax({
+                url: "/map",
+                type: "POST",
+                data: addrData,
+                dataType: "json",
+                success: function (data) {
+                    $('#ajax-message').html(data.message);
+                }
+            });
+    }); // End click event for addr-btn
+
 </script>
 @stop

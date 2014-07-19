@@ -30,7 +30,7 @@ $('#ajax-form').on('submit', function (e) {
             $('#ajax-message').html(data.message);
         }
     });
-});
+}); // end ajax form submit block
 
 $('.btn-ajax').on('click', function () {
 
@@ -42,7 +42,7 @@ $('.btn-ajax').on('click', function () {
     };
 
     $.ajax({
-        url: "/ajax",
+        url: "/map",
         type: "POST",
         data: toSend,
         dataType: "json",
@@ -51,7 +51,7 @@ $('.btn-ajax').on('click', function () {
         }
     });
 
-});
+}); // end btn-ajax onclick block
 
 
 </script>

@@ -101,25 +101,6 @@
 		  </div>
 		</div> <!-- end navbar -->
 
-		<!-- sidebar -->
-            <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-                <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="">
-                    <ul class="nav" id="sidebar-nav">
-                        <li class='blackfont'><a href="#section1" class="">Sidebar</a>
-                        </li>
-                        <li><a href="#section2" class=""></a>
-                        </li>
-                        <li><a href="#section3" class=""></a>
-                        </li>
-                        <li><a href="#section4" class=""></a>
-                        </li>
-                        <li><a href="#section5" class=""></a>
-                        </li>
-                        <li><a href="#section6" class=""></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <!-- / .Main content -->
    
 		<div class="container">
