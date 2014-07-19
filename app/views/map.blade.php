@@ -21,7 +21,17 @@
 </style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Q4UzAfKDUWGr-KbI3nj19LxBstHbRZY"></script>
 <script type="text/javascript">
+    var map;
+    function initialize() {
+      var mapOptions = {
+        zoom: 10,
+        center: new google.maps.LatLng(29.428459, -98.492433)
+      };
+      map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+    }
 
+    google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 @stop
 
@@ -44,6 +54,7 @@
     <div class="page-header text-right">
         <h2>Sample Map</h2>
     </div>
+
     <div id="map-canvas"/>
 
 </div> <!-- end right container -->
@@ -53,27 +64,30 @@
 @section('bottomscript')
 <script type="text/javascript">
     $('#addr-btn').click(function () {
-        // define variable address with the value of the input field above
-          var address = $('#addr-value').val();
-          console.log('Variable address: ' + address);
-          
-        // define variable latlng by calling LatLng function on address above
-          var latlng = new google.maps.LatLng(address);
-          console.log('Variable latlng: ' + latlng);
+        // Set variable address equal to user input
+        var address = $('#addr-value').val();
 
-        // Update text field above
-          $('#address-text').text('You entered: ' + address);
-
+        // Geocode address to get lat/lng
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function(result, status) {
             
             if (status == google.maps.GeocoderStatus.OK) {
-              console.log(result);
+              // console.log(result);
 
               var latLngObj = result[0]["geometry"]["location"];
               console.log(latLngObj);
             }
+
+        // Create new marker based on lat/lng
+        var marker = new google.maps.Marker({
+            position: latLngObj,
+            map: map,
+            title:"Hello World!"
         });
-    }); // end event from button click
+
+            // Store marker in array to keep all markers on the page, and allow easy reset
+
+        });
+    });
 </script>
 @stop
