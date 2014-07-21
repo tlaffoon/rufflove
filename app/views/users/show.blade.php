@@ -54,8 +54,6 @@
 	<h4>State: 		{{{ $user->state }}}								</h4>
 	<h4>Zip: 		{{{ $user->zip }}}									</h4>
 	<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
-	<h4>Image Path: {{{ $user->dog->img_path}}}						</h4>	
-
 
 	{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
@@ -72,7 +70,7 @@
 
 	</div>
 </div>
-@foreach ($user->dog as $dog)
+@foreach ($user->dogs as $dog)
 
   <div class="row">
 

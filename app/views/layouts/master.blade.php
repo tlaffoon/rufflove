@@ -42,10 +42,7 @@
 		      </button>
 		      <a class="navbar-brand" href=""> RuffLove </a>
 		    </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 			<div class="navbar-collapse collapse">
 		    	<ul class="nav navbar-nav navbar-left">
 		    		<li><a href="{{ action('HomeController@showHome')}}">Home</a></li>
@@ -56,10 +53,6 @@
 
 		    @if (Auth::check())
 		    	<ul class="nav navbar-nav navbar-left">
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 		      	  <li><a href=""> Admin Link </a></li>
 		        </ul>
 		    @endif
@@ -88,23 +81,11 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
 		          			<li role="presentation">
-<<<<<<< HEAD
-
-		          	    		<a role="menuitem" tabindex="-1" href="#">
 		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
 		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
 		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
 		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
 		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
-
-
-=======
-		          	  	    	{{ Form::open(array('action' => array('HomeController@doLogin'), 'class' => 'navbar-form form-inline', 'role' => 'menuitem', 'tabindex' => '-1')) }}
-		          	  	    		{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
-		          	  	    		{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
-		          	  				{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
->>>>>>> master
-		          	  	    	{{ Form::close() }}
 		          			</li>
 		          		</ul>
 		          	</li>
@@ -115,7 +96,7 @@
 		</div> <!-- end navbar -->
 
 		<!-- sidebar -->
-            <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+<!--             <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
                 <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="">
                     <ul class="nav" id="sidebar-nav">
                         <li class='blackfont'><a href="#section1" class="">Sidebar</a>
@@ -132,7 +113,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
             <!-- / .Main content -->
    
 		<div class="container">

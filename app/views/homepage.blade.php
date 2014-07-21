@@ -12,8 +12,10 @@
 				  <p><a class="btn btn-primary btn-lg" role="button">Search!</a></p>
 			</div>
 			<div class="col-md-6">
-	  		<img id="pups" src="/includes/img/puppylove.png" class="img-responsive thumbnail">
-			  </div>
+	  			<img id="pups" src="/includes/img/puppylove.png" class="img-responsive thumbnail">
+			</div>
+		</div>
+	</div>
 
 	<div class="clearfix"></div>
 

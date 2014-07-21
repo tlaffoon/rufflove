@@ -38,7 +38,7 @@ class HomeController extends BaseController {
 
 	public function showHome()
 	{
-		return View::make('layouts.updated-master');
+		return View::make('homepage');
 	}
 
 	public function showAdmin()
@@ -85,11 +85,6 @@ class HomeController extends BaseController {
 	{
 		return View::make('test');
 	}
-
-
-
-
-
 
 	public function doLogin() 
 	{
