@@ -56,6 +56,16 @@ class HomeController extends BaseController {
 		return View::make('map');
 	}
 
+	public function showMap2()
+	{
+		return View::make('map2');
+	}
+
+	public function showAuto() 
+	{
+		View::make('autocomplete');
+	}
+
 	public function showAjax() 
 	{
 		return View::make('ajax');

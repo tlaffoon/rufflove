@@ -16,7 +16,9 @@
 	.zero-pad-right {
 		padding-right: 0px;
 	}
-
+	.width88 {
+		width: 88%;
+	}
 	.search-bar-btn {
 		float: right;
 		position: relative;
@@ -26,19 +28,11 @@
 	.navbar {
 		border-radius: 0px;
 	}
-	#pups {
-		position: relative;
-		top: 10px;
-		right: -45px;
-	}
-	#main-header {
-		margin-top: 0px;
-		margin-bottom: 0px;
-		padding-top: 0px;
-		padding-bottom: 0px;
-	}
-	#main-header-text {
-		font-size: 100px;
+	div.pups-image {
+		content:url(/includes/img/puppylove.png);
+		position: absolute;
+		top: 76;
+		right: 175;
 	}
 	</style>
 
@@ -61,8 +55,6 @@
 		    		<li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
 		    		<li><a href="{{ action('HomeController@showSearch')}}">Find A Breeding Partner</a></li>
 		    	</ul>
-
-
 		    @if (Auth::check())
 		    	<ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
@@ -88,7 +80,6 @@
 		      			<p class="navbar-text">{{{ Auth::user()->username }}}</p>
 		      		</li>
 		        @else
-		        	<li><a href="{{ action('HomeController@showRegistration') }}"> Sign Up </a></li>
 		          	<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
@@ -106,15 +97,8 @@
 		   
 		  </div>
 		</div> <!-- end navbar -->
-
-            <!-- / .Main content -->
    
-		<div class="container">
-
             @yield('content')
-
-        </div>
-	
 
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -122,6 +106,5 @@
 		<script src="/includes/js/bloodhound.js"></script>
 
 			@yield('bottomscript')
-
 </body>
 </html>

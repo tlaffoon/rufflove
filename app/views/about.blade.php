@@ -3,13 +3,13 @@
 
 <div class="container">
 
-      <div class="page-header" id="banner">
+      <div class="page-header zero-margin-left zero-padding-left" id="banner">
         <div class="row">
-          <div class="col-lg-8 col-md-7 col-sm-6">
+          <div class="col-lg-8 col-md-7 col-sm-6 zero-margin-left zero-padding-left">
             <h1>About Ruff Love</h1>
             <p class="lead">Dating For Dogs</p>
           </div>
-          <div class="col-lg-4 col-md-5 col-sm-6">
+          <div class="col-lg-4 col-md-5 col-sm-6 zero-margin-left zero-padding-left">
             <div class="sponsor">
               <div id="md-large-widget"></div>
             </div>

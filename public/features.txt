@@ -1,0 +1,36 @@
+list of features to work on
+
+registration page: 
+https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+
+google maps on search page
+	centering based on user's location
+	ability to search within X miles of their location, or another specified location
+	plot X number of results on map at a time, correlate with pagination
+	autocompletion of addresses entered...
+
+twitter typeahead.js
+	fix background of existing dropdown
+	populate any other fields possible
+
+user roles - Entrust
+user administration - Confide
+
+video uploads - one per dog
+
+custom 404 page with cute graphic
+
+logo
+
+working contact form?
+
+twitter sidebar, side bar blog with comment count etc
+
+Steps to search view:
+
+# he's preventing default action of form submit in a different way
+
+1.  Refactor example to get a map view working with placeholder lat/lng
+2.  Take lat/lng value of address input, and save to db upon button submit
+3.  Refactor registration page to store lat/lng
+4.  

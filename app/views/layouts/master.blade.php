@@ -4,8 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/includes/css/bootstrap-amelia.css">
 	<link rel="stylesheet" href="/includes/css/rufflove.css">	
-	<link rel="icon" type="image/png" href="/includes/img/paw-print.png">
-	
+	<link rel="icon" type="image/png" href="/includes/img/favicon.ico">
 	<style type="text/css">
 	.zero-margin-left {
 		margin-left: 0px;
@@ -28,18 +27,12 @@
 	.navbar {
 		border-radius: 0px;
 	}
-	div.pups-image {
-		content:url(/includes/img/puppylove.png);
-		position: absolute;
-		top: 76;
-		right: 175;
-	}
 	</style>
 
 	@yield('topscript')
 
 </head>
-<body>
+<body onload="initialize()">
 
     <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">
@@ -128,7 +121,6 @@
 
         </div>
 	
-
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="/includes/js/typeahead.bundle.js"></script>

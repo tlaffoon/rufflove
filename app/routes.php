@@ -31,6 +31,10 @@ Route::resource('dogs', 'DogsController');
 Route::get('/test', 'HomeController@showTest');
 
 Route::get('/map', 'HomeController@showMap');  // demo map page 
+Route::get('/map2', 'HomeController@showMap2');  // demo map page 2
+Route::get('/autocomplete', 'HomeController@showAuto');
+
+
 Route::post('/map', function () {
 
     $address = Input::get('address');
