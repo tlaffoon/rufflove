@@ -11,29 +11,28 @@
 |
 */
 
-Route::get('/dogsearch', 'HomeController@showDogSearch');
-
-Route::get('/register', 'HomeController@showRegistration');
-Route::get('/about', 'HomeController@showAbout');
 Route::get('/', 'HomeController@showHome');
 
+Route::get('/about', 'HomeController@showAbout');
+Route::get('/admin', 'HomeController@showAdmin');
+
+Route::get('/dogsearch', 'HomeController@showDogSearch');
+
 Route::get('/login', 'HomeController@showLogin');
-
 Route::post('/login', 'HomeController@doLogin');
-
 Route::get('/logout', 'HomeController@doLogout');
-Route::get('/search', 'HomeController@showSearch');
 
-Route::resource('posts', 'PostsController');
-Route::resource('users', 'UsersController');
-Route::resource('dogs', 'DogsController');
+Route::get('/map', 'HomeController@showMap');  // demo map page 
+
+Route::get('/register', 'HomeController@showRegistration');
+
+Route::get('/search', 'HomeController@showSearch');
 
 Route::get('/test', 'HomeController@showTest');
 
-Route::get('/map', 'HomeController@showMap');  // demo map page 
-Route::get('/map2', 'HomeController@showMap2');  // demo map page 2
-Route::get('/autocomplete', 'HomeController@showAuto');
-
+Route::resource('dogs', 'DogsController');
+Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
 
 Route::post('/map', function () {
 

@@ -1,5 +1,8 @@
 @extends('layouts.homepage')
 
+@section('topscript')
+@stop
+
 @section('content')
 	<div id="main-header" class="jumbotron">
 		<div class="row">
@@ -11,8 +14,6 @@
 			<div class="col-md-6">
 	  		<img id="pups" src="/includes/img/puppylove.png" class="img-responsive thumbnail">
 			  </div>
-		</div>
-	</div>
 
 	<div class="clearfix"></div>
 
@@ -24,30 +25,4 @@
 @stop
 
 @section('bottomscript')
-<script type="text/javascript">
-	// var breeds = new Bloodhound({
-	//   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-	//   queryTokenizer: Bloodhound.tokenizers.whitespace,
-	//   limit: 10,
-	//   prefetch: {
-	//     url: '/includes/data/breeds.json',
-	//     filter: function(list) {
-	//       return $.map(list, function(breed) { return { name: breed }; });
-	//     }
-	//   }
-	// });
-	 
-	// // kicks off the loading/processing of `local` and `prefetch`
-	// breeds.initialize();
-	 
-	// // passing in `null` for the `options` arguments will result in the default
-	// // options being used
-	// $('#prefetch .typeahead').typeahead(null, {
-	//   name: 'breeds',
-	//   displayKey: 'name',
-	//   // `ttAdapter` wraps the suggestion engine in an adapter that
-	//   // is compatible with the typeahead jQuery plugin
-	//   source: breeds.ttAdapter()
-	// });
-</script>
 @stop

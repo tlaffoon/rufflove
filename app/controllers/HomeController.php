@@ -37,6 +37,12 @@ class HomeController extends BaseController {
 		return View::make('homepage');
 	}
 
+	public function showAdmin()
+	{
+		return View::make('admin');
+	}
+
+
 	public function showLogin()
 	{
 		return View::make('homepage');
@@ -70,6 +76,15 @@ class HomeController extends BaseController {
 	{
 		return View::make('ajax');
 	}
+
+	public function showTest2()
+	{
+		return View::make('test');
+	}
+
+
+
+
 
 
 	public function doLogin() 

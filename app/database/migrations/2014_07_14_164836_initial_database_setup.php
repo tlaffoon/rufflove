@@ -27,8 +27,12 @@ class InitialDatabaseSetup extends Migration {
             $table->string('email')->unique();
             $table->string('img_path');
             $table->string('role');
+
+            $table->float('lat', 10,6);
+            $table->float('lng', 10,6);
             $table->string('remember_token', 100)->nullable;
-            
+
+
             $table->timestamps();  
             
         });
@@ -54,7 +58,8 @@ class InitialDatabaseSetup extends Migration {
             $table->boolean('purebred');
             $table->integer('age');
             $table->integer('weight');
-            $table->string('sex');
+            $sex = array('M', 'F');
+            $table->enum('sex', $sex);
 
             $table->timestamps();
 
@@ -66,11 +71,8 @@ class InitialDatabaseSetup extends Migration {
         {
             $table->increments('id')->unsigned();
             $table->integer('dog_id')->unsigned();
-
-            $table->string('path');
-            
+            $table->string('path');          
             $table->timestamps();
-
             $table->foreign('dog_id')->references('id')->on('dogs');
         });
 	} //end function up()
