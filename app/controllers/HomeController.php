@@ -18,6 +18,9 @@ class HomeController extends BaseController {
 		return View::make('users.registration');
 	}
 
+
+	
+
 	public function showTest() {
 		return View::make('blank-template');
 	}
@@ -52,7 +55,7 @@ class HomeController extends BaseController {
 	{
 
 		$user = User::find('1');
-		return View::make('test-geo')->with('user', $user);
+		return View::make('map')->with('user', $user);
 	}
 
 	public function showTest2()

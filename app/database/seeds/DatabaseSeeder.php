@@ -1,6 +1,7 @@
 <?php
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder 
+{
 
 	/**
 	 * Run the database seeds.
@@ -67,6 +68,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.42846";
+        $user->lng = "-98.492433";
 		$user->save();
 
 		$user = new User();        
@@ -81,6 +84,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.549935";
+        $user->lng = "-98.40401";
 		$user->save();
 
 		$user = new User();      
@@ -95,6 +100,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.539573";
+        $user->lng = "-98.42883";
 		$user->save();
 
 		$user = new User();      
@@ -109,6 +116,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.560037";
+        $user->lng = "-98.435707";
 		$user->save();
 
 		$user = new User();      
@@ -123,20 +132,24 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.566981";
+        $user->lng = "-98.421465";
 		$user->save();
 
 		$user = new User();      
         $user->first_name = "Hank";
         $user->last_name = "Schrader";
         $user->email = "dogloverHS@rufflove.com";
-        $user->address =  "14034 Boulder Oaks";
+        $user->address =  "13903 Cypress Hollow Dr";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78247";
+        $user->zip = "78232";
         $user->username = "dogloverHS";
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.574577 ";
+        $user->lng = "-98.461502";
 		$user->save();
 
 		$user = new User();      
@@ -151,6 +164,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.578078";
+        $user->lng = "-98.437257";
 		$user->save();
 
 		$user = new User();      
@@ -165,6 +180,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.567215";
+        $user->lng = "-98.448589";
 		$user->save();
 
 		$user = new User();      
@@ -174,11 +191,14 @@ class UsersTableSeeder extends Seeder
         $user->address =  "12114 Ridge Summit St";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "782";
+        $user->zip = "78247";
         $user->username = "dogloverLR";
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
-
+        $user->role = "admin";
+        $user->lat = "29.555311";
+        $user->lng = "-98.433682";
+        $user->save();
 
 
         for ($i=1; $i <= 10; $i++) 
@@ -199,32 +219,11 @@ class UsersTableSeeder extends Seeder
 	        $user->save();
         } // end for loop
 	} //end function run()
+    
 }  //end class UsersTableSeeder
 
 
-class BreedsTableSeeder extends Seeder 
-{
 
-    public function run()
-    {
-        // clean out the breeds table
-        DB::table('breeds')->delete();
-
-        // load contents of breeds file
-        ini_set('auto_detect_line_endings', true);
-        $breedsFile = storage_path() . '/csv/breeds.txt';
-        $breeds = file($breedsFile);
-        // loop through and insert into db  
-        foreach ($breeds as $breed)
-        {
-            $breed = trim($breed);
-
-            $dbBreed = new Breed();
-            $dbBreed->name = $breed;
-            $dbBreed->save();
-        } //end foreach 
-    } //function run()
-} //class BreedsTableSeeder
 		
 class DogsTableSeeder extends Seeder 
 {

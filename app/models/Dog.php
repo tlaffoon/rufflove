@@ -30,6 +30,22 @@ class Dog extends BaseModel {
         return $this->belongsTo('Breed');
     }
 
+
+
+
+
+
+    public function scopeSearchBreed($query, $breed)
+    {
+      $query->whereHas('breed', function ($q) use ($breed) {
+        $q->where('name', 'like', "%{$breed}%");
+      });
+    }
+
+    public function scopeWithingRadius($query, $radius)
+    {
+      $query->where(...); // do math here
+    }
     // public function image() {
     //     return $this->hasMany('DogImage');
     // }

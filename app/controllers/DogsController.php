@@ -23,23 +23,23 @@ class DogsController extends \BaseController {
 		 	$dogs = Dog::where('name', 'LIKE', "%$queryString%")->orderBy('name')->paginate(5);
 		}
 
-		elseif (Input::has('search-breed')) {
-
-			
-		 	$dogs = Dog::whereHas('breed', function($q)
+		elseif (Input::has('search-breed')) 
+		{
+			$dogs = Dog::whereHas('breed', function($q)	 	
 		 	{
 		 		$queryString = Input::get('search-breed');
 		 	    $q->where('name', 'LIKE', "%$queryString%");
 
 		 	})->orderBy('name')->paginate(5);
-		}
+		
+		} //end elseif
 
 		else {
 			$dogs = Dog::orderBy('name')->paginate(5);
-		}
+			} //end else
 		
 	    return View::make('dogs.index')->with(array('dogs' => $dogs));
-	}
+	} //end function index()
 
 
 	/**

@@ -1,11 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-class DogImage extends BaseModel 
-{
-=======
+
 class DogImage extends BaseModel {
->>>>>>> master
+
 
     /**
      * The database table used by the model.
@@ -19,7 +16,7 @@ class DogImage extends BaseModel {
      *
      * @var array
      */
-<<<<<<< HEAD
+
 
     
         // protected $hidden = array('password', 'remember_token');
@@ -44,13 +41,8 @@ class DogImage extends BaseModel {
         $image->move($systemPath, $imageName);
         $this->img_path = '/' . $this->imgDir . '/' . $imageName;        
     } //function addUploadedImage
-=======
 
-    public function dog() {
-        return $this->belongsTo('Dog');
-    }
-}
 
->>>>>>> master
+
 
 } //class DogImage
