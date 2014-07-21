@@ -219,10 +219,10 @@
        <li class="has-children"><a href="#">Administrator</a>
         @endif
         <ul>
-        @if (Auth::user()->role == 'admin')
+       
          <li><a href="your-link-here.html">My Account</a></li>
          <li><a href="{{ action('UsersController@index') }}"> User Administration </a></li>
-        @endif
+   
           <ul>
            <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
            <li><a href="your-link-here.html">Services Grand Child Link 2</a></li>
@@ -233,7 +233,7 @@
         </ul>
        </li>
        <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
-       <li><p class="navbar-text">{{{ Auth::user()->username }}}</p></li>
+       <li><p class="navbar-text"></p></li>
       </ul>
       
      </nav>
