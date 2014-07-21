@@ -19,7 +19,7 @@ class Breed extends Eloquent {
             'name'  => 'required',
         );
 
-    public function dog() {
+    public function dogs() {
         return $this->hasMany('Dog');
     }
 }

@@ -4,7 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/includes/css/bootstrap-amelia.css">
 	<link rel="stylesheet" href="/includes/css/rufflove.css">	
-	<link rel="icon" type="image/png" href="/includes/img/favicon.ico">
+	<link rel="icon" type="image/png" href="/includes/img/paw-print.png">
+	
 	<style type="text/css">
 	.zero-margin-left {
 		margin-left: 0px;
@@ -27,12 +28,18 @@
 	.navbar {
 		border-radius: 0px;
 	}
+	div.pups-image {
+		content:url(/includes/img/puppylove.png);
+		position: absolute;
+		top: 76;
+		right: 175;
+	}
 	</style>
 
 	@yield('topscript')
 
 </head>
-<body onload="initialize()">
+<body>
 
     <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">
@@ -42,15 +49,12 @@
 		      </button>
 		      <a class="navbar-brand" href=""> RuffLove </a>
 		    </div>
-
 			<div class="navbar-collapse collapse">
 		    	<ul class="nav navbar-nav navbar-left">
 		    		<li><a href="{{ action('HomeController@showHome')}}">Home</a></li>
 		    		<li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
 		    		<li><a href="{{ action('HomeController@showSearch')}}">Find A Breeding Partner</a></li>
 		    	</ul>
-
-
 		    @if (Auth::check())
 		    	<ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
@@ -76,16 +80,15 @@
 		      			<p class="navbar-text">{{{ Auth::user()->username }}}</p>
 		      		</li>
 		        @else
-		        	<li><a href="{{ action('HomeController@showRegistration') }}"> Sign Up </a></li>
 		          	<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <span class="caret"></span></a>
 		          		<ul class="dropdown-menu embedded-form" role="menu" aria-labelledby="dropdownMenu1">
 		          			<li role="presentation">
-		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
-		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
-		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
-		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
-		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
+		          	  	    	{{ Form::open(array('action' => array('HomeController@doLogin'), 'class' => 'navbar-form form-inline', 'role' => 'menuitem', 'tabindex' => '-1')) }}
+		          	  	    		{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
+		          	  	    		{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
+		          	  				{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
+		          	  	    	{{ Form::close() }}
 		          			</li>
 		          		</ul>
 		          	</li>
@@ -94,34 +97,14 @@
 		   
 		  </div>
 		</div> <!-- end navbar -->
-
-		<!-- sidebar -->
-<!--             <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-                <div data-spy="affix" data-offset-top="45" data-offset-bottom="90" class="">
-                    <ul class="nav" id="sidebar-nav">
-                        <li class='blackfont'><a href="#section1" class="">Sidebar</a>
-                        </li>
-                        <li><a href="#section2" class=""></a>
-                        </li>
-                        <li><a href="#section3" class=""></a>
-                        </li>
-                        <li><a href="#section4" class=""></a>
-                        </li>
-                        <li><a href="#section5" class=""></a>
-                        </li>
-                        <li><a href="#section6" class=""></a>
-                        </li>
-                    </ul>
-                </div>
-            </div> -->
-            <!-- / .Main content -->
    
-		<div class="container">
-
+<!-- 		<div class="container">
+ -->
             @yield('content')
 
-        </div>
-	
+<!--         </div>
+ -->	
+
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="/includes/js/typeahead.bundle.js"></script>
