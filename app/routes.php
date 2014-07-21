@@ -98,3 +98,4 @@ Route::get('test', function () {
     // clear memory resources
     $image->clear(); 
     $image->destroy();
+}
