@@ -1,0 +1,1144 @@
+<!--[if IE ]><![endif]--> 
+<!doctype html>
+<!--[if lt IE 8]> <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]> <html class="no-js lt-ie9 ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]> <html class="no-js lt-ie10 ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+ <title>I'm Different: 240px and Up Wrapper</title>
+ 
+ <!-- Bootstrap core CSS use 3.1.1 and up framework :: this is the base css without any color changes -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+ <!-- Way Better Bootstrap Modals INSTRUCTIONS: https://github.com/jschr/bootstrap-modal/ -->
+ <!-- DEMO:: http://jschr.github.io/bootstrap-modal/bs3.html -->
+<link href="assets/css/bootstrap-modal.css" rel="stylesheet" type="text/css">
+ 
+ <!-- Google Font(s) -->
+ <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,900,900italic,700,700italic,600,600italic,200,200italic' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+ 
+ <!-- Wrapper and Supporting Styles -->
+ <link href="assets/css/different_base.css" rel="stylesheet" type="text/css">
+ <!-- ####### Put your color css last class 'base-color' is only used for demo ######### -->
+<link href="assets/css/colors/black-white.css" class="base-color" rel="stylesheet" type="text/css">
+
+ 
+ <!-- SCRIPTS IN HEAD ============================================== -->
+ 
+ <script src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+ 
+ <!--	NOTE:: jquery 2.x does not support IE 8 so version 1.9.1 is used for older versions of IE
+				:: calling jQuery in the head for ajax work if necessary.
+				-->
+ <!--[if gt IE 8]><!-->
+		<script src="assets/js/jquery.min.2.0.3.js"></script>
+		<!--<![endif]-->
+ <!--[if lt IE 9]>
+		<script src="assets/js/1.9.1-jquery.min.js"></script>
+		<![endif]-->
+ 
+ <!-- WINDOWS 8 Phones BUG FIX -->
+ <script src="assets/js/windows-fix.js"></script>
+ 
+ <!--[if lt IE 9]>
+  <script type="text/javascript" src="assets/js/selectivizr.js"></script>
+<![endif]-->
+ 
+<!-- ========= GENERATE CODE AND TOUCH ICONS http://iconifier.net/ =========== -->
+
+
+<style>
+  /* ============== demo css ONLY ============ */
+  .ks .page-header {margin-top:0;}
+  .ks .btn {margin-bottom:5px;}
+  .panel-body.demo-img img {float:left;margin:0 10px 10px}
+  .ks .label {display:inline-block;font-size:110%;margin:0 5px 5px 0} 
+</style>
+
+
+ 
+</head>
+
+
+<body>
+
+<!-- accessibility skip to nav skip content -->
+<ul class="sr-only" id="top">
+ <li><a href="#nav" title="Skip to navigation" accesskey="n">Skip to Navigation</a></li>
+ <li><a href="#page" title="Skip to content" accesskey="c">Skip to Content</a></li>
+</ul>
+<!--  /.sr-only accessibility-->
+
+<div id="site-wrapper">
+ 
+ <!-- ____________ HEADER _______________  -->
+ 
+ <header class="header clearfix"> 
+  
+  <!-- ____________ BEGIN NAV BAR WRAPPER _______________  -->
+  <div class="nav-wrapper">
+  
+   <div class="mobile-menu-bar clearfix visible-xs">
+    <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="toggle-search"><i class="fa fa-search"></i></a>
+    <a href="#" class="toggle-login"><i class="fa fa-sign-in"></i></a>
+    <a href="#" class="toggle-signup"><i class="fa fa-pencil"></i></a>
+    <!-- add your phone number --> 
+    <a href="tel:000-000-0000"><i class="fa fa-phone fw"></i></a>
+   </div>
+   
+   <!-- this tool-bar is only on tablets and desktop device widths -->
+   <div class="tool-bar hidden-xs">
+    <ul>
+     <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a> </li>
+     <li class="divider tb-left OR"><!-- divider --></li>
+     <li class="tb-left"> <a href="#" class="toggle-signup"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a> </li>
+     <li class="tb-right"><a href="#" class="toggle-search tooltip-hover" data-placement="left" title="Search"><i class="fa fa-search"></i></a></li>
+     <li class="divider tb-right"><!-- divider --></li>
+     <li class="tb-phone tb-right"> Support: <span>1.888.555.1234</span></li>
+     <li class="divider tb-right"><!-- divider --></li>
+     <li class="tb-phone tb-right"><a href="your-link-here.html">Contact</a></li>
+     </ul>
+   </div>
+   <!--/tool-bar --> 
+   
+   <!-- ____________ SEARCH PANEL _______________  -->
+   
+   <div class="search-panel">
+    <form role="form">
+     <input type="search" placeholder="Enter search term and press enter" class="form-control">
+    </form>
+   </div>
+   
+   
+   <!-- ____________ LOGIN PANEL _______________  --> 
+   
+   <div class="login-panel">
+    <div class="row">
+    
+     <!-- col-ms-6 non-bootstrap column for 480px - 767px -->
+     <div class="col-sm-6 col-lg-4 col-ms-6">
+      <h3 class="title">Social Login</h3>
+      <ul class="list-unstyled social-user">
+       <li><a href="#" title="Login with Facebook" class="facebook"><i class="fa fa-facebook"></i><span>Login with Facebook</span></a></li>
+       <li><a href="#" title="Login with Google Plus" class="google"><i class="fa fa-google-plus"></i><span>Login with Google</span></a></li>
+       <li><a href="#" title="Login with Twitter" class="twitter"><i class="fa fa-twitter"></i><span>Login with Twitter</span></a></li>
+       <li><a href="#" title="Login with Wordpress" class="wordpress"><i class="fa fa-wordpress"></i><span>Login with Wordpress</span></a></li>
+      </ul>
+      <!-- /.social-user --> 
+      <p><a href="your-link-here.html">Forgot your password?</a> <br>
+       Don't have an account yet? <a href="#" class="toggle-signup">Sign up</a> </p>
+     </div><!-- /col-sm-6 col-lg-4 col-ms-6-->
+    
+     <!-- col-ms-6 non-bootstrap column for 480px - 767px -->
+     <div class="col-sm-6 col-lg-4 col-ms-6">
+      <h3 class="title">Sign In</h3>
+      <form role="form" action="your-login-script-goes-here.php">
+       <div class="form-group">
+        <input type="email" class="form-control" placeholder="Enter email">
+       </div>
+       <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password">
+       </div>
+       <div class="form-group checkbox small">
+        <label>
+         <input type="checkbox">
+         Remember Me </label>
+       </div>
+       <p class="text-center">
+       <button class="btn btn-default btn-custom" type="submit"><i class="fa fa-lock"></i> Sign in</button>
+       </p>
+      </form>
+     </div><!-- /col-sm-6 col-lg-4 col-ms-6-->
+     
+    </div>
+    <!-- /.row-->
+    
+   </div>
+   <!-- /.login-panel--> 
+   
+   
+   <!-- ____________ SIGNUP PANEL _______________  --> 
+
+   <div class="signup-panel">
+    <div class="row">
+         
+     <!-- col-ms-6 non-bootstrap column for 480px - 767px -->
+     <div class="col-sm-6 col-lg-4 col-ms-6">
+      <h3 class="title">Sign Up with...</h3>
+      <ul class="list-unstyled social-user">
+       <li><a href="#" title="Signup with Facebook" class="facebook"><i class="fa fa-facebook"></i><span>Signup with Facebook</span></a></li>
+       <li><a href="#" title="Signup with Google Plus" class="google"><i class="fa fa-google-plus"></i><span>Signup with Google</span></a></li>
+       <li><a href="#" title="Signup with Twitter" class="twitter"><i class="fa fa-twitter"></i><span>Signup with Twitter</span></a></li>
+       <li><a href="#" title="Signup with Wordpress" class="wordpress"><i class="fa fa-wordpress"></i><span>Signup with Wordpress</span></a></li>
+      </ul>
+      <!-- /.social-user --> 
+       <p>Already have an account? <a href="#" class="toggle-login">Login</a></p>
+    </div><!-- /col-sm-6 col-lg-4 col-ms-6-->
+
+     <!-- col-ms-6 non-bootstrap column for 480px - 767px -->
+     <div class="col-sm-6 col-lg-4 col-ms-6">
+      <h3 class="title">Sign Up</h3>
+      <form role="form" action="your-registrtation-script-goes-here.php">
+       <div class="form-group">
+        <input type="email" class="form-control" placeholder="Enter email">
+       </div>
+       <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password">
+       </div>
+       <p class="text-center">
+       <button class="btn btn-default btn-custom" type="submit"><i class="fa fa-lock"></i> Register</button>
+       </p>
+      </form>
+     </div><!-- /col-sm-6 col-lg-4 col-ms-6-->
+
+
+    </div>
+    <!-- /.row-->
+    
+   </div>
+   <!-- /.signup-panel--> 
+   
+      
+   <!-- ____________ PRIMARY MENU _______________  -->
+   
+   <!-- 7 main links max with short titles as per most sites in English  if you add more or longer titles the CSS will need to be adjusted per media query -->
+   
+   <nav class="nav-bar" id="nav" role="navigation">
+   
+    <ul class="primary-nav">
+     <li><a href="index.html">Home</a></li> <!-- add class .active on li item when the page is current -->
+     <li><a href="#about-different" data-toggle="modal">About Different</a></li>
+     <li class="has-children"><a href="#">Portfolio</a> <!-- add class .has-children on li item if the li has babies -->
+      <ul>
+       <li><a href="your-link-here.html">Portfolio Child Link 1</a></li>
+       <li><a href="your-link-here.html">Portfolio Child Link 2</a></li>
+       <li class="has-children"><a href="#">Portfolio Child w/Child Trigger</a>
+        <ul>
+         <li><a href="your-link-here.html">Portfolio Grand Child Link 1</a></li>
+         <li><a href="your-link-here.html">Portfolio Grand Child Link 2</a></li>
+        </ul>
+       </li>
+       <li><a href="your-link-here.html">Portfolio Child Link 3</a></li>
+       <li><a href="your-link-here.html">Portfolio Child Link 4</a></li>
+      </ul>
+     </li>
+     <li class="has-children"><a href="#">Services</a>
+      <ul>
+       <li><a href="your-link-here.html">Services Child Link 1</a></li>
+       <li><a href="your-link-here.html">Services Child Link 2</a></li>
+       <li class="has-children"><a href="#">Services Child w/Child Trigger</a>
+        <ul>
+         <li><a href="your-link-here.html">Services Grand Child Link 1</a></li>
+         <li><a href="your-link-here.html">Services Grand Child Link 2</a></li>
+        </ul>
+       </li>
+       <li><a href="your-link-here.html">Services Child Link 3</a></li>
+       <li><a href="your-link-here.html">Services Child Link 4</a></li>
+      </ul>
+     </li>
+     <li><a href="your-link-here.html">Blog</a></li>
+     <li class="active"><a href="your-link-here.html">Bootstrap</a></li>
+    </ul>
+    
+   </nav>
+  </div>
+  <!-- /nav-wrapper --> 
+  
+  <!-- ____________ LOGO _______________  -->
+  <div class="logo-wrapper clearfix">
+   <a href="#" class="clearfix">
+   <img id="logo" src="assets/images/logo.png" alt="company name">
+   </a>
+   <span><!--logo embelishment --></span>
+  </div>
+  <!-- /logo-wrapper clearfix --> 
+  
+  <!-- ____________ SUB BAR  _______________  -->
+  <ul class="sub-bar clearfix">
+   
+  <!-- tagline hides at 767px --> 
+   <li class="tagline sb-left hidden-xs">Just another excellent tagline</li>
+         
+   <li class="visible-xs sb-left"><a href="#"><i class="fa fa-envelope-o fw"></i> Contact</a></li>
+   
+   <li class="visible-xs sb-left"><a href="#" class="toggle-social"><i class="fa fa-comments fw"></i> Follow</a></li>
+
+   <li class="sb-right sb-social-wrapper">
+   <ul class="social">
+    <li><a href="#" class="fa fa-facebook tooltip-hover" data-placement="bottom" title="Follow Us on Facebook"></a></li>
+    <li><a href="#" class="fa fa-google-plus tooltip-hover" data-placement="bottom" title="Follow Us on Google Plus"></a></li>
+    <li><a href="#" class="fa fa-twitter tooltip-hover" data-placement="bottom" title="Follow Us on Twitter"></a></li>
+    <li><a href="#" class="fa fa-github tooltip-hover" data-placement="bottom" title="Visit our GitHub Page"></a></li>
+    <li><a href="#" class="fa fa-linkedin tooltip-hover" data-placement="bottom" title="Follow Us on LinkedIn"></a></li>
+    <li><a href="#" class="fa fa-instagram tooltip-hover" data-placement="bottom" title="Follow Us on Instagram"></a></li>
+    <li class="last"><a href="#" class="fa fa-rss tooltip-hover" data-placement="bottom" title="Subscribe to Our RSS Feed"></a></li>
+    <!--add class last to last visible item -->
+    <li class="closeMe"><a href="#" class="fa fa-times visible-xs"></a></li>
+    <!--this is visible when screen is small this when small-->
+   </ul>
+   <!-- .social inside sub-bar -->
+   </li>
+   
+  </ul>
+  <!-- /sub-bar --> 
+  
+ </header>
+ <!-- /header --> 
+ 
+ 
+ 
+ <!-- ____________ BEGIN MAIN PAGE CONENT  _______________  -->
+
+ 
+ <div class="page-content clearfix" id="page">  
+  
+  <div class="container">
+
+
+<h1 class="page-header display-text">
+   Not a Theme...
+</h1>
+ 
+  <p class="lead">
+  This is NOT a theme. It's a wrapper for the contents found in this column. You provide the guts. It does not provide a skin for Bootstrap's various components or additional pages/layouts.
+  </p>
+  
+
+
+
+
+  <hr class="vertical-spacer">
+
+  <!-- BOOTSTRAP KITCHEN SINK  -->
+
+  <!-- ################# ________________ Always Check the Latest GetBootstrap.com Documentation to Get Your Html for Your Project ############## __________________ -->
+  <div class="ks">
+  <div class="row">
+   <div class="col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Tables
+     </div>
+     <div class="panel-body">
+      <table class="table table-hover">
+       <thead>
+        <tr>
+         <th>#</th>
+         <th>First Name</th>
+         <th>Tables</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>1</td>
+         <td>Michael</td>
+         <td>Are formatted like this</td>
+        </tr>
+        <tr>
+         <td>2</td>
+         <td>Lucille</td>
+         <td>Do you like them?</td>
+        </tr>
+        <tr class="success">
+         <td>3</td>
+         <td>Success</td>
+         <td></td>
+        </tr>
+        <tr class="danger">
+         <td>4</td>
+         <td>Danger</td>
+         <td></td>
+        </tr>
+        <tr class="warning">
+         <td>5</td>
+         <td>Warning</td>
+         <td></td>
+        </tr>
+        <tr class="active">
+         <td>6</td>
+         <td>Active</td>
+         <td></td>
+        </tr>
+       </tbody>
+      </table>
+      <table class="table table-striped table-bordered table-condensed">
+       <thead>
+        <tr>
+         <th>#</th>
+         <th>First Name</th>
+         <th>Tables</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>1</td>
+         <td>Michael</td>
+         <td>This one is bordered and condensed</td>
+        </tr>
+        <tr>
+         <td>2</td>
+         <td>Lucille</td>
+         <td>Do you still like it?</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Content Formatting
+     </div>
+     <div class="panel-body">
+      <p class="lead">This is a lead paragraph.</p>
+      <p>This is an <b>ordinary paragraph</b> that is <i>long enough</i> to wrap to <u>multiple lines</u> so that you can see how the line spacing looks.</p>
+      <p class="text-muted">Muted color paragraph.</p>
+      <p class="text-warning">Warning color paragraph.</p>
+      <p class="text-danger">Danger color paragraph.</p>
+      <p class="text-info">Info color paragraph.</p>
+      <p class="text-success">Success color paragraph.</p>
+      <p><small>This is text in a <code>small</code> wrapper. <abbr title="No Big Deal">NBD</abbr>, right?</small></p>
+      <hr>
+      <address>
+      <strong>Twitter, Inc.</strong><br>
+      795 Folsom Ave, Suite 600<br>
+      San Francisco, CA 94107<br>
+      <abbr title="Phone">P:</abbr> (123) 456-7890
+      </address>
+      <address class="col-6">
+      <strong>Full Name</strong><br>
+      <a href="mailto:#">first.last@example.com</a>
+      </address>
+      <hr>
+      <blockquote>Here's what a blockquote looks like in Bootstrap. <small>Use <code>small</code> to identify the source.</small> </blockquote>
+      <hr>
+      <div class="row">
+       <div class="col-xs-6">
+        <ul>
+         <li>Normal Unordered List</li>
+         <li>Can Also Work
+          <ul>
+           <li>With Nested Children</li>
+          </ul>
+         </li>
+         <li>Adds Bullets to Page</li>
+        </ul>
+       </div>
+       <div class="col-xs-6">
+        <ol>
+         <li>Normal Ordered List</li>
+         <li>Can Also Work
+          <ol>
+           <li>With Nested Children</li>
+          </ol>
+         </li>
+         <li>Adds Bullets to Page</li>
+        </ol>
+       </div>
+      </div>
+      <hr>
+      <pre>function preFormatting() {  // looks like this;  var something = somethingElse;  return true;}</pre>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    Forms
+   </div>
+   <div class="panel-body">
+    <form>
+     <fieldset>
+      <legend>Legend</legend>
+      <div class="form-group">
+       <label for="exampleInputEmail">Email address</label>
+       <input type="text" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+       <label for="exampleInputPassword">Password</label>
+       <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+      </div>
+      <div class="form-group">
+       <label for="exampleInputFile">File input</label>
+       <input type="file" id="exampleInputFile">
+       <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="checkbox" style="line-height:normal">
+       <!-- this was added since there's something wrong with Bootstrap's line-height in this type of form -->
+       
+       <label>
+        <input type="checkbox">
+        Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+     </fieldset>
+    </form>
+    <hr>
+    <form class="form-inline">
+     <input type="text" class="form-control" placeholder="Email" style="width: 200px;">
+     <input type="password" class="form-control" placeholder="Password" style="width: 200px;">
+     <div class="checkbox">
+      <label>
+       <input type="checkbox">
+       Remember me</label>
+     </div>
+     <button type="submit" class="btn btn-default">Sign in</button>
+    </form>
+    <hr>
+    <form class="form-horizontal">
+     <div class="form-group">
+      <label for="inputEmail" class="col-md-2 control-label">Email</label>
+      <div class="col-md-10">
+       <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+      </div>
+     </div>
+     <div class="form-group has-warning">
+      <label for="inputEmail2" class="col-md-2 control-label">Email</label>
+      <div class="col-md-10">
+       <input type="text" class="form-control" id="inputEmail2" placeholder="Email">
+      </div>
+     </div>
+     <div class="form-group has-error">
+      <label for="inputEmail3" class="col-md-2 control-label">Email</label>
+      <div class="col-md-10">
+       <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+      </div>
+     </div>
+     <div class="form-group has-success">
+      <label for="inputEmail4" class="col-md-2 control-label">Email</label>
+      <div class="col-md-10">
+       <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
+      </div>
+     </div>
+     <div class="form-group">
+      <label for="inputPassword" class="col-md-2 control-label">Password</label>
+      <div class="col-md-10">
+       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+       <div class="checkbox">
+        <label>
+         <input type="checkbox">
+         Remember me</label>
+       </div>
+       <button type="submit" class="btn btn-default">Sign in</button>
+      </div>
+     </div>
+    </form>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-9">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Buttons
+     </div>
+     <div class="panel-body">
+      <p>
+       <button type="button" class="btn btn-lg btn-default">Default</button>
+       <button type="button" class="btn btn-lg btn-primary">Primary</button>
+       <button type="button" class="btn btn-lg btn-success">Success</button>
+       <button type="button" class="btn btn-lg btn-info">Info</button>
+       <button type="button" class="btn btn-lg btn-warning">Warning</button>
+       <button type="button" class="btn btn-lg btn-danger">Danger</button>
+       <button type="button" class="btn btn-lg btn-link">Link</button>
+      </p>
+      <p>
+       <button type="button" class="btn btn-default">Default</button>
+       <button type="button" class="btn btn-primary">Primary</button>
+       <button type="button" class="btn btn-success">Success</button>
+       <button type="button" class="btn btn-info">Info</button>
+       <button type="button" class="btn btn-warning">Warning</button>
+       <button type="button" class="btn btn-danger">Danger</button>
+       <button type="button" class="btn btn-link">Link</button>
+      </p>
+      <p>
+       <button type="button" class="btn btn-sm btn-default">Default</button>
+       <button type="button" class="btn btn-sm btn-primary">Primary</button>
+       <button type="button" class="btn btn-sm btn-success">Success</button>
+       <button type="button" class="btn btn-sm btn-info">Info</button>
+       <button type="button" class="btn btn-sm btn-warning">Warning</button>
+       <button type="button" class="btn btn-sm btn-danger">Danger</button>
+       <button type="button" class="btn btn-sm btn-link">Link</button>
+      </p>
+      <p>
+       <button type="button" class="btn btn-xs btn-default">Default</button>
+       <button type="button" class="btn btn-xs btn-primary">Primary</button>
+       <button type="button" class="btn btn-xs btn-success">Success</button>
+       <button type="button" class="btn btn-xs btn-info">Info</button>
+       <button type="button" class="btn btn-xs btn-warning">Warning</button>
+       <button type="button" class="btn btn-xs btn-danger">Danger</button>
+       <button type="button" class="btn btn-xs btn-link">Link</button>
+      </p>
+      <p>
+       <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Glyphicons!</button>
+       <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
+       <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+       <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-info-sign"></span></button>
+       <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-flash"></span></button>
+       <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-ban-circle"></span></button>
+       <button type="button" class="btn btn-link"><span class="glyphicon glyphicon-arrow-right"></span></button>
+      </p>
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Images
+     </div>
+     <div class="panel-body demo-img">
+      <p><img src="http://placehold.it/100x100" class="img-rounded img-responsive" alt=""> <img src="http://placehold.it/100x100" class="img-circle img-responsive" alt=""> <img src="http://placehold.it/100x100" class="img-thumbnail img-responsive" alt=""></p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-12">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Input Groups
+     </div>
+     <div class="panel-body">
+      <div class="input-group">
+       <span class="input-group-btn">
+       <button class="btn btn-default" type="button">Go!</button>
+       </span>
+       <input type="text" class="form-control" placeholder="Username">
+      </div>
+      <br>
+      <div class="input-group">
+       <input type="text" class="form-control input-large">
+       <span class="input-group-addon input-large">.00</span>
+      </div>
+      <br>
+      <div class="input-group">
+       <span class="input-group-addon">$</span>
+       <input type="text" class="form-control">
+       <span class="input-group-addon">.00</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Navs
+     </div>
+     <div class="panel-body clearfix">
+      <ul class="nav nav-tabs">
+       <li class="active"> <a href="#">Home</a> </li>
+       <li> <a href="#">About</a> </li>
+      </ul>
+      <p></p>
+      <p></p>
+      <ul class="nav nav-pills">
+       <li class="active"> <a href="#">Home</a> </li>
+       <li> <a href="#">About</a> </li>
+      </ul>
+      <p></p>
+      <p></p>
+      <ul class="nav nav-stacked nav-pills">
+       <li class="active"> <a href="#">Home</a> </li>
+       <li> <a href="#">About</a> </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Navbar
+     </div>
+     <div class="panel-body">
+      <p></p>
+      <div class="navbar">
+       <div class="navbar-header">
+        <a href="#" class="navbar-brand">Your Company</a>
+       </div>
+       <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+         <li class="active"> <a href="#">Home</a> </li>
+         <li> <a href="#">About</a> </li>
+         <li> <a href="#">Contact</a> </li>
+        </ul>
+       </div>
+      </div>
+      <div class="navbar navbar-inverse">
+       <div class="navbar-header">
+        <a href="#" class="navbar-brand">Your Company</a>
+       </div>
+       <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+         <li class="active"> <a href="#">Home</a> </li>
+         <li> <a href="#">About</a> </li>
+         <li> <a href="#">Contact</a> </li>
+        </ul>
+       </div>
+      </div>
+      <div class="navbar">
+       <div class="collapse navbar-collapse">
+        <a class="btn btn-primary navbar-btn">Navbar Button</a>
+        <p class="navbar-text navbar-right">Navbar Text</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Pagination
+     </div>
+     <div class="panel-body">
+      <ul class="pagination" style="margin-right: 10px;">
+       <li> <a href="#">Prev</a> </li>
+       <li> <a href="#">1</a> </li>
+       <li> <a href="#">2</a> </li>
+       <li> <a href="#">3</a> </li>
+       <li> <a href="#">4</a> </li>
+       <li> <a href="#">Next</a> </li>
+      </ul>
+      <ul class="pagination pagination-lg">
+       <li> <a href="#">Prev</a> </li>
+       <li> <a href="#">1</a> </li>
+       <li> <a href="#">2</a> </li>
+       <li> <a href="#">3</a> </li>
+       <li> <a href="#">4</a> </li>
+       <li> <a href="#">Next</a> </li>
+      </ul>
+      <ul class="pager">
+       <li> <a href="#">Prev</a> </li>
+       <li> <a href="#">Next</a> </li>
+      </ul>
+     </div>
+    </div>
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Labels and Badges
+     </div>
+     <div class="panel-body">
+      <span class="label label-default">Default</span> 
+      <span class="label label-success">Success</span>
+      <span class="label label-warning">Warning</span>
+      <span class="label label-danger">Danger</span>
+      <span class="label label-info">Info</span>
+      <p class="lead"><a href="#">Inbox <span class="badge">42</span></a></p>
+     </div>
+    </div>
+   </div>
+   <div class="col-md-6">
+    <div class="panel panel-default" >
+     <div class="panel-heading">
+      Alerts
+     </div>
+     <div class="panel-body">
+      <div>
+       <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+       </div>
+       <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+       </div>
+       <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+       </div>
+       <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+       </div>
+       <div class="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4>Warning!</h4>
+        <p>This is a block style alert.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Progress Bars
+     </div>
+     <div class="panel-body">
+      <div class="progress">
+       <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        <span class="sr-only">60% Complete</span>
+       </div>
+      </div>
+      <div class="progress">
+       <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">40% Complete (success)</span>
+       </div>
+      </div>
+      <div class="progress">
+       <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+        <span class="sr-only">20% Complete</span>
+       </div>
+      </div>
+      <div class="progress">
+       <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+        <span class="sr-only">60% Complete (warning)</span>
+       </div>
+      </div>
+      <div class="progress">
+       <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+        <span class="sr-only">80% Complete (danger)</span>
+       </div>
+      </div>
+      <div class="progress">
+       <div class="progress-bar progress-bar-success" style="width: 35%">
+        <span class="sr-only">35% Complete (success)</span>
+       </div>
+       <div class="progress-bar progress-bar-warning" style="width: 20%">
+        <span class="sr-only">20% Complete (warning)</span>
+       </div>
+       <div class="progress-bar progress-bar-danger" style="width: 10%">
+        <span class='sr-only'>10% Complete (danger)</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      Media Object
+     </div>
+     <div class="panel-body">
+      <p></p>
+      <div class="media">
+       <a class="pull-left" href="#"> <img class="media-object" src="http://placehold.it/64x64" alt=""> </a>
+       <div class="media-body">
+        <h4 class="media-heading">Media heading</h4>
+        <p>This is the content for your media.</p>
+        <div class="media">
+         <a class="pull-left" href="#"> <img class="media-object" src="http://placehold.it/64x64" alt=""> </a>
+         <div class="media-body">
+          <h4 class="media-heading">Media heading</h4>
+          <p>This is the content for your media.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-4">
+    <ul class="list-group">
+     <li class="list-group-item">Cras justo odio</li>
+     <li class="list-group-item">Dapibus ac facilisis in</li>
+     <li class="list-group-item">Morbi leo risus</li>
+     <li class="list-group-item">Porta ac consectetur ac</li>
+     <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+   </div>
+   <div class="col-md-4">
+    <div class="list-group">
+     <a href="#" class="list-group-item active"> Cras justo odio </a><a href="#" class="list-group-item">Dapibus ac facilisis in </a><a href="#" class="list-group-item">Morbi leo risus </a><a href="#" class="list-group-item">Porta ac consectetur ac </a><a href="#" class="list-group-item">Vestibulum at eros </a>
+    </div>
+   </div>
+   <div class="col-md-4">
+    <div class="list-group">
+     <a href="#" class="list-group-item active">
+     <h4 class="list-group-item-heading">List group item heading</h4>
+     <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+     </a><a href="#" class="list-group-item">
+     <h4 class="list-group-item-heading">List group item heading</h4>
+     <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+     </a><a href="#" class="list-group-item">
+     <h4 class="list-group-item-heading">List group item heading</h4>
+     <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+     </a>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-3">
+    <div class="panel panel-primary">
+     <div class="panel-heading">
+      This is a header
+     </div>
+     <p class="panel-body">This is a panel</p>
+     <div class="panel-footer">
+      This is a footer
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3">
+    <div class="panel panel-success">
+     <div class="panel-heading">
+      This is a header
+     </div>
+     <div class="panel-body">
+      This is a panel
+     </div>
+     <div class="panel-footer">
+      This is a footer
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3">
+    <div class="panel panel-danger">
+     <div class="panel-heading">
+      This is a header
+     </div>
+     <div class="panel-body">
+      This is a panel
+     </div>
+     <div class="panel-footer">
+      This is a footer
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3">
+    <div class="panel panel-warning">
+     <div class="panel-heading">
+      This is a header
+     </div>
+     <div class="panel-body">
+      This is a panel
+     </div>
+     <div class="panel-footer">
+      This is a footer
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-3">
+    <div class="panel panel-info">
+     <div class="panel-heading">
+      This is a header
+     </div>
+     <p class="panel-body">This is a panel</p>
+     <div class="panel-footer">
+      This is a footer
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      This is a header
+     </div>
+     <div class="panel-body">
+      This is a panel
+     </div>
+     <ul class="list-group list-group-flush">
+      <li class="list-group-item">First Item</li>
+      <li class="list-group-item">Second Item</li>
+      <li class="list-group-item">Third Item</li>
+     </ul>
+     <div class="panel-footer">
+      This is a footer
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3">
+    <div class="well">
+     Default Well
+    </div>
+    <div class="well well-small">
+     Small Well
+    </div>
+   </div>
+   <div class="col-md-3">
+    <div class="well well-large">
+     Large Padding Well
+    </div>
+   </div>
+  </div>
+  <!-- end Bootstrap Kitchen Sink content  -->
+  </div><!--/.ks-->
+<!--  _____________ END BOOTSTRAP KITCHEN SINK ____________ --> 
+  
+
+
+  </div>
+  <!-- /.container -->
+  
+  
+ </div>
+ <!-- / ________ END .page-content _____________ -->
+ 
+ 
+</div>
+<!-- /#site-wrapper --> 
+
+
+<!-- About Modal -->
+
+<div id="about-different" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+ <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h4 class="modal-title">About Different</h4>
+ </div>
+ <div class="modal-body">
+  <p class="text-center lead">This is NOT a theme. It's a wrapper that includes the html and css for everything but the guts of the pages. It also provides minimal styling & over-rides to the Bootstrap framework. Customize your colors and styles at the GetBoostrap.com customizer and then load up your Bootstrap css.</p>
+ </div>
+ <div class="modal-footer">
+  <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+ </div>
+</div>
+
+<!-- End About Modal -->
+
+
+
+<!-- ______________ BEGIN FOOTER ______________ -->
+
+<!-- footer uses a jquery script on the columns to make them responsive equal heights -->
+<!-- THIS USES CUSTOM COLUMNS -->
+
+<footer class="footer clearfix" id="footer">
+ <div class="clearfix">
+  <!-- do not use a row around this -->
+  
+  <div class="footer-col-1 text-right-min-width-768px">
+   <section><!-- sections around each area allow for better stacking-->
+    <h5>Contact Us</h5>
+    <address>
+    Responsive Heads Up<br>
+    1255 Nowhere Street<br>
+    Tampa, FL 33655<br>
+    <strong>phone:</strong> <a class="text-underline" href="tel:8135551234">813.555.1234</a><br>
+    <strong>fax:</strong> 813.555.1235<br>
+    <span class="overflow"><strong>email:</strong> <a class="text-underline" href="mailto:email@domain.com">email@companydomain.com</a></span>
+    </address>
+   </section>
+   
+   <hr>
+   
+   <section>
+    <h5>Follow Us</h5>
+    <ul class="social list-unstyled clearfix">
+     <li><a href="#" class="fa fa-facebook"></a></li>
+     <li><a href="#" class="fa fa-google-plus"></a></li>
+     <li><a href="#" class="fa fa-twitter"></a></li>
+     <li><a href="#" class="fa fa-github"></a></li>
+     <li><a href="#" class="fa fa-linkedin"></a></li>
+     <li><a href="#" class="fa fa-instagram"></a></li>
+     <li class="last"><a href="#" class="fa fa-rss"></a></li>
+    </ul>
+   </section>
+  </div>
+  <!-- / .footer-col-1 --> 
+  
+  <!-- newsletter signup and recent images-->
+  <div class="footer-col-2">
+   <hr class="visible-xs margin-top-minus-30px">
+   <section>
+    <h5>Stay Updated</h5>
+    <p>Sign up for our newsletter. We won't share your email address.</p>
+    <form action="yourscript.php" method="post" class="margin-bottom-20px">
+     <div class="input-group footer-signup">
+      <input class="form-control" placeholder="Your@EmailAddress.com" type="email">
+      <span class="input-group-btn">
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+      </span> 
+      <!--/.input-group-->
+     </div>
+    </form>
+   </section>
+   
+   <hr>
+   
+   <section>
+    <h5>Recent Images</h5>
+    <div class="img-widget clearfix">
+        <a href="#"><img src="../middle/assets/demo-images/florence-341469_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/frankfurt-285607_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/home-22527_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/milwaukee-art-museum-3984_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/reichstag-366201_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/stairs-8443_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/stairs-63747_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/stairs-113610_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/us-capitol-325341_150.jpg" alt="" /></a>
+        <a href="#"><img src="../middle/assets/demo-images/vaulted-cellar-247391_150.jpg" alt="" /></a>
+    </div>
+    <!--/.img-widget-->
+   </section>
+  </div>
+  <!-- .footer-col-2 --> 
+  
+  <!-- blog posts-->
+  <div class="footer-col-3">
+   <hr class="visible-xs margin-top-minus-30px">
+   <section>
+   <h5>Latest Blog Posts</h5>
+   <ul class="list-unstyled blog-posts">
+    <li><a href="your-link-goes-here.html">We will amplify our power to benchmark</a></li>
+    <li><a href="your-link-goes-here.html">We have revolutionized the conceptualization of structuring</a></li>
+    <li><a href="your-link-goes-here.html">Everything is relative; relatively speaking.</a></li>
+    <li><a href="your-link-goes-here.html">My other body is an immortal robot body.</a></li>
+    <li><a href="your-link-goes-here.html">I don't know who they are but they're right behind you</a></li>
+    <li><a href="your-link-goes-here.html">For those about to rock, we salute you </a> </li>
+   </ul>
+   </section>
+  </div>
+  <!-- close .footer-col-3 -->
+ </div>
+ <!-- close .clearfix-->
+ 
+ <hr class="no-padding-bottom">
+ <div class="container-fluid">
+  <p class="small margin-top-bottom-20px text-center text-right-min-width-768px">
+  © Copyright 2014 Christina Arasmo Beymer. 
+All rights reserved. Please purchase this wrapper so you can use it in your project. 
+Email <a href="mailto:christinabeymer@gmail.com" class="text-underline">the designer.</a>
+</p>
+ </div>
+</footer> 
+
+<!-- ______________ END FOOTER ______________ -->
+
+
+
+<!--scroll-menu the primary-nav clones here -->
+<div id="scroll-menu" title="menu">
+ <a href="#" class="scroll-menu-toggle"><i class="fa fa-bars"></i></a>
+ <div id="menu-clone"></div>
+</div>
+
+
+<!--to top -->
+<div id="toTop" title="up">
+ <i class="fa fa-arrow-circle-o-up"></i>
+</div>
+
+
+<!-- _________ FOOTER SCRIPTS ________ -->
+
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.different_base.js"></script> 
+  
+<!-- Way Better Bootstrap Modals INSTRUCTIONS: https://github.com/jschr/bootstrap-modal/ -->
+<!-- DEMO:: http://jschr.github.io/bootstrap-modal/bs3.html -->
+  <script src="assets/js/bootstrap-modalmanager.js"></script>
+  <script src="assets/js/bootstrap-modal.js"></script>
+    
+
+</body>
+</html>

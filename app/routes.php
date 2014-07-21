@@ -14,6 +14,8 @@
 // Route resources for 'users'
 // Route resources for 'posts'
 
+Route::get('/master', 'HomeController@showMaster');
+
 Route::get('test', function () {
 
     $maxHeight = 200;
