@@ -1,0 +1,222 @@
+/*------------------------------------------------------------------------------------------------------------------------------------
+  cream and muted brown color scheme for "different" wrapper
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+body { background: #5b5248; color: #fefceb; }
+/* anything outside the site-wrapper takes on these colors such as the footer */ 
+
+#site-wrapper, .modal { color: #5b5248; background: #fefceb; }
+
+
+/* base link color(s) 
+ -------------------------------------------------------------------------------------------- */
+
+a { color: #a66138 }
+
+a:hover, a:focus, a:active, .social a:hover, .sub-bar a:hover { color: #a66138 }
+
+
+/* header 
+ -------------------------------------------------------------------------------------------- */
+
+.header { background: #fefceb }
+
+
+/* mobile menu bar 
+ -------------------------------------------------------------------------------------------- */
+
+.mobile-menu-bar { border-bottom-color: #fefceb }
+
+.mobile-menu-bar  > a:not(:last-child) { border-right-color: #fefceb }
+
+
+/* nav wrapper 
+ -------------------------------------------------------------------------------------------- */
+
+.nav-wrapper { background: #5b5248 }
+
+.nav-wrapper .tool-bar a, .mobile-menu-bar a, .nav-wrapper .tool-bar, .primary-nav a { color: #fefceb }
+
+.nav-wrapper .tool-bar a:hover, .mobile-menu-bar a:hover { color: #8e847b }
+
+
+/* logo (behind logo) 
+ -------------------------------------------------------------------------------------------- */
+
+.logo-wrapper a { background: #fefceb }
+
+.logo-wrapper span { background-image: url(../../images/header-shadow-cream.png) }
+
+.no-backgroundsize .logo-wrapper span { background-image: url(../../images/header-shadow-no-backgroundsize-cream.png) }
+
+
+/* tool bar divider colors 
+ -------------------------------------------------------------------------------------------- */
+
+@media (min-width:768px) { 
+	.tool-bar .divider { background: #91877e }
+
+	.divider.OR:before { color: #fefceb; background: #5b5248; }
+}
+
+
+/* primary navigation colors 
+ -------------------------------------------------------------------------------------------- */
+
+.primary-nav .active a, .primary-nav a:hover, .primary-nav .dcjq-parent.active { color: #fefceb; background: #655c53; }
+
+.primary-nav li { border-bottom: 1px solid #91877e }
+
+.primary-nav ul { background: #5b5248 }
+
+.primary-nav ul ul { background: #4c443d }
+
+@media (min-width:768px) { 
+	.nav-bar { border-top: 1px solid #91877e }
+
+	.primary-nav > li { border-right: 1px solid #91877e; border-bottom: 0px; }
+}
+
+
+/* sub bar and social icons colors  
+ -------------------------------------------------------------------------------------------- */
+
+.sub-bar a, .social a { color: #5b5248 }
+
+.sub-bar .social .closeme { background: #5b5248 }
+
+.sub-bar .social .closeme a { color: #fefceb }
+
+.search-panel, .login-panel, .signup-panel { background: #fefceb }
+
+.title, .title span { border-color: #5b5248 }
+
+
+/* scroll nav colors 
+ -------------------------------------------------------------------------------------------- */
+
+@media (min-width:768px) and (min-height:700px) { 
+	#scroll-menu .scroll-menu-toggle { color: #fefceb; background: #5b5248; }
+
+	.scroll-nav { background: #fefceb; border-right-color: #5b5248; border-bottom-color: #5b5248; }
+
+	.scroll-nav a { color: #5b5248 }
+
+	.scroll-nav li:not(:last-child) { border-bottom-color: #5b5248 }
+
+	.scroll-nav .active a, .scroll-nav .dcjq-parent.active, .scroll-nav a:hover { color: #a66138 }
+}
+
+
+/* equal height columns colors 
+ -------------------------------------------------------------------------------------------- */
+
+@media (min-width:992px) { 
+	.equal-height-col > [class*="col-"]:not(:last-child) { border-right-color: #5b5248 }
+}
+
+
+/* footer 
+ -------------------------------------------------------------------------------------------- */
+
+.footer hr { border-color: #91877e }
+
+.footer a { color: #f4f0cc }
+
+.footer-signup .btn { background: #91877e; border-color: #91877e; }
+
+.footer-signup .btn:hover { background: #e1dcaf; color: #5b5248; }
+
+.footer .blog-posts li { border-bottom: 1px solid #655c53 }
+
+.footer .social a { color: #fefceb }
+
+.footer .social a:hover { color: #e1dcaf }
+
+.footer [class*="col-"]:not(:last-child) { border-right: 1px solid #91877e }
+
+
+/* to top 
+ -------------------------------------------------------------------------------------------- */
+
+#toTop { color: #a66138 }
+
+
+/* image class(es) 
+ -------------------------------------------------------------------------------------------- */
+
+.img-custom { border-color: #5b5248 }
+
+
+/* bootstrap colors 
+ -------------------------------------------------------------------------------------------- */
+
+hr, blockquote { border-color: #5b5248 }
+
+blockquote footer, blockquote cite, blockquote small { color: #5b5248 }
+
+.page-header > small { color: #d2cda6 }
+
+.page-header { border-color: #d0ccad }
+
+.pager *, .pagination * { border-color: #d0ccad!important }
+
+.pager a, .pagination li a { color: #5b5248 }
+
+.input-group, .input-group *, .form-control { border-color: #5b5248 }
+
+.form-control:focus { border-color: #8e847b; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 0, 0, .2); box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 0, 0, .2); }
+
+.form-control, .input-group span, .input-group .btn { border-color: #5b5248 }
+
+.form-control::-moz-placeholder { color: #5b5248 }
+
+.form-control:-ms-input-placeholder { color: #5b5248 }
+
+.form-control::-webkit-input-placeholder { color: #5b5248 }
+
+
+/* components 
+ -------------------------------------------------------------------------------------------- */
+
+.panel-default, .panel-default .panel-heading, .well, .list-group, .list-group > .list-group-item { border-color: #d0ccad }
+
+.panel-default .panel-heading, .well, .panel-footer { background-color: #f2efd7 }
+
+
+/* button default 
+ -------------------------------------------------------------------------------------------- */
+
+.btn-default { color: #5b5248; border-color: #5b5248; }
+
+
+/* custom button 
+ -------------------------------------------------------------------------------------------- */
+
+.btn-custom { color: #fefceb; background: #fefceb; padding: 3px; border-color: #5b5248; }
+
+.btn-custom span { color: #fefceb; display: block; padding: 5px 10px; background: #5b5248; }
+
+.btn-custom:hover, .btn-custom:active, .btn-custom:focus { color: #5b5248; border-color: #e1dcaf; background: #fefceb; box-shadow: none; -webkit-box-shadow: none; }
+
+.btn-custom:hover span, .btn-custom:active  span, .btn-custom:focus  span { color: #5b5248; border-color: #e1dcaf; background: #e1dcaf; }
+
+
+/* tool tip colors 
+ -------------------------------------------------------------------------------------------- */
+
+.tooltip-inner { color: #fefceb; background-color: #a66138; }
+
+.tooltip.top .tooltip-arrow, .tooltip.top-left .tooltip-arrow, .tooltip.top-right .tooltip-arrow { border-top-color: #a66138 }
+
+.tooltip.right .tooltip-arrow { border-right-color: #a66138 }
+
+.tooltip.left .tooltip-arrow { border-left-color: #a66138 }
+
+.tooltip.bottom .tooltip-arrow, .tooltip.bottom-left .tooltip-arrow, .tooltip.bottom-right .tooltip-arrow { border-bottom-color: #a66138 }
+
+
+/* feature icon 
+ -------------------------------------------------------------------------------------------- */
+
+.feature-icon, .feature-icon a { color: #d2cda6 }
