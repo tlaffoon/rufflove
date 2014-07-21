@@ -14,12 +14,21 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+
+	public function showMaster() {
+		return View::make('layouts.updated-master');
+	}
+
+	public function showDogSearch() {
+		return View::make('dogs.dogsearch');
+	}
+
 	public function showRegistration() {
 		return View::make('users.registration');
 	}
 
 	public function showTest() {
-		return View::make('blank-template');
+		return View::make('test-geocode-latlng');
 	}
 
 	public function showAbout()
@@ -31,6 +40,12 @@ class HomeController extends BaseController {
 	{
 		return View::make('homepage');
 	}
+
+	public function showAdmin()
+	{
+		return View::make('admin');
+	}
+
 
 	public function showLogin()
 	{
@@ -45,10 +60,31 @@ class HomeController extends BaseController {
 	public function showMap()
 	{
 
-		$user = User::find('1');
-		return View::make('test-geo')->with('user', $user);
+		// $user = User::find('1');
+		// return View::make('test-geo')->with('user', $user);
+
+		return View::make('map');
 	}
 
+	public function showMap2()
+	{
+		return View::make('map2');
+	}
+
+	public function showAuto() 
+	{
+		View::make('autocomplete');
+	}
+
+	public function showAjax() 
+	{
+		return View::make('ajax');
+	}
+
+	public function showTest2()
+	{
+		return View::make('test');
+	}
 
 	public function doLogin() 
 	{

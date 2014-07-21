@@ -1,7 +1,6 @@
 @extends ('layouts.master')
 
 @section('topscript')
-test topscript
 @stop
 
 @section('content')
@@ -69,5 +68,4 @@ if (navigator.geolocation) {
 @stop
 
 @section('bottomscript')
-test bottomscript
 @stop

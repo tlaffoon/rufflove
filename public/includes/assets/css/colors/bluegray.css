@@ -1,0 +1,223 @@
+/*------------------------------------------------------------------------------------------------------------------------------------
+  blue gray color scheme for "different" wrapper
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+body { background: #495c78; color: #fff; }
+/* anything outside the site-wrapper takes on these colors such as the footer */ 
+
+#site-wrapper, .modal { color: #32425a; background: #fff; }
+
+
+/* base link color(s)  
+ -------------------------------------------------------------------------------------------- */
+
+a { color: #e85802 }
+
+a:hover, a:focus, a:active, .social a:hover, .sub-bar a:hover { color: #e85802 }
+
+
+/* display text  
+ -------------------------------------------------------------------------------------------- */
+
+.display-text { color: #5e718e }
+
+
+/* header  
+ -------------------------------------------------------------------------------------------- */
+
+.header { background: #fff }
+
+
+/* mobile menu bar  
+ -------------------------------------------------------------------------------------------- */
+
+.mobile-menu-bar { border-bottom-color: #fff }
+
+.mobile-menu-bar  > a:not(:last-child) { border-right-color: #fff }
+
+
+/* nav wrapper  
+ -------------------------------------------------------------------------------------------- */
+
+.nav-wrapper { background: #495c78 }
+
+.nav-wrapper .tool-bar a, .mobile-menu-bar a, .nav-wrapper .tool-bar, .primary-nav a { color: #fff }
+
+.nav-wrapper .tool-bar a:hover, .mobile-menu-bar a:hover { color: #a5c2ed }
+
+
+/* logo (behind logo)  
+ -------------------------------------------------------------------------------------------- */
+
+.logo-wrapper a { background: #fff }
+
+
+/* tool bar divider colors  
+ -------------------------------------------------------------------------------------------- */
+
+@media (min-width:768px) { 
+	.tool-bar .divider { background: #8291a8 }
+
+	.divider.OR:before { color: #fff; background: #495c78; }
+}
+
+
+/* primary navigation colors  
+ -------------------------------------------------------------------------------------------- */
+
+.primary-nav .active a, .primary-nav a:hover, .primary-nav .dcjq-parent.active { color: #fff; background: #5e718e; }
+
+.primary-nav li { border-bottom: 1px solid #8291a8 }
+
+.primary-nav ul { background: #5e718e }
+
+.primary-nav ul ul { background: #495c78 }
+
+@media (min-width:768px) { 
+	.nav-bar { border-top: 1px solid #8291a8 }
+
+	.primary-nav > li { border-right: 1px solid #8291a8; border-bottom: 0px; }
+}
+
+
+/* sub bar and social icons colors   
+ -------------------------------------------------------------------------------------------- */
+
+.sub-bar a, .social a { color: #5e718e }
+
+.sub-bar .social .closeme { background: #5e718e }
+
+.sub-bar .social .closeme a { color: #fff }
+
+.search-panel, .login-panel, .signup-panel { background: #fff }
+
+.title, .title span { border-color: #5e718e }
+
+
+/* scroll nav colors  
+ -------------------------------------------------------------------------------------------- */
+
+@media (min-width:768px) and (min-height:700px) { 
+	#scroll-menu .scroll-menu-toggle { color: #fff; background: #495c78; }
+
+	.scroll-nav { background: #fff; border-right-color: #5e718e; border-bottom-color: #5e718e; }
+
+	.scroll-nav a { color: #5e718e }
+
+	.scroll-nav li:not(:last-child) { border-bottom-color: #5e718e }
+
+	.scroll-nav .active a, .scroll-nav .dcjq-parent.active, .scroll-nav a:hover { color: #e85802 }
+}
+
+
+/* equal height columns colors  
+ -------------------------------------------------------------------------------------------- */
+
+@media (min-width:992px) { 
+	.equal-height-col > [class*="col-"]:not(:last-child) { border-right-color: #5e718e }
+}
+
+
+/* footer  
+ -------------------------------------------------------------------------------------------- */
+
+.footer hr { border-color: #8291a8 }
+
+.footer a { color: #c6d8f3 }
+
+.footer-signup .btn { background: #8291a8; border-color: #8291a8; }
+
+.footer-signup .btn:hover { background: #c6d8f3; color: #5e718e; }
+
+.footer .blog-posts li { border-bottom: 1px solid #6980a2 }
+
+.footer .social a { color: #fff }
+
+.footer .social a:hover { color: #c6d8f3 }
+
+.footer [class*="col-"]:not(:last-child) { border-right: 1px solid #8291a8 }
+
+
+/* to top  
+ -------------------------------------------------------------------------------------------- */
+
+#toTop { color: #e85802 }
+
+
+/* image custom
+ -------------------------------------------------------------------------------------------- */
+
+.img-custom { border-color: #5e718e }
+
+
+/* bootstrap colors
+ -------------------------------------------------------------------------------------------- */
+
+hr, blockquote { border-color: #5e718e }
+
+blockquote footer, blockquote cite, blockquote small { color: #5e718e }
+
+.page-header > small { color: #b2bdcd }
+
+.page-header { border-color: #d6dae1 }
+
+.pager *, .pagination * { border-color: #7698cc!important }
+
+.pager a, .pagination li a { color: #5e718e }
+
+.input-group, .input-group *, .form-control { border-color: #5e718e }
+
+.form-control:focus { border-color: #7698cc; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(118, 152, 204, .2); box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(118, 152, 204, .2); }
+
+.form-control, .input-group span, .input-group .btn { border-color: #5e718e }
+
+.form-control::-moz-placeholder { color: #5e718e }
+
+.form-control:-ms-input-placeholder { color: #5e718e }
+
+.form-control::-webkit-input-placeholder { color: #5e718e }
+
+
+/* components  
+ -------------------------------------------------------------------------------------------- */
+
+.panel-default, .panel-default .panel-heading, .well, .list-group, .list-group > .list-group-item { border-color: #b2bdcd }
+
+.panel-default .panel-heading, .well, .panel-footer { background-color: #d6dae1 }
+
+
+/* button default  
+ -------------------------------------------------------------------------------------------- */
+
+.btn-default { color: #5e718e; border-color: #5e718e; }
+
+/* custom button  
+ -------------------------------------------------------------------------------------------- */
+
+.btn-custom { color: #fff; background: #fff; padding: 3px; border-color: #5e718e; }
+
+.btn-custom span { color: #fff; display: block; padding: 5px 10px; background: #5e718e; }
+
+.btn-custom:hover, .btn-custom:active, .btn-custom:focus { color: #5e718e; border-color: #9aa8bf; background: #fff; box-shadow: none; -webkit-box-shadow: none; }
+
+.btn-custom:hover span, .btn-custom:active  span, .btn-custom:focus  span { color: #fff; border-color: #9aa8bf; background: #9aa8bf; }
+
+
+/* tool tip colors  
+ -------------------------------------------------------------------------------------------- */
+
+.tooltip-inner { color: #fff; background-color: #e85802; }
+
+.tooltip.top .tooltip-arrow, .tooltip.top-left .tooltip-arrow, .tooltip.top-right .tooltip-arrow { border-top-color: #e85802 }
+
+.tooltip.right .tooltip-arrow { border-right-color: #e85802 }
+
+.tooltip.left .tooltip-arrow { border-left-color: #e85802 }
+
+.tooltip.bottom .tooltip-arrow, .tooltip.bottom-left .tooltip-arrow, .tooltip.bottom-right .tooltip-arrow { border-bottom-color: #e85802 }
+
+
+/* feature icon  
+ -------------------------------------------------------------------------------------------- */
+
+.feature-icon, .feature-icon a { color: #5e718e }

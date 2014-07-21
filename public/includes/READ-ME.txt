@@ -1,0 +1,104 @@
+# Bootstrap Information
+==========================
+I've added a middle column grid called "col-ms" for col-ms-1 through col-ms-12 as well as the push pull and offsets. This takes care of columns between 480px - 767px for this wrapper. It's located in section [2] of the different_base.css file.
+
+
+# Logo
+==========================
+The logo is a .png image generally twice the size of the largest size (so that on retina it looks crisp). It is placed on the page as an <img src="..." not as a background css image. The assets/images/logo.png file is a good starting point for the footprint. The responsive sizing of the logo set up with CSS. If your logo does not meet the same footprint, you will need to adjust the styles in the css file assets/css/different_base.css in section  [18].
+
+
+# Navigation
+==========================
+This is a click only menu so the parent item is a trigger, not a link. Hovers do not exist on touch devices.
+
+
+# empty comment before the html
+================================
+<!--[if IE ]><![endif]--> 
+YES this was done on purpose. It's a way to make sure that IE 9 doesn't go into compatibility mode. There are also server side solutions and other options, but this is the one I chose for this situation.
+
+http://duntuk.com/disable-ie-compatibility-mode-through-htaccess
+
+Related: http://www.validatethis.co.uk/news/fix-bad-value-x-ua-compatible-once-and-for-all/
+
+
+# CSS
+==========================
+
+bootstrap.min.css :: the vanilla bootstrap from their GetBootstrap.com site.
+
+different_base.css :: the wrapper
+
+
+# Custom Utility Classes
+==========================
+Bootstrap does a great job at some things but their typography needs work as well as other things for non-application based layouts. Anyway, to address some of this, I've created utility classes. Ideally, on a an actual site, I'd take Bootstrap's less or scss and adjust at the cause of the issue, such as consistent bottom margin and no top margins on everything so that the vertical stack is nice and images align in columns with text on the other side. It's a long story. If you are familiar with Bootstrap, you probably understand. I'd also switch to em or rem and make the base font 100% not 62.5 since IOS uses 16px as the base. 
+
+The base blue for all links is fine, I suppose, for components as an underlined link looks bad in this situation, but zero-ing out all links as Bootstrap has done is something I disagree with because in body text on a standard site it's hard to tell that the text is a link. All links should be underlined by default and then, removed on the components and sections as needed when it's clear via the layout or usage that it's a link.
+
+
+.text-underline {
+    text-decoration: underline
+}
+
+.no-margin-bottom { margin-bottom: 0px }
+
+.no-padding-bottom { padding-bottom: 0px!important }
+
+.no-margin-top { margin-top: 0 }
+
+.margin-top-20px { margin-top: 20px }
+
+.margin-bottom-20px { margin-bottom: 20px }
+
+.padding-bottom-20px { padding-bottom: 20px }
+
+.margin-top-bottom-20px { margin: 20px 0 }
+
+.display-inline {display:inline}
+
+.display-inline-block {display:inline-block;}
+
+.overflow {
+    display: block;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+
+# Color CSS files:
+==========================
+Load your .css for the color scheme you're using after the other css for the document. The files are inside the assets/css/colors directory.
+
+assets/css/colors/cream.css
+assets/css/colors/black-white.css
+assets/css/colors/light-touch.css
+assets/css/colors/bluegray.css
+
+# jQuery
+==========================
+
+In the head (for ajax if necessary):
+   1.9.1-jquery.min.js = the fallback for IE8
+   jquery.min.2.0.3.js =- the jQuery library
+   modernizr-2.6.2-respond-1.1.0.min.js = modernizr and respond.js
+   windows-fix.js = detect mobile IE and fix the viewport stupidness since it's MicroSuck!
+
+// Suport for pseudo elements in IE8
+<!--[if (gte IE 6)&(lte IE 8)]>
+  <script type="text/javascript" src="assets/js/selectivizr.js"></script>
+<![endif]-->
+
+
+In the footer:
+
+   bootstrap.min.js :: bootstrap's jQuery
+   jquery.different_base.js :: the un-packed jQuery that contains the base scripts as follows:
+      Detect Touch with Windows support - MIT License
+      jQuery Cookie Plugin - MIT License
+      DC jQuery Vertical Accordion Menu - MIT and GPL License
+

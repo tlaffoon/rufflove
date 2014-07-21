@@ -16,7 +16,7 @@
 	@if (!empty($user->img_path))
 		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
 	@else
-		<img src="/img/placeholder-user.png" class="img-responsive thumbnail centered">
+		<img src="includes/img/placeholder-user.png" class="img-responsive thumbnail centered">
 	@endif
 	</div>
 </div>
@@ -55,7 +55,6 @@
 	<h4>Zip: 		{{{ $user->zip }}}									</h4>
 	<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
 
-
 	{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
 
@@ -65,10 +64,13 @@
 <div class="col-md-4"></div>
 <div class="col-md-8">
 	<div class="page-header">
+		@if (Auth::user()->role == 'admin')
 		<h2>{{{ $user->username . '\'s dogs' }}}</h2>
+		@endif
+
 	</div>
 </div>
-@foreach ($user->dog as $dog)
+@foreach ($user->dogs as $dog)
 
   <div class="row">
 

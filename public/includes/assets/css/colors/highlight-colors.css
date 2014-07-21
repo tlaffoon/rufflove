@@ -1,0 +1,42 @@
+/*------------------------------------------------------------------------------------------------------------------------------------
+  these are not color schemes -- they are only for demonstration purposes
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* ----- Yellow ---- */
+
+.yellow .logo-wrapper a, #switcher .highlight-colors #yellow { background: #fcdc01 }
+
+
+/* ----- Green ---- */
+
+.green .logo-wrapper a, #switcher .highlight-colors #green { background: #afe355 }
+
+.green .feature-icon, .green  .feature-icon a { color: #6e9923 }
+
+
+/* ----- Teal ---- */
+
+.teal .logo-wrapper a, #switcher .highlight-colors #teal { background: #12929e }
+
+.teal .feature-icon, .teal  .feature-icon a { color: #12929e }
+
+
+/* ----- Red ---- */
+
+.red .logo-wrapper a, #switcher .highlight-colors #red { background: #ac0707 }
+
+.red .feature-icon, .red  .feature-icon a { color: #ac0707 }
+
+
+/* ----- Magenta ---- */
+
+.magenta .logo-wrapper a, #switcher .highlight-colors #magenta { background: #d10b80 }
+
+.magenta .feature-icon, .magenta  .feature-icon a { color: #d10b80 }
+
+
+/* ----- Orange ---- */
+
+.orange .logo-wrapper a, #switcher .highlight-colors #orange { background: #ff5a00 }
+
+.orange .feature-icon, .orange  .feature-icon a { color: #ff5a00 }
