@@ -68,7 +68,7 @@ class UsersController extends \BaseController {
 		    $user->password 	= Input::get('password');
 		    $user->first_name 	= Input::get('first_name');
 		    $user->last_name 	= Input::get('last_name');
-		    $user->address		= Input::get('street_num') . Input::get('street');
+			$user->address		= Input::get('street_num') . ' ' . Input::get('street');
 		    $user->city 		= Input::get('city');
 		    $user->state 		= Input::get('state');
 		    $user->zip 			= Input::get('zip');
@@ -147,7 +147,7 @@ class UsersController extends \BaseController {
 			$user->password 	= Input::get('password');
 			$user->first_name 	= Input::get('first_name');
 			$user->last_name 	= Input::get('last_name');
-			$user->address		= Input::get('street_num') . Input::get('street');
+			$user->address		= Input::get('street_num') . ' ' . Input::get('street');
 			$user->city 		= Input::get('city');
 			$user->state 		= Input::get('state');
 			$user->zip 			= Input::get('zip');
