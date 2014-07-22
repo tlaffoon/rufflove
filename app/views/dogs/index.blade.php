@@ -15,6 +15,7 @@
 		<th>Name</th>
 		<th>Sex</th>
 		<th>Age</th>
+		<th>Purebred</th>
 		<th>Owner</th>
 		<th width="220px">Actions</th>
 	</tr>
@@ -26,6 +27,7 @@
 		<td>{{{ $dog->name }}}</td>
 		<td>{{{ $dog->sex }}}</td>
 		<td>{{{ $dog->age }}}</td>
+		<td>{{{ $dog->purebred }}}</td>
 		<td>{{{ $dog->user->username }}}</td>
 		<td>
 			<div class="btn-group">

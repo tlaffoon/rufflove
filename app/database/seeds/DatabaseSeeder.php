@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
 	{
 		Eloquent::unguard();
 		
-		$this->call('UsersTableSeeder');
+		$this->call('ZipsTableSeeder');
+        $this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
 		$this->call('DogsTableSeeder');
 		$this->call('DogImagesTableSeeder');
@@ -20,6 +21,47 @@ class DatabaseSeeder extends Seeder
 		
 	} //function run()
 } //class DatabaseSeeder
+
+class ZipsTableSeeder extends Seeder 
+{
+
+    public function run()
+    {
+        // clean out the breeds table
+        DB::table('zipcodes')->delete();
+
+        // load contents of breeds file
+        ini_set('auto_detect_line_endings', true);
+        $zipFile = storage_path() . '/csv/US.txt';
+        $zips = file($zipFile);
+
+        // loop through and insert into db
+        foreach ($zips as $zip)
+        {
+            $zip = trim($zip);
+            $zip = explode(',', $zip);
+
+            $dbZip = new Zip();
+            $dbZip->zip = $zip[0];
+            $dbZip->lat = $zip[1];
+            $dbZip->lon = $zip[2];
+            $dbZip->city = $zip[3];
+            $dbZip->state = $zip[4];
+            $dbZip->state_abbrev = $zip[5];
+
+
+
+
+            $dbZip->save();
+        } //end foreach
+        
+    } //function run()
+
+} //class BreedsTableSeeder
+
+
+
+
 
 class BreedsTableSeeder extends Seeder 
 {
@@ -239,10 +281,10 @@ class DogsTableSeeder extends Seeder
 	        $dog = new Dog();
 
 	        $dog->name = "Fido " . $i;	        
-	        $dog->purebred = array_rand($purebred);
+	        $dog->purebred = $purebred[array_rand($purebred)];
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
-	        $dog->sex = array_rand($sex);
+	        $dog->sex = $sex[array_rand($sex)];
             $dog->breed_id = rand(1, 1500);
 	        $dog->user_id = rand(2,11);
 

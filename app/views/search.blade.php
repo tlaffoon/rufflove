@@ -6,12 +6,15 @@
 
 @section('content')
 
+
+
   <!-- Begin main search form -->
   <div class="col-md-12 zero-pad-left zero-pad-right"> 
 
     {{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }}    
-      {{ Form::text('search', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter your search criteria here...')) }}
-    {{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
+      <h3>Search for dog by name</h3>
+      {{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
+    
     {{ Form::close() }} 
     
   </div> <!-- end main search form -->
@@ -22,17 +25,42 @@
   <div class="col-md-12 zero-pad-left zero-pad-right"> 
     {{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }} 
     <div id="prefetch">
+      <h3>Search for breed</h3>
       {{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Search by breed here...')) }}
-      {{ Form::text('sex', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by sex here...')) }}
-      {{ Form::text('miles', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by distance here...')) }}
+      
+      
+      <br>
+      <h3>Sex</h3>
+      
+      Female
+      {{ Form::radio('sex', 'F', false) }}
+      
+      Male
+      {{ Form::radio('sex', 'M', false) }}
+      <br>
+      <!-- {{ Form::text('purebred', null, array('class' => 'form-group form-control', 'placeholder' => 'Purebred Y or N')) }} -->
+      
+      <h3>Purebred</h3>
+      
+      Yes
+      {{ Form::radio('purebred', 'Y', false) }}
+      No
+      {{ Form::radio('purebred', 'N', false) }}
+      <br>
+      <!-- <h3>Enter max weight</h3>
+      {{ Form::text('weight', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by weight here...')) }}
+    -->  
+      <h3>Enter search radius</h3>
+      {{ Form::text('miles', null, array('class' => 'form-group form-control', 'placeholder' => 'Search radius here...')) }}
 
-
+ 
 
 
     </div>
     {{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
     {{ Form::close() }} 
-  </div> <!-- end breed search form -->
+  </div> 
+  <!-- end breed search form -->
 
 
 

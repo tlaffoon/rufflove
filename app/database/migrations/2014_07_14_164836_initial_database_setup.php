@@ -52,12 +52,14 @@ class InitialDatabaseSetup extends Migration {
             $table->increments('id');           
             
             $table->integer('user_id')->unsigned();
-            $table->integer('breed_id')->unsigned();
-            
+            $table->integer('breed_id')->unsigned();            
             $table->string('name');
-            $table->boolean('purebred');
+
+            $pure = array('Y', 'N');
+            $table->enum('purebred', $pure);
             $table->integer('age');
             $table->integer('weight');
+
             $sex = array('M', 'F');
             $table->enum('sex', $sex);
 

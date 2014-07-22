@@ -42,10 +42,10 @@ class Dog extends BaseModel {
       });
     }
 
-    public function scopeWithingRadius($query, $radius)
-    {
-      $query->where(...); // do math here
-    }
+    // public function scopeWithingRadius($query, $radius)
+    // {
+    //   $query->where(...); // do math here
+    // }
     // public function image() {
     //     return $this->hasMany('DogImage');
     // }

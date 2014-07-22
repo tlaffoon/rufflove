@@ -71,6 +71,7 @@ Route::get('test', function () {
 Route::get('/register', 'HomeController@showRegistration');
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/', 'HomeController@showHome');
+Route::get('/atm', 'HomeController@showAtm');
 
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
