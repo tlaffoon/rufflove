@@ -16,21 +16,25 @@ class InitialDatabaseSetup extends Migration {
         {
             $table->increments('id');
             
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('address');
-            $table->string('city');
-            $table->string('state', 2);
-            $table->integer('zip');
             $table->string('username', 30)->unique();
-            $table->string('password');
             $table->string('email')->unique();
-            $table->string('img_path');
+            $table->string('password');
             $table->string('role');
-            $table->float('lat', 10,6);
-            $table->float('lng', 10,6);
-            $table->string('remember_token', 100)->nullable;
 
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('fullAddress')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state', 2)->nullable();
+            $table->integer('zip')->nullable();
+
+            $table->string('img_path')->nullable();
+
+            $table->float('latitude', 10,6)->nullable();
+            $table->float('longitude', 10,6)->nullable();
+            
+            $table->string('remember_token', 100)->nullable;
 
             $table->timestamps();  
             
@@ -43,7 +47,7 @@ class InitialDatabaseSetup extends Migration {
             $table->string('name');
             $table->text('info');
             
-            $table->timestamps();             
+            $table->nullableTimestamps();             
         });
 
         Schema::create('dogs', function($table)
