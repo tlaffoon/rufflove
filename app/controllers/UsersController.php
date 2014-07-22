@@ -64,17 +64,19 @@ class UsersController extends \BaseController {
 		    $user = new User();
 
 		    $user->username 	= Input::get('username');
+		    $user->email 		= Input::get('email');
 		    $user->password 	= Input::get('password');
 		    $user->first_name 	= Input::get('first_name');
 		    $user->last_name 	= Input::get('last_name');
-		    $user->address 		= Input::get('address');
+		    $user->address		= Input::get('street_num') . Input::get('street');
 		    $user->city 		= Input::get('city');
 		    $user->state 		= Input::get('state');
 		    $user->zip 			= Input::get('zip');
-		    $user->email 		= Input::get('email');
 		    $user->role 		= Input::get('role');
-		    $user->lat 			= Input::get('latitude');
-		    $user->lon 			= Input::get('longitude');
+		    $user->latitude		= Input::get('latitude');
+		    $user->longitude	= Input::get('longitude');
+
+		    $user->fullAddress	= $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
 		    $user->save();
 
@@ -85,7 +87,8 @@ class UsersController extends \BaseController {
 		    }
 		    
 		    Session::flash('successMessage', 'User saved successfully.');
-		    return Redirect::action('UsersController@show', $user->id);
+		    //return Redirect::action('UsersController@show', $user->id);
+		    return Redirect::back();
 		}
 	}
 
@@ -140,17 +143,19 @@ class UsersController extends \BaseController {
 		else {
 
 			$user->username 	= Input::get('username');
+			$user->email 		= Input::get('email');
 			$user->password 	= Input::get('password');
 			$user->first_name 	= Input::get('first_name');
 			$user->last_name 	= Input::get('last_name');
-			$user->address 		= Input::get('address');
+			$user->address		= Input::get('street_num') . Input::get('street');
 			$user->city 		= Input::get('city');
 			$user->state 		= Input::get('state');
 			$user->zip 			= Input::get('zip');
-			$user->email 		= Input::get('email');
 			$user->role 		= Input::get('role');
-			$user->lat 			= Input::get('latitude');
-			$user->lon 			= Input::get('longitude');
+			$user->latitude		= Input::get('latitude');
+			$user->longitude	= Input::get('longitude');
+
+			$user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
 			$user->save();
 
@@ -163,7 +168,8 @@ class UsersController extends \BaseController {
 		    // Session::flash('successMessage', 'User saved successfully.');
 		}
 		
-		return Redirect::action('UsersController@show', $user->id);	
+		return Redirect::back();
+		// return Redirect::action('UsersController@show', $user->id);	
 	}
 
 
