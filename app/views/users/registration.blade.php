@@ -108,23 +108,24 @@
 
 <!-- Refactor rest of form to laravel  -->
 
-    <label>Address</label>
-    <input id="autocomplete" name="address" type="text" class="form-group form-control" onFocus="geolocate()" placeholder="" value="">
+    {{ Form::label('address', 'Address') }}
+    {{ Form::text('address', null, array('id' => 'autocomplete', 'class' => 'form-group form-control', 'onfocus' => 'geolocate()' )) }}
 
-    <button id="register-btn" class="btn btn-default" action="submit">Submit</button>
+<!--     <button id="register-btn" class="btn btn-default" action="submit">Submit</button>
+ -->    {{ Form::button('Submit', array( 'id' => 'register-btn', 'class' => 'btn btn-default pull-right')) }}
 
     </div> <!-- end left container -->
 
     <div class="container col-md-6"> <!-- begin right container -->
 
-        <input id="street_number" name="street_number" type="text" class="" placeholder="" value="">
-        <input id="route" name="route" type="text" class="" placeholder="" value="">
-        <input id="locality" name="city" type="text" class="" placeholder="" value="">
-        <input id="administrative_area_level_1" name="state" type="text" class="" placeholder="" value="">
-        <input id="postal_code" name="zip" type="text" class="" placeholder="" value="">
-        <input id="country" name="country" class="" placeholder="" value="">
-        <input id="latitude" name="latitude" type="text" class="" placeholder="" value="">
-        <input id="longitude" name="longitude" type="text" class="" placeholder="" value="">
+        {{ Form::text('street_num', null, array('id' => 'street_number')) }}
+        {{ Form::text('street', null, array('id' => 'route')) }}
+        {{ Form::text('city', null, array('id' => 'locality')) }}
+        {{ Form::text('state', null, array('id' => 'administrative_area_level_1')) }}
+        {{ Form::text('zip', null, array('id' => 'postal_code')) }}
+        {{ Form::text('country', null, array('id' => 'country')) }}
+        {{ Form::text('latitude', null, array('id' => 'latitude')) }}
+        {{ Form::text('longitude', null, array('id' => 'longitude')) }}
 
     </div> <!-- end right container -->
 
