@@ -18,28 +18,6 @@ class DogsController extends \BaseController {
 	 */
 	public function index()
 	{
-		// if (Input::has('search')) {
-		//  	$queryString = Input::get('search');
-		//  	$dogs = Dog::where('name', 'LIKE', "%$queryString%")->orderBy('name')->paginate(5);
-		// }
-
-		// elseif (Input::has('search-breed')) 
-		// {
-		// 	$dogs = Dog::whereHas('breed', function($q)	 	
-		//  	{
-		//  		$queryString = Input::get('search-breed');
-		//  	    $q->where('name', 'LIKE', "%$queryString%");
-
-		//  	})->orderBy('name')->paginate(5);
-		
-		// } //end elseif
-
-		// else {
-		// 	$dogs = Dog::orderBy('name')->paginate(5);
-		// 	} //end else
-
-
-
 		$q = Dog::query();
 
 		  if (Input::has('search-name'))
@@ -77,9 +55,11 @@ class DogsController extends \BaseController {
 		  	// $dogs->user->zip - gives the zip code of the dog's owner
 		  	$radius = Input::get('radius');
 		  	$zip_code = $dogs->user->zip;
-		  	$zipQuery = DB::statement("CALL zip_proximity(:zip, 10, 'mi'", array('zip' => $zip_code));
-		  	// $q->where();
-		     // $q->withinRadius(Input::get('radius'));
+		  	$zipQuery = DB::statement("CALL zip_proximity(:zip, :radius, 'mi'", array('zip' => $zip_code,'radius' => $radius ));
+		  	// Must define users...
+		  	$q->where $user->zip in ($zipQuery);
+		  	
+		     
 		  }
 
 
