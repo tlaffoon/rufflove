@@ -73,6 +73,8 @@ class UsersController extends \BaseController {
 		    $user->zip 			= Input::get('zip');
 		    $user->email 		= Input::get('email');
 		    $user->role 		= Input::get('role');
+		    $user->lat 			= Input::get('latitude');
+		    $user->lon 			= Input::get('longitude');
 
 		    $user->save();
 
@@ -81,16 +83,9 @@ class UsersController extends \BaseController {
 		        $user->addUploadedImage(Input::file('image'));
 		        $user->save();
 		    }
-			// add function to parse user address into  lat/lng and store in new database fields.  needs migration
-		    // "formatted_address" : "112 East Pecan Street, San Antonio, TX 78205, USA",
-		    // "geometry" : {
-		    //    "location" : {
-		    //       "lat" : 29.4284595,
-		    //       "lng" : -98.49243299999999
-
-		    // Session::flash('successMessage', 'User saved successfully.');
-		    //return Redirect::action('UsersController@show', $user->id);
-		    return Redirect::back();
+		    
+		    Session::flash('successMessage', 'User saved successfully.');
+		    return Redirect::action('UsersController@show', $user->id);
 		}
 	}
 
@@ -154,6 +149,8 @@ class UsersController extends \BaseController {
 			$user->zip 			= Input::get('zip');
 			$user->email 		= Input::get('email');
 			$user->role 		= Input::get('role');
+			$user->lat 			= Input::get('latitude');
+			$user->lon 			= Input::get('longitude');
 
 			$user->save();
 

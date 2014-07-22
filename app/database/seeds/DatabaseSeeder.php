@@ -50,7 +50,6 @@ class BreedsTableSeeder extends Seeder
 class UsersTableSeeder extends Seeder 
 {
 
-
     public function run()
     {
         DB::table('users')->delete();
@@ -201,30 +200,6 @@ class UsersTableSeeder extends Seeder
 	} //end function run()
 }  //end class UsersTableSeeder
 
-
-class BreedsTableSeeder extends Seeder 
-{
-
-    public function run()
-    {
-        // clean out the breeds table
-        DB::table('breeds')->delete();
-
-        // load contents of breeds file
-        ini_set('auto_detect_line_endings', true);
-        $breedsFile = storage_path() . '/csv/breeds.txt';
-        $breeds = file($breedsFile);
-        // loop through and insert into db  
-        foreach ($breeds as $breed)
-        {
-            $breed = trim($breed);
-
-            $dbBreed = new Breed();
-            $dbBreed->name = $breed;
-            $dbBreed->save();
-        } //end foreach 
-    } //function run()
-} //class BreedsTableSeeder
 		
 class DogsTableSeeder extends Seeder 
 {

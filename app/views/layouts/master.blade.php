@@ -32,7 +32,7 @@
 	@yield('topscript')
 
 </head>
-<body onload="initialize()">
+<body onload="">
 
     <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">

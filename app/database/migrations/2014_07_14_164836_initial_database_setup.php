@@ -27,7 +27,6 @@ class InitialDatabaseSetup extends Migration {
             $table->string('email')->unique();
             $table->string('img_path');
             $table->string('role');
-
             $table->float('lat', 10,6);
             $table->float('lng', 10,6);
             $table->string('remember_token', 100)->nullable;
