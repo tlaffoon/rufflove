@@ -50,7 +50,6 @@ class BreedsTableSeeder extends Seeder
 class UsersTableSeeder extends Seeder 
 {
 
-
     public function run()
     {
         DB::table('users')->delete();
@@ -67,6 +66,7 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 		$user->save();
 
 		$user = new User();        
@@ -180,7 +180,7 @@ class UsersTableSeeder extends Seeder
         $user->img_path = "/img/placeholder-user.png";
 
 
-
+        // needs to be completed refactored to use php faker to generate "real", random addresses?
         for ($i=1; $i <= 10; $i++) 
         { 
 	        $user = new User();
@@ -190,41 +190,19 @@ class UsersTableSeeder extends Seeder
 	        $user->city = "San Antonio";
 	        $user->state = "TX";
 	        $user->zip = rand(11111,99999);
+            $user->country = 'United States';
 	        $user->username = "doglover" . $i;
 	        $user->password = "password";
 	        $user->email = "$user->first_name@rufflove.com";
 	        $user->img_path = "/includes/img/placeholder-user.png";
 	        $user->role = "user";
+            $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
 	        $user->save();
         } // end for loop
 	} //end function run()
 }  //end class UsersTableSeeder
 
-
-class BreedsTableSeeder extends Seeder 
-{
-
-    public function run()
-    {
-        // clean out the breeds table
-        DB::table('breeds')->delete();
-
-        // load contents of breeds file
-        ini_set('auto_detect_line_endings', true);
-        $breedsFile = storage_path() . '/csv/breeds.txt';
-        $breeds = file($breedsFile);
-        // loop through and insert into db  
-        foreach ($breeds as $breed)
-        {
-            $breed = trim($breed);
-
-            $dbBreed = new Breed();
-            $dbBreed->name = $breed;
-            $dbBreed->save();
-        } //end foreach 
-    } //function run()
-} //class BreedsTableSeeder
 		
 class DogsTableSeeder extends Seeder 
 {

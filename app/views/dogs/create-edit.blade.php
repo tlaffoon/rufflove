@@ -4,7 +4,7 @@
 @stop
 
 @section('content')
-<div class="container col-md-6">
+<div class="col-md-6">
 
 <div class="clearfix"></div>
 
@@ -14,17 +14,16 @@
 				<button type="button" class="btn btn-default">
 			  		<a href="{{ action('DogsController@index') }}"><span class="glyphicon glyphicon-home"></span></a>
 				</button>
-			
-			@if (Auth::user()->role == 'admin')
-				@if (isset($user))
-
+			@if (isset($dog))
 				<button type="button" class="btn btn-default">
-		  			<a href="{{ action('DogsController@edit', $dog->id) }}"><span class="glyphicon glyphicon-edit"></span></a>
+			  		<a href="{{ action('DogsController@show', $dog->id) }}"><span class="glyphicon glyphicon-zoom-in"></span></a>
 				</button>
+			@endif
+			
+			@if (Auth::user()->role == 'admin' && isset($dog))
 
 				<a href="#" class="deleteDog btn btn-danger" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
 
-				@endif
 			@endif
 			
 		</div>
@@ -38,18 +37,15 @@
 	@endif
 	</div>
 
-	{{ Form::token() }}
-
 	<div class="clearfix"></div>
 
 	{{ Form::label('name', 'Name') }}
 	{{ Form::text('name', Input::old('name'), array('class' => 'form-group form-control', 'placeholder' => 'Name')) }}
 	{{ $errors->first('name', '<span class="help-block text-warning">:message</span><br>') }}
 
-	<div id="prefetch">
-	{{ Form::label('breed', 'Breed') }}
-	{{ Form::text('breed', Input::old($dog->breed->name), array('class' => 'form-group form-control typeahead', 'placeholder' => 'Breed')) }}
-	{{ $errors->first('breed', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	<div class="form-group zero-left-margin">
+	{{ Form::label('owner', 'Owner') }}
+	{{ Form::select('owner', User::lists('username', 'id'), null, array('class' => 'form-group form-control dropdown btn btn-default')) }}
 	</div>
 
 	{{ Form::label('age', 'Age') }}
@@ -61,28 +57,39 @@
 	{{ $errors->first('last_name', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
 	<div class="form-group zero-left-margin">
+		{{ Form::label('sex', 'Sex') }}
+		{{ Form::select('sex', array('M' => 'Male', 'F' => 'Female'), 'M', array('class' => 'form-group form-control dropdown btn btn-default')) }}	
+	</div>
 
-	{{ Form::label('sex', 'Sex') }}
-	{{ Form::select('sex', array('M' => 'Male', 'F' => 'Female'), 'M', array('class' => 'form-group form-control dropdown btn btn-default')) }}
-	
+	<div id="prefetch" style="margin-top: 18px;">
+	{{ Form::label('breed', 'Breed') }}
+	{{ Form::text('breed', null, array('class' => 'form-group form-control typeahead', 'placeholder' => 'Breed')) }}
+	{{ $errors->first('breed', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	</div>
+
+	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
+
+</div> <!-- end left container -->
+
+<div class="col-md-6" style="margin-top: 4px;">
+	<div class="page-header">
+		<h2 class="text-right">Image Preview</h2>
 	</div>
 
 	<div class="form-group zero-left-margin">
-
 	{{ Form::label('image', 'Image') }}
 
 	{{ Form::file('image', array('class' => 'form-group button-space-top')) }}
 	{{ $errors->first('image', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 
+	{{ Form::close() }}
 	</div>
 
-	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
-	{{ Form::close() }}
+</div> <!-- end right container -->
 
-	{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
-	{{ Form::close() }}
+{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
+{{ Form::close() }}
 
-</div> <!-- end main container -->
 @stop
 
 @section('bottomscript')

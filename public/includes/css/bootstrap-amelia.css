@@ -265,6 +265,7 @@ th {
 }
 .glyphicon {
   position: relative;
+  color: black;
   top: 1px;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
@@ -2112,7 +2113,7 @@ th {
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #0f7f88;
+/*  background-color: #0f7f88;*/
 }
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
@@ -2758,10 +2759,15 @@ fieldset[disabled] .btn {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.btn-default {
+/*.btn-default {
   color: #fff;
   background-color: #d92432;
   border-color: #d92432;
+}*/
+.btn-default {
+color: #333;
+background-color: #fff;
+border-color: #ccc;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -2840,11 +2846,11 @@ fieldset[disabled] .btn-primary.active {
   color: #ad1d28;
   background-color: #ffffff;
 }
-.btn-success {
+/*.btn-success {
   color: #ffffff;
   background-color: #d92432;
   border-color: #d92432;
-}
+}*/
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:active,
