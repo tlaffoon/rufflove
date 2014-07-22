@@ -103,8 +103,15 @@
     {{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
     {{ $errors->first('password', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
 
-    {{ Form::hidden('first_name', null, array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
-    {{ Form::hidden('last_name', null, array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+    <div class="col-sm-6 zero-margin-left zero-pad-left">
+        {{ Form::label('first_name', 'First Name') }}
+        {{ Form::text('first_name', null, array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
+    </div>
+
+    <div class="col-sm-6 zero-margin-left zero-pad-left zero-pad-right">
+        {{ Form::label('last_name', 'Last Name') }}
+        {{ Form::text('last_name', null, array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+    </div>
 
     {{ Form::hidden('role', 'user', array('id' => 'role')) }}
     {{ Form::hidden('street_num', null, array('id' => 'street_number')) }}

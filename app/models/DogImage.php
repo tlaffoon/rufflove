@@ -1,6 +1,6 @@
 <?php
 
-class DogImage extends BaseModel {
+class DogImage extends Eloquent {
 
     /**
      * The database table used by the model.
@@ -35,7 +35,7 @@ class DogImage extends BaseModel {
         $systemPath = public_path() . '/' . $this->imgDir . '/';
         $imageName = $this->id . '-' . $image->getClientOriginalName();
         $image->move($systemPath, $imageName);
-        $this->img_path = '/' . $this->imgDir . '/' . $imageName;        
+        $this->img_path = '/includes/' . $this->imgDir . '/' . $imageName;
     } //function addUploadedImage
 
     public function dogs() {

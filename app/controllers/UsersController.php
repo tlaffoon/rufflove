@@ -8,7 +8,8 @@ class UsersController extends \BaseController {
 	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
-	    $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
+	    // Commented out auth filter for demo day, need additional work to allow users to create without login, and then login on user creation to their show page.
+	    // $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
 	}
 
 	/**
@@ -180,7 +181,7 @@ class UsersController extends \BaseController {
 		    	$user->save();
 		    }
 
-		    // Session::flash('successMessage', 'User saved successfully.');
+		    Session::flash('successMessage', 'User saved successfully.');
 		}
 		
 		//return Redirect::back();
