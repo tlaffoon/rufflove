@@ -72,6 +72,7 @@ class UsersController extends \BaseController {
 		    $user->city 		= Input::get('city');
 		    $user->state 		= Input::get('state');
 		    $user->zip 			= Input::get('zip');
+		    $user->country 		= Input::get('country');
 		    $user->role 		= Input::get('role');
 		    $user->latitude		= Input::get('latitude');
 		    $user->longitude	= Input::get('longitude');
@@ -151,6 +152,7 @@ class UsersController extends \BaseController {
 			$user->city 		= Input::get('city');
 			$user->state 		= Input::get('state');
 			$user->zip 			= Input::get('zip');
+			$user->country 		= Input::get('country');
 			$user->role 		= Input::get('role');
 			$user->latitude		= Input::get('latitude');
 			$user->longitude	= Input::get('longitude');
