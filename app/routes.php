@@ -28,6 +28,7 @@ Route::get('/master', 'HomeController@showMaster');
 Route::get('/register', 'HomeController@showRegistration');
 
 Route::get('/search', 'HomeController@showSearch');
+Route::get('/signup', 'HomeController@showRegistration');
 
 Route::get('/test', 'HomeController@showTest');
 
