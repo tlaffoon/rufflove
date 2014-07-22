@@ -69,6 +69,11 @@
 		      	            		<li><a href="{{ action('UsersController@index') }}"> User Administration </a></li>
 		      	            		<li class="divider"></li>
 		      	            	@endif
+		      	            	@if (Auth::user()->role == 'user')
+			      	            	<li><a href=""> User Link </a></li>
+		      	            		<li><a href="{{ action('DogsController@index') }}"> My Dogs </a></li>
+		      	            		<li class="divider"></li>
+		      	            	@endif		      	            	
 		      	            <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
 		      	        </ul>
 		      		</li>
