@@ -34,7 +34,8 @@ class ZipsTableSeeder extends Seeder
         ini_set('auto_detect_line_endings', true);
         $zipFile = storage_path() . '/csv/US.txt';
         $zips = file($zipFile);
-
+        
+        
         // loop through and insert into db
         foreach ($zips as $zip)
         {
@@ -48,10 +49,6 @@ class ZipsTableSeeder extends Seeder
             $dbZip->city = $zip[3];
             $dbZip->state = $zip[4];
             $dbZip->state_abbrev = $zip[5];
-
-
-
-
             $dbZip->save();
         } //end foreach
         

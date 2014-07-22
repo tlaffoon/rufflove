@@ -77,7 +77,37 @@ class InitialDatabaseSetup extends Migration {
             $table->timestamps();
             $table->foreign('dog_id')->references('id')->on('dogs');
         });
-	} //end function up()
+	
+        $dbc = DB::connection()->getPdo();
+
+        $dbc->exec("CREATE FUNCTION calculate_distance(measurement varchar(2), base_lat double precision, base_lon double precision, lat double precision, lon double precision) RETURNS double precision
+        BEGIN
+           DECLARE earth_radius double precision;
+           IF measurement = 'km' THEN
+              SET earth_radius = 6371.0;
+           ELSEIF measurement = 'mi' THEN
+              SET earth_radius = 3959.0;
+           END IF;
+           RETURN earth_radius * ACOS(SIN(base_lat / 57.2958) * SIN(lat / 57.2958) + COS(base_lat / 57.2958) * COS(lat / 57.2958) * COS((lon / 57.2958) - (base_lon / 57.2958)));
+        END");
+
+
+        $dbc->exec("CREATE PROCEDURE zip_proximity(zipcode varchar(5), radius double precision, measurement varchar(2))
+        BEGIN
+        DECLARE base_lat double precision;
+        DECLARE base_lon double precision;
+        SELECT lat, lon INTO base_lat, base_lon FROM zipcodes WHERE zip = zipcode;
+        SELECT zip, lat, lon, city, state, state_abbrev, calculate_distance(measurement, base_lat, base_lon, lat, lon) AS distance FROM zipcodes
+           WHERE calculate_distance(measurement, base_lat, base_lon, lat, lon) < radius ORDER BY distance;
+        END");
+    } //end function up()
+
+
+
+
+
+
+
 
 	/**
 	 * Reverse the migrations.

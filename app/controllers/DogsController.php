@@ -77,7 +77,8 @@ class DogsController extends \BaseController {
 		  	// $dogs->user->zip - gives the zip code of the dog's owner
 		  	$radius = Input::get('radius');
 		  	$zip_code = $dogs->user->zip;
-		  	$q->where(DB::statement("CALL zip_proximity('{$zip_code}', 10, 'mi'"));
+		  	$zipQuery = DB::statement("CALL zip_proximity(:zip, 10, 'mi'", array('zip' => $zip_code));
+		  	// $q->where();
 		     // $q->withinRadius(Input::get('radius'));
 		  }
 
