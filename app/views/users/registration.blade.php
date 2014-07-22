@@ -93,15 +93,15 @@
 
     {{ Form::label('username', 'Username') }}
     {{ Form::text('username', null, array('class' => 'form-group form-control', 'placeholder' => 'Username')) }}
-    {{ $errors->first('username', '<span class="help-block text-warning">:message</span><br>') }}
+    {{ $errors->first('username', '<span class="help-block text-danger text-right">:message</span>') }}
 
     {{ Form::label('email', 'Email') }}
     {{ Form::text('email', null, array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
-    {{ $errors->first('email', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+    {{ $errors->first('email', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
 
     {{ Form::label('password', 'Password') }}
     {{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
-    {{ $errors->first('password', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+    {{ $errors->first('password', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
 
     {{ Form::hidden('first_name', null, array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
     {{ Form::hidden('last_name', null, array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
