@@ -61,6 +61,7 @@ class UsersController extends \BaseController {
 		}
 		
 		else {
+			
 		    $user = new User();
 
 		    $user->username 	= Input::get('username');
