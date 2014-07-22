@@ -14,7 +14,11 @@
 				<button type="button" class="btn btn-default">
 			  		<a href="{{ action('DogsController@index') }}"><span class="glyphicon glyphicon-home"></span></a>
 				</button>
-			
+
+				<button type="button" class="btn btn-default">
+			  		<a href="{{ action('DogsController@show', $dog->id) }}"><span class="glyphicon glyphicon-zoom-in"></span></a>
+				</button>
+
 			@if (Auth::user()->role == 'admin')
 				@if (isset($user))
 
@@ -38,8 +42,6 @@
 	@endif
 	</div>
 
-	{{ Form::token() }}
-
 	<div class="clearfix"></div>
 
 	{{ Form::label('name', 'Name') }}
@@ -48,7 +50,7 @@
 
 	<div id="prefetch">
 	{{ Form::label('breed', 'Breed') }}
-	{{ Form::text('breed', Input::old($dog->breed->name), array('class' => 'form-group form-control typeahead', 'placeholder' => 'Breed')) }}
+	{{ Form::text('breed', Input::old($dog->breed), array('class' => 'form-group form-control typeahead', 'placeholder' => 'Breed')) }}
 	{{ $errors->first('breed', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 	</div>
 
@@ -68,12 +70,10 @@
 	</div>
 
 	<div class="form-group zero-left-margin">
-
 	{{ Form::label('image', 'Image') }}
 
 	{{ Form::file('image', array('class' => 'form-group button-space-top')) }}
 	{{ $errors->first('image', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
-
 	</div>
 
 	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
