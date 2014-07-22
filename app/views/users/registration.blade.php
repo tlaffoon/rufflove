@@ -64,6 +64,8 @@
         } // end loop
 
         var address = $('#autocomplete').val();
+        //$("address").text(address);
+        //navigator.geolocation.getCurrentPosition
         //console.log(address);
 
         var geocoder = new google.maps.Geocoder();
@@ -82,7 +84,7 @@
 
 @section('content')
 
-<div class="col-md-6"> <!-- begin left container -->
+<div class="col-md-5"> <!-- begin left container -->
     <div class="page-header">
         <h1>Register Your Account</h1>
     </div>
@@ -104,32 +106,32 @@
     {{ Form::hidden('first_name', null, array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
     {{ Form::hidden('last_name', null, array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
 
-    {{ Form::hidden('role', null, array('value' => 'user')) }}
-
-<!-- Refactor rest of form to laravel  -->
+    {{ Form::hidden('role', null, array('id' => 'role', 'value' => 'user')) }}
+    {{ Form::hidden('street_num', null, array('id' => 'street_number')) }}
+    {{ Form::hidden('street', null, array('id' => 'route')) }}
+    {{ Form::hidden('city', null, array('id' => 'locality')) }}
+    {{ Form::hidden('state', null, array('id' => 'administrative_area_level_1')) }}
+    {{ Form::hidden('zip', null, array('id' => 'postal_code')) }}
+    {{ Form::hidden('country', null, array('id' => 'country')) }}
+    {{ Form::hidden('latitude', null, array('id' => 'latitude')) }}
+    {{ Form::hidden('longitude', null, array('id' => 'longitude')) }}
 
     {{ Form::label('address', 'Address') }}
     {{ Form::text('address', null, array('id' => 'autocomplete', 'class' => 'form-group form-control', 'onfocus' => 'geolocate()' )) }}
-
-<!--     <button id="register-btn" class="btn btn-default" action="submit">Submit</button>
- -->    {{ Form::button('Submit', array( 'id' => 'register-btn', 'class' => 'btn btn-default pull-right')) }}
+    
+    {{ Form::submit('Submit', array( 'id' => 'register-btn', 'class' => 'btn btn-default pull-right')) }}
+    {{ Form::close() }}
 
     </div> <!-- end left container -->
 
-    <div class="container col-md-6"> <!-- begin right container -->
+    <div class="container col-md-7"> <!-- begin right container -->
+        <div class="page-header">
+            <h1 class="text-right">Your Location</h1>
+        </div>
 
-        {{ Form::text('street_num', null, array('id' => 'street_number')) }}
-        {{ Form::text('street', null, array('id' => 'route')) }}
-        {{ Form::text('city', null, array('id' => 'locality')) }}
-        {{ Form::text('state', null, array('id' => 'administrative_area_level_1')) }}
-        {{ Form::text('zip', null, array('id' => 'postal_code')) }}
-        {{ Form::text('country', null, array('id' => 'country')) }}
-        {{ Form::text('latitude', null, array('id' => 'latitude')) }}
-        {{ Form::text('longitude', null, array('id' => 'longitude')) }}
+        <address></adddress>
 
     </div> <!-- end right container -->
-
-    {{ Form::close() }}
 
 @stop
 
@@ -137,6 +139,13 @@
 <script type="text/javascript">
 $(document).ready(function () {
     initialize();
+
+    // Render map preview on address tag population
+    $("address").each(function(){                         
+        var embed ="<iframe width='534' height='400' frameborder='0' scrolling='no'  marginheight='0' marginwidth='0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
+        $(this).html(embed);
+    });
+
 });
 </script>
 
