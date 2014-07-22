@@ -87,8 +87,8 @@ class UsersController extends \BaseController {
 		    }
 		    
 		    Session::flash('successMessage', 'User saved successfully.');
-		    //return Redirect::action('UsersController@show', $user->id);
-		    return Redirect::back();
+		    return Redirect::action('UsersController@show', $user->id);
+		    // return Redirect::back();
 		}
 	}
 
@@ -168,8 +168,8 @@ class UsersController extends \BaseController {
 		    // Session::flash('successMessage', 'User saved successfully.');
 		}
 		
-		return Redirect::back();
-		// return Redirect::action('UsersController@show', $user->id);	
+		//return Redirect::back();
+		return Redirect::action('UsersController@show', $user->id);	
 	}
 
 

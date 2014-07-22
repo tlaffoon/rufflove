@@ -172,7 +172,9 @@
 <!-- 	<div class="form-group zero-left-margin">
  -->
 	@if ($user->img_path)
+	<div>
 		<img src="{{{ $user->img_path }}}" class="img-thumbnail responsive">
+	</div>
 	@endif
 
 	{{ Form::label('image', 'Image') }}

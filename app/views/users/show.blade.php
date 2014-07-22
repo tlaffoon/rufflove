@@ -64,7 +64,7 @@
 <div class="col-md-2"></div>
 <div class="col-md-10">
 	<div class="page-header">
-		@if (Auth::user()->role == 'admin')
+		@if (Auth::check())
 		<h2>{{{ $user->username . '\'s dogs' }}}</h2>
 		@endif
 	</div>
@@ -72,9 +72,6 @@
 			<a href="{{ action('DogsController@create') }}"><span class="glyphicon glyphicon-plus"></span></a>
 	</button>
 </div>
-
-
-
 
 @foreach ($user->dogs as $dog)
 

@@ -106,7 +106,7 @@
     {{ Form::hidden('first_name', null, array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
     {{ Form::hidden('last_name', null, array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
 
-    {{ Form::hidden('role', null, array('id' => 'role', 'value' => 'user')) }}
+    {{ Form::hidden('role', 'user', array('id' => 'role')) }}
     {{ Form::hidden('street_num', null, array('id' => 'street_number')) }}
     {{ Form::hidden('street', null, array('id' => 'route')) }}
     {{ Form::hidden('city', null, array('id' => 'locality')) }}

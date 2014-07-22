@@ -28,6 +28,7 @@ class InitialDatabaseSetup extends Migration {
             $table->string('city')->nullable();
             $table->string('state', 2)->nullable();
             $table->integer('zip')->nullable();
+            $table->string('country')->nullable();
 
             $table->string('img_path')->nullable();
 

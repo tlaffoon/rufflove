@@ -190,6 +190,7 @@ class UsersTableSeeder extends Seeder
 	        $user->city = "San Antonio";
 	        $user->state = "TX";
 	        $user->zip = rand(11111,99999);
+            $user->country = 'United States';
 	        $user->username = "doglover" . $i;
 	        $user->password = "password";
 	        $user->email = "$user->first_name@rufflove.com";
