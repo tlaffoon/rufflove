@@ -66,6 +66,7 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 		$user->save();
 
 		$user = new User();        
@@ -179,7 +180,7 @@ class UsersTableSeeder extends Seeder
         $user->img_path = "/img/placeholder-user.png";
 
 
-
+        // needs to be completed refactored to use php faker to generate "real", random addresses?
         for ($i=1; $i <= 10; $i++) 
         { 
 	        $user = new User();
@@ -194,6 +195,7 @@ class UsersTableSeeder extends Seeder
 	        $user->email = "$user->first_name@rufflove.com";
 	        $user->img_path = "/includes/img/placeholder-user.png";
 	        $user->role = "user";
+            $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
 	        $user->save();
         } // end for loop
