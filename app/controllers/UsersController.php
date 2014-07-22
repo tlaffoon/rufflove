@@ -61,7 +61,7 @@ class UsersController extends \BaseController {
 		}
 		
 		else {
-			
+
 		    $user = new User();
 
 		    $user->username 	= Input::get('username');
@@ -82,10 +82,16 @@ class UsersController extends \BaseController {
 
 		    $user->save();
 
+		    // Handle Image Uploads
 		    if (Input::hasFile('image') && Input::file('image')->isValid())
 		    {
-		        $user->addUploadedImage(Input::file('image'));
+		        $user->addUploadedImage(Input::file('image'));  // call method from User model
 		        $user->save();
+		    }
+
+		    else {
+		    	$user->img_path = '/includes/img/placeholder-user.png';
+		    	$user->save();
 		    }
 		    
 		    Session::flash('successMessage', 'User saved successfully.');
@@ -162,11 +168,17 @@ class UsersController extends \BaseController {
 
 			$user->save();
 
+			// Handle Image Uploads
 		    if (Input::hasFile('image') && Input::file('image')->isValid())
 		    {
-		        $user->addUploadedImage(Input::file('image'));
+		    	$user->addUploadedImage(Input::file('image'));  // call method from User model
 		        $user->save();
-		    }	
+		    }
+
+		    else {
+		    	$user->img_path = '/includes/img/placeholder-user.png';
+		    	$user->save();
+		    }
 
 		    // Session::flash('successMessage', 'User saved successfully.');
 		}
