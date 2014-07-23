@@ -282,7 +282,7 @@ class DogsTableSeeder extends Seeder
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
 	        $dog->sex = $sex[array_rand($sex)];
-            $dog->breed_id = rand(1, 1500);
+            $dog->breed_id = rand(1, 1499);
 	        $dog->user_id = rand(2,11);
 
 

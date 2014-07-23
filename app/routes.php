@@ -15,26 +15,30 @@
 // Route resources for 'posts'
 Route::get('test1', function () {
 
-    $zipDetails = DB::select('call zip_proximity(?,?,?)', array('90120', 20, 'mi'));
-    var_dump($zipDetails);
-
-
-    $data = DB::table('mainTable')->select('title')->get();
-    // $view = View::make('mainpage')->with('data', $data)->with('title', $title);
-    
-    $intersect = array_intersect_assoc($zipDetails, $array2);
-
-
+    //gets all zipcodes within given zip
+    $zipDetails = DB::select('call zip_proximity(?,?,?)', array('90210', 5, 'mi'));
+    // var_dump($zipDetails);
     $zips = [];
     foreach ($zipDetails as $zip)
     {
         $zips[] = $zip->zip;
     }
 
+    $query = Dog::with('breed');
 
+    $query->whereHas('breed', function($q) {
+        $q->where('id', '=', '1486');
+    });
 
-    $dogs = User::whereIn('zip', $zips)->get();
+    $query->whereHas('user', function($q) use ($zips) {
+        $q->whereIn('zip', $zips);
+    });
 
+    $dogs = $query->get();
+
+    // foreach($dogs as $dog){
+    //     var_dump($dog);
+    // }
     // SELECT * FROM dogs
     // INNER JOIN users
     // ON dogs.user_id = users.id

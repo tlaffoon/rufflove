@@ -116,10 +116,16 @@ class InitialDatabaseSetup extends Migration {
 	 */
 	public function down()
 	{
+        $dbc = DB::connection()->getPdo();
+
+        $dbc->exec("DROP PROCEDURE IF EXISTS zip_proximity");
+        $dbc->exec("DROP FUNCTION IF EXISTS calculate_distance");
+
 		Schema::drop('dog_images');
         Schema::drop('dogs');
         Schema::drop('breeds');
         Schema::drop('users');
+
 	}
 
 }
