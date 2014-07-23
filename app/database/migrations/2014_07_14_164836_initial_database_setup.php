@@ -107,12 +107,6 @@ class InitialDatabaseSetup extends Migration {
     } //end function up()
 
 
-
-
-
-
-
-
 	/**
 	 * Reverse the migrations.
 	 *
