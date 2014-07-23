@@ -252,7 +252,7 @@
   <!-- ____________ LOGO _______________  -->
   <div class="logo-wrapper clearfix">
    <a href="#" class="clearfix">
-   <img id="logo" src="/includes/assets/images/logo.png" alt="company name">
+   <img id="logo" src="includes/DogImages/sofa dog.jpg" alt="company name">
    </a>
    <span><!--logo embelishment --></span>
   </div>
@@ -262,7 +262,7 @@
   <ul class="sub-bar clearfix">
    
   <!-- tagline hides at 767px --> 
-   <li class="tagline sb-left hidden-xs">Just another excellent tagline</li>
+   <li class="tagline sb-left hidden-xs">A dog may have his day...</li>
          
    <li class="visible-xs sb-left"><a href="#"><i class="fa fa-envelope-o fw"></i> Contact</a></li>
    
@@ -404,8 +404,6 @@
  <hr class="no-padding-bottom">
  <div class="container-fluid">
   <p class="small margin-top-bottom-20px text-center text-right-min-width-768px">
-  © Copyright 2014 Christina Arasmo Beymer. 
-All rights reserved. Please purchase this wrapper so you can use it in your project. 
 Email <a href="mailto:christinabeymer@gmail.com" class="text-underline">the designer.</a>
 </p>
  </div>

@@ -5,7 +5,7 @@
 
 <p><a class="btn btn-success btn-block" href="{{ action('UsersController@create') }}"> Create New User </a></p>
 
-<table class="table table-striped fixed">
+<table class="table table-striped fixed" id="centered">
 	<tr>
 		<th width="20px">ID</th>
 		<th>Username</th>
