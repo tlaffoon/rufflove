@@ -52,7 +52,7 @@ class DogsController extends \BaseController {
 		  	$zip_code = $dogs->user->zip;
 		  	$zipQuery = DB::statement("CALL zip_proximity(:zip, :radius, 'mi'", array('zip' => $zip_code,'radius' => $radius ));
 		  	// Must define users...
-		  	$q->where $user->zip in ($zipQuery);
+		  	//$q->where $user->zip in ($zipQuery);
 		  	// ... 
 		     
 		  }
