@@ -213,7 +213,7 @@ class DogsTableSeeder extends Seeder
         $purebred = ['Y','N'];
         $sex = ['M', 'F'];
 
-        for ($i=1; $i <= 500; $i++) 
+        for ($i=1; $i <= 5000; $i++) 
         { 
 	        $dog = new Dog();
 
@@ -239,7 +239,7 @@ class DogImagesTableSeeder extends Seeder
     {
        DB::table('dog_images')->delete();
 
-       for ($i=1; $i <= 500; $i++) 
+       for ($i=1; $i <= 5000; $i++) 
        {
             $dog_image = new DogImage();
 

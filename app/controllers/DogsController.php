@@ -80,7 +80,7 @@ class DogsController extends \BaseController {
 		    $dog->weight 	= Input::get('weight');
 		    $dog->sex 		= Input::get('sex');
 
-		    $dog->user_id 	= Auth::user()->id;
+		    $dog->user_id 	= Input::get('owner'); // gets id from dropdown value
 
 		    $dog->save();
 
@@ -152,7 +152,7 @@ class DogsController extends \BaseController {
 			$dog->weight 	= Input::get('weight');
 			$dog->sex 		= Input::get('sex');
 
-			$dog->user_id 	= Auth::user()->id;
+		    $dog->user_id 	= Input::get('owner'); // gets id from dropdown value
 
 			$dog->save();
 

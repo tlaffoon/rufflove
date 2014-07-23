@@ -1,6 +1,11 @@
 @extends('layouts.master')
 
 @section('topscript')
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map-canvas { height: 67% }
+</style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript">
     var map;
@@ -15,6 +20,14 @@
     };
 
     function initialize() {
+        var mapOptions = {
+            zoom: 10,
+            center: new google.maps.LatLng(29.428459, -98.492433)
+        };
+        
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
       // Create the autocomplete object, restricting the search
       // to geographical location types.
       autocomplete = new google.maps.places.Autocomplete(
@@ -33,10 +46,8 @@
     function geolocate() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-          var geolocation = new google.maps.LatLng(
-              position.coords.latitude, position.coords.longitude);
-          autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
-              geolocation));
+          var geolocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          autocomplete.setBounds(new google.maps.LatLngBounds(geolocation, geolocation));
         });
       }
     }
@@ -64,10 +75,6 @@
         } // end loop
 
         var address = $('#autocomplete').val();
-        //$("address").text(address);
-        //navigator.geolocation.getCurrentPosition
-        //console.log(address);
-
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function(result, status) {
             if (status == google.maps.GeocoderStatus.OK) {
@@ -75,10 +82,22 @@
                 $('#latitude').val(result[0]["geometry"]["location"]["k"]);  // need to call functions instead of these variables
                 $("#longitude").val(result[0]["geometry"]["location"]["B"]); //  ^
             } // endif
+
+            var latLngObj = result[0]["geometry"]["location"];
+            // Create new marker based on lat/lng
+            var marker = new google.maps.Marker({
+                position: latLngObj,
+                map: map,
+                draggable: false,
+                title: "Your Location"
+                // animation: google.maps.Animation.DROP, // debug and add
+            });  // End Marker
         }); // end function
 
     } // end fillInAddress
     // [END region_fillform]
+
+    // google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 @stop
 
@@ -93,18 +112,25 @@
 
     {{ Form::label('username', 'Username') }}
     {{ Form::text('username', null, array('class' => 'form-group form-control', 'placeholder' => 'Username')) }}
-    {{ $errors->first('username', '<span class="help-block text-warning">:message</span><br>') }}
+    {{ $errors->first('username', '<span class="help-block text-danger text-right">:message</span>') }}
 
     {{ Form::label('email', 'Email') }}
     {{ Form::text('email', null, array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
-    {{ $errors->first('email', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+    {{ $errors->first('email', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
 
     {{ Form::label('password', 'Password') }}
     {{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
-    {{ $errors->first('password', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+    {{ $errors->first('password', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
 
-    {{ Form::hidden('first_name', null, array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
-    {{ Form::hidden('last_name', null, array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+    <div class="col-sm-6 zero-margin-left zero-pad-left">
+        {{ Form::label('first_name', 'First Name') }}
+        {{ Form::text('first_name', null, array('class' => 'form-group form-control', 'placeholder' => 'First Name')) }}
+    </div>
+
+    <div class="col-sm-6 zero-margin-left zero-pad-left zero-pad-right">
+        {{ Form::label('last_name', 'Last Name') }}
+        {{ Form::text('last_name', null, array('class' => 'form-group form-control', 'placeholder' => 'Last Name')) }}
+    </div>
 
     {{ Form::hidden('role', 'user', array('id' => 'role')) }}
     {{ Form::hidden('street_num', null, array('id' => 'street_number')) }}
@@ -117,7 +143,7 @@
     {{ Form::hidden('longitude', null, array('id' => 'longitude')) }}
 
     {{ Form::label('address', 'Address') }}
-    {{ Form::text('address', null, array('id' => 'autocomplete', 'class' => 'form-group form-control', 'onfocus' => 'geolocate()' )) }}
+    {{ Form::text('address', null, array('id' => 'autocomplete', 'class' => 'form-group form-control bordered', 'onfocus' => 'geolocate()')) }}
     
     {{ Form::submit('Submit', array( 'id' => 'register-btn', 'class' => 'btn btn-default pull-right')) }}
     {{ Form::close() }}
@@ -129,7 +155,7 @@
             <h1 class="text-right">Your Location</h1>
         </div>
 
-        <address></adddress>
+        <div id="map-canvas"/>
 
     </div> <!-- end right container -->
 
@@ -137,16 +163,9 @@
 
 @section('bottomscript')
 <script type="text/javascript">
-$(document).ready(function () {
-    initialize();
-
-    // Render map preview on address tag population
-    $("address").each(function(){                         
-        var embed ="<iframe width='534' height='400' frameborder='0' scrolling='no'  marginheight='0' marginwidth='0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
-        $(this).html(embed);
+    $(document).ready(function () {
+        initialize();
     });
-
-});
 </script>
 
 @stop

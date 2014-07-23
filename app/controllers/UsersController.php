@@ -8,7 +8,8 @@ class UsersController extends \BaseController {
 	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
-	    $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
+	    // Commented out auth filter for demo day, need additional work to allow users to create without login, and then login on user creation to their show page.
+	    // $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
 	}
 
 	/**
@@ -61,6 +62,7 @@ class UsersController extends \BaseController {
 		}
 		
 		else {
+
 		    $user = new User();
 
 		    $user->username 	= Input::get('username');
@@ -72,6 +74,7 @@ class UsersController extends \BaseController {
 		    $user->city 		= Input::get('city');
 		    $user->state 		= Input::get('state');
 		    $user->zip 			= Input::get('zip');
+		    $user->country 		= Input::get('country');
 		    $user->role 		= Input::get('role');
 		    $user->latitude		= Input::get('latitude');
 		    $user->longitude	= Input::get('longitude');
@@ -80,10 +83,16 @@ class UsersController extends \BaseController {
 
 		    $user->save();
 
+		    // Handle Image Uploads
 		    if (Input::hasFile('image') && Input::file('image')->isValid())
 		    {
-		        $user->addUploadedImage(Input::file('image'));
+		        $user->addUploadedImage(Input::file('image'));  // call method from User model
 		        $user->save();
+		    }
+
+		    else {
+		    	$user->img_path = '/includes/img/placeholder-user.png';
+		    	$user->save();
 		    }
 		    
 		    Session::flash('successMessage', 'User saved successfully.');
@@ -151,6 +160,7 @@ class UsersController extends \BaseController {
 			$user->city 		= Input::get('city');
 			$user->state 		= Input::get('state');
 			$user->zip 			= Input::get('zip');
+			$user->country 		= Input::get('country');
 			$user->role 		= Input::get('role');
 			$user->latitude		= Input::get('latitude');
 			$user->longitude	= Input::get('longitude');
@@ -159,13 +169,19 @@ class UsersController extends \BaseController {
 
 			$user->save();
 
+			// Handle Image Uploads
 		    if (Input::hasFile('image') && Input::file('image')->isValid())
 		    {
-		        $user->addUploadedImage(Input::file('image'));
+		    	$user->addUploadedImage(Input::file('image'));  // call method from User model
 		        $user->save();
-		    }	
+		    }
 
-		    // Session::flash('successMessage', 'User saved successfully.');
+		    else {
+		    	$user->img_path = '/includes/img/placeholder-user.png';
+		    	$user->save();
+		    }
+
+		    Session::flash('successMessage', 'User saved successfully.');
 		}
 		
 		//return Redirect::back();
