@@ -51,7 +51,7 @@
 		    	</ul>
 
 
-		    @if (Auth::check())
+		    @if (Auth::check() && Auth::user()->role === 'admin')
 		    	<ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
 		        </ul>
@@ -78,7 +78,7 @@
 		      	        </ul>
 		      		</li>
 		      		<li class="nav navbar-nav navbar-right">
-		      			<p class="navbar-text">{{{ Auth::user()->username }}}</p>
+		      			<p class="navbar-text">{{{ Auth::user()->username }}}  {{{ Auth::user()->zip }}}</p>
 		      		</li>
 		        @else
 		        	<li><a href="{{ action('HomeController@showRegistration') }}"> Sign Up </a></li>

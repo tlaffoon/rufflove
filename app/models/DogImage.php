@@ -15,18 +15,11 @@ class DogImage extends Eloquent {
      * @var array
      */
     
-        // protected $hidden = array('password', 'remember_token');
-
-        public static $rules = array(
-            
-            'dog_id'  => 'required',            
-            'img_path' => 'required',            
-        );
-
-        public function dog() 
-        {
-        return $this->belongsTo('Dog');
-        } //function dog
+    public static $rules = array(
+        
+        'dog_id'  => 'required',            
+        'img_path' => 'required',            
+    );
 
     protected $imgDir = 'img-upload';
 
@@ -36,7 +29,7 @@ class DogImage extends Eloquent {
         $imageName = $this->id . '-' . $image->getClientOriginalName();
         $image->move($systemPath, $imageName);
         $this->img_path = '/includes/' . $this->imgDir . '/' . $imageName;
-    } //function addUploadedImage
+    }
 
     public function dogs() {
         return $this->belongsTo('Dog');
