@@ -89,8 +89,8 @@
 		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
 		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
 		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
-		          	  	    	<button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
-		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
+		          	  	    	<button class="btn btn-default btn-xs navbar-btn pull-left">Forgot Password?</button>
+		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success btn-xs navbar-btn pull-right')) }}
 		          			</li>
 		          		</ul>
 		          	</li>
