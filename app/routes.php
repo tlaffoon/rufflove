@@ -13,6 +13,36 @@
 
 // Route resources for 'users'
 // Route resources for 'posts'
+Route::get('test1', function () {
+
+    $zipDetails = DB::select('call zip_proximity(?,?,?)', array('90120', 20, 'mi'));
+    var_dump($zipDetails);
+
+
+    $data = DB::table('mainTable')->select('title')->get();
+    // $view = View::make('mainpage')->with('data', $data)->with('title', $title);
+    
+    $intersect = array_intersect_assoc($zipDetails, $array2);
+
+
+    $zips = [];
+    foreach ($zipDetails as $zip)
+    {
+        $zips[] = $zip->zip;
+    }
+
+
+
+    $dogs = User::whereIn('zip', $zips)->get();
+
+    // SELECT * FROM dogs
+    // INNER JOIN users
+    // ON dogs.user_id = users.id
+    // WHERE breed_id = 1486
+    // AND zip IN (SELECT zip FROM zip_proximity('78205', 1000, 'mi'));
+
+    return Response::json($dogs);
+});
 
 Route::get('test', function () {
 
