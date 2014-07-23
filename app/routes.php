@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@showHome');
 
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/admin', 'HomeController@showAdmin');
+Route::get('/atm', 'HomeController@showAtm');
 
 Route::get('/dogsearch', 'HomeController@showDogSearch');
 
@@ -22,20 +23,10 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@doLogout');
 
-Route::get('/map', 'HomeController@showMap');  // demo map page 
 Route::get('/master', 'HomeController@showMaster');
-
-Route::get('/register', 'HomeController@showRegistration');
-
 Route::get('/search', 'HomeController@showSearch');
-Route::get('/signup', 'HomeController@showRegistration');
 
-Route::get('/test', 'HomeController@showTest');
-
-Route::resource('dogs', 'DogsController');
-Route::resource('posts', 'PostsController');
-Route::resource('users', 'UsersController');
-
+Route::get('/map', 'HomeController@showMap');  // demo map page 
 Route::post('/map', function () {
 
     $address = Input::get('address');
@@ -49,6 +40,19 @@ Route::post('/map', function () {
 
     return Response::json($result);
 });
+
+Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
+Route::resource('dogs', 'DogsController');
+
+Route::get('/register', 'HomeController@showRegistration');
+
+Route::get('/search', 'HomeController@showSearch');
+Route::get('/signup', 'HomeController@showRegistration');
+
+Route::get('/test', 'HomeController@showTest');
+
+
 
 // Route::get('test', function () {
 

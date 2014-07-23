@@ -1,6 +1,7 @@
 <?php
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder 
+{
 
 	/**
 	 * Run the database seeds.
@@ -11,7 +12,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 		
-		$this->call('UsersTableSeeder');
+		$this->call('ZipsTableSeeder');
+        $this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
 		$this->call('DogsTableSeeder');
 		$this->call('DogImagesTableSeeder');
@@ -19,6 +21,41 @@ class DatabaseSeeder extends Seeder {
 		
 	} //function run()
 } //class DatabaseSeeder
+
+class ZipsTableSeeder extends Seeder 
+{
+
+    public function run()
+    {
+        // clean out the breeds table
+        DB::table('zipcodes')->delete();
+
+        // load contents of breeds file
+        ini_set('auto_detect_line_endings', true);
+        $zipFile = storage_path() . '/csv/US.txt';
+        $zips = file($zipFile);
+        
+        
+        // loop through and insert into db
+        foreach ($zips as $zip)
+        {
+            $zip = trim($zip);
+            $zip = explode(',', $zip);
+
+            $dbZip = new Zip();
+            $dbZip->zip = $zip[0];
+            $dbZip->lat = $zip[1];
+            $dbZip->lon = $zip[2];
+            $dbZip->city = $zip[3];
+            $dbZip->state = $zip[4];
+            $dbZip->state_abbrev = $zip[5];
+            $dbZip->save();
+        } //end foreach
+        
+    } //function run()
+
+} //class BreedsTableSeeder
+
 
 class BreedsTableSeeder extends Seeder 
 {
@@ -58,15 +95,16 @@ class UsersTableSeeder extends Seeder
         $user->first_name = "John";
         $user->last_name = "Doe";
         $user->email = "doglover@rufflove.com";
-        $user->address =  "112 E. Pecan St";
-        $user->city = "San Antonio";
-        $user->state = "TX";
-        $user->zip = "78205";
+        $user->address =  "";
+        $user->city = "";
+        $user->state = "";
+        $user->zip = "";
         $user->username = "doglover";
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+
 		$user->save();
 
 		$user = new User();        
@@ -81,6 +119,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.549935";
+        $user->lng = "-98.40401";
 		$user->save();
 
 		$user = new User();      
@@ -95,6 +135,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.539573";
+        $user->lng = "-98.42883";
 		$user->save();
 
 		$user = new User();      
@@ -109,6 +151,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.560037";
+        $user->lng = "-98.435707";
 		$user->save();
 
 		$user = new User();      
@@ -123,20 +167,24 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.566981";
+        $user->lng = "-98.421465";
 		$user->save();
 
 		$user = new User();      
         $user->first_name = "Hank";
         $user->last_name = "Schrader";
         $user->email = "dogloverHS@rufflove.com";
-        $user->address =  "14034 Boulder Oaks";
+        $user->address =  "13903 Cypress Hollow Dr";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78247";
+        $user->zip = "78232";
         $user->username = "dogloverHS";
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.574577 ";
+        $user->lng = "-98.461502";
 		$user->save();
 
 		$user = new User();      
@@ -151,6 +199,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.578078";
+        $user->lng = "-98.437257";
 		$user->save();
 
 		$user = new User();      
@@ -165,6 +215,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
+        $user->lat = "29.567215";
+        $user->lng = "-98.448589";
 		$user->save();
 
 		$user = new User();      
@@ -174,11 +226,14 @@ class UsersTableSeeder extends Seeder
         $user->address =  "12114 Ridge Summit St";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "782";
+        $user->zip = "78247";
         $user->username = "dogloverLR";
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
-
+        $user->role = "admin";
+        $user->lat = "29.555311";
+        $user->lng = "-98.433682";
+        $user->save();
 
         // needs to be completed refactored to use php faker to generate "real", random addresses?
         for ($i=1; $i <= 10; $i++) 
@@ -201,9 +256,10 @@ class UsersTableSeeder extends Seeder
 	        $user->save();
         } // end for loop
 	} //end function run()
+    
 }  //end class UsersTableSeeder
 
-		
+	
 class DogsTableSeeder extends Seeder 
 {
 	public function run()
@@ -218,10 +274,10 @@ class DogsTableSeeder extends Seeder
 	        $dog = new Dog();
 
 	        $dog->name = "Fido " . $i;	        
-	        $dog->purebred = array_rand($purebred);
+	        $dog->purebred = $purebred[array_rand($purebred)];
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
-	        $dog->sex = array_rand($sex);
+	        $dog->sex = $sex[array_rand($sex)];
             $dog->breed_id = rand(1, 1500);
 	        $dog->user_id = rand(2,11);
 
