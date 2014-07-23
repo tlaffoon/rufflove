@@ -15,21 +15,23 @@
 // Route resources for 'posts'
 Route::get('test1', function () {
 
-    //gets all zipcodes within given zip
-    $zipDetails = DB::select('call zip_proximity(?,?,?)', array('90210', 5, 'mi'));
-    // var_dump($zipDetails);
+    //step 1 - gets all zipcodes within given zip
+    $zipDetails = DB::select('call zip_proximity(?,?,?)', array('90210', 5, 'mi'));  
     $zips = [];
     foreach ($zipDetails as $zip)
     {
         $zips[] = $zip->zip;
     }
 
+    //step 2 - gets ALL dogs
     $query = Dog::with('breed');
 
+    //step 3 - filters above for specific input breed
     $query->whereHas('breed', function($q) {
-        $q->where('id', '=', '1486');
+        $q->where('name', '=', 'Xoloitzcuintle');
     });
 
+    //step 4 - uses step 1 results to find dog owners from step 3
     $query->whereHas('user', function($q) use ($zips) {
         $q->whereIn('zip', $zips);
     });
