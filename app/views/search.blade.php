@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('layouts.updated-master')
 
 @section('topscript')
 @stop
@@ -62,6 +62,7 @@ if (navigator.geolocation) {
 } else {
   error('not supported');
 }
+
 
 </script>
 </section>

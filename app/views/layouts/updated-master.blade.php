@@ -1,65 +1,61 @@
-<!--[if IE ]><![endif]-->
 <!doctype html>
-<!--[if lt IE 8]> <html class="no-js ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]> <html class="no-js lt-ie9 ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]> <html class="no-js lt-ie10 ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 10)|!(IE)]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+    <!--[if lt IE 8]> <html class="no-js ie7" lang="en"> <![endif]-->
+    <!--[if IE 8 ]> <html class="no-js lt-ie9 ie8" lang="en"> <![endif]-->
+    <!--[if IE 9 ]> <html class="no-js lt-ie10 ie9" lang="en"> <![endif]-->
+    <!--[if (gte IE 10)|!(IE)]><!-->
+    <html class="no-js" lang="en">
+    <!--<![endif]-->
 
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
- <title>Ruff Love-Dating for Dogs</title>
+    <title>Ruff Love-Dating for Dogs</title>
 
+     
+    <!-- Bootstrap core CSS use 3.1.1 and up framework :: this is the base css without any color changes -->
+    <link href="/includes/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Way Better Bootstrap Modals INSTRUCTIONS: https://github.com/jschr/bootstrap-modal/ -->
+    <!-- DEMO:: http://jschr.github.io/bootstrap-modal/bs3.html -->
+    <link href="/includes/assets/css/bootstrap-modal.css" rel="stylesheet" type="text/css">
+     
+    <!-- Google Font(s) -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,900,900italic,700,700italic,600,600italic,200,200italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+     
+    <!-- Wrapper and Supporting Styles -->
+    <link href="/includes/assets/css/different_base.css" rel="stylesheet" type="text/css">
+    <!-- ####### Put your color css last class 'base-color' is only used for demo ######### -->
+    <link href="/includes/assets/css/colors/black-white.css" class="base-color" rel="stylesheet" type="text/css">
 
-
- 
- <!-- Bootstrap core CSS use 3.1.1 and up framework :: this is the base css without any color changes -->
-<link href="includes/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
- <!-- Way Better Bootstrap Modals INSTRUCTIONS: https://github.com/jschr/bootstrap-modal/ -->
- <!-- DEMO:: http://jschr.github.io/bootstrap-modal/bs3.html -->
-<link href="includes/assets/css/bootstrap-modal.css" rel="stylesheet" type="text/css">
- 
- <!-- Google Font(s) -->
- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,900,900italic,700,700italic,600,600italic,200,200italic' rel='stylesheet' type='text/css'>
- <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
- 
- <!-- Wrapper and Supporting Styles -->
- <link href="includes/assets/css/different_base.css" rel="stylesheet" type="text/css">
- <!-- ####### Put your color css last class 'base-color' is only used for demo ######### -->
-<link href="includes/assets/css/colors/black-white.css" class="base-color" rel="stylesheet" type="text/css">
-
- 
- <!-- SCRIPTS IN HEAD ============================================== -->
- 
- <script src="includes/assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
- 
- <!-- NOTE:: jquery 2.x does not support IE 8 so version 1.9.1 is used for older versions of IE
+     
+     <!-- SCRIPTS IN HEAD ============================================== -->
+     
+    <script src="/includes/assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+     
+    <!-- NOTE:: jquery 2.x does not support IE 8 so version 1.9.1 is used for older versions of IE
         :: calling jQuery in the head for ajax work if necessary.
-        -->
- <!--[if gt IE 8]><!-->
-    <script src="includes/assets/js/jquery.min.2.0.3.js"></script>
-    <!--<![endif]-->
- <!--[if lt IE 9]>
+            -->
+    <!--[if gt IE 8]><!-->
+    <script src="/includes/assets/js/jquery.min.2.0.3.js"></script>
+        <!--<![endif]-->
+    <!--[if lt IE 9]>
     <script src="assets/js/1.9.1-jquery.min.js"></script>
     <![endif]-->
- 
- <!-- WINDOWS 8 Phones BUG FIX -->
- <script src="includes/assets/js/windows-fix.js"></script>
- 
- <!--[if lt IE 9]>
-  <script type="text/javascript" src="assets/js/selectivizr.js"></script>
-<![endif]-->
- 
- 
-<!-- ========= GENERATE CODE AND TOUCH ICONS http://iconifier.net/ =========== -->
+     
+    <!-- WINDOWS 8 Phones BUG FIX -->
+    <script src="/includes/assets/js/windows-fix.js"></script>
+     
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="assets/js/selectivizr.js"></script>
+    <![endif]-->
+     
+         
+        <!-- ========= GENERATE CODE AND TOUCH ICONS http://iconifier.net/ =========== -->
 
- 
+ @yield('topscript')
 </head>
 
 
@@ -101,6 +97,9 @@
      <li class="tb-phone tb-right"> Support: <span>1.888.555.1234</span></li>
      <li class="divider tb-right"><!-- divider --></li>
      <li class="tb-phone tb-right"><a href="your-link-here.html">Contact</a></li>
+     @if (Auth::check())
+        <li class="tb-phone tb-right" id='loginName'>{{{ Auth::user()->username }}}</li>
+     @endif
      </ul>
    </div>
    <!--/tool-bar --> 
@@ -136,7 +135,7 @@
      <!-- col-ms-6 non-bootstrap column for 480px - 767px -->
      <div class="col-sm-6 col-lg-4 col-ms-6">
       <h3 class="title">Sign In</h3>
-     {{ Form::open(array('action' => array('HomeController@doLogin'),'role' => 'form')) }}
+      {{ Form::open(array('action' => array('HomeController@doLogin'),'role' => 'form')) }}
        <div class="form-group">
         {{ Form::email('email', Input::old('email'), array('class' => 'form-control', 'placeholder' => 'Email')) }}
        </div>
@@ -149,9 +148,9 @@
          Remember Me </label>
        </div>
        <p class="text-center">
-        {{ Form::submit('Submit', array('class' => 'btn btn-default btn-custom')) }}
+       <button class="btn btn-default btn-custom" type="submit"><i class="fa fa-lock"></i> Sign in</button>
        </p>
-    {{ Form::close() }}
+      {{ Form::close() }}
      </div><!-- /col-sm-6 col-lg-4 col-ms-6-->
      
     </div>
@@ -214,36 +213,46 @@
     <ul class="primary-nav">
      <li class="active"><a href="{{ action('HomeController@showHome')}}">Home</a></li> <!-- add class .active on li item when the page is current -->
      <li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
-     <li class="active"><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a></li>
-      @if (Auth::check())
-       <li class="has-children"><a href="#">Administrator</a>
-        @endif
+     <li class="has-children"><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> <!-- add class .has-children on li item if the li has babies -->
+      <ul>
+       <li><a href="{{ action('HomeController@showSearch')}}">Portfolio Child Link 1</a></li>
+       <li><a href="your-link-here.html">Portfolio Child Link 2</a></li>
+       <li class="has-children"><a href="#">Portfolio Child w/Child Trigger</a>
         <ul>
-       
-         <li><a href="your-link-here.html">My Account</a></li>
-         <li><a href="{{ action('UsersController@index') }}"> User Administration </a></li>
-   
-          <ul>
-           <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
-           <li><a href="your-link-here.html">Services Grand Child Link 2</a></li>
-          </ul>
-         </li>
-         <li><a href="your-link-here.html">Services Child Link 3</a></li>
-         <li><a href="your-link-here.html">Services Child Link 4</a></li>
+         <li><a href="your-link-here.html">Portfolio Grand Child Link 1</a></li>
+         <li><a href="your-link-here.html">Portfolio Grand Child Link 2</a></li>
         </ul>
        </li>
-       <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
-       <li><p class="navbar-text"></p></li>
+       <li><a href="your-link-here.html">Portfolio Child Link 3</a></li>
+       <li><a href="your-link-here.html">Portfolio Child Link 4</a></li>
       </ul>
-      
-     </nav>
-    </div>
-    <!-- /nav-wrapper --> 
+     </li>
+     <li class="has-children"><a href="#">Services</a>
+      <ul>
+       <li><a href="your-link-here.html">Services Child Link 1</a></li>
+       <li><a href="your-link-here.html">Services Child Link 2</a></li>
+       <li class="has-children"><a href="#">Services Child w/Child Trigger</a>
+        <ul>
+         <li><a href="your-link-here.html">Services Grand Child Link 1</a></li>
+         <li><a href="your-link-here.html">Services Grand Child Link 2</a></li>
+        </ul>
+       </li>
+       <li><a href="your-link-here.html">Services Child Link 3</a></li>
+       <li><a href="your-link-here.html">Services Child Link 4</a></li>
+      </ul>
+     </li>
+     <li><a href="your-link-here.html">Logout</a></li>
+     <li><a href="your-link-here.html">Bootstrap</a></li>
+    </ul>
+    
+   </nav>
+  </div>
+  <!-- /nav-wrapper --> 
   
   <!-- ____________ LOGO _______________  -->
   <div class="logo-wrapper clearfix">
    <a href="#" class="clearfix">
-   <img id="logo" src="heart6.png" alt="company name">
+   <img id="logo" src="/includes/assets/images/logo.png" alt="company name">
    </a>
    <span><!--logo embelishment --></span>
   </div>
@@ -253,7 +262,7 @@
   <ul class="sub-bar clearfix">
    
   <!-- tagline hides at 767px --> 
-   <li class="tagline sb-left hidden-xs">Dating for Dogs</li>
+   <li class="tagline sb-left hidden-xs">Just another excellent tagline</li>
          
    <li class="visible-xs sb-left"><a href="#"><i class="fa fa-envelope-o fw"></i> Contact</a></li>
    
@@ -287,107 +296,8 @@
 
  
  <div class="page-content clearfix" id="page">
-    <!-- CUSTOM banner -->
-  <div class="banner clearfix text-center">
-    <h1 class="display-text text-supersized">Ruff Love</h1>
-    <h4>Dating For Dogs<span class="glyphicon glyphicon-heart"></span></h4>
-    <img src="puppy-kiss.jpg">
-  </div>
-  <!-- /.banner -->
-    
-  <hr class="vertical-spacer">
-  
-  <div class="container">
-  
-   <div class="row equal-height-col">
-   
-    <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-refresh feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Refreshing</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default  btn-custom" href="#" role="button">Some Link &raquo;</a></p>
-     <hr class="visible-xs visible-sm vertical-spacer">
-    </div>
-    <!--/.col-* -->
-    
-    <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-mobile feature-icon"><!--icon --></i> <i class="fa fa-tablet feature-icon"><!--icon --></i> <i class="fa fa-desktop feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Responsive</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Some Link &raquo;</a></p>
-     <hr class="visible-xs visible-sm vertical-spacer">
-    </div>
-    <!--/.col-* -->
-    
-    <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-code feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Clean</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Some Link &raquo;</a></p>
-     <hr class="visible-xs visible-sm vertical-spacer">
-    </div>
-    <!--/.col-* -->
-    
-    <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-signal feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Different</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Some Link &raquo;</a></p>
-    </div>
-    <!--/.col-* -->
-    
-   </div>
-   <!-- /.row .equal-height-col -->
-   
-  </div>
-  <!-- /.container -->
-  
-  <hr class="vertical-spacer">
-  
-  
-  <div class="container">
-   <div class="row">
-    <div class="col-sm-6">
-     <img src="http://placehold.it/700x350" alt="Title of Image" class="img-responsive img-custom">
-     <hr class="vertical-spacer visible-xs">
-    </div>
-    <div class="col-sm-6">
-     <h2 class="h1 font-weight-normal no-margin-top display-text">Head in the Game</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-    
-    <hr>
-    
-    <blockquote>
-    <p class="display-text lead">Design is not just what it looks like and feels like. Design is how it works.</p>
-    <footer>Steve Jobs   </footer>
-    </blockquote>
-    
-    </div>
-   </div>
-   <!-- /.row -->
 
-
-<!-- About Modal -->
-
-<div id="about-different" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
- <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  <h4 class="modal-title">About Different</h4>
- </div>
- <div class="modal-body">
-  <p class="text-center lead">This is NOT a theme. It's a wrapper that includes the html and css for everything but the guts of the pages. It also provides minimal styling & over-rides to the Bootstrap framework. Customize your colors and styles at the GetBoostrap.com customizer and then load up your Bootstrap css.</p>
- </div>
- <div class="modal-footer">
-  <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
- </div>
-</div>
-
-<!-- End About Modal -->
-
-  </div>
-  <!-- /.container -->
-  
+   @yield('content')
   
  </div>
  <!-- / ________ END .page-content _____________ -->
@@ -456,7 +366,7 @@
    <section>
     <h5>Recent Images</h5>
     <div class="img-widget clearfix">
-       <!--  <a href="#"><img src="../middle/assets/demo-images/florence-341469_150.jpg" alt="" /></a>
+        <!-- <a href="#"><img src="../middle/assets/demo-images/florence-341469_150.jpg" alt="" /></a>
         <a href="#"><img src="../middle/assets/demo-images/frankfurt-285607_150.jpg" alt="" /></a>
         <a href="#"><img src="../middle/assets/demo-images/home-22527_150.jpg" alt="" /></a>
         <a href="#"><img src="../middle/assets/demo-images/milwaukee-art-museum-3984_150.jpg" alt="" /></a>
@@ -517,19 +427,19 @@ Email <a href="mailto:christinabeymer@gmail.com" class="text-underline">the desi
  <i class="fa fa-arrow-circle-o-up"></i>
 </div>
 
-
 <!-- _________ FOOTER SCRIPTS ________ -->
 
-  <script src="includes/assets/js/bootstrap.min.js"></script>
-  <script src="includes/assets/js/jquery.different_base.js"></script> 
+  <script src="/includes/assets/js/bootstrap.min.js"></script>
+  <script src="/includes/assets/js/jquery.different_base.js"></script> 
 
   
   
 <!-- Way Better Bootstrap Modals INSTRUCTIONS: https://github.com/jschr/bootstrap-modal/ -->
 <!-- DEMO:: http://jschr.github.io/bootstrap-modal/bs3.html -->
-  <script src="includes/assets/js/bootstrap-modalmanager.js"></script>
-  <script src="includes/assets/js/bootstrap-modal.js"></script>
+  <script src="/includes/assets/js/bootstrap-modalmanager.js"></script>
+  <script src="/includes/assets/js/bootstrap-modal.js"></script>
 
+@yield('bottomscript')
 
 </body>
 </html>

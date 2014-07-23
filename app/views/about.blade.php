@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.updated-master')
 @section('content')
 
 <div class="container">
@@ -102,4 +102,5 @@
  </div>
 
 </div> <!-- end main container -->
+</div>
 @stop

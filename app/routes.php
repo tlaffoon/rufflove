@@ -10,6 +10,9 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+// Route::get('/new-homepage', 'HomeController@showHome');
+
+
 
 Route::get('/', 'HomeController@showHome');
 
@@ -23,7 +26,7 @@ Route::post('/login', 'HomeController@doLogin');
 Route::get('/logout', 'HomeController@doLogout');
 
 Route::get('/map', 'HomeController@showMap');  // demo map page 
-Route::get('/master', 'HomeController@showMaster');
+// Route::get('/master', 'HomeController@showMaster');
 
 Route::get('/register', 'HomeController@showRegistration');
 

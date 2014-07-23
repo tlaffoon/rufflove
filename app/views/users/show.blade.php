@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.updated-master')
 
 @section('topscript')
 <style type="text/css">
@@ -70,6 +70,7 @@
 
 	</div>
 </div>
+
 @foreach ($user->dogs as $dog)
 
   <div class="row">

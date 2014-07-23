@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('test')
 
 @section('topscript')
 @stop
 
 @section('content')
-<div class="container col-md-6">
+<div class="container">
 
 <div class="clearfix"></div>
 

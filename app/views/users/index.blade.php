@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.updated-master')
 
 @section('content')
 <div class="container col-md-12">
