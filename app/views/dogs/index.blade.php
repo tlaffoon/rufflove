@@ -1,5 +1,5 @@
-@extends('test')
-@include('layouts.sidebar')
+@extends('layouts.updated-master')
+
 
 @section('topscript')
 @stop

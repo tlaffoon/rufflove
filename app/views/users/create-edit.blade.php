@@ -4,7 +4,8 @@
 @stop
 
 @section('content')
-<div class="container">
+
+<div class="container col-md-6">
 
 <div class="clearfix"></div>
 
