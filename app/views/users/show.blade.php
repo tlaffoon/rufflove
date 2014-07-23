@@ -7,20 +7,54 @@
 	margin-top: 92px;
 	float: right;
 }
+
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map-canvas { 
+  	height: 50%;
+  }
 </style>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
 
 <script type="text/javascript">
   function initialize() {
-    var mapOptions = {
-      center: new google.maps.LatLng(-34.397, 150.644),
-      zoom: 8
-    };
-    var map = new google.maps.Map(document.getElementById("map-canvas"),
-        mapOptions);
-  }
+
+  	// assign values to lat/lng from address field
+  	var address = $('#fullAddress').val();
+  	console.log(address);
+  	var geocoder = new google.maps.Geocoder();
+  	geocoder.geocode({ 'address': address }, function(result, status) {
+  	    if (status == google.maps.GeocoderStatus.OK) {
+  	        var latitude = $('#latitude').val();  // need to call functions instead of these variables
+  	        var longitude = $('#longitude').val(); //  ^
+	  	    var latLngObj = result[0]["geometry"]["location"];
+	  	    console.log(latitude + ' ' + longitude);
+	  	    console.log(latLngObj)
+  	    } // endif
+
+  	    var mapOptions = {
+  	      center: new google.maps.LatLng(latitude, longitude),
+  	      zoom: 11
+  	    };
+
+  	    var map = new google.maps.Map(document.getElementById("map-canvas"),
+  	        mapOptions);
+
+  	    // Create new marker based on lat/lng
+  	    var marker = new google.maps.Marker({
+  	        position: latLngObj,
+  	        map: map,
+  	        draggable: false,
+  	        title: "Your Location"
+  	        // animation: google.maps.Animation.DROP, // debug and add
+  	    });  // End Marker
+  	}); // end function
+
+  } // end initialize
+  
   google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 @stop
 
@@ -36,6 +70,7 @@
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 
+			@if (Auth::check())
 				@if (Auth::user()->role == 'admin')
 
 					<button type="button" class="btn btn-default">
@@ -49,13 +84,13 @@
 					<a href="#" class="deleteUser btn btn-danger" data-userid="{{ $user->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
 
 				@endif
-				
+			@endif				
 			</div>
 
 		<h2>{{{ $user->username }}}</h2>
 	</div> <!-- end page header -->
 
-		<div class="col-sm-6 zero-pad-left">
+		<div class="col-sm-4 zero-pad-left">
 
 		<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
 		<h4>Email: 		{{{ $user->email }}}								</h4>
@@ -66,14 +101,18 @@
 		<h4>Zip: 		{{{ $user->zip }}}									</h4>
 		<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
 
-
+		<input type="hidden" id="latitude" value="{{{ $user->latitude }}}">
+		<input type="hidden" id="longitude" value="{{{ $user->longitude }}}">
+		<input type="hidden" id="fullAddress" value="{{{ $user->fullAddress }}}">
 
 		</div> <!-- end inner left div -->
 
-		<div class="col-sm-6">
+		<div class="col-sm-8 zero-pad-right zero-pad-right">
 
 			<!-- Insert Google Map -->
-			<div id="map-canvas"/>
+			<div style="border: 1px solid black;">
+				<div id="map-canvas"/>
+			</div>
 
 		</div> <!-- end inner right div -->
 
@@ -81,7 +120,7 @@
 
 <div class="col-md-12 zero-pad-left">
 	<div class="page-header">
-		@if (Auth::check())
+		@if (isset($user))
 		<h2>{{{ $user->username . '\'s dogs' }}}</h2>
 		@endif
 	</div>

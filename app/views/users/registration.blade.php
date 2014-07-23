@@ -4,7 +4,7 @@
 <style type="text/css">
   html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
-  #map-canvas { height: 100% }
+  #map-canvas { height: 67% }
 </style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript">
@@ -46,10 +46,8 @@
     function geolocate() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-          var geolocation = new google.maps.LatLng(
-              position.coords.latitude, position.coords.longitude);
-          autocomplete.setBounds(new google.maps.LatLngBounds(geolocation,
-              geolocation));
+          var geolocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          autocomplete.setBounds(new google.maps.LatLngBounds(geolocation, geolocation));
         });
       }
     }
@@ -145,7 +143,7 @@
     {{ Form::hidden('longitude', null, array('id' => 'longitude')) }}
 
     {{ Form::label('address', 'Address') }}
-    {{ Form::text('address', null, array('id' => 'autocomplete', 'class' => 'form-group form-control', 'onfocus' => 'geolocate()' )) }}
+    {{ Form::text('address', null, array('id' => 'autocomplete', 'class' => 'form-group form-control bordered', 'onfocus' => 'geolocate()')) }}
     
     {{ Form::submit('Submit', array( 'id' => 'register-btn', 'class' => 'btn btn-default pull-right')) }}
     {{ Form::close() }}

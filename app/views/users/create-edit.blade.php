@@ -1,6 +1,11 @@
 @extends('layouts.master')
 
 @section('topscript')
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map-canvas { height: 50% }
+</style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript">
 	var map;
@@ -15,6 +20,38 @@
 	};
 
 	function initialize() {
+
+ 	// assign values to lat/lng from address field
+  	var address = $('#fullAddress').val();
+  	console.log(address);
+  	var geocoder = new google.maps.Geocoder();
+  	geocoder.geocode({ 'address': address }, function(result, status) {
+  	    if (status == google.maps.GeocoderStatus.OK) {
+  	        var latitude = $('#latitude').val();  // need to call functions instead of these variables
+  	        var longitude = $('#longitude').val(); //  ^
+	  	    var latLngObj = result[0]["geometry"]["location"];
+	  	    console.log(latitude + ' ' + longitude);
+	  	    console.log(latLngObj)
+  	    } // endif
+
+  	    var mapOptions = {
+  	      center: new google.maps.LatLng(latitude, longitude),
+  	      zoom: 11
+  	    };
+
+  	    var map = new google.maps.Map(document.getElementById("map-canvas"),
+  	        mapOptions);
+
+  	    // Create new marker based on lat/lng
+  	    var marker = new google.maps.Marker({
+  	        position: latLngObj,
+  	        map: map,
+  	        draggable: false,
+  	        title: "Your Location"
+  	        // animation: google.maps.Animation.DROP, // debug and add
+  	    });  // End Marker
+  	}); // end function
+
 	  // Create the autocomplete object, restricting the search
 	  // to geographical location types.
 	  autocomplete = new google.maps.places.Autocomplete(
@@ -174,6 +211,18 @@
 	{{ Form::file('image', array('class' => 'form-group')) }}
 	{{ $errors->first('image', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
 	{{ Form::close() }}
+
+	<div class="page-header">
+		<h2 class="text-right">Location</h2>
+	</div>
+
+	<input type="hidden" id="latitude" value="{{{ $user->latitude }}}">
+	<input type="hidden" id="longitude" value="{{{ $user->longitude }}}">
+	<input type="hidden" id="fullAddress" value="{{{ $user->fullAddress }}}">
+
+	<div>
+		<div id="map-canvas"/>
+	</div>
 
 </div>  <!-- end right container -->
 
