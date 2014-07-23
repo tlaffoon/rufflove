@@ -41,7 +41,7 @@
 
 	{{ Form::label('name', 'Name') }}
 	{{ Form::text('name', Input::old('name'), array('class' => 'form-group form-control', 'placeholder' => 'Name')) }}
-	{{ $errors->first('name', '<span class="help-block text-warning">:message</span><br>') }}
+	{{ $errors->first('name', '<span class="help-block text-danger text-right">:message</span><br>') }}
 
 	<div class="form-group zero-left-margin">
 	{{ Form::label('owner', 'Owner') }}
@@ -50,11 +50,11 @@
 
 	{{ Form::label('age', 'Age') }}
 	{{ Form::text('age', Input::old('age'), array('class' => 'form-group form-control', 'placeholder' => 'Age')) }}
-	{{ $errors->first('age', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	{{ $errors->first('age', '<span class="help-block"><p class="text-danger text-right">:message</p></span><br>') }}
 
 	{{ Form::label('weight', 'Weight') }}
 	{{ Form::text('weight', Input::old('weight'), array('class' => 'form-group form-control', 'placeholder' => 'Weight')) }}
-	{{ $errors->first('last_name', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	{{ $errors->first('last_name', '<span class="help-block"><p class="text-danger text-right">:message</p></span><br>') }}
 
 	<div class="form-group zero-left-margin">
 		{{ Form::label('sex', 'Sex') }}
@@ -64,7 +64,7 @@
 	<div id="prefetch" style="margin-top: 18px;">
 	{{ Form::label('breed', 'Breed') }}
 	{{ Form::text('breed', null, array('class' => 'form-group form-control typeahead', 'placeholder' => 'Breed')) }}
-	{{ $errors->first('breed', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	{{ $errors->first('breed', '<span class="help-block"><p class="text-danger text-right">:message</p></span><br>') }}
 	</div>
 
 	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
@@ -76,11 +76,17 @@
 		<h2 class="text-right">Image Preview</h2>
 	</div>
 
+	@if (isset($dog))
+		<div>
+			<img src="{{{ $dog->image()->first()->path }}}">
+		</div>
+	@endif
+
 	<div class="form-group zero-left-margin">
 	{{ Form::label('image', 'Image') }}
 
 	{{ Form::file('image', array('class' => 'form-group button-space-top')) }}
-	{{ $errors->first('image', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	{{ $errors->first('image', '<span class="help-block"><p class="text-danger text-right">:message</p></span><br>') }}
 
 	{{ Form::close() }}
 	</div>

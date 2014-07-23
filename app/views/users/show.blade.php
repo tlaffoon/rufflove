@@ -8,17 +8,31 @@
 	float: right;
 }
 </style>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+
+<script type="text/javascript">
+  function initialize() {
+    var mapOptions = {
+      center: new google.maps.LatLng(-34.397, 150.644),
+      zoom: 8
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"),
+        mapOptions);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 @stop
 
 @section('content')
-<div class="container col-md-2">
+<div class="col-md-2">
 	<div class="test">
 		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
 	</div>
 </div>
 
 
-<div class="container col-md-10">
+<div class="col-md-10">
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 
@@ -39,26 +53,33 @@
 			</div>
 
 		<h2>{{{ $user->username }}}</h2>
-	</div>
+	</div> <!-- end page header -->
+
+		<div class="col-sm-6 zero-pad-left">
+
+		<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
+		<h4>Email: 		{{{ $user->email }}}								</h4>
+		<h4>Role: 		{{{ $user->role }}}									</h4>
+		<h4>Address: 	{{{ $user->address }}}								</h4>
+		<h4>City: 		{{{ $user->city }}}									</h4>
+		<h4>State: 		{{{ $user->state }}}								</h4>
+		<h4>Zip: 		{{{ $user->zip }}}									</h4>
+		<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
 
 
-	<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
-	<h4>Email: 		{{{ $user->email }}}								</h4>
-	<h4>Role: 		{{{ $user->role }}}									</h4>
-	<h4>Address: 	{{{ $user->address }}}								</h4>
-	<h4>City: 		{{{ $user->city }}}									</h4>
-	<h4>State: 		{{{ $user->state }}}								</h4>
-	<h4>Zip: 		{{{ $user->zip }}}									</h4>
-	<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
 
-	{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
-	{{ Form::close() }}
+		</div> <!-- end inner left div -->
 
-	</div>
+		<div class="col-sm-6">
 
+			<!-- Insert Google Map -->
+			<div id="map-canvas"/>
 
-<div class="col-md-2"></div>
-<div class="col-md-10">
+		</div> <!-- end inner right div -->
+
+	</div> <!-- end user detail main div -->
+
+<div class="col-md-12 zero-pad-left">
 	<div class="page-header">
 		@if (Auth::check())
 		<h2>{{{ $user->username . '\'s dogs' }}}</h2>
@@ -83,7 +104,7 @@
   	          <img src="/includes/img/placeholder.png" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
   	        @endif
 
-  	</div>
+  	</div> <!-- end dog image preview -->
 
     <div class="zero-margin-left blog-block">
       
@@ -96,6 +117,11 @@
   </div> <!-- end row -->
 
   @endforeach
+
+
+	<!-- Hidden form for user deletion -->
+	{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
+	{{ Form::close() }}
 
 @stop
 
