@@ -5,8 +5,8 @@
  <!-- CUSTOM banner -->
   <div class="banner clearfix text-center">
     <h1 class="display-text text-supersized">Ruff Love</h1>
-      <h1 class="display-text text-supersized"><span class="glyphicon glyphicon-heart">
-    </span> Dating For Dogs</p></h1>
+      <h1><span class="glyphicon glyphicon-heart"></h1>
+    </span> Dating For Dogs</p></h6>
   </div>
   <!-- /.banner -->
     
@@ -63,7 +63,7 @@
   <div class="container">
    <div class="row">
     <div class="col-sm-6">
-     <img src="http://placehold.it/700x350" alt="Title of Image" class="img-responsive img-custom">
+     <img src="/includes/DogImages/bond.jpg" alt="Title of Image" class="img-responsive img-custom">
      <hr class="vertical-spacer visible-xs">
     </div>
     <div class="col-sm-6">
@@ -74,31 +74,14 @@
     <hr>
     
     <blockquote>
-    <p class="display-text lead">Design is not just what it looks like and feels like. Design is how it works.</p>
-    <footer>Steve Jobs   </footer>
+    <p class="display-text lead">A dog is the only thing on earth that loves you more than he loves himself</p>
+    <footer>Josh Billings</footer>
     </blockquote>
     
     </div>
    </div>
    <!-- /.row -->
 
-
-<!-- About Modal -->
-
-<div id="about-different" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
- <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  <h4 class="modal-title">About Different</h4>
- </div>
- <div class="modal-body">
-  <p class="text-center lead">This is NOT a theme. It's a wrapper that includes the html and css for everything but the guts of the pages. It also provides minimal styling & over-rides to the Bootstrap framework. Customize your colors and styles at the GetBoostrap.com customizer and then load up your Bootstrap css.</p>
- </div>
- <div class="modal-footer">
-  <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
- </div>
-</div>
-
-<!-- End About Modal -->
 
   </div>
   <!-- /.container -->

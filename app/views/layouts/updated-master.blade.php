@@ -404,7 +404,6 @@
  <hr class="no-padding-bottom">
  <div class="container-fluid">
   <p class="small margin-top-bottom-20px text-center text-right-min-width-768px">
-Email <a href="mailto:christinabeymer@gmail.com" class="text-underline">the designer.</a>
 </p>
  </div>
 </footer>
