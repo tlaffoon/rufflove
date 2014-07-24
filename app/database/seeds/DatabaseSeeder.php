@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
 		
 		$this->call('BreedsTableSeeder');
         $this->call('UsersTableSeeder');
-        $this->call('DogsTableSeeder');				
+        $this->call('DogsTableSeeder');		
 		$this->call('DogImagesTableSeeder');
         $this->call('ZipsTableSeeder');
         		
@@ -287,7 +287,7 @@ class DogsTableSeeder extends Seeder
 	        $dog->weight = rand(1,100);
 	        $dog->sex = $sex[array_rand($sex)];
             $dog->breed_id = rand(1, 1499);
-	        $dog->user_id = rand(2,11);
+	        $dog->user_id = rand(2,199);
 
 	       	$dog->save();
         } // end for loop
