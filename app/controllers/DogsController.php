@@ -18,6 +18,9 @@ class DogsController extends \BaseController {
 	 */
 	public function index()
 	{
+
+		$dogs = Dog::all();
+
 		$q = Dog::query();
 
 		  if (Input::has('search-name'))

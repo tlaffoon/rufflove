@@ -4,6 +4,7 @@
 @stop
 
 @section('content')
+
 {{{ Auth::user()->zip }}}
 
 <!-- NEW CODE FROM TEST BLADE -->
@@ -317,29 +318,22 @@
 
 <hr>
 
+
 <!-- ========================================================================== -->
 <!-- OLD WORKING CODE -->
   <!-- Begin main search form -->
- <div class="col-md-12 zero-pad-left zero-pad-right"> 
+ <div class="container col-md-12 zero-pad-left zero-pad-right"> 
 
-    {{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }}    
+  {{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
       <h3>Search for dog by name</h3>
       {{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
     
-    {{ Form::close() }} 
-    
-  </div> <!-- end main search form -->
+    <!-- end main search form -->
 
-  
-
-  <!-- Begin breed search form -->
-  <div class="col-md-12 zero-pad-left zero-pad-right"> 
+    <!-- Begin breed search form -->
     {{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }} 
-    <div id="prefetch">
-      <h3>Search for breed</h3>
-      {{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Search by breed here...')) }}
-      
-      
+
+            
       <br>
       <h3>Sex</h3>
       
@@ -349,7 +343,6 @@
       Male
       {{ Form::radio('sex', 'M', false) }}
       <br>
-      <!-- {{ Form::text('purebred', null, array('class' => 'form-group form-control', 'placeholder' => 'Purebred Y or N')) }} -->
       
       <h3>Purebred</h3>
       
@@ -358,87 +351,54 @@
       No
       {{ Form::radio('purebred', 'N', false) }}
       <br>
-      <!-- <h3>Enter max weight</h3>
-      {{ Form::text('weight', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by weight here...')) }}
-    -->  
+
       <h3>Enter search radius</h3>
-      {{ Form::text('miles', null, array('class' => 'form-group form-control', 'placeholder' => 'Search radius here...')) }}
-
- 
-
-
+      {{ Form::text('distance', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Miles')) }}
+    <div id="prefetch">
+        <h3>Search for breed</h3>
+      {{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Enter Breed')) }}
     </div>
     {{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
     {{ Form::close() }} 
   </div>  
   <!-- end breed search form -->
 
-
-
-
-
- <!-- <h2> GeoLocation Demo: User Location Tracking </h2>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <article>
-      <p>Finding your location: <span id="status">checking...</span></p>
-    </article>
-<script>
-function success(position) {
-  var p = document.querySelector('#status');
-  
-  if (p.className == 'success') {
-    // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
-    return;
-  }
-  
-  p.innerHTML = "found you!";
-  p.className = 'success';
-  
-  var usermap = document.createElement('div');
-  usermap.id = 'usermap';
-  usermap.style.height = '400px';
-  usermap.style.width = '400px';
-  usermap.style.border = '1px solid #000000';
-    
-  document.querySelector('article').appendChild(usermap);
-  
-  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var myOptions = {
-    zoom: 15,
-    center: latlng,
-    mapTypeControl: false,
-    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  var map = new google.maps.Map(document.getElementById("usermap"), myOptions);
-  
-  var marker = new google.maps.Marker({
-      position: latlng, 
-      map: map, 
-      title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
-  });
-}
-
-function error(msg) {
-  var s = document.querySelector('#status');
-  s.innerHTML = typeof msg == 'string' ? msg : "failed";
-  s.className = 'fail';
-  
-  // console.log(arguments);
-}
-
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success, error);
-} else {
-  error('not supported');
-}
-
-
-</script>
-</section> -->
 @stop
 
 @section('bottomscript')
+<script type="text/javascript">
+$('#ajax-form').on('submit', function (e) {
+    e.preventDefault();
+    var formValues = $(this).serialize();
+    console.log('formValues: ' + formValues);
+
+    $.ajax({
+        url: "/search",
+        type: "POST",
+        data: formValues,
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // $('#ajax-message').html(data.message);
+            $(data).each(function() {
+                console.log('=========');
+                console.log('Id: ' + this.id);
+                console.log('Breed: ' + this.breed.name);
+                console.log('Dog Name: ' + this.name);
+                console.log('Sex: ' + this.sex);
+                console.log('Age: ' + this.age);
+                console.log('Purebred? ' + this.purebred);
+                console.log('Owner: ' + this.user.username);
+                console.log('Lat: ' + this.user.lat);
+                console.log('Lng: ' + this.user.lng);
+                console.log('=========');
+
+            });
+        }
+    });
+}); // end ajax form submit block
+</script>
+
 <script type="text/javascript">
   var breeds = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
