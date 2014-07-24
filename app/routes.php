@@ -12,8 +12,6 @@
 */
 // Route::get('/new-homepage', 'HomeController@showHome');
 
-
-
 Route::get('/', 'HomeController@showHome');
 
 Route::get('/about', 'HomeController@showAbout');
