@@ -112,7 +112,7 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        // $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.42846";
         $user->lng = "-98.492433";
 
@@ -132,6 +132,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.549935";
         $user->lng = "-98.40401";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         $user = new User();      
@@ -148,6 +149,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.539573";
         $user->lng = "-98.42883";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         $user = new User();      
@@ -164,6 +166,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.560037";
         $user->lng = "-98.435707";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         $user = new User();      
@@ -180,6 +183,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.566981";
         $user->lng = "-98.421465";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         $user = new User();      
@@ -196,6 +200,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.574577 ";
         $user->lng = "-98.461502";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         $user = new User();      
@@ -212,6 +217,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.578078";
         $user->lng = "-98.437257";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         $user = new User();      
@@ -228,6 +234,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.567215";
         $user->lng = "-98.448589";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         $user = new User();      
@@ -244,6 +251,7 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->lat = "29.555311";
         $user->lng = "-98.433682";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->save();
 
         for ($i=1; $i <= 200; $i++) 
@@ -260,6 +268,7 @@ class UsersTableSeeder extends Seeder
                 $user->email = $faker->safeEmail;
                 $user->img_path = "/includes/img/placeholder-user.png";
                 $user->role = "user";
+                $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
                 $user->save();
         } // end for loop
