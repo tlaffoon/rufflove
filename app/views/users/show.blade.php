@@ -31,7 +31,7 @@
   	        var longitude = $('#longitude').val(); //  ^
 	  	    var latLngObj = result[0]["geometry"]["location"];
 	  	    console.log(latitude + ' ' + longitude);
-	  	    console.log(latLngObj)
+	  	    console.log(latLngObj);
   	    } // endif
 
   	    var mapOptions = {
@@ -85,11 +85,8 @@
 		<h2>{{{ $user->username }}}</h2>
 	</div> <!-- end page header -->
 
-	@if (!empty($user->img_path))
 		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
-	@else
-		<img src="includes/img/placeholder-user.png" class="img-responsive thumbnail centered">
-	@endif
+
 		<p class="lead">
 			<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
 			<h4>Email: 		{{{ $user->email }}}								</h4>
@@ -116,23 +113,23 @@
 					<div id="map-canvas"/>
 				</div>
 	</div>
-	<div class="col-md-8 zero-pad-left">
+	<div class="col-md-12 zero-pad-left">
 		<div class="page-header">
 			@if (isset($user))
-			<h2>{{{ $user->username . '\'s dogs' }}}</h2>
+			<h2>{{{ $user->username . '\'s dogs' }}}
+			<button type="button" class="btn btn-default pull-right">
+					<a href="{{ action('DogsController@create') }}"><span class="glyphicon glyphicon-plus"></span></a>
+			</button>
+			</h2>
 			@endif
 		</div>
-		<button type="button" class="btn btn-default">
-				<a href="{{ action('DogsController@create') }}"><span class="glyphicon glyphicon-plus"></span></a>
-		</button>
+
 	</div>
 
 	@foreach ($user->dogs as $dog)
 
 	  <div class="row">
-
-	  	<div class="col-md-2"></div> <!-- fills sidebar space -->
-	  	
+	
 	  	<div class="col-md-2">
 
 	  	        @if ($dog->img_path )
