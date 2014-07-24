@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
 		
 		$this->call('BreedsTableSeeder');
         $this->call('UsersTableSeeder');
-        $this->call('DogsTableSeeder');				
+        $this->call('DogsTableSeeder');		
 		$this->call('DogImagesTableSeeder');
         $this->call('ZipsTableSeeder');
         		
@@ -27,7 +27,8 @@ class ZipsTableSeeder extends Seeder
 
     public function run()
     {
-        // clean out the breeds table
+        // clean out the zips table
+        $this->command->info('Deleting existing Zipcodes table ...');
         DB::table('zipcodes')->delete();
 
         // load contents of breeds file
@@ -53,7 +54,7 @@ class ZipsTableSeeder extends Seeder
         } //end foreach
         
     } //function run()
-
+    
 } //class BreedsTableSeeder
 
 
@@ -63,6 +64,7 @@ class BreedsTableSeeder extends Seeder
     public function run()
     {
         // clean out the breeds table
+        $this->command->info('Deleting existing Breeds table ...');
         DB::table('breeds')->delete();
 
         // load contents of breeds file
@@ -79,9 +81,9 @@ class BreedsTableSeeder extends Seeder
             $dbBreed->name = $breed;
             $dbBreed->save();
         } //end foreach
-        
+     
     } //function run()
-
+    
 } //class BreedsTableSeeder
         
 class UsersTableSeeder extends Seeder 
@@ -90,31 +92,27 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-
-        $this->command->info('Deleting existing Person table ...');
-    
         $faker = Faker\Factory::create();
 
-        //$this->command->info('Inserting '.$count.' sample records using Faker ...');
-        // $faker->seed(1234);
-
+       
+        $this->command->info('Deleting existing Users table ...');
         DB::table('users')->delete();
 
         $user = new User();        
         $user->first_name = "John";
         $user->last_name = "Doe";
         $user->email = "doglover@rufflove.com";
-        $user->address =  "";
-        $user->city = "";
-        $user->state = "";
-        $user->zip = "";
+        $user->address =  "123 maple st.";
+        $user->city = "Beverly Hills";
+        $user->state = "CA";
+        $user->zip = "90120";
         $user->username = "doglover";
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        // $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
-        $user->lat = "29.42846";
-        $user->lng = "-98.492433";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "34.068835";
+        $user->lng = "-118.39385900000002";
 
         $user->save();
 
@@ -122,96 +120,102 @@ class UsersTableSeeder extends Seeder
         $user->first_name = "Gustavo";
         $user->last_name = "Fring";
         $user->email = "dogloverGF@rufflove.com";
-        $user->address =  "11815 Alamo Blanco St";
+        $user->address =  "5206 Gemsbuck Chase";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78233";
+        $user->zip = "78251";
         $user->username = "dogloverGF";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        $user->lat = "29.549935";
-        $user->lng = "-98.40401";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.485576999999964";
+        $user->lng = "-98.71428673565674";
         $user->save();
 
         $user = new User();      
         $user->first_name = "Walter";
         $user->last_name = "White";
         $user->email = "dogloverWW@rufflove.com";
-        $user->address =  "3527 Crestmont Dr";
+        $user->address =  "9703 Lauren Mist";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78217";
+        $user->zip = "78251";
         $user->username = "dogloverWW";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        $user->lat = "29.539573";
-        $user->lng = "-98.42883";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.480323";
+        $user->lng = "98.67758900000001";
         $user->save();
 
         $user = new User();      
         $user->first_name = "Jesse";
         $user->last_name = "Pinkman";
         $user->email = "dogloverJP@rufflove.com";
-        $user->address =  "12213 Stoney Xing";
+        $user->address =  "7935 Oak Pointe";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78247";
+        $user->zip = "78254";
         $user->username = "dogloverJP";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        $user->lat = "29.560037";
-        $user->lng = "-98.435707";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.514455";
+        $user->lng = "98.72717699999998";
         $user->save();
 
         $user = new User();      
         $user->first_name = "Saul";
         $user->last_name = "Goodman";
         $user->email = "dogloverSG@rufflove.com";
-        $user->address =  "14034 Boulder Oaks";
+        $user->address =  "512 W Euclid Ave";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78247";
+        $user->zip = "78212";
         $user->username = "dogloverSG";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        $user->lat = "29.566981";
-        $user->lng = "-98.421465";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.4361206";
+        $user->lng = "98.497569";
         $user->save();
 
         $user = new User();      
         $user->first_name = "Hank";
         $user->last_name = "Schrader";
         $user->email = "dogloverHS@rufflove.com";
-        $user->address =  "13903 Cypress Hollow Dr";
+        $user->address =  "133 Thelma Dr";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78232";
+        $user->zip = "78212";
         $user->username = "dogloverHS";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        $user->lat = "29.574577 ";
-        $user->lng = "-98.461502";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.468286";
+        $user->lng = "-98.484193";
         $user->save();
 
         $user = new User();      
         $user->first_name = "Todd";
         $user->last_name = "Alquist";
         $user->email = "dogloverTA@rufflove.com";
-        $user->address =  "3119 Morning Trl";
+        $user->address =  "502 E Locust St";
         $user->city = "San Antonio";
         $user->state = "TX";
-        $user->zip = "78247";
+        $user->zip = "78212";
         $user->username = "dogloverTA";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        $user->lat = "29.578078";
-        $user->lng = "-98.437257";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.445551";
+        $user->lng = "98.48888399999998";
         $user->save();
 
         $user = new User();      
@@ -224,8 +228,9 @@ class UsersTableSeeder extends Seeder
         $user->zip = "78247";
         $user->username = "dogloverME";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.567215";
         $user->lng = "-98.448589";
         $user->save();
@@ -240,8 +245,9 @@ class UsersTableSeeder extends Seeder
         $user->zip = "78247";
         $user->username = "dogloverLR";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.555311";
         $user->lng = "-98.433682";
         $user->save();
@@ -260,9 +266,11 @@ class UsersTableSeeder extends Seeder
                 $user->email = $faker->safeEmail;
                 $user->img_path = "/includes/img/placeholder-user.png";
                 $user->role = "user";
+                $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
                 $user->save();
         } // end for loop
+        
     } //end function run()
     
 }  //end class UsersTableSeeder
@@ -272,6 +280,7 @@ class DogsTableSeeder extends Seeder
 {
     public function run()
     {
+        $this->command->info('Deleting existing Dogs table ...');
         DB::table('dogs')->delete();
 
         $purebred = ['Y','N'];
@@ -287,11 +296,13 @@ class DogsTableSeeder extends Seeder
 	        $dog->weight = rand(1,100);
 	        $dog->sex = $sex[array_rand($sex)];
             $dog->breed_id = rand(1, 1499);
-	        $dog->user_id = rand(2,11);
+	        $dog->user_id = rand(2,199);
 
 	       	$dog->save();
         } // end for loop
+        
     } //end run()
+    
 } // end class DogTableSeeder
 
 
@@ -300,6 +311,7 @@ class DogImagesTableSeeder extends Seeder
 
     public function run()
     {
+        $this->command->info('Deleting existing Dog images table ...');
        DB::table('dog_images')->delete();
 
        for ($i=1; $i <= 5000; $i++) 
@@ -312,8 +324,9 @@ class DogImagesTableSeeder extends Seeder
             $dog_image->save();
 
        } // end for loop
+      
     } //end run()
-
+    
 } //end class DogImagesTableSeeder
 
 

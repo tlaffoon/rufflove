@@ -2,9 +2,7 @@
 
 @section('topscript')
 <style type="text/css">
-  html { height: 100% }
-  body { height: 100%; margin: 0; padding: 0 }
-  #map-canvas { height: 50% }
+ #map-canvas { height: 400px; }
 </style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript">
@@ -188,8 +186,8 @@
 	{{ Form::hidden('state', Input::old('state'), array('id' => 'administrative_area_level_1')) }}
 	{{ Form::hidden('zip', Input::old('zip'), array('id' => 'postal_code')) }}
 	{{ Form::hidden('country', Input::old('country'), array('id' => 'country')) }}
-	{{ Form::hidden('latitude', Input::old('latitude'), array('id' => 'latitude')) }}
-	{{ Form::hidden('longitude', Input::old('longitude'), array('id' => 'longitude')) }}
+	{{ Form::hidden('latitude', $user->lat, array('id' => 'latitude')) }}
+	{{ Form::hidden('longitude', $user->lng, array('id' => 'longitude')) }}
 
 	{{ Form::label('address', 'Address') }}
 	{{ Form::text('address', Input::old('fullAddress'), array('id' => 'autocomplete', 'class' => 'form-group form-control', 'onfocus' => 'geolocate()' )) }}

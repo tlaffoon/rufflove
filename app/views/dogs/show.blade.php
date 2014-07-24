@@ -11,13 +11,13 @@
 @stop
 
 @section('content')
-<div class="container col-md-2">
+<div class="col-md-2">
 	<div class="test">
 		<img src="http://placehold.it/140x140" class="img-responsive thumbnail centered">
 	</div>
 </div>
 
-<div class="container col-md-10">
+<div class="col-md-10">
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 

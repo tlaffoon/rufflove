@@ -42,7 +42,7 @@
 		{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 		{{ Form::close() }}
 
-	<div class="centered">{{ $users->links() }}</div>	
+	<center><div>{{ $users->links() }}</div></center>
 
 </div> <!-- end main container -->
 @stop
