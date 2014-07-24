@@ -119,7 +119,8 @@ $('#ajax-form').on('submit', function (e) {
             	console.log('Lng: ' + this.user.lng);
             	console.log('=========');
 
-            	$
+              
+
             });
         }
     });
