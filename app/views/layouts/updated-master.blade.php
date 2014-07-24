@@ -252,7 +252,7 @@
   <!-- ____________ LOGO _______________  -->
   <div class="logo-wrapper clearfix">
    <a href="#" class="clearfix">
-   <img id="logo" src="includes/DogImages/sofa dog.jpg" alt="company name">
+   <img id="logo" src="/includes/DogImages/sofa dog.jpg" alt="company name">
    </a>
    <span><!--logo embelishment --></span>
   </div>

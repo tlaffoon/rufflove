@@ -60,65 +60,57 @@
 <div class="container">
     <form class="form-horizontal">
   <fieldset>
-    <legend>Legend</legend>
+    <legend>Search</legend>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <label for="inputEmail" class="col-lg-2 control-label">Breed</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+        <input type="text" class="form-control" id="inputEmail" placeholder="Daschund">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-      <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Checkbox
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-      <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="textArea"></textarea>
-        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-2 control-label">Radios</label>
+      <label class="col-lg-2 control-label">Purebred</label>
       <div class="col-lg-10">
         <div class="radio">
           <label>
             <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-            Option one is this
+            Yes
           </label>
         </div>
         <div class="radio">
           <label>
             <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            Option two can be something else
+            No
+          </label>
+        </div>
+      </div>
+  </div>
+
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Sex of Dog</label>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            Female
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Male
           </label>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Selects</label>
+      <label for="select" class="col-lg-2 control-label">Search Radius</label>
       <div class="col-lg-10">
         <select class="form-control" id="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <br>
-        <select multiple="" class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <option>10 miles</option>
+          <option>20 miles</option>
+          <option>30 miles</option>
+          <option>40 miles</option>
+          <option>50 miles</option>
         </select>
       </div>
     </div>
@@ -132,7 +124,7 @@
 </form>
 
 
-
+<legend>Dog Search Results</legend>
     <div class="row">
         <div class="col-lg-4">
             <div class="form_hover " style="background-color: #000;">
@@ -144,7 +136,7 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">Dog Details</h3>
+                                <h3 style="color: #000;">Dog's Details</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
@@ -179,7 +171,7 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">User Details</h3>
+                                <h3 style="color: #000;">Dog's Details</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
@@ -216,7 +208,7 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">User Details</h3>
+                                <h3 style="color: #000;">Dog's Details</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
@@ -258,7 +250,7 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 260px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">User Details</h3>
+                                <h3 style="color: #000;">Dog's Details</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
@@ -293,7 +285,7 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">User Details</h3>
+                                <h3 style="color: #000;">Dog's Details</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
@@ -329,7 +321,7 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">User Details</h3>
+                                <h3 style="color: #000;">Dog's Details</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
