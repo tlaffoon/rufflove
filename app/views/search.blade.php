@@ -5,8 +5,6 @@
 
 @section('content')
 
-
-
   <!-- Begin main search form -->
   <div class="col-md-12 zero-pad-left zero-pad-right"> 
 

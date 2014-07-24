@@ -94,15 +94,15 @@
 
 		<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
 		<h4>Email: 		{{{ $user->email }}}								</h4>
-		<h4>Role: 		{{{ $user->role }}}									</h4>
+		<h4>Role: 		{{{ ucfirst($user->role) }}}						</h4>
 		<h4>Address: 	{{{ $user->address }}}								</h4>
 		<h4>City: 		{{{ $user->city }}}									</h4>
 		<h4>State: 		{{{ $user->state }}}								</h4>
 		<h4>Zip: 		{{{ $user->zip }}}									</h4>
 		<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
 
-		<input type="hidden" id="latitude" value="{{{ $user->latitude }}}">
-		<input type="hidden" id="longitude" value="{{{ $user->longitude }}}">
+		<input type="hidden" id="latitude" value="{{{ $user->lat }}}">
+		<input type="hidden" id="longitude" value="{{{ $user->lng }}}">
 		<input type="hidden" id="fullAddress" value="{{{ $user->fullAddress }}}">
 
 		</div> <!-- end inner left div -->

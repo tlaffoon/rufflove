@@ -12,11 +12,11 @@ class DatabaseSeeder extends Seeder
 	{
 		Eloquent::unguard();
 		
+        $this->call('ZipsTableSeeder');
         $this->call('UsersTableSeeder');
 		$this->call('BreedsTableSeeder');
 		$this->call('DogsTableSeeder');
 		$this->call('DogImagesTableSeeder');
-        $this->call('ZipsTableSeeder');
 		
 	} //function run()
 } //class DatabaseSeeder
@@ -102,7 +102,7 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
-        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        // $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
 		$user->save();
 
@@ -118,8 +118,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.549935";
-        $user->longitude = "-98.40401";
+        $user->lat = "29.549935";
+        $user->lng = "-98.40401";
 		$user->save();
 
 		$user = new User();      
@@ -134,8 +134,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.539573";
-        $user->longitude = "-98.42883";
+        $user->lat = "29.539573";
+        $user->lng = "-98.42883";
 		$user->save();
 
 		$user = new User();      
@@ -150,8 +150,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.560037";
-        $user->longitude = "-98.435707";
+        $user->lat = "29.560037";
+        $user->lng = "-98.435707";
 		$user->save();
 
 		$user = new User();      
@@ -166,8 +166,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.566981";
-        $user->longitude = "-98.421465";
+        $user->lat = "29.566981";
+        $user->lng = "-98.421465";
 		$user->save();
 
 		$user = new User();      
@@ -182,8 +182,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.574577 ";
-        $user->longitude = "-98.461502";
+        $user->lat = "29.574577 ";
+        $user->lng = "-98.461502";
 		$user->save();
 
 		$user = new User();      
@@ -198,8 +198,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.578078";
-        $user->longitude = "-98.437257";
+        $user->lat = "29.578078";
+        $user->lng = "-98.437257";
 		$user->save();
 
 		$user = new User();      
@@ -214,8 +214,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.567215";
-        $user->longitude = "-98.448589";
+        $user->lat = "29.567215";
+        $user->lng = "-98.448589";
 		$user->save();
 
 		$user = new User();      
@@ -230,8 +230,8 @@ class UsersTableSeeder extends Seeder
         $user->password = 'password';
         $user->img_path = "/img/placeholder-user.png";
         $user->role = "admin";
-        $user->latitude = "29.555311";
-        $user->longitude = "-98.433682";
+        $user->lat = "29.555311";
+        $user->lng = "-98.433682";
         $user->save();
 
         // needs to be completed refactored to use php faker to generate "real", random addresses?
@@ -277,9 +277,8 @@ class DogsTableSeeder extends Seeder
 	        $dog->age = rand(1,20);
 	        $dog->weight = rand(1,100);
 	        $dog->sex = $sex[array_rand($sex)];
-            $dog->breed_id = rand(1, 1500);
+            $dog->breed_id = rand(1, 1499);
 	        $dog->user_id = rand(2,11);
-
 
 	       	$dog->save();
         } // end for loop

@@ -78,7 +78,7 @@
 		      	        </ul>
 		      		</li>
 		      		<li class="nav navbar-nav navbar-right">
-		      			<p class="navbar-text">{{{ Auth::user()->username }}}  {{{ Auth::user()->zip }}}</p>
+		      			<p class="navbar-text">{{{ Auth::user()->username }}}</p>
 		      		</li>
 		        @else
 		        	<li><a href="{{ action('HomeController@showRegistration') }}"> Sign Up </a></li>

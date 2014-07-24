@@ -32,8 +32,8 @@ class InitialDatabaseSetup extends Migration {
 
             $table->string('img_path')->nullable();
 
-            $table->float('latitude', 10,6)->nullable();
-            $table->float('longitude', 10,6)->nullable();
+            $table->float('lat', 10,6)->nullable();
+            $table->float('lng', 10,6)->nullable();
             
             $table->string('remember_token', 100)->nullable;
 
@@ -114,6 +114,8 @@ class InitialDatabaseSetup extends Migration {
 	 */
 	public function down()
 	{
+        $dbc->exec("DROP PROCEDURE IF EXISTS zip_proximity");
+        $dbc->exec("DROP FUNCTION IF EXISTS calculate_distance");
 		Schema::drop('dog_images');
         Schema::drop('dogs');
         Schema::drop('breeds');

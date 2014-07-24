@@ -52,28 +52,49 @@ Route::get('/signup', 'HomeController@showRegistration');
 
 Route::get('/test', 'HomeController@showTest');
 
-Route::get('test1', function () {
+Route::post('/results', function () {
 
-	// get Input and assign zip, # miles
+    $dog_name   = Input::get('search-name');
+    $search_zip = Input::get('search-zip');
+    $distance   = Input::get('distance');
 
-    $zipDetails = DB::select('call zip_proximity(?,?,?)', array('90120', 20, 'mi'));
-    // var_dump($zipDetails);
-
+    //step 1 - gets all zipcodes within given zip
+    $zipDetails = DB::select('call zip_proximity(?,?,?)', array($search_zip, $distance, 'mi')); // need to refactor to use sanitized input
     $zips = [];
+    
     foreach ($zipDetails as $zip)
     {
         $zips[] = $zip->zip;
     }
 
-    $dogs = User::whereIn('zip', $zips)->get();
+    //step 2 - gets ALL dogs
+    $query = Dog::with('breed', 'user');
 
-    // SELECT * FROM dogs
-    // INNER JOIN users
-    // ON dogs.user_id = users.id
-    // WHERE breed_id = 1486
-    // AND zip IN (SELECT zip FROM zip_proximity('78205', 1000, 'mi'));
-    
-    return Response::json($dogs);
+    //step 3 - filters above for specific input breed
+    $query->whereHas('breed', function($q) {
+        // $breed_name = 'Xoloitzcuintle';
+        $breed_name = Input::get('search-breed');
+        $q->where('name', '=', "$breed_name");
+    });
+
+    //step 4 - uses step 1 results to find dog owners from step 3
+    $query->whereHas('user', function($q) use ($zips) {
+        $q->whereIn('zip', $zips);
+    });
+
+    $results = $query->get();
+    // var_dump($results);
+
+    // foreach($results as $result){
+    //     var_dump($result);
+    // }
+
+    // $result = array(
+    //     'error' => $error,
+    //     'message' => "$address",
+    // );
+
+    return Response::json($results);
 });
 
 // Route::get('test', function () {
