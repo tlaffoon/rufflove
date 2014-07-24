@@ -1,6 +1,6 @@
 <?php
 
-class DogImage extends BaseModel {
+class DogImage extends Eloquent {
 
     /**
      * The database table used by the model.
@@ -15,18 +15,11 @@ class DogImage extends BaseModel {
      * @var array
      */
     
-        // protected $hidden = array('password', 'remember_token');
-
-        public static $rules = array(
-            
-            'dog_id'  => 'required',            
-            'img_path' => 'required',            
-        );
-
-        public function dog() 
-        {
-        return $this->belongsTo('Dog');
-        } //function dog
+    public static $rules = array(
+        
+        'dog_id'  => 'required',            
+        'img_path' => 'required',            
+    );
 
     protected $imgDir = 'img-upload';
 
@@ -35,8 +28,8 @@ class DogImage extends BaseModel {
         $systemPath = public_path() . '/' . $this->imgDir . '/';
         $imageName = $this->id . '-' . $image->getClientOriginalName();
         $image->move($systemPath, $imageName);
-        $this->img_path = '/' . $this->imgDir . '/' . $imageName;        
-    } //function addUploadedImage
+        $this->img_path = '/includes/' . $this->imgDir . '/' . $imageName;
+    }
 
     public function dogs() {
         return $this->belongsTo('Dog');

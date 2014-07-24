@@ -4,11 +4,10 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
-use Zizaco\Entrust\HasRole;
 
-class User extends BaseModel implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait, HasRole;
+	use UserTrait, RemindableTrait;
 
 	/**
 	 * The database table used by the model.
@@ -36,5 +35,14 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 
 	public function dogs() {
 	    return $this->hasMany('Dog');
+	}
+
+	protected $imgDir = 'img-upload';
+
+	public function addUploadedImage($image) {
+	    $systemPath = public_path() . '/' . $this->imgDir . '/';
+	    $imageName = $this->id . '-' . $image->getClientOriginalName();
+	    $image->move($systemPath, $imageName);
+	    $this->img_path = '/' . $this->imgDir . '/' . $imageName;
 	}
 }

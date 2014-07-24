@@ -16,22 +16,26 @@ class InitialDatabaseSetup extends Migration {
         {
             $table->increments('id');
             
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('address');
-            $table->string('city');
-            $table->string('state', 2);
-            $table->integer('zip');
             $table->string('username', 30)->unique();
-            $table->string('password');
             $table->string('email')->unique();
-            $table->string('img_path');
+            $table->string('password');
             $table->string('role');
 
-            $table->float('lat', 10,6);
-            $table->float('lng', 10,6);
-            $table->string('remember_token', 100)->nullable;
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('fullAddress')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state', 2)->nullable();
+            $table->integer('zip')->nullable();
+            $table->string('country')->nullable();
 
+            $table->string('img_path')->nullable();
+
+            $table->float('lat', 10,6)->nullable();
+            $table->float('lng', 10,6)->nullable();
+            
+            $table->string('remember_token', 100)->nullable;
 
             $table->timestamps();  
             
@@ -44,7 +48,7 @@ class InitialDatabaseSetup extends Migration {
             $table->string('name');
             $table->text('info');
             
-            $table->timestamps();             
+            $table->nullableTimestamps();             
         });
 
         Schema::create('dogs', function($table)
@@ -52,12 +56,14 @@ class InitialDatabaseSetup extends Migration {
             $table->increments('id');           
             
             $table->integer('user_id')->unsigned();
-            $table->integer('breed_id')->unsigned();
-            
+            $table->integer('breed_id')->unsigned();            
             $table->string('name');
-            $table->boolean('purebred');
+
+            $pure = array('Y', 'N');
+            $table->enum('purebred', $pure);
             $table->integer('age');
             $table->integer('weight');
+
             $sex = array('M', 'F');
             $table->enum('sex', $sex);
 
@@ -75,7 +81,31 @@ class InitialDatabaseSetup extends Migration {
             $table->timestamps();
             $table->foreign('dog_id')->references('id')->on('dogs');
         });
-	} //end function up()
+	
+        $dbc = DB::connection()->getPdo();
+
+        $dbc->exec("CREATE FUNCTION calculate_distance(measurement varchar(2), base_lat double precision, base_lon double precision, lat double precision, lon double precision) RETURNS double precision
+        BEGIN
+           DECLARE earth_radius double precision;
+           IF measurement = 'km' THEN
+              SET earth_radius = 6371.0;
+           ELSEIF measurement = 'mi' THEN
+              SET earth_radius = 3959.0;
+           END IF;
+           RETURN earth_radius * ACOS(SIN(base_lat / 57.2958) * SIN(lat / 57.2958) + COS(base_lat / 57.2958) * COS(lat / 57.2958) * COS((lon / 57.2958) - (base_lon / 57.2958)));
+        END");
+
+
+        $dbc->exec("CREATE PROCEDURE zip_proximity(zipcode varchar(5), radius double precision, measurement varchar(2))
+        BEGIN
+        DECLARE base_lat double precision;
+        DECLARE base_lon double precision;
+        SELECT lat, lon INTO base_lat, base_lon FROM zipcodes WHERE zip = zipcode;
+        SELECT zip, lat, lon, city, state, state_abbrev, calculate_distance(measurement, base_lat, base_lon, lat, lon) AS distance FROM zipcodes
+           WHERE calculate_distance(measurement, base_lat, base_lon, lat, lon) < radius ORDER BY distance;
+        END");
+    } //end function up()
+
 
 	/**
 	 * Reverse the migrations.
@@ -84,10 +114,15 @@ class InitialDatabaseSetup extends Migration {
 	 */
 	public function down()
 	{
+        $dbc = DB::connection()->getPdo();
+        $dbc->exec("DROP PROCEDURE IF EXISTS zip_proximity");
+        $dbc->exec("DROP FUNCTION IF EXISTS calculate_distance");
+
 		Schema::drop('dog_images');
         Schema::drop('dogs');
         Schema::drop('breeds');
         Schema::drop('users');
+
 	}
 
 }
