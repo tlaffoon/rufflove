@@ -15,10 +15,6 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showMaster() {
-		return View::make('layouts.updated-master');
-	}
-
 	public function showDogSearch() {
 		return View::make('dogs.dogsearch');
 	}
@@ -33,7 +29,7 @@ class HomeController extends BaseController {
 	
 
 	public function showTest() {
-		return View::make('test-geocode-latlng');
+		return View::make('test');
 	}
 
 	public function showAbout()
@@ -43,7 +39,7 @@ class HomeController extends BaseController {
 
 	public function showHome()
 	{
-		return View::make('homepage');
+		return View::make('layouts.new-homepage');
 	}
 
 	public function showAdmin()

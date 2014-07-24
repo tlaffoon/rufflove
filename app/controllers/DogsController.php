@@ -57,11 +57,10 @@ class DogsController extends \BaseController {
 		     
 		  }
 
-
 		  $dogs = $q->orderBy('name')->paginate(5);
 		
 	    return View::make('dogs.index')->with(array('dogs' => $dogs));
-	} //end function index()
+		} //end function index()
 
 
 	/**

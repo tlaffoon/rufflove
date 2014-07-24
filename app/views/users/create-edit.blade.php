@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('test')
 
 @section('topscript')
 <style type="text/css">
@@ -216,8 +216,8 @@
 		<h2 class="text-right">Location</h2>
 	</div>
 
-	<input type="hidden" id="latitude" value="{{{ $user->latitude }}}">
-	<input type="hidden" id="longitude" value="{{{ $user->longitude }}}">
+	<input type="hidden" id="latitude" value="{{{ $user->lat }}}">
+	<input type="hidden" id="longitude" value="{{{ $user->lng }}}">
 	<input type="hidden" id="fullAddress" value="{{{ $user->fullAddress }}}">
 
 	<div>

@@ -69,11 +69,29 @@ NOTE: change the colors more easily in the css files inside the "colors" directo
 /*------------------------------------------------------------------------------------------------------------------------------------
   [3] body / html / #site-wrapper / .modal background
 -------------------------------------------------------------------------------------------------------------------------------------*/
+.container.col-md-12 {
+right: -120px;
+}
+
+fieldset {
+margin-bottom: 50px;
+}
+legend {
+	font-family: "lobster", cursive;
+	font-size: 2em;
+}
+
+#loginName {
+	color: dodgerblue;
+}
+
 .banner.clearfix.text-center {
 background-color: crimson;
 }
 
-
+h1 {
+	font-family: 'lobster', cursive;
+}
 h1.display-text.text-supersized {
 font-family: 'lobster', cursive;
 }
@@ -422,13 +440,13 @@ a:active, a:focus {text-decoration:none;}
 @media (min-width:768px) { 
 	.logo-wrapper img {
 	    width: 100%;
-	    max-width: 145px;
+	    max-width: 300px;
 	    max-height: 114px;
 	    float: right;
 	}
 	.logo-wrapper a {
 	    min-width: none;
-	    padding: 30px 20px;
+	    padding: 35px 20px;
 	}
 }
 .logo-wrapper span {

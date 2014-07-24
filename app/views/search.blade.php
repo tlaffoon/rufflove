@@ -1,11 +1,9 @@
-@extends ('layouts.master')
+@extends ('layouts.updated-master')
 
 @section('topscript')
 @stop
 
 @section('content')
-
-
 
   <!-- Begin main search form -->
   <div class="col-md-12 zero-pad-left zero-pad-right"> 
@@ -120,6 +118,7 @@ if (navigator.geolocation) {
 } else {
   error('not supported');
 }
+
 
 </script>
 </section> -->
