@@ -322,14 +322,14 @@
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
                                 <h3 style="color: #000;">Dog's Details</h3>
-                            </div>
+                            </div> <!-- class="panel-heading" -->
                             <div class="panel-body">
                                 <div class="form-group">
                                     Last login Date:<b>01/09/2013</b>
-                                </div>
+                                </div> <!-- class="form-group" -->
                                 <div class="form-group">
                                     Download Count:<b>743</b>
-                                </div>
+                                </div> class="form-group"
                                 <div class="form-group">
                                     User Rating:<br />
                                     <i class="fa fa-star"></i>
@@ -339,13 +339,13 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                </div> <!-- class="form-group" -->
+                            </div> <!-- class="panel-body" -->
+                        </div> <!-- class="panel panel-success" -->
+                    </div>  <!-- class="header-text" -->
+                </div> <!-- class="header" -->
+            </div> <!-- class="form_hover" -->
+        </div> <!-- class="col-lg-4" -->
 
     </div>
 </div>
