@@ -66,16 +66,16 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Breed</label>
+      <label for="inputEmail" class="col-lg-2 control-label">Zip</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" name="search-breed" id="inputEmail" placeholder="ex. Daschund">
+        <input type="text" class="form-control" name="search-breed" id="inputEmail" placeholder="{{{ Auth::user()->zip }}}">
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button class="btn btn-default">Cancel</button>
-        <button type="submit" name="search" class="btn btn-primary">Submit</button>
+       <!--  <button class="btn btn-default">Cancel</button>
+        <button type="submit" name="search" class="btn btn-primary">Submit</button> -->
         {{ Form::submit('Search-L', array('class' => 'btn btn-default search-bar-btn')) }}
     {{ Form::close() }} 
       </div>
