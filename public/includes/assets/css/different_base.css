@@ -925,6 +925,7 @@ a:active, a:focus {text-decoration:none;}
     max-width:1200px;
     clear:both;
     position:relative;
+    background-image: url("/img/hearts2.jpg")
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------
