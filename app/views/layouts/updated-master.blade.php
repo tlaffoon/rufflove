@@ -227,7 +227,9 @@
        <li><a href="your-link-here.html">Portfolio Child Link 4</a></li>
       </ul>
      </li>
-     <li class="has-children"><a href="#">Services</a>
+     
+     
+     <li class="has-children"><a href="#">Administration</a>
       <ul>
        <li><a href="your-link-here.html">Services Child Link 1</a></li>
        <li><a href="your-link-here.html">Services Child Link 2</a></li>
@@ -240,9 +242,10 @@
        <li><a href="your-link-here.html">Services Child Link 3</a></li>
        <li><a href="your-link-here.html">Services Child Link 4</a></li>
       </ul>
+      @if (Auth::check())
+      <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
+      @endif
      </li>
-     <li><a href="your-link-here.html">Logout</a></li>
-     <li><a href="your-link-here.html">Bootstrap</a></li>
     </ul>
     
    </nav>
