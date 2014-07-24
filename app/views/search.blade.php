@@ -366,6 +366,11 @@
 @stop
 
 @section('bottomscript')
+
+
+
+
+
 <script type="text/javascript">
 $('#ajax-form').on('submit', function (e) {
     e.preventDefault();
