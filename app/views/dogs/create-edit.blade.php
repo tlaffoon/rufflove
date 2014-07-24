@@ -63,7 +63,7 @@
 
 	<div id="prefetch" style="margin-top: 18px;">
 	{{ Form::label('breed', 'Breed') }}
-	{{ Form::text('breed', null, array('class' => 'form-group form-control typeahead', 'placeholder' => 'Breed')) }}
+	{{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Breed')) }}
 	{{ $errors->first('breed', '<span class="help-block"><p class="text-danger text-right">:message</p></span><br>') }}
 	</div>
 

@@ -54,11 +54,11 @@ Route::resource('dogs', 'DogsController');
 
 Route::get('/register', 'HomeController@showRegistration');
 
-Route::get('/search', 'HomeController@showSearch');
 Route::get('/signup', 'HomeController@showRegistration');
 
 Route::get('/test', 'HomeController@showTest');
 
+Route::get('/search', 'HomeController@showSearch');
 Route::post('/results', function () {
 
     $dog_name   = Input::get('search-name');
