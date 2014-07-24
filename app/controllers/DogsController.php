@@ -18,27 +18,49 @@ class DogsController extends \BaseController {
 	 */
 	public function index()
 	{
-		if (Input::has('search')) {
-		 	$queryString = Input::get('search');
-		 	$dogs = Dog::where('name', 'LIKE', "%$queryString%")->orderBy('name')->paginate(5);
-		}
+		$q = Dog::query();
 
-		elseif (Input::has('search-breed')) {
-			
-		 	$dogs = Dog::whereHas('breed', function($q)
-		 	{
-		 		$queryString = Input::get('search-breed');
-		 	    $q->where('name', 'LIKE', "%$queryString%");
+		  if (Input::has('search-name'))
+		  {		     
+		     $q->where('name','like',Input::get('search-name'));
+		  }
 
-		 	})->orderBy('name')->paginate(5);
-		}
+		  if (Input::has('search-breed'))
+		  {
+		     $q->searchBreed(Input::get('search-breed'));
+		  }
 
-		else {
-			$dogs = Dog::orderBy('name')->paginate(5);
-		}
+		  if (Input::has('sex'))
+		  {
+		     $q->where('sex', Input::get('sex'));
+		  }
+
+		  if (Input::has('age'))
+		  {
+		     $q->where('age', Input::get('age'));
+		  }
+
+		  if (Input::has('purebred'))
+		  {
+		     $q->where('purebred', Input::get('purebred'));
+		  }
+
+		  if (Input::has('radius'))
+		  {
+		  	// $dogs->user->zip - gives the zip code of the dog's owner
+		  	$radius = Input::get('radius');
+		  	$zip_code = $dogs->user->zip;
+		  	$zipQuery = DB::statement("CALL zip_proximity(:zip, :radius, 'mi'", array('zip' => $zip_code,'radius' => $radius ));
+		  	// Must define users...
+		  	//$q->where $user->zip in ($zipQuery);
+		  	// ... 
+		     
+		  }
+
+		  $dogs = $q->orderBy('name')->paginate(5);
 		
 	    return View::make('dogs.index')->with(array('dogs' => $dogs));
-	}
+		} //end function index()
 
 
 	/**
@@ -80,7 +102,7 @@ class DogsController extends \BaseController {
 		    $dog->weight 	= Input::get('weight');
 		    $dog->sex 		= Input::get('sex');
 
-		    $dog->user_id 	= Auth::user()->id;
+		    $dog->user_id 	= Input::get('owner'); // gets id from dropdown value
 
 		    $dog->save();
 
@@ -152,7 +174,7 @@ class DogsController extends \BaseController {
 			$dog->weight 	= Input::get('weight');
 			$dog->sex 		= Input::get('sex');
 
-			$dog->user_id 	= Auth::user()->id;
+		    $dog->user_id 	= Input::get('owner'); // gets id from dropdown value
 
 			$dog->save();
 

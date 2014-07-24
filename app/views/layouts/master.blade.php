@@ -32,7 +32,7 @@
 	@yield('topscript')
 
 </head>
-<body onload="initialize()">
+<body onload="">
 
     <!-- top navbar -->
 		<div class="navbar navbar-default" role="navigation">
@@ -51,7 +51,7 @@
 		    	</ul>
 
 
-		    @if (Auth::check())
+		    @if (Auth::check() && Auth::user()->role === 'admin')
 		    	<ul class="nav navbar-nav navbar-left">
 		      	  <li><a href=""> Admin Link </a></li>
 		        </ul>
@@ -69,6 +69,11 @@
 		      	            		<li><a href="{{ action('UsersController@index') }}"> User Administration </a></li>
 		      	            		<li class="divider"></li>
 		      	            	@endif
+		      	            	@if (Auth::user()->role == 'user')
+			      	            	<li><a href=""> User Link </a></li>
+		      	            		<li><a href="{{ action('DogsController@index') }}"> My Dogs </a></li>
+		      	            		<li class="divider"></li>
+		      	            	@endif		      	            	
 		      	            <li><a href="{{ action('HomeController@doLogout') }}"> Logout </a></li>
 		      	        </ul>
 		      		</li>
@@ -84,8 +89,8 @@
 		          	  	    	{{ Form::open(array('action' => 'HomeController@doLogin', 'class'=>'navbar-form')) }}
 		          	  	    	{{ Form::text('email', Input::old('email'), array('class' => 'form-group form-control', 'placeholder' => 'Email')) }}
 		          	  	    	{{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Password')) }}
-		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success navbar-btn')) }}
-		          	  			 <button class="btn btn-default navbar-btn pull-left">Forgot Password?</button>
+		          	  	    	<button class="btn btn-default btn-xs navbar-btn pull-left">Forgot Password?</button>
+		          	  			{{ Form::submit('Login', array('class' => 'btn btn-success btn-xs navbar-btn pull-right')) }}
 		          			</li>
 		          		</ul>
 		          	</li>

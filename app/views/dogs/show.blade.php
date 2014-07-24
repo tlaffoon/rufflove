@@ -1,12 +1,21 @@
-@extends('layouts.master')
+@extends('layouts.updated-master')
 
 @section('topscript')
+<style type="text/css">
+.test {
+	position: relative;
+	margin-top: 92px;
+	float: right;
+}
+</style>
 @stop
 
 @section('content')
 <div class="container col-md-2">
-<!-- 		<img src="/includes/img/placeholder-dog.png" class="img-responsive thumbnail centered">
- --></div>
+	<div class="test">
+		<img src="http://placehold.it/140x140" class="img-responsive thumbnail centered">
+	</div>
+</div>
 
 <div class="container col-md-10">
 	<div class="page-header">
@@ -39,14 +48,15 @@
 	<h4>Weight: 	{{{ $dog->weight }}}			</h4>
 	<h4>Sex: 		{{{ $dog->sex }}}				</h4>
 	<h4>Updated: 	{{{ $dog->updated_at }}}		</h4>
-	<h4>Image Path: {{{ $dog->image()->first()->path }}}			</h4>
-
+<!-- 	<h4>Image Path: {{{ $dog->image()->first()->path }}}			</h4> -->
 </div>
 
 	{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
 
 </div>
+
+
 @stop
 
 @section('bottomscript')

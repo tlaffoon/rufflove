@@ -1,6 +1,6 @@
 <?php
 
-class Dog extends BaseModel {
+class Dog extends Eloquent {
 
     /**
      * The database table used by the model.
@@ -33,6 +33,30 @@ class Dog extends BaseModel {
     public function image() {
         return $this->hasMany('DogImage');
     }
+
+    protected $imgDir = 'img-upload';
+
+    public function addUploadedImage($image) {
+        $systemPath = public_path() . '/' . $this->imgDir . '/';
+        $imageName = $this->id . '-' . $image->getClientOriginalName();
+        $image->move($systemPath, $imageName);
+        $this->img_path = '/includes/' . $this->imgDir . '/' . $imageName;
+    }
+
+    public function scopeSearchBreed($query, $breed)
+    {
+      $query->whereHas('breed', function ($q) use ($breed) {
+        $q->where('name', 'like', "%{$breed}%");
+      });
+    }
+
+    // public function scopeWithingRadius($query, $radius)
+    // {
+    //   $query->where(...); // do math here
+    // }
+    // public function image() {
+    //     return $this->hasMany('DogImage');
+    // }
 }
 
 

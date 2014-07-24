@@ -8,7 +8,8 @@ class UsersController extends \BaseController {
 	    parent::__construct();
 
 	    // run auth filter before all methods on this controller except index and show
-	    $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
+	    // Commented out auth filter for demo day, need additional work to allow users to create without login, and then login on user creation to their show page.
+	    // $this->beforeFilter('auth', ['except' => ['create', 'show', 'store']]);
 	}
 
 	/**
@@ -61,36 +62,42 @@ class UsersController extends \BaseController {
 		}
 		
 		else {
+
 		    $user = new User();
 
 		    $user->username 	= Input::get('username');
+		    $user->email 		= Input::get('email');
 		    $user->password 	= Input::get('password');
 		    $user->first_name 	= Input::get('first_name');
 		    $user->last_name 	= Input::get('last_name');
-		    $user->address 		= Input::get('address');
+			$user->address		= Input::get('street_num') . ' ' . Input::get('street');
 		    $user->city 		= Input::get('city');
 		    $user->state 		= Input::get('state');
 		    $user->zip 			= Input::get('zip');
-		    $user->email 		= Input::get('email');
+		    $user->country 		= Input::get('country');
 		    $user->role 		= Input::get('role');
+		    $user->lat			= Input::get('latitude');
+		    $user->lng			= Input::get('longitude');
+
+		    $user->fullAddress	= $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
 		    $user->save();
 
+		    // Handle Image Uploads
 		    if (Input::hasFile('image') && Input::file('image')->isValid())
 		    {
-		        $user->addUploadedImage(Input::file('image'));
+		        $user->addUploadedImage(Input::file('image'));  // call method from User model
 		        $user->save();
 		    }
-			// add function to parse user address into  lat/lng and store in new database fields.  needs migration
-		    // "formatted_address" : "112 East Pecan Street, San Antonio, TX 78205, USA",
-		    // "geometry" : {
-		    //    "location" : {
-		    //       "lat" : 29.4284595,
-		    //       "lng" : -98.49243299999999
 
-		    // Session::flash('successMessage', 'User saved successfully.');
-		    //return Redirect::action('UsersController@show', $user->id);
-		    return Redirect::back();
+		    else {
+		    	$user->img_path = '/includes/img/placeholder-user.png';
+		    	$user->save();
+		    }
+		    
+		    Session::flash('successMessage', 'User saved successfully.');
+		    return Redirect::action('UsersController@show', $user->id);
+		    // return Redirect::back();
 		}
 	}
 
@@ -145,27 +152,39 @@ class UsersController extends \BaseController {
 		else {
 
 			$user->username 	= Input::get('username');
+			$user->email 		= Input::get('email');
 			$user->password 	= Input::get('password');
 			$user->first_name 	= Input::get('first_name');
 			$user->last_name 	= Input::get('last_name');
-			$user->address 		= Input::get('address');
+			$user->address		= Input::get('street_num') . ' ' . Input::get('street');
 			$user->city 		= Input::get('city');
 			$user->state 		= Input::get('state');
 			$user->zip 			= Input::get('zip');
-			$user->email 		= Input::get('email');
+			$user->country 		= Input::get('country');
 			$user->role 		= Input::get('role');
+		    $user->lat			= Input::get('latitude');
+		    $user->lng			= Input::get('longitude');
+
+			$user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
 
 			$user->save();
 
+			// Handle Image Uploads
 		    if (Input::hasFile('image') && Input::file('image')->isValid())
 		    {
-		        $user->addUploadedImage(Input::file('image'));
+		    	$user->addUploadedImage(Input::file('image'));  // call method from User model
 		        $user->save();
-		    }	
+		    }
 
-		    // Session::flash('successMessage', 'User saved successfully.');
+		    else {
+		    	$user->img_path = '/includes/img/placeholder-user.png';
+		    	$user->save();
+		    }
+
+		    Session::flash('successMessage', 'User saved successfully.');
 		}
 		
+		//return Redirect::back();
 		return Redirect::action('UsersController@show', $user->id);	
 	}
 

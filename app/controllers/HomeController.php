@@ -15,10 +15,6 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showMaster() {
-		return View::make('layouts.updated-master');
-	}
-
 	public function showDogSearch() {
 		return View::make('dogs.dogsearch');
 	}
@@ -27,8 +23,13 @@ class HomeController extends BaseController {
 		return View::make('users.registration');
 	}
 
+	public function showAtm() {
+		return View::make('atm_finder');
+	}
+	
+
 	public function showTest() {
-		return View::make('test-geocode-latlng');
+		return View::make('test');
 	}
 
 	public function showAbout()
@@ -38,7 +39,7 @@ class HomeController extends BaseController {
 
 	public function showHome()
 	{
-		return View::make('homepage');
+		return View::make('layouts.new-homepage');
 	}
 
 	public function showAdmin()
@@ -59,17 +60,9 @@ class HomeController extends BaseController {
 
 	public function showMap()
 	{
-
-		// $user = User::find('1');
-		// return View::make('test-geo')->with('user', $user);
-
 		return View::make('map');
 	}
 
-	public function showMap2()
-	{
-		return View::make('map2');
-	}
 
 	public function showAuto() 
 	{
@@ -79,11 +72,6 @@ class HomeController extends BaseController {
 	public function showAjax() 
 	{
 		return View::make('ajax');
-	}
-
-	public function showTest2()
-	{
-		return View::make('test');
 	}
 
 	public function doLogin() 

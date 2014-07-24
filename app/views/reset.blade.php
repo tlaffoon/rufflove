@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('layouts.updated-master')
 
 @section('content')
 <form action="{{ action('RemindersController@postReset') }}" method="POST">

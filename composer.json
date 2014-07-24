@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"zizaco/entrust": "dev-master"
+		"fzaninotto/faker": "1.4.*@dev"
 	},
 	"autoload": {
 		"classmap": [
