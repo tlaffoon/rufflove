@@ -438,6 +438,9 @@
   <script src="/includes/assets/js/bootstrap-modalmanager.js"></script>
   <script src="/includes/assets/js/bootstrap-modal.js"></script>
 
+  <script src="/includes/js/typeahead.bundle.js"></script>
+  <script src="/includes/js/bloodhound.js"></script>
+
 @yield('bottomscript')
 
 </body>

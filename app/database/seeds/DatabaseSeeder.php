@@ -114,6 +114,7 @@ class UsersTableSeeder extends Seeder
         $user->lat = "34.068835";
         $user->lng = "-118.39385900000002";
 
+
         $user->save();
 
         $user = new User();        
@@ -131,6 +132,8 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.485576999999964";
         $user->lng = "-98.71428673565674";
+
+
         $user->save();
 
         $user = new User();      
@@ -199,6 +202,7 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.468286";
         $user->lng = "-98.484193";
+
         $user->save();
 
         $user = new User();      
@@ -216,6 +220,7 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.445551";
         $user->lng = "98.48888399999998";
+
         $user->save();
 
         $user = new User();      
@@ -233,6 +238,7 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.567215";
         $user->lng = "-98.448589";
+        
         $user->save();
 
         $user = new User();      
@@ -250,6 +256,7 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.555311";
         $user->lng = "-98.433682";
+       
         $user->save();
 
         for ($i=1; $i <= 200; $i++) 
