@@ -61,6 +61,7 @@
     <h1 class="display-text text-supersized">Ruff Love</h1>
       <h1><span class="glyphicon glyphicon-heart"></h1>
     </span> Dating For Dogs</p></h6>
+    <a class="btn btn-info" href="{{ action('HomeController@showSearch')}}">Search Now</a>
   </div>
   <!-- /.banner -->
     

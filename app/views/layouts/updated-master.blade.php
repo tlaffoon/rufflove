@@ -213,19 +213,7 @@
     <ul class="primary-nav">
      <li class="active"><a href="{{ action('HomeController@showHome')}}">Home</a></li> <!-- add class .active on li item when the page is current -->
      <li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
-     <li class="has-children"><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> <!-- add class .has-children on li item if the li has babies -->
-      <ul>
-       <li><a href="{{ action('HomeController@showSearch')}}">Portfolio Child Link 1</a></li>
-       <li><a href="your-link-here.html">Portfolio Child Link 2</a></li>
-       <li class="has-children"><a href="#">Portfolio Child w/Child Trigger</a>
-        <ul>
-         <li><a href="your-link-here.html">Portfolio Grand Child Link 1</a></li>
-         <li><a href="your-link-here.html">Portfolio Grand Child Link 2</a></li>
-        </ul>
-       </li>
-       <li><a href="your-link-here.html">Portfolio Child Link 3</a></li>
-       <li><a href="your-link-here.html">Portfolio Child Link 4</a></li>
-      </ul>
+     <li class="has-children"><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> 
      </li>
      
      
