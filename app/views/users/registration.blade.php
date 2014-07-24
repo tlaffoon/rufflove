@@ -2,9 +2,7 @@
 
 @section('topscript')
 <style type="text/css">
-  html { height: 100% }
-  body { height: 100%; margin: 0; padding: 0 }
-  #map-canvas { height: 67% }
+  #map-canvas { height: 500px; }
 </style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 <script type="text/javascript">
@@ -150,7 +148,7 @@
 
     </div> <!-- end left container -->
 
-    <div class="container col-md-7"> <!-- begin right container -->
+    <div class="col-md-7"> <!-- begin right container -->
         <div class="page-header">
             <h1 class="text-right">Your Location</h1>
         </div>
