@@ -56,6 +56,17 @@
         <!-- ========= GENERATE CODE AND TOUCH ICONS http://iconifier.net/ =========== -->
 
  @yield('topscript')
+ <style type="text/css">
+ .zero-margin-left {
+  margin-left: 0px;
+ }
+ .zero-pad-left {
+  padding-left: 0px;
+ }
+ .zero-pad-right {
+  padding-right: 0px;
+ }
+ </style>
 </head>
 
 
