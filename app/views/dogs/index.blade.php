@@ -1,4 +1,5 @@
-@extends('layouts.master')
+@extends('layouts.updated-master')
+
 
 @section('topscript')
 @stop

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('test')
 
 @section('topscript')
 <style type="text/css">
