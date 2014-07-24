@@ -73,6 +73,13 @@ NOTE: change the colors more easily in the css files inside the "colors" directo
 right: -120px;
 }
 
+fieldset {
+margin-bottom: 50px;
+}
+legend {
+	font-family: "lobster", cursive;
+	font-size: 2em;
+}
 
 #loginName {
 	color: dodgerblue;
