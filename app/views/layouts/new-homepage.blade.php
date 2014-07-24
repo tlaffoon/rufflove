@@ -4,7 +4,9 @@
  
  <!-- CUSTOM banner -->
   <div class="banner clearfix text-center">
-    <h1 class="display-text text-supersized">240px & Up Responsive Wrapper for Bootstrap 3x Framework</h1>
+    <h1 class="display-text text-supersized">Ruff Love</h1>
+      <h1 class="display-text text-supersized"><span class="glyphicon glyphicon-heart">
+    </span> Dating For Dogs</p></h1>
   </div>
   <!-- /.banner -->
     
