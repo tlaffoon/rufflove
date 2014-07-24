@@ -224,21 +224,11 @@
     <ul class="primary-nav">
      <li class="active"><a href="{{ action('HomeController@showHome')}}">Home</a></li> <!-- add class .active on li item when the page is current -->
      <li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
-     <li class="has-children"><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> <!-- add class .has-children on li item if the li has babies -->
-      <ul>
-       <li><a href="{{ action('HomeController@showSearch')}}">Portfolio Child Link 1</a></li>
-       <li><a href="your-link-here.html">Portfolio Child Link 2</a></li>
-       <li class="has-children"><a href="#">Portfolio Child w/Child Trigger</a>
-        <ul>
-         <li><a href="your-link-here.html">Portfolio Grand Child Link 1</a></li>
-         <li><a href="your-link-here.html">Portfolio Grand Child Link 2</a></li>
-        </ul>
-       </li>
-       <li><a href="your-link-here.html">Portfolio Child Link 3</a></li>
-       <li><a href="your-link-here.html">Portfolio Child Link 4</a></li>
-      </ul>
+     <li class="has-children"><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> 
      </li>
-     <li class="has-children"><a href="#">Services</a>
+     
+     
+     <li class="has-children"><a href="#">Administration</a>
       <ul>
        <li><a href="your-link-here.html">Services Child Link 1</a></li>
        <li><a href="your-link-here.html">Services Child Link 2</a></li>
@@ -251,9 +241,10 @@
        <li><a href="your-link-here.html">Services Child Link 3</a></li>
        <li><a href="your-link-here.html">Services Child Link 4</a></li>
       </ul>
+      @if (Auth::check())
+      <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
+      @endif
      </li>
-     <li><a href="your-link-here.html">Logout</a></li>
-     <li><a href="your-link-here.html">Bootstrap</a></li>
     </ul>
     
    </nav>
@@ -415,7 +406,6 @@
  <hr class="no-padding-bottom">
  <div class="container-fluid">
   <p class="small margin-top-bottom-20px text-center text-right-min-width-768px">
-Email <a href="mailto:christinabeymer@gmail.com" class="text-underline">the designer.</a>
 </p>
  </div>
 </footer>
