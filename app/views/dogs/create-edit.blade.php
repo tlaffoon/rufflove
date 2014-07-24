@@ -1,6 +1,13 @@
 @extends('layouts.updated-master')
 
 @section('topscript')
+<style>
+.tt-dropdown-menu {
+	background: dodgerblue;
+	width: 195px;
+	color: white;
+}
+</style>
 @stop
 
 @section('content')
