@@ -2,7 +2,6 @@
 
 @section('topscript')
 <style>
-
   
     .form_hover {
         padding: 0px;
@@ -55,7 +54,6 @@
 @stop
 @section('content')
  
- 
  <!-- CUSTOM banner -->
   <div class="banner clearfix text-center">
     <h1 class="display-text text-supersized">Ruff Love</h1>
@@ -72,37 +70,37 @@
    <div class="row equal-height-col">
    
     <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-refresh feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Refreshing</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default  btn-custom" href="#" role="button">Some Link &raquo;</a></p>
+     <i class="fa fa-heart-o feature-icon"><!--icon --></i>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Why to Breed Your Dog</h2>
+     <p>Breeding your dog can start off with a simple thought. Why go through with it? Here are a list of reasons to take the step for you and your dog. </p><br>
+     <p class="margin-top-20px"><a class="btn btn-default  btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
     </div>
     <!--/.col-* -->
     
     <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-mobile feature-icon"><!--icon --></i> <i class="fa fa-tablet feature-icon"><!--icon --></i> <i class="fa fa-desktop feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Responsive</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Some Link &raquo;</a></p>
+     <i class="fa fa-search feature-icon"><!--icon --></i>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">What to Look for When Breeding</h2>
+     <p>Will your pup's pup prance around in show, or possibly work hard at serving the community? Consider all these factors when breeding.</p><br>
+     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
     </div>
     <!--/.col-* -->
     
     <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-code feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Clean</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Some Link &raquo;</a></p>
+     <i class="fa fa-paw feature-icon"><!--icon --></i>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Great Hearding Dog Breeds</h2><br>
+     <p>Before purchasing a prancy-poodle to heard, take a look at the list we have gathered of willful-working dogs.</p><br>
+     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
     </div>
     <!--/.col-* -->
     
     <div class="col-sm-6 col-md-3 text-center">
-     <i class="fa fa-signal feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Different</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</p>
-     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Some Link &raquo;</a></p>
+     <i class="fa fa-smile-o feature-icon"><!--icon --></i>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Easy to Train Dog Breeds</h2><br>
+     <p>Sit.<br>Stay.<br>Read about easy to train dogs here.</p><br>
+     <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
     </div>
     <!--/.col-* -->
     
@@ -122,9 +120,9 @@
      <hr class="vertical-spacer visible-xs">
     </div>
     <div class="col-sm-6">
-     <h2 class="h1 font-weight-normal no-margin-top display-text">Head in the Game</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+     <h2 class="h1 font-weight-normal no-margin-top display-text">A Bond Undescrible</h2>
+     <p>Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way. Life without Lucille? Unfathomable, to contemplate how quiet and still home would be, how much less laughter there'd be, and how much less tenderness.</p>
+     <p>When you speak to people about what it's like to live with a dog, you hear them talk about discovering a degree of solace that's extremely difficult to achieve in relationships with people, a way of experiencing solitude without the loneliness.</p>
     
     <hr>
     
@@ -140,7 +138,7 @@
 
 
 
-<legend>Dog Search Results</legend>
+<legend>Most Recently Added</legend>
     <div class="row">
         <div class="col-lg-4">
             <div class="form_hover " style="background-color: #000;">
@@ -152,24 +150,17 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">Dog's Details</h3>
+                                <h3 style="color: #000;">Bella</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Last login Date:<b>02/09/2013</b>
+                                    Breed<b>Maltese</b>
                                 </div>
                                 <div class="form-group">
-                                    Download Count:<b>104</b>
+                                    Age<b>5 years</b>
                                 </div>
-                                <div class="form-group">
-                                    User Rating:<br />
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
                                 </div>
                             </div>
                         </div>
@@ -187,24 +178,17 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">Dog's Details</h3>
+                                <h3 style="color: #000;">Tucker</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Last login Date:<b>03/07/2013</b>
+                                    Breed: <b>labrador retriever</b>
                                 </div>
                                 <div class="form-group">
-                                    Download Count:<b>324</b>
+                                    Age: <b>6 years</b>
                                 </div>
-                                <div class="form-group">
-                                    User Rating:<br />
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>                                    
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                                 <div class="form-group">
+                                    Purebred: <b>No</b>
                                 </div>
                             </div>
                         </div>
@@ -224,24 +208,17 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">Dog's Details</h3>
+                                <h3 style="color: #000;">Dexter</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Last login Date:<b>01/09/2013</b>
+                                    Breed: <b>Labrador Retriever</b>
                                 </div>
                                 <div class="form-group">
-                                    Download Count:<b>743</b>
+                                    Age: <b>2 years</b>
                                 </div>
-                                <div class="form-group">
-                                    User Rating:<br />
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                                 <div class="form-group">
+                                    Purebred: <b>No</b>
                                 </div>
                             </div>
                         </div>
@@ -266,24 +243,17 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 260px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">Dog's Details</h3>
+                                <h3 style="color: #000;">Emma</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Last login Date:<b>02/09/2013</b>
+                                    Breed: <b>Shih Tzu</b>
                                 </div>
                                 <div class="form-group">
-                                    Download Count:<b>104</b>
+                                    Age: <b>4 years old</b>
                                 </div>
-                                <div class="form-group">
-                                    User Rating:<br />
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
                                 </div>
                             </div>
                         </div>
@@ -301,24 +271,17 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">Dog's Details</h3>
+                                <h3 style="color: #000;">Sadie</h3>
                             </div>
-                            <div class="panel-body">
+                             <div class="panel-body">
                                 <div class="form-group">
-                                    Last login Date:<b>03/07/2013</b>
+                                    Breed: <b>Pug</b>
                                 </div>
                                 <div class="form-group">
-                                    Download Count:<b>324</b>
+                                    Age: <b>3 years old</b>
                                 </div>
-                                <div class="form-group">
-                                    User Rating:<br />
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>                                    
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
                                 </div>
                             </div>
                         </div>
@@ -337,25 +300,19 @@
                     <div class="header-text">
                         <div class="panel panel-success" style="height: 247px;">
                             <div class="panel-heading">
-                                <h3 style="color: #000;">Dog's Details</h3>
+                                <h3 style="color: #000;">Romeo</h3>
                             </div>
-                            <div class="panel-body">
+                             <div class="panel-body">
                                 <div class="form-group">
-                                    Last login Date:<b>01/09/2013</b>
+                                    Breed: <b>Golden Retriever</b>
                                 </div>
                                 <div class="form-group">
-                                    Download Count:<b>743</b>
+                                    Age: <b>5 years</b>
                                 </div>
-                                <div class="form-group">
-                                    User Rating:<br />
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
                                 </div>
+
                             </div>
                         </div>
                     </div>
