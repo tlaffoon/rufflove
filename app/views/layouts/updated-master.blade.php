@@ -86,24 +86,6 @@
     <a href="tel:000-000-0000"><i class="fa fa-phone fw"></i></a>
    </div>
    
-   <!-- this tool-bar is only on tablets and desktop device widths -->
-   <div class="tool-bar hidden-xs">
-    <ul>
-     <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a> </li>
-     <li class="divider tb-left OR">divider</li>
-     <li class="tb-left"> <a href="#" class="toggle-signup"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a> </li>
-     <li class="tb-right"><a href="#" class="toggle-search tooltip-hover" data-placement="left" title="Search"><i class="fa fa-search"></i></a></li>
-     <li class="divider tb-right"><!-- divider --></li>
-     <li class="tb-phone tb-right"> Support: <span>1.888.555.1234</span></li>
-     <li class="divider tb-right"><!-- divider --></li>
-     <li class="tb-phone tb-right"><a href="your-link-here.html">Contact</a></li>
-     @if (Auth::check())
-        <li class="tb-phone tb-right" id='loginName'>{{{ Auth::user()->username }}}</li>
-     @endif
-     </ul>
-   </div>
-   <!--/tool-bar --> 
-   
    <!-- ____________ SEARCH PANEL _______________  -->
    
    <div class="search-panel">
@@ -233,8 +215,12 @@
         <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
       @endif                       
       </ul>
-      
+      <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a> </li>
+     <li class="tb-left"> <a href="#" class="toggle-signup"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a> </li>
      </li>
+      @if (Auth::check())
+        <li id='loginName'>{{{ Auth::user()->username }}}</li>
+     @endif
     </ul>
     
    </nav>
@@ -254,7 +240,7 @@
   <ul class="sub-bar clearfix">
    
   <!-- tagline hides at 767px --> 
-   <li class="tagline sb-left hidden-xs">A dog may have his day...</li>
+   <li class="tagline sb-left hidden-xs">A dog may have his day for love</li>
          
    <li class="visible-xs sb-left"><a href="#"><i class="fa fa-envelope-o fw"></i> Contact</a></li>
    
