@@ -18,7 +18,7 @@ class DogImage extends Eloquent {
     public static $rules = array(
         
         'dog_id'  => 'required',            
-        'img_path' => 'required',            
+        'path' => 'required',            
     );
 
     protected $imgDir = 'img-upload';

@@ -191,7 +191,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Breed: <b>labrador retriever</b>
+                                    Breed: <b>Boxer</b>
                                 </div>
                                 <div class="form-group">
                                     Age: <b>6 years</b>

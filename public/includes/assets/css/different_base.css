@@ -82,11 +82,14 @@ legend {
 }
 
 #loginName {
-	color: dodgerblue;
-	border:none;
-	margin-left: 20px;
-	margin-top: 30px;
+color: dodgerblue;
+border: none;
+margin-left: 20px;
+margin-top: 20px;
+font-size: 150%;
+font-family: 'lobster', cursive;
 }
+
 
 .banner.clearfix.text-center {
 background-color: crimson;
