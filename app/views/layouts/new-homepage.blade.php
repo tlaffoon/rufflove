@@ -57,9 +57,9 @@
  <!-- CUSTOM banner -->
   <div class="banner clearfix text-center">
     <h1 class="display-text text-supersized">Ruff Love</h1>
-      <h1><span class="glyphicon glyphicon-heart"></h1>
-    </span> Dating For Dogs</p></h6>
-    <a class="btn btn-info" href="{{ action('HomeController@showSearch')}}">Search Now</a>
+      <h1><span class="glyphicon glyphicon-heart" style="font-size: 65px;"></h1>
+    </span> <p style="font-size: 22px;">Dating For Dogs</p></h6>
+    <a class="btn btn-info btn-lg" href="{{ action('HomeController@showSearch')}}">Search!</a>
   </div>
   <!-- /.banner -->
     
@@ -71,7 +71,7 @@
    
     <div class="col-sm-6 col-md-3 text-center">
      <i class="fa fa-heart-o feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Why to Breed Your Dog</h2>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Why to Breed</h2>
      <p>Breeding your dog can start off with a simple thought. Why go through with it? Here are a list of reasons to take the step for you and your dog. </p><br>
      <p class="margin-top-20px"><a class="btn btn-default  btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
@@ -80,7 +80,7 @@
     
     <div class="col-sm-6 col-md-3 text-center">
      <i class="fa fa-search feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">What to Look for When Breeding</h2>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">What to Look For</h2>
      <p>Will your pup's pup prance around in show, or possibly work hard at serving the community? Consider all these factors when breeding.</p><br>
      <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
@@ -89,7 +89,7 @@
     
     <div class="col-sm-6 col-md-3 text-center">
      <i class="fa fa-paw feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Great Hearding Dog Breeds</h2><br>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Great Herding Dogs</h2><br>
      <p>Before purchasing a prancy-poodle to heard, take a look at the list we have gathered of willful-working dogs.</p><br>
      <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
@@ -98,7 +98,7 @@
     
     <div class="col-sm-6 col-md-3 text-center">
      <i class="fa fa-smile-o feature-icon"><!--icon --></i>
-     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Easy to Train Dog Breeds</h2><br>
+     <h2 class="spaced-out-header h3 uppercase font-weight-bold">Easy to Train</h2><br>
      <p>Sit.<br>Stay.<br>Read about easy to train dogs here.</p><br>
      <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
     </div>
@@ -120,15 +120,15 @@
      <hr class="vertical-spacer visible-xs">
     </div>
     <div class="col-sm-6">
-     <h2 class="h1 font-weight-normal no-margin-top display-text">A Bond Undescrible</h2>
+     <h2 class="h1 font-weight-normal no-margin-top display-text">A Dog's Best Friend</h2>
      <p>Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way. Life without Lucille? Unfathomable, to contemplate how quiet and still home would be, how much less laughter there'd be, and how much less tenderness.</p>
      <p>When you speak to people about what it's like to live with a dog, you hear them talk about discovering a degree of solace that's extremely difficult to achieve in relationships with people, a way of experiencing solitude without the loneliness.</p>
     
     <hr>
     
     <blockquote>
-    <p class="display-text lead">A dog is the only thing on earth that loves you more than he loves himself</p>
-    <footer>Josh Billings</footer>
+    <p class="display-text lead">"A dog is the only thing on earth that loves you more than he loves himself."</p>
+    <footer class="text-right" style="font-weight: bold;">Josh Billings</footer>
     </blockquote>
     
     </div>

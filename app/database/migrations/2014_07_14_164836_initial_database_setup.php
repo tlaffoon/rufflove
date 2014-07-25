@@ -60,7 +60,7 @@ class InitialDatabaseSetup extends Migration {
             $table->string('name');
 
             $pure = array('Y', 'N');
-            $table->enum('purebred', $pure);
+            $table->enum('purebred', $pure)->nullable();
             $table->integer('age');
             $table->integer('weight');
 

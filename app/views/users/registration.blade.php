@@ -101,6 +101,8 @@
 
 @section('content')
 
+<div class="container">
+
 <div class="col-md-5"> <!-- begin left container -->
     <div class="page-header">
         <h1>Register Your Account</h1>
@@ -156,7 +158,7 @@
         <div id="map-canvas"/>
 
     </div> <!-- end right container -->
-
+    </div> 
 @stop
 
 @section('bottomscript')

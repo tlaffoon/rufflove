@@ -3,22 +3,22 @@
 class DatabaseSeeder extends Seeder 
 {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		Eloquent::unguard();
-		
-		$this->call('BreedsTableSeeder');
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Eloquent::unguard();
+        
+        $this->call('BreedsTableSeeder');
         $this->call('UsersTableSeeder');
-        $this->call('DogsTableSeeder');		
-		$this->call('DogImagesTableSeeder');
+        $this->call('DogsTableSeeder');     
+        $this->call('DogImagesTableSeeder');
         $this->call('ZipsTableSeeder');
-        		
-	} //function run()
+                
+    } //function run()
 } //class DatabaseSeeder
 
 
@@ -462,22 +462,123 @@ class DogsTableSeeder extends Seeder
         $this->command->info('Deleting existing Dogs table ...');
         DB::table('dogs')->delete();
 
+            $dog = new Dog();
+            $dog->name = "Puggsy 1";          
+            $dog->purebred = "Y";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "1";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 2";          
+            $dog->purebred = "Y";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "F";
+            $dog->breed_id = "1127";
+            $dog->user_id = "2";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 3";          
+            $dog->purebred = "N";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "7";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 4";          
+            $dog->purebred = "N";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "F";
+            $dog->breed_id = "1127";
+            $dog->user_id = "8";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 5";          
+            $dog->purebred = "Y";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "13";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 6";          
+            $dog->purebred = "Y";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "14";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 7";          
+            $dog->purebred = "N";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "3";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 8";          
+            $dog->purebred = "N";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "9";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 9";          
+            $dog->purebred = "Y";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "18";
+            $dog->save();
+
+            $dog = new Dog();
+            $dog->name = "Puggsy 10";          
+            $dog->purebred = "Y";
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = "M";
+            $dog->breed_id = "1127";
+            $dog->user_id = "19";
+            $dog->save();
+
+
+
+
         $purebred = ['Y','N'];
         $sex = ['M', 'F'];
 
-        for ($i=1; $i <= 5000; $i++) 
+        for ($i=1; $i <= 500; $i++) 
         { 
             $dog = new Dog();
-
-	        $dog->name = "Fido " . $i;	        
-	        $dog->purebred = $purebred[array_rand($purebred)];
-	        $dog->age = rand(1,20);
-	        $dog->weight = rand(1,100);
-	        $dog->sex = $sex[array_rand($sex)];
+            $dog->name = "Fido " . $i;          
+            $dog->purebred = $purebred[array_rand($purebred)];
+            $dog->age = rand(1,20);
+            $dog->weight = rand(1,100);
+            $dog->sex = $sex[array_rand($sex)];
             $dog->breed_id = rand(1, 1499);
-	        $dog->user_id = rand(2,199);
-
-	       	$dog->save();
+            $dog->user_id = rand(2,199);
+            $dog->save();
         } // end for loop
         
     } //end run()
@@ -493,16 +594,30 @@ class DogImagesTableSeeder extends Seeder
         $this->command->info('Deleting existing Dog images table ...');
        DB::table('dog_images')->delete();
 
-       for ($i=1; $i <= 5000; $i++) 
-       {
+
+       for ($d=1; $d <= 10; $d++) 
+            {
             $dog_image = new DogImage();
-
-            $dog_image->dog_id = $i;
-            $dog_image->path = "/includes/img/placeholder-image.png";
-
+            $dog_image->dog_id = $d;
+            $dog_image->path = "/includes/img/" . $d;
             $dog_image->save();
+            } // end for loop
+            
 
-       } // end for loop
+
+
+
+
+       // for ($i=1; $i <= 50; $i++) 
+       // {
+       //      $dog_image = new DogImage();
+
+       //      $dog_image->dog_id = $i;
+       //      $dog_image->path = "/includes/img/placeholder-image.png";
+
+       //      $dog_image->save();
+
+       // } // end for loop
       
     } //end run()
     

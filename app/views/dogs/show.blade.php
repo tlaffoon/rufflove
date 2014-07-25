@@ -21,7 +21,8 @@
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 
-				@if (Auth::user()->role == 'admin')
+				@if (Auth::check())
+					@if (Auth::user()->role == 'admin')
 
 					<button type="button" class="btn btn-default">
 				  		<a href="{{ action('DogsController@index') }}"><span class="glyphicon glyphicon-home"></span></a>
@@ -32,14 +33,13 @@
 					</button>
 
 					<a href="#" class="deleteDog btn btn-danger" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
-
+					
+					@endif
 				@endif
 				
 			</div>
-
-	<h2>{{{ $dog->name }}}</h2>
-
-</div>
+		<h2>{{{ $dog->name }}}</h2>
+	</div> <!-- end header -->
 
 	<h4>Owner: 		<a href="{{{ action('UsersController@show', $dog->user->id) }}}">{{{ $dog->user->username }}}	</a></h4>
 	<h4>Breed: 		{{{ $dog->breed->name }}}		</h4>
