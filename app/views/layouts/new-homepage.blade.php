@@ -154,10 +154,10 @@
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Breed<b>Maltese</b>
+                                    Breed: <b>Maltese</b>
                                 </div>
                                 <div class="form-group">
-                                    Age<b>5 years</b>
+                                    Age: <b>5 years</b>
                                 </div>
                                  <div class="form-group">
                                     Purebred: <b>Yes</b>
@@ -171,7 +171,7 @@
         <div class="col-lg-4">
             <div class="form_hover " style="background-color: #000;">
                 <p style="text-align: center;">
-                   <img class='imgCenter' src="/includes/DogImages/happydog.jpeg" class="img-responsive">
+                   <img class='imgCenter' src="/includes/DogImages/dogwater.png" class="img-responsive">
                 </p>
                 <div class="header">
                     <div class="blur"></div>
