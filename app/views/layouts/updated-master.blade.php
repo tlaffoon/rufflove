@@ -189,12 +189,11 @@
             <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
 
         </ul> <!-- end dropdown link list -->
-        
-        <li id='loginName'>Logged in as: <u>{{{ Auth::user()->username }}}</u></li>
         <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a></li>
+        <li id='loginName'>Logged in as: <u>{{{ Auth::user()->username }}}</u></li>
+        
     
     @else
-
         <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a></li>
         <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a></li>
     
@@ -202,7 +201,7 @@
       
     </ul>
     
-   </nav>
+   </nav><!-- end nav wrapper -->
   </div>
   <!-- /nav-wrapper --> 
   
