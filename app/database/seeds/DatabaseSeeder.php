@@ -97,26 +97,26 @@ class UsersTableSeeder extends Seeder
        
         $this->command->info('Deleting existing Users table ...');
         DB::table('users')->delete();
-
+        
+        //admin
         $user = new User();        
         $user->first_name = "John";
-        $user->last_name = "Doe";
-        $user->email = "doglover@rufflove.com";
-        $user->address =  "123 maple st.";
-        $user->city = "Beverly Hills";
-        $user->state = "CA";
-        $user->zip = "90120";
+        $user->last_name = "Admin";
+        $user->email = "dogloverJA@rufflove.com";
+        $user->address =  "1702 Guilford Ct";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78245";
         $user->username = "doglover";
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
-        $user->lat = "34.068835";
-        $user->lng = "-118.39385900000002";
-
-
+        $user->lat = "29.416759";
+        $user->lng = "-98.666143";
         $user->save();
 
+        //NW SA
         $user = new User();        
         $user->first_name = "Gustavo";
         $user->last_name = "Fring";
@@ -132,8 +132,6 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.485576999999964";
         $user->lng = "-98.71428673565674";
-
-
         $user->save();
 
         $user = new User();      
@@ -170,6 +168,93 @@ class UsersTableSeeder extends Seeder
         $user->lng = "98.72717699999998";
         $user->save();
 
+        $user = new User();        
+        $user->first_name = "Rick";
+        $user->last_name = "Grimes";
+        $user->email = "dogloverRG@rufflove.com";
+        $user->address =  "3107 Thunder Gulch";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78245";
+        $user->username = "dogloverRG";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.398501";
+        $user->lng = "-98.712371";
+        $user->save();
+
+        $user = new User();        
+        $user->first_name = "Daryl";
+        $user->last_name = "Dixon";
+        $user->email = "dogloverDD@rufflove.com";
+        $user->address =  "7507 Kings Spg";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78254";
+        $user->username = "dogloverDD";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.508441";
+        $user->lng = "-98.740819";
+        $user->save();
+
+        //NC SA
+        $user = new User();        
+        $user->first_name = "Glenn";
+        $user->last_name = "Rhee";
+        $user->email = "dogloverGR@rufflove.com";
+        $user->address =  "129 Harriet Dr";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78216";
+        $user->username = "dogloverGR";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.498252";
+        $user->lng = "-98.496426";
+        $user->save();
+
+        
+        $user = new User();        
+        $user->first_name = "Maggie";
+        $user->last_name = "Greene";
+        $user->email = "dogloverMG@rufflove.com";
+        $user->address =  "135 Summertime Dr";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78216";
+        $user->username = "dogloverMG";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.540129";
+        $user->lng = "-98.494979";
+        $user->save();
+
+        $user = new User();        
+        $user->first_name = "Carl";
+        $user->last_name = "Grimes";
+        $user->email = "dogloverCG@rufflove.com";
+        $user->address =  "267 Springwood Ln";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78216";
+        $user->username = "dogloverCG";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.509279";
+        $user->lng = "-98.491969";
+        $user->save();
+
         $user = new User();      
         $user->first_name = "Saul";
         $user->last_name = "Goodman";
@@ -202,7 +287,6 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.468286";
         $user->lng = "-98.484193";
-
         $user->save();
 
         $user = new User();      
@@ -220,7 +304,61 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.445551";
         $user->lng = "98.48888399999998";
+        $user->save();
 
+
+        //NE
+
+        $user = new User();        
+        $user->first_name = "Carol";
+        $user->last_name = "Peletier";
+        $user->email = "dogloverCP@rufflove.com";
+        $user->address =  "12427 Constitution St";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78233";
+        $user->username = "dogloverCP";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.554534";
+        $user->lng = "-98.369953";
+        $user->save();
+
+
+        $user = new User();        
+        $user->first_name = "Hershel";
+        $user->last_name = "Greene";
+        $user->email = "dogloverHG@rufflove.com";
+        $user->address =  "13315 Loma Sierra";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78233";
+        $user->username = "dogloverHG";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.561135";
+        $user->lng = "-98.356055";
+        $user->save();
+
+        $user = new User();        
+        $user->first_name = "Beth";
+        $user->last_name = "Greene";
+        $user->email = "dogloverBG@rufflove.com";
+        $user->address =  "5407 Cerro Vista St";
+        $user->city = "San Antonio";
+        $user->state = "TX";
+        $user->zip = "78233";
+        $user->username = "dogloverBG";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "29.554556";
+        $user->lng = "-98.383903";
         $user->save();
 
         $user = new User();      
@@ -238,8 +376,7 @@ class UsersTableSeeder extends Seeder
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.567215";
         $user->lng = "-98.448589";
-        
-        $user->save();
+        $user->save();        
 
         $user = new User();      
         $user->first_name = "Lydia";
@@ -255,8 +392,43 @@ class UsersTableSeeder extends Seeder
         $user->role = "admin";
         $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
         $user->lat = "29.555311";
-        $user->lng = "-98.433682";
-       
+        $user->lng = "-98.433682";    
+        $user->save();
+
+        //Austin
+        $user = new User();        
+        $user->first_name = "Merle";
+        $user->last_name = "Dixon";
+        $user->email = "dogloverMD@rufflove.com";
+        $user->address =  "3804 Greystone Dr";
+        $user->city = "Austin";
+        $user->state = "TX";
+        $user->zip = "78731";
+        $user->username = "dogloverMD";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "30.360323";
+        $user->lng = "-97.756327";
+        $user->save();
+
+        //California
+        $user = new User();        
+        $user->first_name = "Shane";
+        $user->last_name = "Walsh";
+        $user->email = "dogloverSW@rufflove.com";
+        $user->address =  "123 maple st.";
+        $user->city = "Beverly Hills";
+        $user->state = "CA";
+        $user->zip = "90120";
+        $user->username = "dogloverSW";
+        $user->password = 'password';
+        $user->img_path = "/includes/img/placeholder-user.png";
+        $user->role = "admin";
+        $user->fullAddress = $user->address . ' ' . $user->city . ', ' . $user->state . ' ' . $user->zip;
+        $user->lat = "34.068835";
+        $user->lng = "-118.39385900000002";
         $user->save();
 
         for ($i=1; $i <= 200; $i++) 
