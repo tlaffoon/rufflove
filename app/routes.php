@@ -16,9 +16,8 @@ Route::get('/', 'HomeController@showHome');
 
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/admin', 'HomeController@showAdmin');
-Route::get('/atm', 'HomeController@showAtm');
 
-Route::get('/dogsearch', 'HomeController@showDogSearch');
+
 
 Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');

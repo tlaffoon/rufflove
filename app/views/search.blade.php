@@ -72,6 +72,7 @@ ul {
 </div>
 
 </div><!-- end main container -->
+</div><!-- extra div close for footer -->
 @stop
 
 @section('bottomscript')
