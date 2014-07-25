@@ -50,6 +50,15 @@
             top: -10px;
             width: 100%;
         }
+
+        .btn-xlg {
+            padding: 18px 28px;
+            font-size: 22px;
+            line-height: normal;
+            -webkit-border-radius: 8px;
+               -moz-border-radius: 8px;
+                    border-radius: 8px;
+            }
 </style>
 @stop
 @section('content')
