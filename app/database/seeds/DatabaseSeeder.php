@@ -102,7 +102,7 @@ class UsersTableSeeder extends Seeder
         $user = new User();        
         $user->first_name = "John";
         $user->last_name = "Admin";
-        $user->email = "dogloverJA@rufflove.com";
+        $user->email = "doglover@rufflove.com";
         $user->address =  "1702 Guilford Ct";
         $user->city = "San Antonio";
         $user->state = "TX";
