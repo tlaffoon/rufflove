@@ -11,6 +11,8 @@
 @stop
 
 @section('content')
+<div class="container">
+
 <div class="col-md-6">
 
 <div class="clearfix"></div>
@@ -103,6 +105,7 @@
 {{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 {{ Form::close() }}
 
+</div>
 @stop
 
 @section('bottomscript')

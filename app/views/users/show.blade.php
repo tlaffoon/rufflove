@@ -61,6 +61,8 @@
 
 @section('content')
 
+<div class="container">
+
 <div class="col-md-4">
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">

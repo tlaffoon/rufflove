@@ -83,6 +83,9 @@ legend {
 
 #loginName {
 	color: dodgerblue;
+	border:none;
+	margin-left: 20px;
+	margin-top: 30px;
 }
 
 .banner.clearfix.text-center {
@@ -894,7 +897,7 @@ a:active, a:focus {text-decoration:none;}
 }
 
 .spaced-out-header {letter-spacing:2px;}
-.uppercase {text-transform:uppercase;}
+
 
 .text-supersized {
     font-size: 30px;

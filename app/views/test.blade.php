@@ -123,4 +123,230 @@
   </fieldset>
 </form>
 
+<legend>Dog Search Results</legend>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form_hover " style="background-color: #000;">
+                <p style="text-align: center;">
+                    <img class='imgCenter' src="/includes/DogImages/White-Dog.jpg" class="img-responsive">
+                </p>
+                <div class="header">
+                    <div class="blur"></div>
+                    <div class="header-text">
+                        <div class="panel panel-success" style="height: 247px;">
+                            <div class="panel-heading">
+                                <h3 style="color: #000;">Dog's Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    Last login Date:<b>02/09/2013</b>
+                                </div>
+                                <div class="form-group">
+                                    Download Count:<b>104</b>
+                                </div>
+                                <div class="form-group">
+                                    User Rating:<br />
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form_hover " style="background-color: #000;">
+                <p style="text-align: center;">
+                   <img class='imgCenter' src="/includes/DogImages/happydog.jpeg" class="img-responsive">
+                </p>
+                <div class="header">
+                    <div class="blur"></div>
+                    <div class="header-text">
+                        <div class="panel panel-success" style="height: 247px;">
+                            <div class="panel-heading">
+                                <h3 style="color: #000;">Dog's Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    Last login Date:<b>03/07/2013</b>
+                                </div>
+                                <div class="form-group">
+                                    Download Count:<b>324</b>
+                                </div>
+                                <div class="form-group">
+                                    User Rating:<br />
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>                                    
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="form_hover " style="background-color: #000;">
+                <p style="text-align: center;">
+<!--                     <i class="fa fa-user" style="font-size: 147px;"></i> -->
+                    <img class="imgCenter" src="/includes/DogImages/greydog.jpg" class="img-responsive">
+                </p>
+                <div class="header">
+                    <div class="blur"></div>
+                    <div class="header-text">
+                        <div class="panel panel-success" style="height: 247px;">
+                            <div class="panel-heading">
+                                <h3 style="color: #000;">Dog's Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    Last login Date:<b>01/09/2013</b>
+                                </div>
+                                <div class="form-group">
+                                    Download Count:<b>743</b>
+                                </div>
+                                <div class="form-group">
+                                    User Rating:<br />
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form_hover " style="background-color: #000;">
+                <p style="text-align: center;">
+                   <img class='imgCenter' src="/includes/DogImages/dresseddog.png" class="img-responsive">
+                </p>
+                <div class="header">
+                    <div class="blur"></div>
+                    <div class="header-text">
+                        <div class="panel panel-success" style="height: 260px;">
+                            <div class="panel-heading">
+                                <h3 style="color: #000;">Dog's Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    Last login Date:<b>02/09/2013</b>
+                                </div>
+                                <div class="form-group">
+                                    Download Count:<b>104</b>
+                                </div>
+                                <div class="form-group">
+                                    User Rating:<br />
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form_hover " style="background-color: #000;">
+                <p style="text-align: center;">
+                    <img class='imgCenter' src="/includes/DogImages/pug.jpeg" class="img-responsive">
+                </p>
+                <div class="header">
+                    <div class="blur"></div>
+                    <div class="header-text">
+                        <div class="panel panel-success" style="height: 247px;">
+                            <div class="panel-heading">
+                                <h3 style="color: #000;">Dog's Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    Last login Date:<b>03/07/2013</b>
+                                </div>
+                                <div class="form-group">
+                                    Download Count:<b>324</b>
+                                </div>
+                                <div class="form-group">
+                                    User Rating:<br />
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>                                    
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="form_hover " style="background-color: #000;">
+                <p style="text-align: center;">
+                    <img class='imgCenter' src="/includes/DogImages/waterdog.gif" class="img-responsive">
+                </p>
+                <div class="header">
+                    <div class="blur"></div>
+                    <div class="header-text">
+                        <div class="panel panel-success" style="height: 247px;">
+                            <div class="panel-heading">
+                                <h3 style="color: #000;">Dog's Details</h3>
+                            </div> <!-- class="panel-heading" -->
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    Last login Date:<b>01/09/2013</b>
+                                </div> <!-- class="form-group" -->
+                                <div class="form-group">
+                                    Download Count:<b>743</b>
+                                </div> class="form-group"
+                                <div class="form-group">
+                                    User Rating:<br />
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div> <!-- class="form-group" -->
+                            </div> <!-- class="panel-body" -->
+                        </div> <!-- class="panel panel-success" -->
+                    </div>  <!-- class="header-text" -->
+                </div> <!-- class="header" -->
+            </div> <!-- class="form_hover" -->
+        </div> <!-- class="col-lg-4" -->
+
+    </div>
+</div>
+
 @stop

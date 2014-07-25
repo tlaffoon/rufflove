@@ -115,11 +115,12 @@
 @stop
 
 @section('content')
+
+<div class="container">
+
 <div class="col-md-6">
 
-<div class="clearfix"></div>
-
-<div class="page-header">
+	<div class="page-header">
 		<div class="btn-group pull-right admin-buttons">
 
 				<button type="button" class="btn btn-default">
@@ -147,9 +148,7 @@
 			<h2>Create New User</h2>
 		{{ Form::open(array('action' => 'UsersController@store'), array('files' => true))}}
 	@endif
-	</div>
-
-	{{ Form::token() }}
+	</div> <!-- end page header -->
 
 	<div class="clearfix"></div>
 
@@ -195,7 +194,7 @@
 	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
 </div> <!-- end left container -->
 
-<div class="col-md-6" style="margin-top: 4px;">
+<div class="col-md-6" style="margin-top: 4px;"> <!-- begin right container -->
 	<div class="page-header">
 		<h2 class="text-right">Image Preview</h2>
 	</div>
@@ -223,6 +222,8 @@
 	</div>
 
 </div>  <!-- end right container -->
+</div> <!-- end main -->
+</div>
 
 	{{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
