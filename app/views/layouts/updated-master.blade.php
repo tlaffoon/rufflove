@@ -211,7 +211,7 @@
   <ul class="sub-bar clearfix">
    
   <!-- tagline hides at 767px --> 
-   <li class="tagline sb-left hidden-xs">A dog may have his day for love</li>
+   <li class="tagline sb-left hidden-xs">Where Every Day Is Hump Day...</li>
          
    <li class="visible-xs sb-left"><a href="#"><i class="fa fa-envelope-o fw"></i> Contact</a></li>
    

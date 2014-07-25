@@ -158,7 +158,7 @@
         <div id="map-canvas"/>
 
     </div> <!-- end right container -->
-    </div>
+    </div> 
 @stop
 
 @section('bottomscript')

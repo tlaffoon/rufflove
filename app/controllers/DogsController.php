@@ -99,7 +99,7 @@ class DogsController extends \BaseController {
 		    $dog = new Dog();
 
 		    $dog->name 		= Input::get('name');
-		    $dog->breed 	= Input::get('breed');
+			$dog->breed_id	= Input::get('breed');
 		    $dog->purebred 	= Input::get('purebred');
 		    $dog->age 		= Input::get('age');
 		    $dog->weight 	= Input::get('weight');
@@ -171,7 +171,7 @@ class DogsController extends \BaseController {
 		else {
 
 			$dog->name 		= Input::get('name');
-			$dog->breed 	= Input::get('breed');
+			$dog->breed_id	= Input::get('breed');
 			$dog->purebred 	= Input::get('purebred');
 			$dog->age 		= Input::get('age');
 			$dog->weight 	= Input::get('weight');

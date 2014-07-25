@@ -63,10 +63,10 @@
 		{{ Form::select('sex', array('M' => 'Male', 'F' => 'Female'), 'M', array('class' => 'form-group form-control dropdown btn btn-default')) }}	
 	</div>
 
-	<div id="prefetch" style="margin-top: 18px;">
+
+	<div class="form-group zero-left-margin">
 	{{ Form::label('breed', 'Breed') }}
-	{{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Breed')) }}
-	{{ $errors->first('breed', '<span class="help-block"><p class="text-danger text-right">:message</p></span><br>') }}
+	{{ Form::select('breed', Breed::lists('name', 'id'), null, array('class' => 'form-group form-control dropdown btn btn-default')) }}
 	</div>
 
 	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
@@ -111,29 +111,5 @@ $(".deleteDog").click(function() {
 	}
 });
 
-var breeds = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  limit: 10,
-  prefetch: {
-    url: '/includes/data/breeds.json',
-    filter: function(list) {
-      return $.map(list, function(breed) { return { name: breed }; });
-    }
-  }
-});
- 
-// kicks off the loading/processing of `local` and `prefetch`
-breeds.initialize();
- 
-// passing in `null` for the `options` arguments will result in the default
-// options being used
-$('#prefetch .typeahead').typeahead(null, {
-  name: 'breeds',
-  displayKey: 'name',
-  // `ttAdapter` wraps the suggestion engine in an adapter that
-  // is compatible with the typeahead jQuery plugin
-  source: breeds.ttAdapter()
-});
 </script>
 @stop
