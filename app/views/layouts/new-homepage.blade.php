@@ -90,7 +90,7 @@
     <div class="col-sm-6 col-md-3 text-center">
      <i class="fa fa-paw feature-icon"><!--icon --></i>
      <h2 class="spaced-out-header h3 uppercase font-weight-bold">Great Hearding Dog Breeds</h2><br>
-     <p>Before purchasing a prancy-poodle to heard, take a look at the list we have gathered a list of willful-working dogs.</p><br>
+     <p>Before purchasing a prancy-poodle to heard, take a look at the list we have gathered of willful-working dogs.</p><br>
      <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
     </div>
@@ -120,9 +120,9 @@
      <hr class="vertical-spacer visible-xs">
     </div>
     <div class="col-sm-6">
-     <h2 class="h1 font-weight-normal no-margin-top display-text">Head in the Game</h2>
-     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+     <h2 class="h1 font-weight-normal no-margin-top display-text">A Bond Undescrible</h2>
+     <p>Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way. Life without Lucille? Unfathomable, to contemplate how quiet and still home would be, how much less laughter there'd be, and how much less tenderness.</p>
+     <p>When you speak to people about what it's like to live with a dog, you hear them talk about discovering a degree of solace that's extremely difficult to achieve in relationships with people, a way of experiencing solitude without the loneliness.</p>
     
     <hr>
     
@@ -154,10 +154,13 @@
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Breed<b>Golden Retriever</b>
+                                    Breed<b>Maltese</b>
                                 </div>
                                 <div class="form-group">
                                     Age<b>5 years</b>
+                                </div>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
                                 </div>
                             </div>
                         </div>
@@ -184,6 +187,9 @@
                                 <div class="form-group">
                                     Age: <b>6 years</b>
                                 </div>
+                                 <div class="form-group">
+                                    Purebred: <b>No</b>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -206,10 +212,13 @@
                             </div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    Breed: <b>01/09/2013</b>
+                                    Breed: <b>Labrador Retriever</b>
                                 </div>
                                 <div class="form-group">
                                     Age: <b>2 years</b>
+                                </div>
+                                 <div class="form-group">
+                                    Purebred: <b>No</b>
                                 </div>
                             </div>
                         </div>
@@ -243,6 +252,9 @@
                                 <div class="form-group">
                                     Age: <b>4 years old</b>
                                 </div>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -268,6 +280,9 @@
                                 <div class="form-group">
                                     Age: <b>3 years old</b>
                                 </div>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -289,11 +304,15 @@
                             </div>
                              <div class="panel-body">
                                 <div class="form-group">
-                                    Breed<b>Golden Retriever</b>
+                                    Breed: <b>Golden Retriever</b>
                                 </div>
                                 <div class="form-group">
-                                    Age<b>5 years</b>
+                                    Age: <b>5 years</b>
                                 </div>
+                                 <div class="form-group">
+                                    Purebred: <b>Yes</b>
+                                </div>
+
                             </div>
                         </div>
                     </div>

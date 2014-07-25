@@ -142,46 +142,6 @@
    <!-- /.login-panel--> 
    
    
-   <!-- ____________ SIGNUP PANEL _______________  --> 
-
-   <div class="signup-panel">
-    <div class="row">
-         
-     <!-- col-ms-6 non-bootstrap column for 480px - 767px -->
-     <div class="col-sm-6 col-lg-4 col-ms-6">
-      <h3 class="title">Sign Up with...</h3>
-      <ul class="list-unstyled social-user">
-       <li><a href="#" title="Signup with Facebook" class="facebook"><i class="fa fa-facebook"></i><span>Signup with Facebook</span></a></li>
-       <li><a href="#" title="Signup with Google Plus" class="google"><i class="fa fa-google-plus"></i><span>Signup with Google</span></a></li>
-       <li><a href="#" title="Signup with Twitter" class="twitter"><i class="fa fa-twitter"></i><span>Signup with Twitter</span></a></li>
-       <li><a href="#" title="Signup with Wordpress" class="wordpress"><i class="fa fa-wordpress"></i><span>Signup with Wordpress</span></a></li>
-      </ul>
-      <!-- /.social-user --> 
-       <p>Already have an account? <a href="#" class="toggle-login">Login</a></p>
-    </div><!-- /col-sm-6 col-lg-4 col-ms-6-->
-
-     <!-- col-ms-6 non-bootstrap column for 480px - 767px -->
-     <div class="col-sm-6 col-lg-4 col-ms-6">
-      <h3 class="title">Sign Up</h3>
-      <form role="form" action="your-registrtation-script-goes-here.php">
-       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Enter email">
-       </div>
-       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password">
-       </div>
-       <p class="text-center">
-       <button class="btn btn-default btn-custom" type="submit"><i class="fa fa-lock"></i> Register</button>
-       </p>
-      </form>
-     </div><!-- /col-sm-6 col-lg-4 col-ms-6-->
-
-
-    </div>
-    <!-- /.row-->
-    
-   </div>
-   <!-- /.signup-panel--> 
    
    
    
@@ -195,7 +155,7 @@
     <ul class="primary-nav">
      <li class="active"><a href="{{ action('HomeController@showHome')}}">Home</a></li> <!-- add class .active on li item when the page is current -->
      <li><a href="{{ action('HomeController@showAbout')}}">About</a></li>
-     <li class="has-children"><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> 
+     <li class><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> 
      </li>
      
       @if (Auth::check())
@@ -216,7 +176,7 @@
       @endif                       
       </ul>
       <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a> </li>
-     <li class="tb-left"> <a href="#" class="toggle-signup"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a> </li>
+     <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}" ><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a> </li>
      </li>
       @if (Auth::check())
         <li id='loginName'>{{{ Auth::user()->username }}}</li>
