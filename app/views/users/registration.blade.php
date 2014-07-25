@@ -156,6 +156,7 @@
         <div id="map-canvas"/>
 
     </div> <!-- end right container -->
+</div>
 
 @stop
 

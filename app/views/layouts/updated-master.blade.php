@@ -176,21 +176,26 @@
        <li><a href="{{ action('UsersController@edit', Auth::user()->id) }}">My Profile</a></li>
        @if (Auth::user()->role == 'admin')
        <li><a href="{{ action('UsersController@index') }}"> Admin Link </a></li>
+       <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li
        <li class="divider"></li>
-       @endif
        @if (Auth::user()->role == 'user')
        <li><a href=""> User Link </a></li>
        <li><a href="{{ action('DogsController@index') }}"> My Dogs </a></li>
         <li class="divider"></li>
-        @endif 
         <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
+        @endif
       @endif                       
       </ul>
-      <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a> </li>
-     <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}" ><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a> </li>
-     </li>
       @if (Auth::check())
-        <li id='loginName'>{{{ Auth::user()->username }}}</li>
+     <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a></li>
+     @else
+     <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a></li>
+       <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a></li>
+     </li>
+     @endif
+     @endif
+      @if (Auth::check())
+        <li id='loginName'>Logged in as: <u>{{{ Auth::user()->username }}}</u></li>
      @endif
     </ul>
     

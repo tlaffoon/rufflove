@@ -20,20 +20,16 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="bs-component">
-              <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-              <p><small>This line of text is meant to be treated as fine print.</small></p>
-              <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-              <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-              <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+              <p>The objective of Ruff Love is to help breeders connect to other breeders who desire to find their dog love.</p>
+              <p>Whether or not the objective for you new pup family is to show your dogs, produce a family of fun-loving puppies to add to someone's existing family, or to help the community with well-trained service dogs, we can help you find the right person and right dog.</p>
+              <p>We are also here to help you make the desicion to breed your dog <em>the right way</em></p>   
             </div>
           </div>
           <div class="col-lg-4">
             <div class="bs-component">
-              <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-              <p><small>This line of text is meant to be treated as fine print.</small></p>
-              <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-              <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-              <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+              <p>There are also many things that can be <strong>scary</strong> about making the step to breed your dog. There are so many questions to consider before the leap into love is made.</p>
+              <p>How do I go about starting the breeding process? Is there any reasons I dont want to breed my dog? What are the benefits of breeding? </p>
+              <p></p>
             </div>
 
           </div>
