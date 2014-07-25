@@ -48,14 +48,13 @@
 	<h4>Weight: 	{{{ $dog->weight }}}			</h4>
 	<h4>Sex: 		{{{ $dog->sex }}}				</h4>
 	<h4>Updated: 	{{{ $dog->updated_at }}}		</h4>
-<!-- 	<h4>Image Path: {{{ $dog->image()->first()->path }}}			</h4> -->
+	
 </div>
 
 	{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
 
 </div>
-
 
 @stop
 
