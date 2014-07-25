@@ -14,8 +14,11 @@ ul {
 @stop
 
 @section('content')
+
+<div class="container">
+
   <!-- Begin main search form -->
- <div class="col-md-5">  <!-- begin search form block -->
+ <div class="col-md-4">  <!-- begin search form block -->
     <div class="page-header">
         <h2>Search Form</h2>
     </div>
@@ -52,10 +55,11 @@ ul {
       {{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Enter Breed')) }}
     </div>
     {{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
-    {{ Form::close() }} 
+    {{ Form::close() }}
+
   </div>   <!-- end left container -->
 
-  <div class="col-md-7">
+  <div class="col-md-8">
 
     <div class="page-header">
         <h2 class="text-right">Map</h2>
@@ -63,12 +67,11 @@ ul {
         <div id="map-canvas"/>
   </div> <!-- end right container -->
 
-  <div class="col-md-12">
-    <ul id="results-list">
-        
-    </ul>
-  </div>
+<div class="col-md-10 zero-pad-left">
+    <p> Placeholder For Results Display </p>
+</div>
 
+</div><!-- end main container -->
 @stop
 
 @section('bottomscript')
@@ -76,7 +79,7 @@ ul {
 
 var mapOptions = {
   center: new google.maps.LatLng(29.4814305, -98.5144044),
-  zoom: 11
+  zoom: 10
 };
 
 var map = new google.maps.Map(document.getElementById("map-canvas"),
@@ -87,8 +90,6 @@ $('#ajax-form').on('submit', function (e) {
     e.preventDefault();
     var formValues = $(this).serialize();
     console.log('formValues: ' + formValues);
-
-    markersArray = []; // 
 
     $.ajax({
         url: "/search",
@@ -114,8 +115,6 @@ $('#ajax-form').on('submit', function (e) {
                 console.log('=========');
                 console.log(this.user.fullAddress);
 
-                $("#results-list").append("<li> User " + count + ":" + this.user.username + "</li>"); // update list of results... html
-
                 var address = this.user.fullAddress;
                 console.log(address);
 
@@ -127,6 +126,10 @@ $('#ajax-form').on('submit', function (e) {
                         // $("#longitude").val(result[0]["geometry"]["location"]["B"]); //  ^
                         var latLngObj = result[0]["geometry"]["location"];
                     } // endif
+
+
+                    // additional syntax to update html with search results.
+
 
                     // Create new marker based on lat/lng
                     var marker = new google.maps.Marker({
