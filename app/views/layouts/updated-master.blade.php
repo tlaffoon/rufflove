@@ -177,7 +177,6 @@
         
         @if (Auth::user()->role == 'admin')
             <li><a href="{{ action('UsersController@index') }}"> Admin Link </a></li>
-            <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
             <li class="divider"></li>
         
         @elseif (Auth::user()->role == 'user')
