@@ -13,7 +13,7 @@
 @section('content')
 <div class="col-md-2">
 	<div class="test">
-		<img src="http://placehold.it/140x140" class="img-responsive thumbnail centered">
+		<img src="/includes/img/1.jpg" class="img-responsive thumbnail centered">
 	</div>
 </div>
 

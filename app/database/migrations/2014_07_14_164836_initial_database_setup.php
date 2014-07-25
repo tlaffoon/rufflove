@@ -14,13 +14,11 @@ class InitialDatabaseSetup extends Migration {
 	{
 		Schema::create('users', function($table)
         {
-            $table->increments('id');
-            
+            $table->increments('id');            
             $table->string('username', 30)->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role');
-
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('fullAddress')->nullable();
@@ -29,46 +27,36 @@ class InitialDatabaseSetup extends Migration {
             $table->string('state', 2)->nullable();
             $table->integer('zip')->nullable();
             $table->string('country')->nullable();
-
             $table->string('img_path')->nullable();
-
             $table->float('lat', 10,6)->nullable();
-            $table->float('lng', 10,6)->nullable();
-            
+            $table->float('lng', 10,6)->nullable();            
             $table->string('remember_token', 100)->nullable;
-
             $table->timestamps();  
             
         });
 
 		Schema::create('breeds', function($table)
         {
-            $table->increments('id');
-            
+            $table->increments('id');           
             $table->string('name');
-            $table->text('info');
-            
+            $table->text('info');           
             $table->nullableTimestamps();             
         });
 
         Schema::create('dogs', function($table)
         {
-            $table->increments('id');           
-            
+            $table->increments('id');                       
             $table->integer('user_id')->unsigned();
             $table->integer('breed_id')->unsigned();            
             $table->string('name');
-
             $pure = array('Y', 'N');
             $table->enum('purebred', $pure)->nullable();
             $table->integer('age');
             $table->integer('weight');
-
             $sex = array('M', 'F');
             $table->enum('sex', $sex);
-
+            $table->string('dog_info'); 
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('breed_id')->references('id')->on('breeds');
         });
@@ -77,7 +65,7 @@ class InitialDatabaseSetup extends Migration {
         {
             $table->increments('id')->unsigned();
             $table->integer('dog_id')->unsigned();
-            $table->string('path');          
+            $table->string('path');                     
             $table->timestamps();
             $table->foreign('dog_id')->references('id')->on('dogs');
         });
