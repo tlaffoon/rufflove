@@ -57,6 +57,40 @@
 	<h2>Dog Index</h2>
   </div>
 
+  {{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
+      <h3>Search for dog by name</h3>
+      {{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
+    
+    <!-- end main search form -->
+
+    <!-- Begin breed search form -->
+      <br>
+      <h3>Sex</h3>
+      
+      Female
+      {{ Form::radio('sex', 'F', false) }}
+      
+      Male
+      {{ Form::radio('sex', 'M', false) }}
+      <br>
+      
+      <h3>Purebred</h3>
+      
+      Yes
+      {{ Form::radio('purebred', 'Y', false) }}
+      No
+      {{ Form::radio('purebred', 'N', false) }}
+      <br>
+
+      <h3>Enter search radius</h3>
+      {{ Form::text('distance', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Miles')) }}
+    <div id="prefetch">
+        <h3>Search for breed</h3>
+      {{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Enter Breed')) }}
+    </div>
+    {{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
+    {{ Form::close() }}
+
 <table class="table table-striped fixed">
 	<tr>
 		<th width="20px">ID</th>
@@ -96,7 +130,7 @@
 
   <input type="hidden" id="latitude" value="{{{ $dog->user->lat }}}">
   <input type="hidden" id="longitude" value="{{{ $dog->user->lng }}}">
-  <input type="hidden" data-address="fullAddress" value="{{{ $dog->user->fullAddress }}}">
+  <input type="hidden" data-id="fullAddress" value="{{{ $dog->user->fullAddress }}}">
 
 	@endforeach
 </table>
@@ -122,6 +156,7 @@ var mapOptions = {
   center: new google.maps.LatLng(29.4814305, -98.5144044),
   zoom: 8
 };
+
 var map = new google.maps.Map(document.getElementById("map-canvas"),
     mapOptions);
 
