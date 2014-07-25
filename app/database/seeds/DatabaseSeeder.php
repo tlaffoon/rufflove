@@ -128,7 +128,7 @@ class UsersTableSeeder extends Seeder
         $user->zip = "78233";
         $user->username = "dogloverGF";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
         $user->lat = "29.549935";
         $user->lng = "-98.40401";
@@ -145,7 +145,7 @@ class UsersTableSeeder extends Seeder
         $user->zip = "78217";
         $user->username = "dogloverWW";
         $user->password = 'password';
-        $user->img_path = "/img/placeholder-user.png";
+        $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
         $user->lat = "29.539573";
         $user->lng = "-98.42883";

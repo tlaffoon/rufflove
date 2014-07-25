@@ -1,24 +1,35 @@
 @extends ('layouts.updated-master')
 
 @section('topscript')
+<style type="text/css">
+#map-canvas { 
+    height: 500px;
+}
+
+ul {
+/*    visibility: hidden;
+*/}
+</style>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
 @stop
 
 @section('content')
-<!-- ========================================================================== -->
-<!-- OLD WORKING CODE -->
-  <!-- Begin main search form -->
- <div class="container col-md-12 zero-pad-left zero-pad-right"> 
 
+<div class="container">
+
+  <!-- Begin main search form -->
+ <div class="col-md-4">  <!-- begin search form block -->
+    <div class="page-header">
+        <h2>Search Form</h2>
+    </div>
   {{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
-      <h3>Search for dog by name</h3>
       {{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
     
+    {{ Form::text('search-zip', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Zip Code...')) }}
+
     <!-- end main search form -->
 
     <!-- Begin breed search form -->
-    {{ Form::open(array('action' => array('DogsController@index'), 'class'=>'form width88', 'role'=>'search', 'method' => 'GET')) }} 
-
-            
       <br>
       <h3>Sex</h3>
       
@@ -44,14 +55,37 @@
       {{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Enter Breed')) }}
     </div>
     {{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
-    {{ Form::close() }} 
-  </div>  
-  <!-- end breed search form -->
+    {{ Form::close() }}
 
+  </div>   <!-- end left container -->
+
+  <div class="col-md-8">
+
+    <div class="page-header">
+        <h2 class="text-right">Map</h2>
+    </div>
+        <div id="map-canvas"/>
+  </div> <!-- end right container -->
+
+<div class="col-md-10 zero-pad-left">
+    <p> Placeholder For Results Display </p>
+</div>
+
+</div><!-- end main container -->
 @stop
 
 @section('bottomscript')
 <script type="text/javascript">
+
+var mapOptions = {
+  center: new google.maps.LatLng(29.4814305, -98.5144044),
+  zoom: 10
+};
+
+var map = new google.maps.Map(document.getElementById("map-canvas"),
+    mapOptions);
+
+
 $('#ajax-form').on('submit', function (e) {
     e.preventDefault();
     var formValues = $(this).serialize();
@@ -65,7 +99,9 @@ $('#ajax-form').on('submit', function (e) {
         success: function (data) {
             console.log(data);
             // $('#ajax-message').html(data.message);
+            var count = 0;
             $(data).each(function() {
+                count++;
                 console.log('=========');
                 console.log('Id: ' + this.id);
                 console.log('Breed: ' + this.breed.name);
@@ -77,8 +113,35 @@ $('#ajax-form').on('submit', function (e) {
                 console.log('Lat: ' + this.user.lat);
                 console.log('Lng: ' + this.user.lng);
                 console.log('=========');
+                console.log(this.user.fullAddress);
 
-            });
+                var address = this.user.fullAddress;
+                console.log(address);
+
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'address': address }, function(result, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        //console.log(result);
+                        // $('#latitude').val(result[0]["geometry"]["location"]["k"]);  // need to call functions instead of these variables
+                        // $("#longitude").val(result[0]["geometry"]["location"]["B"]); //  ^
+                        var latLngObj = result[0]["geometry"]["location"];
+                    } // endif
+
+
+                    // additional syntax to update html with search results.
+
+
+                    // Create new marker based on lat/lng
+                    var marker = new google.maps.Marker({
+                        position: latLngObj,
+                        map: map,
+                        draggable: false,
+                        title: "Marker"
+                        // animation: google.maps.Animation.DROP, // debug and add
+                    });  // End Marker
+                }); // end function
+
+            }); // end main loop
         }
     });
 }); // end ajax form submit block
