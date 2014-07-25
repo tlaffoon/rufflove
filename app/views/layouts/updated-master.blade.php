@@ -361,11 +361,6 @@
 
 
 
-<!--scroll-menu the primary-nav clones here -->
-<div id="scroll-menu" title="menu">
- <a href="#" class="scroll-menu-toggle"><i class="fa fa-bars"></i></a>
- <div id="menu-clone"></div>
-</div>
 
 
 <!--to top -->
