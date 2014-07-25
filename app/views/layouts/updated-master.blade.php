@@ -169,32 +169,38 @@
      <li class><a href="{{ action('HomeController@showSearch')}}">Finding a Breeding Partner</a> 
      </li>
      
-      @if (Auth::check())
-     <li class="has-children"><a href="#">My Account</a>
-      <ul>
-        <li class="dropdown-header">{{ Auth::user()->username }}</li>
-       <li><a href="{{ action('UsersController@edit', Auth::user()->id) }}">My Profile</a></li>
-       @if (Auth::user()->role == 'admin')
-       <li><a href="{{ action('UsersController@index') }}"> Admin Link </a></li>
-       <li class="divider"></li>
-       @endif
-       @if (Auth::user()->role == 'user')
-       <li><a href=""> User Link </a></li>
-       <li><a href="{{ action('DogsController@index') }}"> My Dogs </a></li>
-        <li class="divider"></li>
-        @endif 
-        <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
-      @endif                       
-      </ul>
-      <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a> </li>
-     <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}" ><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a> </li>
-     </li>
-      @if (Auth::check())
-        <li id='loginName'>{{{ Auth::user()->username }}}</li>
-     @endif
+    @if (Auth::check())
+        <li class="has-children"><a href="#">My Account</a>
+        <ul>
+            <li class="dropdown-header">{{ Auth::user()->username }}</li>
+            <li><a href="{{ action('UsersController@edit', Auth::user()->id) }}">My Profile</a></li>
+        
+        @if (Auth::user()->role == 'admin')
+            <li><a href="{{ action('UsersController@index') }}"> Admin Link </a></li>
+            <li class="divider"></li>
+        
+        @elseif (Auth::user()->role == 'user')
+                <li><a href="#"> User Link </a></li>
+
+        @endif
+            <li><a href="{{ action('DogsController@index') }}"> My Dogs </a></li>
+            <li class="divider"></li>
+            <li><a href="{{ action('HomeController@doLogout') }}">Logout</a></li>
+
+        </ul> <!-- end dropdown link list -->
+        <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a></li>
+        <li id='loginName'>Logged in as: <u>{{{ Auth::user()->username }}}</u></li>
+        
+    
+    @else
+        <li class="tb-left"><a href="#" class="toggle-login"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Login</a></li>
+        <li class="tb-left"> <a href="{{ action('HomeController@showRegistration') }}"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sign Up</a></li>
+    
+    @endif
+      
     </ul>
     
-   </nav>
+   </nav><!-- end nav wrapper -->
   </div>
   <!-- /nav-wrapper --> 
   

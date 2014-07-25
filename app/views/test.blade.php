@@ -123,7 +123,6 @@
   </fieldset>
 </form>
 
-
 <legend>Dog Search Results</legend>
     <div class="row">
         <div class="col-lg-4">

@@ -158,7 +158,9 @@
         <div id="map-canvas"/>
 
     </div> <!-- end right container -->
-    </div> 
+    </div> <!-- end main container -->
+</div> <!-- footer fix div -->
+
 @stop
 
 @section('bottomscript')

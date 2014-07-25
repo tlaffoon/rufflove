@@ -11,6 +11,7 @@
 @stop
 
 @section('content')
+<div class="container">
 <div class="col-md-2">
 	<div class="test">
 		<img src="/includes/img/1.jpg" class="img-responsive thumbnail centered">
@@ -54,6 +55,7 @@
 	{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 	{{ Form::close() }}
 
+</div>
 </div>
 
 @stop
