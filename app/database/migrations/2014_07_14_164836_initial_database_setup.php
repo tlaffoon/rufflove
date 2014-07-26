@@ -47,7 +47,7 @@ class InitialDatabaseSetup extends Migration {
         {
             $table->increments('id');                       
             $table->integer('user_id')->unsigned();
-            $table->integer('breed_id')->unsigned();            
+            $table->integer('breed_id')->unsigned();       
             $table->string('name');
             $pure = array('Y', 'N');
             $table->enum('purebred', $pure)->nullable();
@@ -55,20 +55,22 @@ class InitialDatabaseSetup extends Migration {
             $table->integer('weight');
             $sex = array('M', 'F');
             $table->enum('sex', $sex);
-            $table->string('dog_info'); 
+            $table->string('dog_info');
+            $table->string('img_path');
             $table->timestamps();
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('breed_id')->references('id')->on('breeds');
         });
 
-        Schema::create('dog_images', function($table)
-        {
-            $table->increments('id')->unsigned();
-            $table->integer('dog_id')->unsigned();
-            $table->string('path');                     
-            $table->timestamps();
-            $table->foreign('dog_id')->references('id')->on('dogs');
-        });
+        // Schema::create('dog_images', function($table)
+        // {
+        //     $table->increments('id')->unsigned();
+        //     $table->integer('dog_id')->unsigned();
+        //     $table->string('path');                     
+        //     $table->timestamps();
+        //     $table->foreign('dog_id')->references('id')->on('dogs');
+        // });
 	
         $dbc = DB::connection()->getPdo();
 
