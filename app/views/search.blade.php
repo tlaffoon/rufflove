@@ -72,7 +72,7 @@
 		<h2 class="text-right"> Result Details </h2>
 	</div>
 
-	<div id="results-list"><p>test</p></div> 	<!-- for each result, loop and create a new row like on dogs show, refactor accordingly. -->
+	<div id="results-list"></div> 	<!-- for each result, loop and create a new row like on dogs show, refactor accordingly. -->
 
 </div>
 
@@ -82,6 +82,8 @@
 
 @section('bottomscript')
 <script type="text/javascript">
+
+// var markers = [];
 
 var mapOptions = {
   center: new google.maps.LatLng(29.4814305, -98.5144044),
@@ -102,8 +104,7 @@ $('#ajax-form').on('submit', function (e) {
         data: formValues,
         dataType: "json",
         success: function (data) {
-            console.log(data);
-            // $('#ajax-message').html(data.message);
+            // console.log(data);
             var count = 0;
             $(data).each(function() {
                 count++;
@@ -120,33 +121,44 @@ $('#ajax-form').on('submit', function (e) {
                 console.log('=========');
                 console.log(this.user.fullAddress);
 
+                // additional syntax to update html with search results.
+                $('#results-list').append(
+                	'<div class="row">' +
+                		'<div class="col-md-2">' +
+                			"<img src=\"" + this.img_path + "\" class=\"img-responsive thumbnail pull-right\" >" +
+                			
+
+
+                	'<p>' + this.user.username + '</p>'
+                	);
+
+
                 var address = this.user.fullAddress;
-                console.log(address);
+                // console.log(address);
 
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({ 'address': address }, function(result, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        //console.log(result);
-                        // $('#latitude').val(result[0]["geometry"]["location"]["k"]);  // need to call functions instead of these variables
-                        // $("#longitude").val(result[0]["geometry"]["location"]["B"]); //  ^
                         var latLngObj = result[0]["geometry"]["location"];
+                        // markers.push(latLngObj);
                     } // endif
 
-                    // additional syntax to update html with search results.
+	                    // Create new marker based on lat/lng
+	                    var marker = new google.maps.Marker({
+	                        position: latLngObj,
+	                        map: map,
+	                        draggable: false,
+	                        title: "Marker"
+	                        // animation: google.maps.Animation.DROP, // debug and add
+	                    });  // End Marker
 
-                    // Create new marker based on lat/lng
-                    var marker = new google.maps.Marker({
-                        position: latLngObj,
-                        map: map,
-                        draggable: false,
-                        title: "Marker"
-                        // animation: google.maps.Animation.DROP, // debug and add
-                    });  // End Marker
-                }); // end function
+                }); // end geocode address
 
-            }); // end main loop
-        }
-    });
-}); // end ajax form submit block
+            }); // end each data loop
+
+
+        } // end data function
+    }); // end .ajax
+}); // end ajax-form block
 </script>
 @stop
