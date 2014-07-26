@@ -147,31 +147,4 @@ $('#ajax-form').on('submit', function (e) {
     });
 }); // end ajax form submit block
 </script>
-
-<script type="text/javascript">
-  var breeds = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    limit: 10,
-    prefetch: {
-      url: '/includes/data/breeds.json',
-      filter: function(list) {
-        return $.map(list, function(country) { return { name: country }; });
-      }
-    }
-  });
-   
-  // kicks off the loading/processing of `local` and `prefetch`
-  breeds.initialize();
-   
-  // passing in `null` for the `options` arguments will result in the default
-  // options being used
-  $('#prefetch .typeahead').typeahead(null, {
-    name: 'breeds',
-    displayKey: 'name',
-    // `ttAdapter` wraps the suggestion engine in an adapter that
-    // is compatible with the typeahead jQuery plugin
-    source: breeds.ttAdapter()
-  });
-</script>
 @stop
