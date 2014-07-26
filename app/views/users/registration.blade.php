@@ -4,7 +4,8 @@
 <style type="text/css">
   #map-canvas { height: 500px; }
 </style>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14exp&libraries=places"></script>
+ --><script src="http://maps.googleapis.com/maps/api/js?v=3.14&libraries=places"></script>
 <script type="text/javascript">
     var map;
     var placeSearch, autocomplete;
@@ -121,6 +122,10 @@
     {{ Form::label('password', 'Password') }}
     {{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
     {{ $errors->first('password', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
+
+    {{ Form::label('confirm-password', 'Confirm Password') }}
+    {{ Form::password('confirm-password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
+    {{ $errors->first('confirm-password', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
 
     <div class="col-sm-6 zero-margin-left zero-pad-left">
         {{ Form::label('first_name', 'First Name') }}
