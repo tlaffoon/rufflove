@@ -30,9 +30,9 @@ class Dog extends Eloquent {
         return $this->belongsTo('Breed');
     }
 
-    public function image() {
-        return $this->hasMany('DogImage');
-    }
+    // public function image() {
+    //     return $this->hasMany('DogImage');
+    // }
 
     protected $imgDir = 'img-upload';
 
