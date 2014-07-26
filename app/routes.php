@@ -80,8 +80,8 @@ Route::post('/search', function () {
     //step 3 - filters above for specific input breed // wrap in if statement to make optional
     $query->whereHas('breed', function($q) {
         // $breed_name = 'Xoloitzcuintle';
-        $breed_name = Input::get('search-breed');
-        $q->where('name', '=', $breed_name);
+        $breed_id = Input::get('search-breed');
+        $q->where('id', '=', $breed_id);
     });
 
     //step 4 - uses step 1 results to find dog owners from step 3
