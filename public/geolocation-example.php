@@ -2,7 +2,10 @@
 <head>
 	<title> Geolocate Me </title>
 	<style type="text/css">
-	  #map-canvas { height: 90%; }
+	  #map-canvas { 
+	  	height: 75%;
+	  	width: 75%;
+	  }
 	</style>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -17,13 +20,17 @@
 		<div id="map-canvas"/>
 	</div>
 
+	<div>
+		<p id="address"></p>
+	</div>
+
 <script type="text/javascript">
 function success(position) {
 
 	var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
 	var mapOptions = {
-		zoom: 15,
+		zoom: 16,
 		center: coords,
 		mapTypeControl: false,
 		navigationControlOptions: { style: google.maps.NavigationControlStyle.SMALL },
