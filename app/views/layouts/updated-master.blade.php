@@ -202,7 +202,6 @@
     
    </nav><!-- end nav wrapper -->
   </div>
-  <!-- /nav-wrapper --> 
   
   <!-- ____________ LOGO _______________  -->
   <div class="logo-wrapper clearfix">
@@ -210,8 +209,7 @@
    <img id="logo" src="/includes/DogImages/sofa dog.jpg" alt="company name">
    </a>
    <span><!--logo embelishment --></span>
-  </div>
-  <!-- /logo-wrapper clearfix --> 
+  </div>  <!-- /logo-wrapper clearfix --> 
   
   <!-- ____________ SUB BAR  _______________  -->
   <ul class="sub-bar clearfix">
@@ -245,11 +243,7 @@
  </header>
  <!-- /header --> 
  
- 
- 
  <!-- ____________ BEGIN MAIN PAGE CONENT  _______________  -->
-
- 
  <div class="page-content clearfix" id="page">
 
    @yield('content')
@@ -365,10 +359,6 @@
 
 <!-- ______________ END FOOTER ______________ -->
 
-
-
-
-
 <!--to top -->
 <div id="toTop" title="up">
  <i class="fa fa-arrow-circle-o-up"></i>
@@ -378,16 +368,11 @@
 
   <script src="/includes/assets/js/bootstrap.min.js"></script>
   <script src="/includes/assets/js/jquery.different_base.js"></script> 
-
-  
   
 <!-- Way Better Bootstrap Modals INSTRUCTIONS: https://github.com/jschr/bootstrap-modal/ -->
 <!-- DEMO:: http://jschr.github.io/bootstrap-modal/bs3.html -->
   <script src="/includes/assets/js/bootstrap-modalmanager.js"></script>
   <script src="/includes/assets/js/bootstrap-modal.js"></script>
-
-  <script src="/includes/js/typeahead.bundle.js"></script>
-  <script src="/includes/js/bloodhound.js"></script>
 
 @yield('bottomscript')
 

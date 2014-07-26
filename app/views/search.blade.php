@@ -3,72 +3,77 @@
 @section('topscript')
 <style type="text/css">
 #map-canvas { 
-    height: 500px;
+	height: 500px;
 }
-
-ul {
-/*    visibility: hidden;
-*/}
 </style>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3.14"></script>
 @stop
 
 @section('content')
-
 <div class="container">
 
   <!-- Begin main search form -->
  <div class="col-md-4">  <!-- begin search form block -->
-    <div class="page-header">
-        <h2>Search Form</h2>
-    </div>
-  {{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
-      {{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
-    
-    {{ Form::text('search-zip', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Zip Code...')) }}
+	<div class="page-header">
+		<h2>Search Form</h2>
+	</div>
+  	{{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
+	
+		{{ Form::label('search-name', 'Enter Name') }}
+		{{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
+		
+		{{ Form::label('search-zip', 'Enter Zip Code') }}
+		{{ Form::text('search-zip', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Zip Code...')) }}
 
-    <!-- end main search form -->
+		<br>
+			<div class="col-sm-6 zero-pad-left">
+				<label>Sex: </label>
 
-    <!-- Begin breed search form -->
-      <br>
-      <h3>Sex</h3>
-      
-      Female
-      {{ Form::radio('sex', 'F', false) }}
-      
-      Male
-      {{ Form::radio('sex', 'M', false) }}
-      <br>
-      
-      <h3>Purebred</h3>
-      
-      Yes
-      {{ Form::radio('purebred', 'Y', false) }}
-      No
-      {{ Form::radio('purebred', 'N', false) }}
-      <br>
+					Female	{{ Form::radio('sex', 'F', false) }}
+					Male	{{ Form::radio('sex', 'M', false) }}
+			</div>
 
-      <h3>Enter search radius</h3>
-      {{ Form::text('distance', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Miles')) }}
-    <div id="prefetch">
-        <h3>Search for breed</h3>
-      {{ Form::text('search-breed', null, array('class' => 'typeahead form-group form-control', 'placeholder' => 'Enter Breed')) }}
-    </div>
-    {{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn')) }}
-    {{ Form::close() }}
+			<div class="col-sm-6">
+				<label>Purebred: </label>
+				  
+					Yes 	{{ Form::radio('purebred', 'Y', false) }}
+					No 		{{ Form::radio('purebred', 'N', false) }}
+			</div>
+		<br>
+		<br>
+
+		{{ Form::label('search-breed', 'Breed') }}
+		{{ Form::select('search-breed', Breed::lists('name', 'id'), null, array('class' => 'form-group form-control dropdown btn btn-default')) }}
+		
+		<br>
+		<br>
+		
+		{{ Form::label('distance', 'Enter Search Radius') }}
+		{{ Form::text('distance', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Miles')) }}
+
+		{{ Form::submit('Search', array('class' => 'btn btn-default search-bar-btn pull-right')) }}
+	{{ Form::close() }}
 
   </div>   <!-- end left container -->
 
-  <div class="col-md-8">
+	<div class="col-md-8"> <!-- begin right container -->
 
-    <div class="page-header">
-        <h2 class="text-right">Map</h2>
-    </div>
-        <div id="map-canvas"/>
-  </div> <!-- end right container -->
+		<div class="page-header">
+			<h2 class="text-right">Map</h2>
+		</div>
 
-<div class="col-md-10 zero-pad-left">
-    <p> Placeholder For Results Display </p>
+			<!-- Insert Google Map -->
+			<div id="map-canvas"/>
+
+	</div> <!-- end right container -->
+
+<div class="col-md-12 zero-pad-left">
+	<div class="page-header">
+		<h2 class="text-right"> Result Details </h2>
+	</div>
+
+	<div id="results-list"><p>test</p></div> 	<!-- for each result, loop and create a new row like on dogs show, refactor accordingly. -->
+
 </div>
 
 </div><!-- end main container -->
@@ -85,7 +90,6 @@ var mapOptions = {
 
 var map = new google.maps.Map(document.getElementById("map-canvas"),
     mapOptions);
-
 
 $('#ajax-form').on('submit', function (e) {
     e.preventDefault();
@@ -128,9 +132,7 @@ $('#ajax-form').on('submit', function (e) {
                         var latLngObj = result[0]["geometry"]["location"];
                     } // endif
 
-
                     // additional syntax to update html with search results.
-
 
                     // Create new marker based on lat/lng
                     var marker = new google.maps.Marker({
