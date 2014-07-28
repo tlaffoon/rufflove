@@ -99,7 +99,7 @@
     <div class="col-sm-6 col-md-3 text-center">
      <i class="fa fa-paw feature-icon"><!--icon --></i>
      <h2 class="spaced-out-header h3 uppercase font-weight-bold">Great Herding Dogs</h2>
-     <p>Before purchasing a prancy-poodle to heard, take a look at the list we have gathered of willful-working dogs.</p><br><br>
+     <p>Before purchasing a prancy-poodle to herd, take a look at the list we have gathered of willful-working dogs.</p><br><br>
      <p class="margin-top-20px"><a class="btn btn-default btn-custom" href="#" role="button">Read &raquo;</a></p>
      <hr class="visible-xs visible-sm vertical-spacer">
     </div>
