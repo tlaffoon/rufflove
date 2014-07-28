@@ -80,14 +80,14 @@
 
 </div> <!-- end left container -->
 
-<div class="col-md-6" style="margin-top: 4px;">
+<div class="col-md-6">
 	<div class="page-header">
 		<h2 class="text-right">Image Preview</h2>
 	</div>
 
 	@if (isset($dog))
-		<div>
-			<img src="{{{ $dog->image()->first()->path }}}">
+		<div> <!-- $dog->image()->first()->path -->
+			<img src="{{{ $dog->img_path }}}">
 		</div>
 	@endif
 
