@@ -14,7 +14,7 @@
 <div class="container">
 <div class="col-md-2">
 	<div class="test">
-		<img src="/includes/img/1.jpg" class="img-responsive thumbnail centered">
+		<img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail centered">
 	</div>
 </div>
 

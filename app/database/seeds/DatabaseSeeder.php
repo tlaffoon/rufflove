@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call('BreedsTableSeeder');
         $this->call('UsersTableSeeder');
         $this->call('DogsTableSeeder');     
-        $this->call('DogImagesTableSeeder');
+        // $this->call('DogImagesTableSeeder');
         $this->call('ZipsTableSeeder');
                 
     } //function run()
@@ -102,12 +102,12 @@ class UsersTableSeeder extends Seeder
         $user = new User();        
         $user->first_name = "John";
         $user->last_name = "Admin";
-        $user->email = "doglover@rufflove.com";
+        $user->email = "admin@rufflove.com";
         $user->address =  "1702 Guilford Ct";
         $user->city = "San Antonio";
         $user->state = "TX";
         $user->zip = "78245";
-        $user->username = "doglover";
+        $user->username = "admin";
         $user->password = 'password';
         $user->img_path = "/includes/img/placeholder-user.png";
         $user->role = "admin";
@@ -576,6 +576,7 @@ class DogsTableSeeder extends Seeder
             $dog->age = rand(1,20);
             $dog->weight = rand(1,100);
             $dog->sex = $sex[array_rand($sex)];
+            $dog->img_path = '/includes/img/placeholder.png';
             $dog->breed_id = rand(1, 1499);
             $dog->user_id = rand(2,199);
             $dog->save();
@@ -586,42 +587,42 @@ class DogsTableSeeder extends Seeder
 } // end class DogTableSeeder
 
 
-class DogImagesTableSeeder extends Seeder 
-{
+// class DogImagesTableSeeder extends Seeder 
+// {
 
-    public function run()
-    {
-        $this->command->info('Deleting existing Dog images table ...');
-       DB::table('dog_images')->delete();
+//     public function run()
+//     {
+//         $this->command->info('Deleting existing Dog images table ...');
+//        DB::table('dog_images')->delete();
 
 
-       for ($d=1; $d <= 10; $d++) 
-            {
-            $dog_image = new DogImage();
-            $dog_image->dog_id = $d;
-            $dog_image->path = "/includes/img/" . $d;
-            $dog_image->save();
-            } // end for loop
+//        for ($d=1; $d <= 10; $d++) 
+//             {
+//             $dog_image = new DogImage();
+//             $dog_image->dog_id = $d;
+//             $dog_image->path = "/includes/img/" . $d;
+//             $dog_image->save();
+//             } // end for loop
             
 
 
 
 
 
-       // for ($i=1; $i <= 50; $i++) 
-       // {
-       //      $dog_image = new DogImage();
+//        // for ($i=1; $i <= 50; $i++) 
+//        // {
+//        //      $dog_image = new DogImage();
 
-       //      $dog_image->dog_id = $i;
-       //      $dog_image->path = "/includes/img/placeholder-image.png";
+//        //      $dog_image->dog_id = $i;
+//        //      $dog_image->path = "/includes/img/placeholder-image.png";
 
-       //      $dog_image->save();
+//        //      $dog_image->save();
 
-       // } // end for loop
+//        // } // end for loop
       
-    } //end run()
+//     } //end run()
     
-} //end class DogImagesTableSeeder
+// } //end class DogImagesTableSeeder
 
 
 
