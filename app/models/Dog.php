@@ -40,7 +40,7 @@ class Dog extends Eloquent {
         $systemPath = public_path() . '/' . $this->imgDir . '/';
         $imageName = $this->id . '-' . $image->getClientOriginalName();
         $image->move($systemPath, $imageName);
-        $this->img_path = '/includes/' . $this->imgDir . '/' . $imageName;
+        $this->img_path = '/' . $this->imgDir . '/' . $imageName;
     }
 
     public function scopeSearchBreed($query, $breed)
