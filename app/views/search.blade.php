@@ -17,7 +17,7 @@
 	<div class="page-header">
 		<h2>Search Form</h2>
 	</div>
-  	{{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
+	{{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
 	
 		{{ Form::label('search-name', 'Enter Name') }}
 		{{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
@@ -91,74 +91,79 @@ var mapOptions = {
 };
 
 var map = new google.maps.Map(document.getElementById("map-canvas"),
-    mapOptions);
+	mapOptions);
 
 $('#ajax-form').on('submit', function (e) {
-    e.preventDefault();
-    var formValues = $(this).serialize();
-    console.log('formValues: ' + formValues);
+	e.preventDefault();
+	var formValues = $(this).serialize();
+	console.log('formValues: ' + formValues);
 
-    $.ajax({
-        url: "/search",
-        type: "POST",
-        data: formValues,
-        dataType: "json",
-        success: function (data) {
-            // console.log(data);
-            var count = 0;
-            $(data).each(function() {
-                count++;
-                console.log('=========');
-                console.log('Id: ' + this.id);
-                console.log('Breed: ' + this.breed.name);
-                console.log('Dog Name: ' + this.name);
-                console.log('Sex: ' + this.sex);
-                console.log('Age: ' + this.age);
-                console.log('Purebred? ' + this.purebred);
-                console.log('Owner: ' + this.user.username);
-                console.log('Lat: ' + this.user.lat);
-                console.log('Lng: ' + this.user.lng);
-                console.log('=========');
-                console.log(this.user.fullAddress);
-
-                // additional syntax to update html with search results.
-                $('#results-list').append(
-                	'<div class="row">' +
-                		'<div class="col-md-2">' +
-                			"<img src=\"" + this.img_path + "\" class=\"img-responsive thumbnail pull-right\" >" +
-                			
+	$.ajax({
+		url: "/search",
+		type: "POST",
+		data: formValues,
+		dataType: "json",
+		success: function (data) {
+			// console.log(data);
+			var count = 0;
+			$(data).each(function() {
+				count++;
+				console.log('=========');
+				console.log('Id: ' + this.id);
+				console.log('Breed: ' + this.breed.name);
+				console.log('Dog Name: ' + this.name);
+				console.log('Sex: ' + this.sex);
+				console.log('Age: ' + this.age);
+				console.log('Purebred? ' + this.purebred);
+				console.log('Owner: ' + this.user.username);
+				console.log('Lat: ' + this.user.lat);
+				console.log('Lng: ' + this.user.lng);
+				console.log('=========');
+				console.log(this.user.fullAddress);
 
 
-                	'<p>' + this.user.username + '</p>'
-                	);
+
+				// additional syntax to update html with search results.
+				$('#results-list').append(
+					'<div class="row">' +
+						'<div class="col-md-2">' +
+							"<img src=\"" + this.img_path + "\" class=\"img-responsive thumbnail\" >" + 
+						'</div>' +
+
+						'<div class="zero-margin-left blog-block">' +
+							'<div class="col-md-6">' +
+								'<h3>' + this.name + ' | ' + this.user.username + '</h3>' +
+								'</div>' + 
+								'</div>'
+					);
 
 
-                var address = this.user.fullAddress;
-                // console.log(address);
+				var address = this.user.fullAddress;
+				// console.log(address);
 
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({ 'address': address }, function(result, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        var latLngObj = result[0]["geometry"]["location"];
-                        // markers.push(latLngObj);
-                    } // endif
+				var geocoder = new google.maps.Geocoder();
+				geocoder.geocode({ 'address': address }, function(result, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						var latLngObj = result[0]["geometry"]["location"];
+						// markers.push(latLngObj);
+					} // endif
 
-	                    // Create new marker based on lat/lng
-	                    var marker = new google.maps.Marker({
-	                        position: latLngObj,
-	                        map: map,
-	                        draggable: false,
-	                        title: "Marker"
-	                        // animation: google.maps.Animation.DROP, // debug and add
-	                    });  // End Marker
+						// Create new marker based on lat/lng
+						var marker = new google.maps.Marker({
+							position: latLngObj,
+							map: map,
+							draggable: false,
+							title: "Marker"
+							// animation: google.maps.Animation.DROP, // debug and add
+						});  // End Marker
 
-                }); // end geocode address
+				}); // end geocode address
 
-            }); // end each data loop
+			}); // end each data loop
 
 
-        } // end data function
-    }); // end .ajax
+		} // end data function
+	}); // end .ajax
 }); // end ajax-form block
 </script>
 @stop
