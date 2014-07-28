@@ -1,4 +1,4 @@
-@extends('test')
+@extends('layouts.updated-master')
 
 @section('topscript')
 <style type="text/css">
@@ -194,20 +194,7 @@
 	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
 </div> <!-- end left container -->
 
-<div class="col-md-6" style="margin-top: 4px;"> <!-- begin right container -->
-	<div class="page-header">
-		<h2 class="text-right">Image Preview</h2>
-	</div>
-
-	<div>
-		<img src="{{{ $user->img_path }}}" class="img-thumbnail responsive">
-	</div>
-
-	{{ Form::label('image', 'Image') }}
-
-	{{ Form::file('image', array('class' => 'form-group')) }}
-	{{ $errors->first('image', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
-	{{ Form::close() }}
+<div class="col-md-6"> <!-- begin right container -->
 
 	<div class="page-header">
 		<h2 class="text-right">Location</h2>
@@ -217,9 +204,22 @@
 	<input type="hidden" id="longitude" value="{{{ $user->lng }}}">
 	<input type="hidden" id="fullAddress" value="{{{ $user->fullAddress }}}">
 
-	<div>
-		<div id="map-canvas"/>
+		<div>
+			<div id="map-canvas"/>
+		</div>
+
+	<div class="page-header">
+		<h2 class="text-right">Image Preview</h2>
 	</div>
+
+	<div>
+		<img src="{{{ $user->img_path }}}" class="img-thumbnail responsive">
+	</div>
+
+	{{ Form::label('image', 'Image') }}
+	{{ Form::file('image', array('class' => 'form-group')) }}
+	{{ $errors->first('image', '<span class="help-block"><p class="text-warning">:message</p></span><br>') }}
+	{{ Form::close() }}
 
 </div>  <!-- end right container -->
 </div> <!-- end main -->

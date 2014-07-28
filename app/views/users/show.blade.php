@@ -107,7 +107,7 @@
 
 	<div class="col-md-8 zero-pad-left">
 		<div class="page-header"> 
-			<h2>Location</h2>
+			<h2 class="text-right">Location</h2>
 		</div>
 				
 				<!-- Insert Google Map -->

@@ -4,10 +4,12 @@
 <style type="text/css">
   #map-canvas { height: 500px; }
 </style>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3.14&libraries=places"></script>
 <script type="text/javascript">
+    // Define pertinent variables
     var map;
     var placeSearch, autocomplete;
+    // Define object componentForm to parse values from autocompleted address
     var componentForm = {
       street_number: 'short_name',
       route: 'long_name',
@@ -17,30 +19,31 @@
       postal_code: 'short_name'
     };
 
+    // to be called on DOM load, initializes map on predefined map-canvas div
     function initialize() {
+        // Set map options
         var mapOptions = {
             zoom: 10,
-            center: new google.maps.LatLng(29.428459, -98.492433)
+            center: new google.maps.LatLng(29.428459, -98.492433)  // Alter to use geolocated IP address.
         };
         
+        // Redefine/create the maps object, using the map-canvas div element and above options.
         map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
-      // Create the autocomplete object, restricting the search
-      // to geographical location types.
+      // Create the autocomplete object, restricting the search to geographical location types.
       autocomplete = new google.maps.places.Autocomplete(
           /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
           { types: ['geocode'] });
-      // When the user selects an address from the dropdown,
-      // populate the address fields in the form.
+      
+      // When the user selects an address from the dropdown, populate the address fields in the form.
       google.maps.event.addListener(autocomplete, 'place_changed', function() {
         fillInAddress();
       });
     }
 
     // [START region_geolocation]
-    // Bias the autocomplete object to the user's geographical location,
-    // as supplied by the browser's 'navigator.geolocation' object.
+    // Bias the autocomplete object to the user's geographical location, as supplied by the browser's 'navigator.geolocation' object.
     function geolocate() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -72,24 +75,32 @@
             }
         } // end loop
 
+        // Define address variable by pulling completed address value from autocompleted object
         var address = $('#autocomplete').val();
+        
+        // Geocode that address
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function(result, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                //console.log(result);
+                // Update additional hidden lat/lng fields to store these values in database upon form submit.
                 $('#latitude').val(result[0]["geometry"]["location"]["k"]);  // need to call functions instead of these variables
                 $("#longitude").val(result[0]["geometry"]["location"]["B"]); //  ^
             } // endif
 
+            // Define lat/lng object to place corresponding marker.
             var latLngObj = result[0]["geometry"]["location"];
+            
             // Create new marker based on lat/lng
             var marker = new google.maps.Marker({
                 position: latLngObj,
                 map: map,
                 draggable: false,
-                title: "Your Location"
+                title: "Your Address"
                 // animation: google.maps.Animation.DROP, // debug and add
             });  // End Marker
+
+            // zoom in on plotted marker
+
         }); // end function
 
     } // end fillInAddress
@@ -121,6 +132,10 @@
     {{ Form::label('password', 'Password') }}
     {{ Form::password('password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
     {{ $errors->first('password', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
+
+    {{ Form::label('confirm-password', 'Confirm Password') }}
+    {{ Form::password('confirm-password', array('class' => 'form-group form-control', 'placeholder' => 'Required')) }}
+    {{ $errors->first('confirm-password', '<span class="help-block"><p class="text-danger text-right">:message</p></span>') }}
 
     <div class="col-sm-6 zero-margin-left zero-pad-left">
         {{ Form::label('first_name', 'First Name') }}

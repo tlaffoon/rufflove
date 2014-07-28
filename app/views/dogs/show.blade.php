@@ -12,9 +12,9 @@
 
 @section('content')
 <div class="container">
-	<div class="col-md-2">
-		<div class="test">
-		<img src="http://placehold.it/140x140" class="img-responsive thumbnail centered">
+<div class="col-md-2">
+	<div class="test">
+		<img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail centered">
 	</div>
 </div>
 
