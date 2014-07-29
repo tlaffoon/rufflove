@@ -82,13 +82,12 @@
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function(result, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                // Update additional hidden lat/lng fields to store these values in database upon form submit.
-                $('#latitude').val(result[0]["geometry"]["location"]["k"]);  // need to call functions instead of these variables
-                $("#longitude").val(result[0]["geometry"]["location"]["B"]); //  ^
+                
+                // Define lat/lng object to place corresponding marker.
+                var latLngObj = result[0]["geometry"]["location"];
             } // endif
 
-            // Define lat/lng object to place corresponding marker.
-            var latLngObj = result[0]["geometry"]["location"];
+
             
             // Create new marker based on lat/lng
             var marker = new google.maps.Marker({

@@ -16,7 +16,7 @@
 
 </style>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14"></script>
 
 <script type="text/javascript">
   function initialize() {
@@ -27,15 +27,12 @@
   	var geocoder = new google.maps.Geocoder();
   	geocoder.geocode({ 'address': address }, function(result, status) {
   	    if (status == google.maps.GeocoderStatus.OK) {
-  	        var latitude = $('#latitude').val();  // need to call functions instead of these variables
-  	        var longitude = $('#longitude').val(); //  ^
 	  	    var latLngObj = result[0]["geometry"]["location"];
-	  	    console.log(latitude + ' ' + longitude);
 	  	    console.log(latLngObj);
   	    } // endif
 
   	    var mapOptions = {
-  	      center: new google.maps.LatLng(latitude, longitude),
+  	      center: new google.maps.LatLng(29.428459, -98.492433),
   	      zoom: 11
   	    };
 
@@ -47,8 +44,8 @@
   	        position: latLngObj,
   	        map: map,
   	        draggable: false,
-  	        title: "Your Location"
-  	        // animation: google.maps.Animation.DROP, // debug and add
+  	        title: "Your Location",
+  	        animation: google.maps.Animation.DROP // debug and add
   	    });  // End Marker
   	}); // end function
 
@@ -99,8 +96,6 @@
 			<h4>Zip: 		{{{ $user->zip }}}									</h4>
 			<h4>Updated: 	{{{ $user->updated_at }}}							</h4>
 
-			<input type="hidden" id="latitude" value="{{{ $user->lat }}}">
-			<input type="hidden" id="longitude" value="{{{ $user->lng }}}">
 			<input type="hidden" id="fullAddress" value="{{{ $user->fullAddress }}}">
 		</p>
 </div> <!-- end left container -->
@@ -133,13 +128,7 @@
 	  <div class="row">
 	
 	  	<div class="col-md-2">
-
-	  	        @if ($dog->img_path )
-	  	          <img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
-	  	        @else
-	  	          <img src="/includes/img/placeholder.png" class="img-responsive thumbnail pull-right" alt="$dog->img_path">
-	  	        @endif
-
+	  	          <img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right">
 	  	</div> <!-- end dog image preview -->
 
 	    <div class="zero-margin-left blog-block">

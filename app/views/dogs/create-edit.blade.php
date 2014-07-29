@@ -70,6 +70,11 @@
 		{{ Form::select('sex', array('M' => 'Male', 'F' => 'Female'), 'M', array('class' => 'form-group form-control dropdown btn btn-default')) }}	
 	</div>
 
+	<div class="form-group zero-left-margin">
+		{{ Form::label('purebred', 'Purebred') }}
+		{{ Form::select('purebred', array('Y' => 'Y', 'N' => 'N'), 'Y', array('class' => 'form-group form-control dropdown btn btn-default')) }}	
+	</div>
+
 
 	<div class="form-group zero-left-margin">
 	{{ Form::label('breed', 'Breed') }}
