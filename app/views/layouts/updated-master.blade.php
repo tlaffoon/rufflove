@@ -265,12 +265,10 @@
    <section><!-- sections around each area allow for better stacking-->
 	<h5>Contact Us</h5>
 	<address>
-	Responsive Heads Up<br>
-	1255 Nowhere Street<br>
-	Tampa, FL 33655<br>
-	<strong>phone:</strong> <a class="text-underline" href="tel:8135551234">813.555.1234</a><br>
-	<strong>fax:</strong> 813.555.1235<br>
-	<span class="overflow"><strong>email:</strong> <a class="text-underline" href="mailto:email@domain.com">email@companydomain.com</a></span>
+	Geekdom<br>
+	112 E. Pecan<br>
+	San Antonio, TX 78205<br>
+	<span class="overflow"><strong>email:</strong> <a class="text-underline" href="mailto:admin@ruff-love.com">admin@ruff-love.com</a></span>
 	</address>
    </section>
    
