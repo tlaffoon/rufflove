@@ -165,7 +165,7 @@ $('#ajax-form').on('submit', function (e) {
 
 						'<div class="zero-margin-left blog-block">' +
 							'<div class="col-md-6">' +
-								'<a href="http://ruff-love.com/dogs/' + this.id + '">' + this.name + '</a> | ' + '<a href="http://ruff-love.com/users/' + this.user.id + '">' + this.user.username + '</a>' +
+								'<a href="http://ruff-love.com/dogs/' + this.id + '"><h3>' + this.name + '</a> | ' + '<a href="http://ruff-love.com/users/' + this.user.id + '">' + this.user.username + '</h3></a>' +
 								'</div>' + 
 								'</div>'
 					);
