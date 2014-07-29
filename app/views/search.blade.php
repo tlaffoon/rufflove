@@ -18,12 +18,6 @@
 		<h2>Search Form</h2>
 	</div>
 	{{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
-	
-		{{ Form::label('search-name', 'Enter Name') }}
-		{{ Form::text('search-name', null, array('class' => 'form-group form-control', 'placeholder' => 'Search by individual dog name here...')) }}
-		
-		{{ Form::label('search-zip', 'Enter Zip Code') }}
-		{{ Form::text('search-zip', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Zip Code...')) }}
 
 		<br>
 			<div class="col-sm-6 zero-pad-left">
@@ -48,6 +42,9 @@
 		<br>
 		<br>
 		
+		{{ Form::label('search-zip', 'Enter Zip Code') }}
+		{{ Form::text('search-zip', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Zip Code...')) }}
+
 		{{ Form::label('distance', 'Enter Search Radius') }}
 		{{ Form::text('distance', null, array('class' => 'form-group form-control', 'placeholder' => 'Enter Miles')) }}
 
@@ -83,7 +80,6 @@
 @section('bottomscript')
 <script type="text/javascript">
 
-// var markers = [];
 
 var mapOptions = {
   center: new google.maps.LatLng(29.4814305, -98.5144044),
@@ -93,11 +89,48 @@ var mapOptions = {
 var map = new google.maps.Map(document.getElementById("map-canvas"),
 	mapOptions);
 
+var markers = [];
+
+// Add a marker to the map and push to the array.
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    draggable: false,
+    animation: google.maps.Animation.DROP
+  });
+
+  markers.push(marker);
+}
+
+// Sets the map on all markers in the array.
+function setAllMap(map) {
+  for (var i = 0; i < markers.length; i++) {
+  		markers[i].setMap(map);
+  		//setTimeout(function() {}, i * 500);
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setAllMap(null);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
 $('#ajax-form').on('submit', function (e) {
 	e.preventDefault();
 	var formValues = $(this).serialize();
 	console.log('formValues: ' + formValues);
 
+	// Clear previous results if present
+	$('#results-list').html('');
+
+	// Send Ajax Request 
 	$.ajax({
 		url: "/search",
 		type: "POST",
@@ -106,22 +139,21 @@ $('#ajax-form').on('submit', function (e) {
 		success: function (data) {
 			// console.log(data);
 			var count = 0;
+
 			$(data).each(function() {
 				count++;
-				console.log('=========');
-				console.log('Id: ' + this.id);
-				console.log('Breed: ' + this.breed.name);
-				console.log('Dog Name: ' + this.name);
-				console.log('Sex: ' + this.sex);
-				console.log('Age: ' + this.age);
-				console.log('Purebred? ' + this.purebred);
-				console.log('Owner: ' + this.user.username);
-				console.log('Lat: ' + this.user.lat);
-				console.log('Lng: ' + this.user.lng);
-				console.log('=========');
+				// console.log('=========');
+				// console.log('Id: ' + this.id);
+				// console.log('Breed: ' + this.breed.name);
+				// console.log('Dog Name: ' + this.name);
+				// console.log('Sex: ' + this.sex);
+				// console.log('Age: ' + this.age);
+				// console.log('Purebred? ' + this.purebred);
+				// console.log('Owner: ' + this.user.username);
+				// console.log('Lat: ' + this.user.lat);
+				// console.log('Lng: ' + this.user.lng);
+				// console.log('=========');
 				console.log(this.user.fullAddress);
-
-
 
 				// additional syntax to update html with search results.
 				$('#results-list').append(
@@ -132,11 +164,10 @@ $('#ajax-form').on('submit', function (e) {
 
 						'<div class="zero-margin-left blog-block">' +
 							'<div class="col-md-6">' +
-								'<h3>' + this.name + ' | ' + this.user.username + '</h3>' +
+								'<a href="' + 'http://ruff-love.com/dogs/' + this.id + '"><h3>' + this.name + '</a> | ' + '<a href="' + 'http://ruff-love.com/users/' + this.user.id + '">' + this.user.username + '</h3></a>' +
 								'</div>' + 
 								'</div>'
 					);
-
 
 				var address = this.user.fullAddress;
 				// console.log(address);
@@ -145,25 +176,23 @@ $('#ajax-form').on('submit', function (e) {
 				geocoder.geocode({ 'address': address }, function(result, status) {
 					if (status == google.maps.GeocoderStatus.OK) {
 						var latLngObj = result[0]["geometry"]["location"];
-						// markers.push(latLngObj);
+						// add marker to array
+						addMarker(latLngObj);
 					} // endif
-
-						// Create new marker based on lat/lng
-						var marker = new google.maps.Marker({
-							position: latLngObj,
-							map: map,
-							draggable: false,
-							title: "Marker"
-							// animation: google.maps.Animation.DROP, // debug and add
-						});  // End Marker
 
 				}); // end geocode address
 
 			}); // end each data loop
+			
+			// Clear previous markers
+			deleteMarkers();
 
+			// Add all markers to map
+			setAllMap(map);
 
 		} // end data function
 	}); // end .ajax
+
 }); // end ajax-form block
 </script>
 @stop
