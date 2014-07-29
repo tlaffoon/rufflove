@@ -67,8 +67,8 @@
 	      <img src="/img/genaro-about_360.png" alt="...">
 	      <div class="caption">
 	        <h3>Genaro Garza</h3>
-          <h5>Full Stack Web Developer</h5>
-	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          <h4>Full Stack Web Developer</h4>
+	        <p>I have been in the IT industry for over 20 years working mostly with hardware and networks. I recently decided to change direction and pursue web development. Although the languages and technologies have changed the passion I have for coding has not.</p>
 	      </div>
 	  </div>
 	</div>
@@ -78,7 +78,7 @@
 	      <img src="/img/beller-about_360.png" alt="...">
 	      <div class="caption">
           <h3>Amanda Beller</h3>
-	        <h5>Full Stack Web Developer</h5>
+	        <h4>Full Stack Web Developer</h4>
 	        <p>With this particular project, I focused primarily on front-end design with some influences in back-end developement. I desire a position that will allow me to refine my skills in my life's passion. </p>
 	      </div>
 	    </div>
@@ -89,8 +89,8 @@
 	      <img src="/img/thomas-about.png" alt="..." style="height: 360px; width: 286px;">
 	      <div class="caption">
 	        <h3>Thomas Laffoon</h3>
-          <h5>Full Stack Web Developer</h5>
-	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          <h4>Full Stack Web Developer</h4>
+	        <p>After proposing this site as a joke, I served as the project manager and lead developer.  My background is in linux systems administration, and I intend to further refine these web development skills while establishing a freelance clientele.</p>
 	      </div>
 	  </div>
 	</div>
