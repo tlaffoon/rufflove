@@ -76,6 +76,7 @@
 </div><!-- end main container -->
 </div><!-- extra div close for footer -->
 @stop
+</div>
 
 @section('bottomscript')
 <script type="text/javascript">

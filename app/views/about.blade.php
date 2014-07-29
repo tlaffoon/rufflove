@@ -21,25 +21,24 @@
           <div class="col-lg-4">
             <div class="bs-component">
               <p>The objective of Ruff Love is to help breeders connect to other breeders who desire to find their dog love.</p>
-              <p>Whether or not the objective for you new pup family is to show your dogs, produce a family of fun-loving puppies to add to someone's existing family, or to help the community with well-trained service dogs, we can help you find the right person and right dog.</p>
+              <p>Whether or not the objective for your new pup family is to show your dogs, give joy to a new family, or to help the community with well-trained service dogs, we can help you find the right person and right dog.</p>
               <p>We are also here to help you make the desicion to breed your dog <em>the right way</em></p>   
             </div>
           </div>
           <div class="col-lg-4">
             <div class="bs-component">
-              <p>There are also many things that can be <strong>scary</strong> about making the step to breed your dog. There are so many questions to consider before the leap into love is made.</p>
-              <p>How do I go about starting the breeding process? Is there any reasons I dont want to breed my dog? What are the benefits of breeding? </p>
-              <p></p>
+              <p>There are many things that can be <strong>scary</strong> about making the step to breed your dog. There are so many questions to consider before the leap into love is made.</p>
+              <p>How do I go about starting the breeding process? Is there any reasons I don't want to breed my dog? What are the benefits of breeding? </p>
+              <p>Peruse our helpful hints on our homepage to stay well informed on the subject. We won't lead you astray. </p>
             </div>
 
           </div>
           <div class="col-lg-4">
             <div class="bs-component">
-              <p>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-              <p><small>This line of text is meant to be treated as fine print.</small></p>
-              <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-              <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-              <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+              <p>Another one of Ruff Love's priorities is safety. Don't waste time on craigslist sifting through "dogs". We provide a secure way to meet others interested in breeding. </p>
+              <p>Also, it is a necessity to hear back from our users. If there are any improvements recommended, please take the time to contact us. All contact information is listed below at the very bottom of each page.</p>
+              <p> Hope to have you apart of our Ruff Love experience!</p>
+            
             </div>
 
           </div>
@@ -65,33 +64,33 @@
 	<div class="row">
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
-	      <img src="/includes/img/placeholder-user.png" alt="...">
+	      <img src="/img/genaro-about_360.png" alt="...">
 	      <div class="caption">
-	        <h3>Thumbnail label</h3>
-	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	        <h3>Genaro Garza</h3>
+          <h5>Full Stack Web Developer</h5>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
 	      </div>
 	  </div>
 	</div>
 
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
-	      <img src="/includes/img/placeholder-user.png" alt="...">
+	      <img src="/img/beller-about_360.png" alt="...">
 	      <div class="caption">
-	        <h3>Thumbnail label</h3>
-	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <h3>Amanda Beller</h3>
+	        <h5>Full Stack Web Developer</h5>
+	        <p>With this particular project, I focused primarily on front-end design with some influences in back-end developement. I desire a position that will allow me to refine my skills in my life's passion. </p>
 	      </div>
 	    </div>
 	</div>
 
 	  <div class="col-sm-6 col-md-4">
 	    <div class="thumbnail">
-	      <img src="/includes/img/placeholder-user.png" alt="...">
+	      <img src="/img/thomas-about.png" alt="..." style="height: 360px; width: 286px;">
 	      <div class="caption">
-	        <h3>Thumbnail label</h3>
-	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+	        <h3>Thomas Laffoon</h3>
+          <h5>Full Stack Web Developer</h5>
+	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
 	      </div>
 	  </div>
 	</div>
