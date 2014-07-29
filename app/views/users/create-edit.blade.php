@@ -25,15 +25,12 @@
   	var geocoder = new google.maps.Geocoder();
   	geocoder.geocode({ 'address': address }, function(result, status) {
   	    if (status == google.maps.GeocoderStatus.OK) {
-  	        var latitude = $('#latitude').val();  // need to call functions instead of these variables
-  	        var longitude = $('#longitude').val(); //  ^
 	  	    var latLngObj = result[0]["geometry"]["location"];
-	  	    console.log(latitude + ' ' + longitude);
-	  	    console.log(latLngObj)
+	  	    console.log(latLngObj);
   	    } // endif
 
   	    var mapOptions = {
-  	      center: new google.maps.LatLng(latitude, longitude),
+  	      center: new google.maps.LatLng(29.428459, -98.492433),
   	      zoom: 11
   	    };
 
@@ -200,8 +197,6 @@
 		<h2 class="text-right">Location</h2>
 	</div>
 
-	<input type="hidden" id="latitude" value="{{{ $user->lat }}}">
-	<input type="hidden" id="longitude" value="{{{ $user->lng }}}">
 	<input type="hidden" id="fullAddress" value="{{{ $user->fullAddress }}}">
 
 		<div>
