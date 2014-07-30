@@ -94,8 +94,7 @@
                 position: latLngObj,
                 map: map,
                 draggable: false,
-                title: "Your Address"
-                // animation: google.maps.Animation.DROP, // debug and add
+                animation: google.maps.Animation.DROP,
             });  // End Marker
 
             // zoom in on plotted marker
