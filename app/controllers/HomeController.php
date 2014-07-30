@@ -102,6 +102,7 @@ class HomeController extends BaseController {
 
 			if (Auth::attempt($userdata)) 
 			{
+				Session::flash('successMessage', 'Login successful.');
 		    	return Redirect::intended('/');
 			}
 			
@@ -116,6 +117,7 @@ class HomeController extends BaseController {
 	public function doLogout()
 	{
 		Auth::logout(); // log the user out of our application
+		Session::flash('successMessage', 'Logout successful.');
 		return Redirect::action('HomeController@showHome'); // redirect the user to the homepage
 	}
 }
