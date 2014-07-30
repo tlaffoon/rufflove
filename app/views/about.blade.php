@@ -69,6 +69,8 @@
 	        <h3>Genaro Garza</h3>
           <h4>Full Stack Web Developer</h4>
 	        <p>I have been in the IT industry for over 20 years working mostly with hardware and networks. I recently decided to change direction and pursue web development. Although the languages and technologies have changed the passion I have for coding has not.</p>
+          <br>
+          <center><a href="http://www.codeup.com/students/genaro-garza/" class="btn btn-default btn-info">Check Me Out @ Codeup!</a></center>
 	      </div>
 	  </div>
 	</div>
@@ -80,6 +82,10 @@
           <h3>Amanda Beller</h3>
 	        <h4>Full Stack Web Developer</h4>
 	        <p>With this particular project, I focused primarily on front-end design with some influences in back-end developement. I desire a position that will allow me to refine my skills in my life's passion. </p>
+          <br>
+          <br>
+          <br>
+          <center><a href="http://www.codeup.com/students/amanda-rose-beller/" class="btn btn-default btn-info">Check Me Out @ Codeup!</a></center>
 	      </div>
 	    </div>
 	</div>
@@ -91,6 +97,9 @@
 	        <h3>Thomas Laffoon</h3>
           <h4>Full Stack Web Developer</h4>
 	        <p>After proposing this site as a joke, I served as the project manager and lead developer.  My background is in linux systems administration, and I intend to further refine these web development skills while establishing a freelance clientele.</p>
+          <br>
+          <br>
+          <center><a href="http://www.codeup.com/students/thomas-laffoon/" class="btn btn-default btn-info">Check Me Out @ Codeup!</a></center>
 	      </div>
 	  </div>
 	</div>
