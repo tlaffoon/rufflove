@@ -14,7 +14,11 @@
 <div class="container">
 <div class="col-md-2">
 	<div class="test">
-		<img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail centered">
+		@if ($dog->img_path)
+			<img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail">
+		@else 
+			<img src="/includes/img/placeholder.png" class="img-responsive thumbnail">
+		@endif
 	</div>
 </div>
 
