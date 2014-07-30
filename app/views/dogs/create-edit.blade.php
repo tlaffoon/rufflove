@@ -75,11 +75,13 @@
 		{{ Form::select('purebred', array('Y' => 'Y', 'N' => 'N'), 'Y', array('class' => 'form-group form-control dropdown btn btn-default')) }}	
 	</div>
 
-
 	<div class="form-group zero-left-margin">
 	{{ Form::label('breed', 'Breed') }}
 	{{ Form::select('breed', Breed::lists('name', 'id'), null, array('class' => 'form-group form-control dropdown btn btn-default')) }}
 	</div>
+
+	{{ Form::label('dog_info', 'Information') }}
+	{{ Form::text('dog_info', Input::old('dog_info'), array('class' => 'form-group form-control', 'placeholder' => 'This is a little blurb about your doggie.')) }}
 
 	{{ Form::submit('Save', array('class' => 'btn btn-success pull-right')) }}
 
