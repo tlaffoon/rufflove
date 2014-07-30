@@ -202,16 +202,12 @@ class DogsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		
-		// DB::table('posts')
-		//             ->where('dog_id', $id)
-		//             ->delete();
 
 		$dog = Dog::find($id);
 		$dog->delete();
 
 		Session::flash('successMessage', 'Dog deleted successfully.');
 
-		return Redirect::intended(back());
+		return Redirect::back();
 	}
 }
