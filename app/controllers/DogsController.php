@@ -104,6 +104,7 @@ class DogsController extends \BaseController {
 		    $dog->age 		= Input::get('age');
 		    $dog->weight 	= Input::get('weight');
 		    $dog->sex 		= Input::get('sex');
+		    $dog->dog_info	= Input::get('dog_info');
 
 		    $dog->user_id 	= Input::get('owner'); // gets id from dropdown value
 
@@ -176,6 +177,7 @@ class DogsController extends \BaseController {
 			$dog->age 		= Input::get('age');
 			$dog->weight 	= Input::get('weight');
 			$dog->sex 		= Input::get('sex');
+			$dog->dog_info	= Input::get('dog_info');
 
 		    $dog->user_id 	= Input::get('owner'); // gets id from dropdown value
 
