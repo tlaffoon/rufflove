@@ -55,7 +55,7 @@ Route::get('/register', 'HomeController@showRegistration');
 
 Route::get('/signup', 'HomeController@showRegistration');
 
-Route::get('/test', 'HomeController@showTest');
+// Route::get('/test', 'HomeController@showTest');
 
 Route::get('/search', 'HomeController@showSearch');
 
@@ -64,8 +64,9 @@ Route::post('/search', function () {
     $dog_name   = Input::get('search-name');
     $search_zip = Input::get('search-zip');
     $distance   = Input::get('distance');
+    $sex        = Input::get('sex');
+    $purebred   = Input::get('purebred');
 
-    //step 1 - gets all zipcodes within given zip
     $zipDetails = DB::select('call zip_proximity(?,?,?)', array($search_zip, $distance, 'mi')); // need to refactor to use sanitized input
     $zips = [];
     
@@ -74,80 +75,81 @@ Route::post('/search', function () {
         $zips[] = $zip->zip;
     }
 
-    //step 2 - gets ALL dogs
+    // All dogs; eager load breed + user
     $query = Dog::with('breed', 'user');
 
-    //step 3 - filters above for specific input breed // wrap in if statement to make optional
+    // $query->whereHas('sex', function($q) {
+    //     $sex = Input::get('sex');
+    //     $q->where('sex', '=', $sex);
+    // });
+
     $query->whereHas('breed', function($q) {
-        // $breed_name = 'Xoloitzcuintle';
         $breed_id = Input::get('search-breed');
         $q->where('id', '=', $breed_id);
     });
 
-    //step 4 - uses step 1 results to find dog owners from step 3
-    $query->whereHas('user', function($q) use ($zips) {
-        $q->whereIn('zip', $zips);
-    });
-
-    $results = $query->get();
-    // var_dump($results);
-
-    // foreach($results as $result){
-    //     var_dump($result);
-    // }
-
-    // $result = array(
-    //     'error' => $error,
-    //     'message' => "$address",
-    // );
-
-    return Response::json($results);
-});
-
-Route::post('/results', function () {
-
-    $dog_name   = Input::get('search-name');
-    $search_zip = Input::get('search-zip');
-    $distance   = Input::get('distance');
-
-    //step 1 - gets all zipcodes within given zip
-    $zipDetails = DB::select('call zip_proximity(?,?,?)', array($search_zip, $distance, 'mi')); // need to refactor to use sanitized input
-    $zips = [];
-    
-    foreach ($zipDetails as $zip)
-    {
-        $zips[] = $zip->zip;
+    if (isset($sex)) {
+        $query->where('sex', '=', $sex);
     }
 
-    //step 2 - gets ALL dogs
-    $query = Dog::with('breed', 'user');
+    if (isset($purebred)) {
+        $query->where('purebred', '=', $purebred);
+    }
 
-    //step 3 - filters above for specific input breed
-    $query->whereHas('breed', function($q) {
-        // $breed_name = 'Xoloitzcuintle';
-        $breed_name = Input::get('search-breed');
-        $q->where('name', '=', "$breed_name");
-    });
-
-    //step 4 - uses step 1 results to find dog owners from step 3
     $query->whereHas('user', function($q) use ($zips) {
         $q->whereIn('zip', $zips);
     });
 
     $results = $query->get();
-    // var_dump($results);
-
-    // foreach($results as $result){
-    //     var_dump($result);
-    // }
-
-    // $result = array(
-    //     'error' => $error,
-    //     'message' => "$address",
-    // );
 
     return Response::json($results);
 });
+
+// Route::post('/results', function () {
+
+//     $dog_name   = Input::get('search-name');
+//     $search_zip = Input::get('search-zip');
+//     $distance   = Input::get('distance');
+//     $purebred   = Input::get('');
+
+//     $zipDetails = DB::select('call zip_proximity(?,?,?)', array($search_zip, $distance, 'mi')); // need to refactor to use sanitized input
+//     $zips = [];
+    
+//     foreach ($zipDetails as $zip)
+//     {
+//         $zips[] = $zip->zip;
+//     }
+
+//     $query = Dog::with('breed', 'user');
+
+//     $query->whereHas('breed', function($q) {
+//         $breed_name = Input::get('search-breed');
+//         $q->where('name', '=', "$breed_name");
+//     });
+
+//     $query->whereHas('user', function($q) use ($zips) {
+//         $q->whereIn('zip', $zips);
+//     });
+
+//     $results = $query->get();
+
+//     return Response::json($results);
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Route::get('test', function () {
 
