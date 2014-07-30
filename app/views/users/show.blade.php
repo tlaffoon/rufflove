@@ -36,6 +36,15 @@
   	      zoom: 11
   	    };
 
+  	    // map: an instance of GMap3
+  	    // latlng: an array of instances of GLatLng
+  	    // var latlngbounds = new google.maps.LatLngBounds();
+  	    // latlng.each(function(n){
+  	    //    latlngbounds.extend(n);
+  	    // });
+  	    // map.setCenter(latlngbounds.getCenter());
+  	    // map.fitBounds(latlngbounds); 
+
   	    var map = new google.maps.Map(document.getElementById("map-canvas"),
   	        mapOptions);
 
@@ -47,6 +56,7 @@
   	        title: "Your Location",
   	        animation: google.maps.Animation.DROP // debug and add
   	    });  // End Marker
+
   	}); // end function
 
   } // end initialize
