@@ -108,8 +108,28 @@ function addMarker(location) {
 function setAllMap(map) {
   for (var i = 0; i < markers.length; i++) {
   		markers[i].setMap(map);
-  		//setTimeout(function() {}, i * 500);
+  		setTimeout((function(i) {
+
+  		})(i), 1000);
   }
+}
+
+function setAllMapTimed(map) {
+	// var marker;
+	console.log(markers);
+
+	for (i = 0; i < markers.length; i++) {
+	    setTimeout((function (i) {
+	        return function () {
+	            marker = new google.maps.Marker({
+	                position: new google.maps.LatLng(markers[i][1], markers[i][2]),
+	                map: map,
+	                draggable: false,
+	                animation: google.maps.Animation.DROP,
+	            });
+	        };
+	    })(i), 1000);
+	}
 }
 
 // Removes the markers from the map, but keeps them in the array.
@@ -126,7 +146,7 @@ function deleteMarkers() {
 $('#ajax-form').on('submit', function (e) {
 	e.preventDefault();
 	var formValues = $(this).serialize();
-	console.log('formValues: ' + formValues);
+	//console.log('formValues: ' + formValues);
 
 	// Clear previous results if present
 	$('#results-list').html('');
@@ -154,7 +174,7 @@ $('#ajax-form').on('submit', function (e) {
 				// console.log('Lat: ' + this.user.lat);
 				// console.log('Lng: ' + this.user.lng);
 				// console.log('=========');
-				console.log(this.user.fullAddress);
+				// console.log(this.user.fullAddress);
 
 				// additional syntax to update html with search results.
 				$('#results-list').append(
@@ -181,6 +201,16 @@ $('#ajax-form').on('submit', function (e) {
 						addMarker(latLngObj);
 					} // endif
 
+					// COMMENTED OUT NON-WORKING CODE
+					// // map: an instance of GMap3
+					// // latlng: an array of instances of GLatLng
+					// var latlngbounds = new google.maps.LatLngBounds();
+					// markers.each(function(n){
+					//    latlngbounds.extend(n);
+					// });
+					// map.setCenter(latlngbounds.getCenter());
+					// map.fitBounds(latlngbounds);
+
 				}); // end geocode address
 
 			}); // end each data loop
@@ -190,6 +220,7 @@ $('#ajax-form').on('submit', function (e) {
 
 			// Add all markers to map
 			setAllMap(map);
+			// setAllMapTimed(map);
 
 		} // end data function
 	}); // end .ajax

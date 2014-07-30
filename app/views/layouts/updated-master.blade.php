@@ -244,6 +244,13 @@
  <!-- ____________ BEGIN MAIN PAGE CONENT  _______________  -->
  <div class="page-content clearfix" id="page">
 
+ 	@if (Session::has('successMessage'))
+ 	    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+ 	@endif
+ 	@if (Session::has('errorMessage'))
+ 	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+ 	@endif
+
    @yield('content')
   
  </div>
