@@ -90,7 +90,11 @@
 		<h2>{{{ $user->username }}}</h2>
 	</div> <!-- end page header -->
 
-		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
+		@if ($user->img_path)
+			<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail">
+		@else 
+			<img src="/includes/img/placeholder.png" class="img-responsive thumbnail">
+		@endif
 
 		<p class="lead">
 			<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
@@ -147,7 +151,11 @@
 
 	  	          </div>
 
-	  	          <img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right">
+	  	          @if ($dog->img_path)
+	  	          	<img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right">
+	  	          @else 
+	  	          	<img src="/includes/img/placeholder.png" class="img-responsive thumbnail pull-right">
+	  	          @endif
 
 	  	</div> <!-- end dog image preview -->
 
@@ -156,7 +164,7 @@
 	      <div class="col-md-6">
 	        <h3>{{{ $dog->name }}}</h3>
 
-	        <p>Hello there, I'm {{{ $dog->name }}} and I am super friendly!</p>
+	        <p>{{{ $dog->dog_info }}}</p>
 	      </div>
 
 	    </div>
