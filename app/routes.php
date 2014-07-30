@@ -78,11 +78,7 @@ Route::post('/search', function () {
     // All dogs; eager load breed + user
     $query = Dog::with('breed', 'user');
 
-    // $query->whereHas('sex', function($q) {
-    //     $sex = Input::get('sex');
-    //     $q->where('sex', '=', $sex);
-    // });
-
+    // Filter on breed
     $query->whereHas('breed', function($q) {
         $breed_id = Input::get('search-breed');
         $q->where('id', '=', $breed_id);
@@ -96,6 +92,7 @@ Route::post('/search', function () {
         $query->where('purebred', '=', $purebred);
     }
 
+    // Select users from array of zips
     $query->whereHas('user', function($q) use ($zips) {
         $q->whereIn('zip', $zips);
     });
@@ -104,37 +101,6 @@ Route::post('/search', function () {
 
     return Response::json($results);
 });
-
-// Route::post('/results', function () {
-
-//     $dog_name   = Input::get('search-name');
-//     $search_zip = Input::get('search-zip');
-//     $distance   = Input::get('distance');
-//     $purebred   = Input::get('');
-
-//     $zipDetails = DB::select('call zip_proximity(?,?,?)', array($search_zip, $distance, 'mi')); // need to refactor to use sanitized input
-//     $zips = [];
-    
-//     foreach ($zipDetails as $zip)
-//     {
-//         $zips[] = $zip->zip;
-//     }
-
-//     $query = Dog::with('breed', 'user');
-
-//     $query->whereHas('breed', function($q) {
-//         $breed_name = Input::get('search-breed');
-//         $q->where('name', '=', "$breed_name");
-//     });
-
-//     $query->whereHas('user', function($q) use ($zips) {
-//         $q->whereIn('zip', $zips);
-//     });
-
-//     $results = $query->get();
-
-//     return Response::json($results);
-// });
 
 
 
