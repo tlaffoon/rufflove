@@ -13,6 +13,11 @@
 #moveup{
     top: -200px;
 }
+.dog-btns {
+	position: relative;
+	float: right;
+	right: -500px;
+}
 
 </style>
 
@@ -35,15 +40,6 @@
   	      center: new google.maps.LatLng(29.428459, -98.492433),
   	      zoom: 11
   	    };
-
-  	    // map: an instance of GMap3
-  	    // latlng: an array of instances of GLatLng
-  	    // var latlngbounds = new google.maps.LatLngBounds();
-  	    // latlng.each(function(n){
-  	    //    latlngbounds.extend(n);
-  	    // });
-  	    // map.setCenter(latlngbounds.getCenter());
-  	    // map.fitBounds(latlngbounds); 
 
   	    var map = new google.maps.Map(document.getElementById("map-canvas"),
   	        mapOptions);
@@ -94,7 +90,11 @@
 		<h2>{{{ $user->username }}}</h2>
 	</div> <!-- end page header -->
 
-		<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail centered">
+		@if ($user->img_path)
+			<img src="{{{ $user->img_path }}}" class="img-responsive thumbnail">
+		@else 
+			<img src="/includes/img/placeholder.png" class="img-responsive thumbnail">
+		@endif
 
 		<p class="lead">
 			<h4>Full Name: 	{{{ $user->first_name . ' ' . $user->last_name }}}	</h4>
@@ -138,14 +138,33 @@
 	  <div class="row">
 	
 	  	<div class="col-md-2">
-	  	          <img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right">
+	  	          <div class="btn-group dog-btns">
+	  	          	<button type="button" class="btn btn-default btn-xs">
+	  	          		<a href="{{ action('DogsController@show', $dog->id) }}"><span class="glyphicon glyphicon-zoom-in"></span></a>
+	  	          	</button>
+
+	  	          	<button type="button" class="btn btn-default btn-xs">
+	  	          		<a href="{{ action('DogsController@edit', $dog->id) }}"><span class="glyphicon glyphicon-edit"></span></a>
+	  	          	</button>				
+
+	  	          	<a href="#" class="deleteDog btn btn-danger btn-xs" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
+
+	  	          </div>
+
+	  	          @if ($dog->img_path)
+	  	          	<img src="{{{ $dog->img_path }}}" class="img-responsive thumbnail pull-right">
+	  	          @else 
+	  	          	<img src="/includes/img/placeholder.png" class="img-responsive thumbnail pull-right">
+	  	          @endif
+
 	  	</div> <!-- end dog image preview -->
 
 	    <div class="zero-margin-left blog-block">
 	      
 	      <div class="col-md-6">
 	        <h3>{{{ $dog->name }}}</h3>
-	        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+	        <p>{{{ $dog->dog_info }}}</p>
 	      </div>
 
 	    </div>
@@ -156,7 +175,12 @@
 	</div>
 </div>
 
+<!-- Hidden form to allow user deletion -->
 {{ Form::open(array('action' => 'UsersController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
+{{ Form::close() }}
+
+<!-- Hidden form to allow dog deletion -->
+{{ Form::open(array('action' => 'DogsController@destroy', 'id' => 'deleteForm', 'method' => 'DELETE')) }}
 {{ Form::close() }}
 
 @stop
@@ -170,5 +194,14 @@ $(".deleteUser").click(function() {
 		$('#deleteForm').submit();
 	}
 });
+</script>
+<script type="text/javascript">
+	$(".deleteDog").click(function() {
+		var dogid = $(this).data('dogid');
+		$("#deleteForm").attr('action', '/dogs/' + dogid);
+		if (confirm("Are you sure you want to delete this dog?")) {
+			$('#deleteForm').submit();
+		}
+	});
 </script>
 @stop
