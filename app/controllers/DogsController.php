@@ -114,7 +114,12 @@ class DogsController extends \BaseController {
 		    {
 		        $dog->addUploadedImage(Input::file('image'));
 		        $dog->save();
-		    }	
+		    }
+
+		    else {
+		    	$dog->img_path = '/includes/img/placeholder.png';
+		    	$dog->save();
+		    }
 
 		    Session::flash('successMessage', 'Dog saved successfully.');
 		    return Redirect::action('DogsController@show', $dog->id);
@@ -187,7 +192,12 @@ class DogsController extends \BaseController {
 		    {
 		        $dog->addUploadedImage(Input::file('image'));
 		        $dog->save();
-		    }	
+		    }
+
+		    else {
+		    	$dog->img_path = '/includes/img/placeholder.png';
+		    	$dog->save();
+		    }
 
 		    Session::flash('successMessage', 'Dog saved successfully.');
 		}
