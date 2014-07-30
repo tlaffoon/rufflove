@@ -190,7 +190,7 @@ class DogsController extends \BaseController {
 		    Session::flash('successMessage', 'Dog saved successfully.');
 		}
 		
-		return Redirect::action('DogsController@show', $dog->id);	
+		return Redirect::action('DogsController@show', $dog->id);
 	}
 
 
