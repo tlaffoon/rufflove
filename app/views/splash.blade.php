@@ -5,13 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <style type="text/css">
-
+	.demo-link {
+		font-size: 45px;
+		color: blue;
+		background-image: url(/includes/img/hearts2.jpg);
+	}
 </style>
 @stop
 
 @section('content')
 
-<div class="img-rounded" style="height: 400px; width: 450px; position: relative; top: 80px; left: 500px; background-image: url(/includes/img/hearts2.jpg);">
+
+<div class="img-rounded" style="height: 430px; width: 450px; position: relative; top: 80px; left: 500px; background-image: url(/includes/img/hearts2.jpg);">
 
 <div class="banner clearfix text-center" style="">
    <h1 class="display-text text-supersized" style="font-size: 65px;">Ruff Love</h1>
@@ -19,7 +24,8 @@
 
    <p style="font-size: 22px;">Dating For Dogs</p>
 
-   <br>
+   <!-- Demo Day Site Link -->
+   <a href="{{ action('HomeController@showHome') }}" class="demo-link"> <h1>See Our Demo Day Site Here! </h1></a>
 
 	 <!-- Begin MailChimp Signup Form -->
 	 <center>
@@ -40,7 +46,12 @@
 	 </div>
 	 <!--End mc_embed_signup-->
 	 </center>
- </div>
+
+</div>
+
+
+
+
 </div>
 
 @stop
