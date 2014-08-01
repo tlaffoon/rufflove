@@ -15,88 +15,88 @@
 
 Route::get('/', 'HomeController@showSplash');
 
-// Route::get('/about', 'HomeController@showAbout');
-// Route::get('/admin', 'HomeController@showAdmin');
+Route::get('/about', 'HomeController@showAbout');
+Route::get('/admin', 'HomeController@showAdmin');
 
-// Route::get('/login', 'HomeController@showLogin');
-// Route::post('/login', 'HomeController@doLogin');
-// Route::get('/logout', 'HomeController@doLogout');
+Route::get('/login', 'HomeController@showLogin');
+Route::post('/login', 'HomeController@doLogin');
+Route::get('/logout', 'HomeController@doLogout');
 
-// Route::get('/master', 'HomeController@showMaster');
+Route::get('/master', 'HomeController@showMaster');
 
-// Route::get('/map', 'HomeController@showMap');  // demo map page 
+Route::get('/map', 'HomeController@showMap');  // demo map page 
 
-// Route::get('/search', 'HomeController@showSearch');
+Route::get('/search', 'HomeController@showSearch');
 
-// Route::get('/map', 'HomeController@showMap');  // demo map page 
-// Route::post('/map', function () {
+Route::get('/map', 'HomeController@showMap');  // demo map page 
+Route::post('/map', function () {
 
-//     $address = Input::get('address');
+    $address = Input::get('address');
     
-//     $error = false;
+    $error = false;
     
-//     $result = array(
-//         'error' => $error,
-//         'message' => "$address",
-//     );
+    $result = array(
+        'error' => $error,
+        'message' => "$address",
+    );
 
-//     return Response::json($result);
-// });
+    return Response::json($result);
+});
 
-// Route::resource('posts', 'PostsController');
-// Route::resource('users', 'UsersController');
-// Route::resource('dogs', 'DogsController');
+Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
+Route::resource('dogs', 'DogsController');
 
-// Route::get('/register', 'HomeController@showRegistration');
+Route::get('/register', 'HomeController@showRegistration');
 
-// Route::get('/signup', 'HomeController@showRegistration');
+Route::get('/signup', 'HomeController@showRegistration');
 
-// // Route::get('/test', 'HomeController@showTest');
+// Route::get('/test', 'HomeController@showTest');
 
-// Route::get('/search', 'HomeController@showSearch');
+Route::get('/search', 'HomeController@showSearch');
 
-// Route::post('/search', function () {
+Route::post('/search', function () {
 
-//     $dog_name   = Input::get('search-name');
-//     $search_zip = Input::get('search-zip');
-//     $distance   = Input::get('distance');
-//     $sex        = Input::get('sex');
-//     $purebred   = Input::get('purebred');
+    $dog_name   = Input::get('search-name');
+    $search_zip = Input::get('search-zip');
+    $distance   = Input::get('distance');
+    $sex        = Input::get('sex');
+    $purebred   = Input::get('purebred');
 
-//     $zipDetails = DB::select('call zip_proximity(?,?,?)', array($search_zip, $distance, 'mi')); // need to refactor to use sanitized input
-//     $zips = [];
+    $zipDetails = DB::select('call zip_proximity(?,?,?)', array($search_zip, $distance, 'mi')); // need to refactor to use sanitized input
+    $zips = [];
     
-//     foreach ($zipDetails as $zip)
-//     {
-//         $zips[] = $zip->zip;
-//     }
+    foreach ($zipDetails as $zip)
+    {
+        $zips[] = $zip->zip;
+    }
 
-//     // All dogs; eager load breed + user
-//     $query = Dog::with('breed', 'user');
+    // All dogs; eager load breed + user
+    $query = Dog::with('breed', 'user');
 
-//     // Filter on breed
-//     $query->whereHas('breed', function($q) {
-//         $breed_id = Input::get('search-breed');
-//         $q->where('id', '=', $breed_id);
-//     });
+    // Filter on breed
+    $query->whereHas('breed', function($q) {
+        $breed_id = Input::get('search-breed');
+        $q->where('id', '=', $breed_id);
+    });
 
-//     if (isset($sex)) {
-//         $query->where('sex', '=', $sex);
-//     }
+    if (isset($sex)) {
+        $query->where('sex', '=', $sex);
+    }
 
-//     if (isset($purebred)) {
-//         $query->where('purebred', '=', $purebred);
-//     }
+    if (isset($purebred)) {
+        $query->where('purebred', '=', $purebred);
+    }
 
-//     // Select users from array of zips
-//     $query->whereHas('user', function($q) use ($zips) {
-//         $q->whereIn('zip', $zips);
-//     });
+    // Select users from array of zips
+    $query->whereHas('user', function($q) use ($zips) {
+        $q->whereIn('zip', $zips);
+    });
 
-//     $results = $query->get();
+    $results = $query->get();
 
-//     return Response::json($results);
-// });
+    return Response::json($results);
+});
 
 
 
