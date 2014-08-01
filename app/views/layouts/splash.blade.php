@@ -6,6 +6,7 @@
 	<style type="text/css">
 	body {
 		background-image:url(/includes/img/dogpark2.jpg);
+		background-repeat: no-repeat;
 	}
 	</style>
 
