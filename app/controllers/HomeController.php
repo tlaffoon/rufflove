@@ -15,6 +15,10 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function showSplash() {
+		return View::make('splash');
+	}
+
 	public function showDogSearch() {
 		return View::make('dogs.dogsearch');
 	}
