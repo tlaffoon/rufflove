@@ -19,7 +19,7 @@
 	</div>
 	{{ Form::open(array('action' => array('DogsController@index'), 'id' => 'ajax-form', 'class'=>'form width88', 'role'=>'search')) }}    
 
-	<p><strong>Tip:</strong> Try Searching For Pugs In San Antonio</p>
+	<p class="text-info"><strong>Tip:</strong> Try Searching For Pugs In San Antonio</p>
 
 		<br>
 			<div class="col-sm-6 zero-pad-left">

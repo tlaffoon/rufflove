@@ -26,6 +26,7 @@
 	<div class="page-header">
 			<div class="btn-group pull-right admin-buttons">
 
+			@if (Auth::check())
 				@if (Auth::user()->role == 'admin')
 
 					<button type="button" class="btn btn-default">
@@ -39,6 +40,7 @@
 					<a href="#" class="deleteDog btn btn-danger" data-dogid="{{ $dog->id }}"><span class="glyphicon glyphicon-remove-sign"></span></a>
 
 				@endif
+			@endif
 				
 			</div>
 
