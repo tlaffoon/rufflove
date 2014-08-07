@@ -12,9 +12,9 @@
 */
 
 
-Route::get('/', 'HomeController@showSplash');
+// Route::get('/', 'HomeController@showSplash');
 
-Route::get('/home', 'HomeController@showHome');
+Route::get('/', 'HomeController@showHome');
 
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/admin', 'HomeController@showAdmin');
